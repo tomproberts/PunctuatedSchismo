@@ -11,8 +11,8 @@ def get_common_forms(family, lang1: str, lang2: str) -> (list[str], list[str]):
     form_column = family.FORM_COLUMN
 
     # Get forms and corresponding cognate ids
-    forms1 = family.get_forms(lang1, include_cognacy=True)
-    forms2 = family.get_forms(lang2, include_cognacy=True)
+    forms1 = family.get_forms(lang1, extended=True)
+    forms2 = family.get_forms(lang2, extended=True)
 
     # Find common cognate ids and filter
     common_cognates = list(set(forms1[cognacy_column]) & set(forms2[cognacy_column]))

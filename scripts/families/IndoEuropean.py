@@ -19,8 +19,8 @@ class Italic(LanguageFamily):
         self.language_ids = []
         self.all_forms = None
         self.all_cognates = None
-        self.already_merged = False
-        self.FORM_COLUMN = IE_COR_FORM_COLUMN
+        self.already_merged = False  # TODO: Remove
+        self.FORM_COLUMN = IE_COR_FORM_COLUMN  # TODO: Make static?
         self.COGNACY_COLUMN = IE_COR_COGNATE_ID_COLUMN
 
     def load_languages(self):
@@ -40,11 +40,11 @@ class Italic(LanguageFamily):
         index = super().get_index(glottocode)
         return self.language_ids[index]
 
-    def get_forms(self, glottocode, include_cognacy=False):
+    def get_forms(self, glottocode, extended=False):
         all_forms = self.merge_on_cognate_ids()
         lang_id = self.get_language_id(glottocode)
         forms = all_forms[all_forms.Language_ID == lang_id]
-        if include_cognacy:
+        if extended:
             return forms
         return list(forms[IE_COR_FORM_COLUMN])
 
