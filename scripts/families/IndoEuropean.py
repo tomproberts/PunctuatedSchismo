@@ -9,6 +9,7 @@ IE_COR_FORMS_CSV = f'{IE_COR_DIR}/forms.csv'
 IE_COR_COGNATES_CSV = f'{IE_COR_DIR}/cognates.csv'
 
 IE_COR_FORM_COLUMN = 'Form'  # 'Phonemic'
+IE_COR_COGNATE_ID_COLUMN = 'Cognateset_ID'
 
 
 class Italic(LanguageFamily):
@@ -19,6 +20,8 @@ class Italic(LanguageFamily):
         self.all_forms = None
         self.all_cognates = None
         self.already_merged = False
+        self.FORM_COLUMN = IE_COR_FORM_COLUMN
+        self.COGNACY_COLUMN = IE_COR_COGNATE_ID_COLUMN
 
     def load_languages(self):
         all_languages = pd.read_csv(IE_COR_LANGUAGES_CSV)
@@ -37,11 +40,11 @@ class Italic(LanguageFamily):
         index = super().get_index(glottocode)
         return self.language_ids[index]
 
-    def get_forms(self, glottocode, extended=False):
+    def get_forms(self, glottocode, include_cognacy=False):
         all_forms = self.merge_on_cognate_ids()
         lang_id = self.get_language_id(glottocode)
         forms = all_forms[all_forms.Language_ID == lang_id]
-        if extended:
+        if include_cognacy:
             return forms
         return list(forms[IE_COR_FORM_COLUMN])
 
@@ -52,11 +55,11 @@ class Italic(LanguageFamily):
                 ['ID', 'Language_ID', IE_COR_FORM_COLUMN, 'Parameter_ID']]
             all_cognates = self.get_ie_cor_cognates()
             merged = all_forms.merge(all_cognates, left_on='ID', right_on='Form_ID', suffixes=('', 'y'))[
-                ['ID', 'Language_ID', 'Parameter_ID', IE_COR_FORM_COLUMN, 'Cognateset_ID']]
+                ['ID', 'Language_ID', 'Parameter_ID', IE_COR_FORM_COLUMN, 'Cognateset_ID']].sort_values(
+                by=['Parameter_ID'])
             self.all_forms = merged
             self.already_merged = True
         return self.get_ie_cor_forms()
-
 
     def get_ie_cor_forms(self):
         if self.all_forms is None:
