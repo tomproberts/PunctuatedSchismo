@@ -1,24 +1,58 @@
 class LanguageFamily:
     def __init__(self):
-        self.name = ''
         # TODO: reimplement as dictionary
-        self.glottocodes = []
-        self.languages = []
+        self._name = None
+        self._glottocodes = []
+        self._languages = []
         self.load_languages()
+
+    @property
+    def name(self):
+        if self._name is None:
+            raise NotImplementedError('self.name not provided')
+        return self._name
+
+    @property
+    def FORM_COLUMN(self):
+        raise NotImplementedError('self.FORM_COLUMN not provided')
+
+    @property
+    def COGNACY_COLUMN(self):
+        raise NotImplementedError('self.COGNACY_COLUMN not provided')
+
+    @name.setter
+    def name(self, name):
+        self._name = name
+
+    def get_forms_for_language(self, glottocode, extended=False):
+        raise NotImplementedError(f'get_forms_for_language not implemented for {self.name}')
 
     @property
     def cherries(self):
         raise NotImplementedError(f'Cherries not implemented for {self.name}')
 
     def __contains__(self, item):
-        return item in self.glottocodes
+        return item in self._glottocodes
 
     def get_language(self, glottocode):
         index = self.get_index(glottocode)
         return self.languages[index]
 
-    def get_glottocodes(self):
-        return self.glottocodes
+    @property
+    def glottocodes(self):
+        return self._glottocodes
+
+    @glottocodes.setter
+    def glottocodes(self, value):
+        self._glottocodes = value
+
+    @property
+    def languages(self):
+        return self._languages
+
+    @languages.setter
+    def languages(self, value):
+        self._languages = value
 
     def get_index(self, glottocode):
         try:
