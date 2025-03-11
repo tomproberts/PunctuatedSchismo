@@ -1,6 +1,6 @@
 import pandas as pd
 
-from scripts.families.Utils import LanguageFamily
+from scripts.families.utils import LanguageFamily
 
 IE_COR_DIR = "data/datasets/ie-cor"
 
@@ -8,8 +8,13 @@ IE_COR_LANGUAGES_CSV = f'{IE_COR_DIR}/languages.csv'
 IE_COR_FORMS_CSV = f'{IE_COR_DIR}/forms.csv'
 IE_COR_COGNATES_CSV = f'{IE_COR_DIR}/cognates.csv'
 
+IE_COR_ITALIC_CLADE = 'Italic'
+
+IE_COR_ID_COLUMN = 'ID'
 IE_COR_FORM_COLUMN = 'Form'  # 'Phonemic'
 IE_COR_COGNATE_ID_COLUMN = 'Cognateset_ID'
+IE_COR_PARAMETER_ID_COLUMN = 'Parameter_ID'
+IE_COR_LANGUAGE_ID_COLUMN = 'Language_ID'
 
 
 class Italic(LanguageFamily):
@@ -25,7 +30,7 @@ class Italic(LanguageFamily):
 
     def load_languages(self):
         all_languages = pd.read_csv(IE_COR_LANGUAGES_CSV)
-        italic_languages = all_languages[all_languages.Clade.str.startswith('Italic')]
+        italic_languages = all_languages[all_languages.Clade.str.startswith(IE_COR_ITALIC_CLADE)]
         self.glottocodes = list(italic_languages.Glottocode)
         self.language_ids = list(italic_languages.ID)
         self.languages = list(italic_languages.Name)
@@ -52,11 +57,12 @@ class Italic(LanguageFamily):
         if not self.already_merged:
             all_forms = self.get_ie_cor_forms()
             all_forms = all_forms[all_forms.Language_ID.isin(self.get_language_ids())][
-                ['ID', 'Language_ID', IE_COR_FORM_COLUMN, 'Parameter_ID']]
+                [IE_COR_ID_COLUMN, IE_COR_LANGUAGE_ID_COLUMN, IE_COR_FORM_COLUMN, IE_COR_PARAMETER_ID_COLUMN]]
             all_cognates = self.get_ie_cor_cognates()
-            merged = all_forms.merge(all_cognates, left_on='ID', right_on='Form_ID', suffixes=('', 'y'))[
-                ['ID', 'Language_ID', 'Parameter_ID', IE_COR_FORM_COLUMN, 'Cognateset_ID']].sort_values(
-                by=['Parameter_ID'])
+            merged = all_forms.merge(all_cognates, left_on=IE_COR_ID_COLUMN, right_on='Form_ID', suffixes=('', 'y'))[
+                [IE_COR_ID_COLUMN, IE_COR_LANGUAGE_ID_COLUMN, IE_COR_PARAMETER_ID_COLUMN, IE_COR_FORM_COLUMN,
+                 IE_COR_COGNATE_ID_COLUMN]].sort_values(
+                by=[IE_COR_PARAMETER_ID_COLUMN])
             self.all_forms = merged
             self.already_merged = True
         return self.get_ie_cor_forms()

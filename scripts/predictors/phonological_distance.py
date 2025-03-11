@@ -2,7 +2,7 @@ from statistics import median
 
 from strsimpy.normalized_levenshtein import NormalizedLevenshtein
 
-from scripts.families.IndoEuropean import Italic
+from scripts.families.indo_european import Italic
 
 
 def get_common_forms(family, lang1: str, lang2: str) -> (list[str], list[str]):
@@ -52,6 +52,7 @@ def calculate_distances(family, pairs):
 
 if __name__ == '__main__':
     family = Italic()
+    # pairs can be calculated somewhere else since they're also needed for contact distances
     pairs = [('stan1290', 'fran1269'), ('ital1282', 'neap1235'), ('ital1282', 'mila1243')]  # ('stan1295', 'swis1247')
     distances = calculate_distances(family, pairs)
 
