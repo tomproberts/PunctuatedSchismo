@@ -6,6 +6,10 @@ class LanguageFamily:
         self.languages = []
         self.load_languages()
 
+    @property
+    def cherries(self):
+        raise NotImplementedError(f'Cherries not implemented for {self.name}')
+
     def __contains__(self, item):
         return item in self.glottocodes
 

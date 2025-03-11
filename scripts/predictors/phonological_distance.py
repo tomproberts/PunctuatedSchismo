@@ -1,8 +1,13 @@
-from statistics import median
+from statistics import median, fmean
+from typing import Callable, Iterable
 
 from strsimpy.normalized_levenshtein import NormalizedLevenshtein
 
 from scripts.families.indo_european import Italic
+from scripts.families.utils import LanguageFamily
+
+MEAN: Callable[[Iterable[float]], float] = fmean
+MEDIAN: Callable[[Iterable[float]], float] = median
 
 
 def get_common_forms(family, lang1: str, lang2: str) -> (list[str], list[str]):
@@ -32,7 +37,7 @@ def calc_phon_distances(forms1: list[str], forms2: list[str]) -> list[float]:
     return distances
 
 
-def calc_phon_distance(forms1: list[str], forms2: list[str], average=median) -> float:
+def calc_phon_distance(forms1: list[str], forms2: list[str], average=MEDIAN) -> float:
     # Calculate average normalised levenshtein distance between each pair in aligned lists of cognate forms
     distances = calc_phon_distances(forms1, forms2)
     if len(distances) == 0:
@@ -40,12 +45,12 @@ def calc_phon_distance(forms1: list[str], forms2: list[str], average=median) -> 
     return average(distances)
 
 
-def calculate_distances(family, pairs):
+def calculate_distances(family: LanguageFamily, pairs: list[(str, str)], average=MEDIAN) -> list[float]:
     # Calculate average phonological distance between pairs of languages (glottocodes)
     distances = []
     for lang1, lang2 in pairs:
         forms1, forms2 = get_common_forms(family, lang1, lang2)
-        distance = calc_phon_distance(forms1, forms2)
+        distance = calc_phon_distance(forms1, forms2, average)
         distances.append(distance)
     return distances
 
@@ -53,9 +58,12 @@ def calculate_distances(family, pairs):
 if __name__ == '__main__':
     family = Italic()
     # pairs can be calculated somewhere else since they're also needed for contact distances
-    pairs = [('stan1290', 'fran1269'), ('ital1282', 'neap1235'), ('ital1282', 'mila1243')]  # ('stan1295', 'swis1247')
-    distances = calculate_distances(family, pairs)
+    pairs = [('stan1290', 'fran1269'), ('ital1282', 'neap1235'), ('ital1282', 'mila1243'),
+             ('stan1288', 'olds1249')]  # ('stan1295', 'swis1247')
+    distances = calculate_distances(family, pairs, average=MEAN)
+    print(distances)
 
-    forms1, forms2 = get_common_forms(family, 'stan1290', 'ital1282')
+    forms1, forms2 = get_common_forms(family, 'stan1288', 'olds1249')
     print(forms1[0:20])
     print(forms2[0:20])
+    print(calc_phon_distances(forms1, forms2))

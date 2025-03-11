@@ -35,6 +35,20 @@ class Italic(LanguageFamily):
         self.language_ids = list(italic_languages.ID)
         self.languages = list(italic_languages.Name)
 
+    @property
+    def cherries(self) -> list[(str, str)]:
+        return [
+            ('port1283', 'braz1246'),
+            ('stan1288', 'olds1249'),
+            ('oldc1251', 'stan1289'),
+            ('stan1290', 'fran1269'),
+            ('ladi1250', 'friu1240'),
+            ('neap1235', 'ital1282'),
+            ('sout2614', 'barb1262'),
+            ('roma1327', 'megl1237'),
+            ('umbr1253', 'osca1245')
+        ]
+
     def get_language_ids(self):
         if len(self.language_ids) == 0:
             self.load_languages()
