@@ -4,11 +4,11 @@ import unicodedata
 from scripts.families.indo_european import Italic
 
 GLOTTOLOG_TREES = 'data/glottolog/tree_glottolog_newick.txt'
+GLOTTOCODES_OUT = 'data/glottolog/glottocodes/'
+GLOTTONAMES_OUT = 'data/glottolog/names/'
 
 
 def prune_tokenised_tree(tokenised, keep):
-    print(tokenised)
-
     stack = []
     prev = None
     i = 0
@@ -35,7 +35,6 @@ def prune_tokenised_tree(tokenised, keep):
                 if stack and stack[-1] == '(':
                     stack.pop()
                 if len(tmp) > 1:
-                    # print(list(reversed(tmp)))
                     stack.append(f'({','.join(reversed(tmp))})')
                 elif len(tmp) == 1:
                     stack.append(tmp[0])
@@ -44,20 +43,26 @@ def prune_tokenised_tree(tokenised, keep):
     return f'{stack[0]};'
 
 
-if __name__ == '__main__':
+def tokenise(tree_string):
+    return re.findall(r'([\(\)]|[a-z]{4}[0-9]{4}|,)', tree_string)
+
+
+def get_glottolog_tree_string(family, ascii=True):
     with open(GLOTTOLOG_TREES) as f:
         all_trees = f.readlines()
+    tree_string = all_trees[250]
 
-    ie_tree = all_trees[250]
-    ie_tree = unicodedata.normalize('NFKD', ie_tree).encode('ASCII', 'ignore').decode('ASCII')
-    ie_tree = re.sub(r'\'[A-Z][^[]*\[([a-z]{4}[0-9]{4})\][^\']*\'', r'\1', ie_tree)
-    italic = Italic()
-    keep = italic.glottocodes
+    # change extended characters to ascii, e.g. ç to c, ā to a
+    if ascii:
+        tree_string = unicodedata.normalize('NFKD', tree_string).encode('ASCII', 'ignore').decode('ASCII')
+    return tree_string
 
-    tokenised = re.findall(r'([\(\)]|[a-z]{4}[0-9]{4}|,)', ie_tree)
-    pruned = prune_tokenised_tree(tokenised, keep)
-    #print(pruned)
 
+def glottocodes_only_tree(tree_string):
+    return re.sub(r'\'[A-Z][^[]*\[([a-z]{4}[0-9]{4})\][^\']*\'', r'\1', tree_string)
+
+
+def verify_correct(pruned, keep):
     # Check no duplicates
     pruned_glottocodes = re.findall(r'([a-z]{4}[0-9]{4})', pruned)
     assert len(pruned_glottocodes) == len(set(pruned_glottocodes))
@@ -68,5 +73,25 @@ if __name__ == '__main__':
 
     # Assert valid tree
     from newick import loads
-    tree = loads(pruned)[0]
-    print(tree.ascii_art())
+    tree = loads(pruned)
+    assert tree
+    tree = tree[0]
+
+    assert len(tree.get_leaves()) == len(set(keep))
+
+
+if __name__ == '__main__':
+    family = Italic()
+    ie_tree = get_glottolog_tree_string('Indo-European')
+    ie_tree = glottocodes_only_tree(ie_tree)
+    keep = family.glottocodes
+
+    # Prune tree
+    tokenised = tokenise(ie_tree)
+    pruned = prune_tokenised_tree(tokenised, keep)
+
+    verify_correct(pruned, keep)
+
+    with open(f'{GLOTTOCODES_OUT}Italic.newick', 'w') as f:
+        f.write(pruned)
+

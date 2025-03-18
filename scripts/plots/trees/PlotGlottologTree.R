@@ -2,7 +2,10 @@ library(treeio)
 library(ggtree)
 library(tidytree)
 
-glottolog.tree <- read.newick("data/glottolog/names/italic.newick")
+GLOTTOLOG.NAMES <- "data/glottolog/names/"
+GLOTTOLOG.CODES <- "data/glottolog/glottocodes/"
+
+glottolog.tree <- read.newick(paste0(GLOTTOLOG.CODES, "Italic", ".newick"))
 tibble <- as.data.frame(as_tibble(glottolog.tree))
 
 ggtree(glottolog.tree) +
