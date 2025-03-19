@@ -62,8 +62,9 @@ if __name__ == '__main__':
              ('stan1288', 'olds1249')]  # ('stan1295', 'swis1247')
     distances = calculate_distances(family, pairs, average=MEAN)
     print(distances)
-
-    forms1, forms2 = get_common_forms(family, 'stan1288', 'olds1249')
-    print(forms1[0:20])
-    print(forms2[0:20])
-    print(calc_phon_distances(forms1, forms2))
+    #
+    forms1, forms2 = get_common_forms(family, 'fran1269', 'oldf1239')
+    # print(forms1[0:20])
+    # print(forms2[0:20])
+    # print(calc_phon_distances(forms1, forms2))
+    print(f'they have {(170 - len(forms1)) * 2} nexus values different')

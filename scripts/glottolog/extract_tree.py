@@ -8,7 +8,8 @@ GLOTTOCODES_OUT = 'data/glottolog/glottocodes/'
 GLOTTONAMES_OUT = 'data/glottolog/names/'
 
 
-def prune_tokenised_tree(tokenised, keep):
+def prune_tree_string(tree_string, keep):
+    tokenised = tokenise(tree_string)
     stack = []
     prev = None
     i = 0
@@ -29,6 +30,7 @@ def prune_tokenised_tree(tokenised, keep):
                 if token_next[0].isalpha():
                     i = i + 1
                     if token_next in keep:
+                        pull_up = True
                         tmp = [token_next]
                 while stack and stack[-1] != '(':
                     tmp.append(stack.pop())
@@ -44,7 +46,7 @@ def prune_tokenised_tree(tokenised, keep):
 
 
 def tokenise(tree_string):
-    return re.findall(r'([\(\)]|[a-z]{4}[0-9]{4}|,)', tree_string)
+    return re.findall(r'([\(\),]|[a-z]{4}[0-9]{4})', tree_string)
 
 
 def get_glottolog_tree_string(family, ascii=True):
@@ -87,11 +89,9 @@ if __name__ == '__main__':
     keep = family.glottocodes
 
     # Prune tree
-    tokenised = tokenise(ie_tree)
-    pruned = prune_tokenised_tree(tokenised, keep)
-
+    pruned = prune_tree_string(ie_tree, keep)
     verify_correct(pruned, keep)
 
-    with open(f'{GLOTTOCODES_OUT}Italic.newick', 'w') as f:
+    print(pruned)
+    with open(f'{GLOTTOCODES_OUT}{family.name}.newick', 'w') as f:
         f.write(pruned)
-
