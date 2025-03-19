@@ -3,7 +3,7 @@ from typing import Callable, Iterable
 
 from strsimpy.normalized_levenshtein import NormalizedLevenshtein
 
-from scripts.families.indo_european import Italic
+from scripts.families.indo_european import Italic, IndoEuropean
 from scripts.families.utils import LanguageFamily
 
 MEAN: Callable[[Iterable[float]], float] = fmean
@@ -56,15 +56,17 @@ def calculate_distances(family: LanguageFamily, pairs: list[(str, str)], average
 
 
 if __name__ == '__main__':
-    family = Italic()
+    family = IndoEuropean()
     print(family.get_forms_for_language('stan1290'))
     pairs = [('stan1290', 'fran1269'), ('ital1282', 'neap1235'), ('ital1282', 'mila1243'),
-             ('stan1288', 'olds1249')]  # ('stan1295', 'swis1247')
+             ('stan1288', 'olds1249'), ('stan1295', 'swis1247')]
     distances = calculate_distances(family, pairs, average=MEAN)
     print(distances)
-    #
-    forms1, forms2 = get_common_forms(family, 'fran1269', 'oldf1239')
-    # print(forms1[0:20])
-    # print(forms2[0:20])
-    # print(calc_phon_distances(forms1, forms2))
-    print(f'they have {(170 - len(forms1)) * 2} nexus values different')
+
+    # l1, l2 = 'fran1269', 'oldf1239'
+    l1, l2 = pairs[-1]
+    forms1, forms2 = get_common_forms(family, l1, l2)
+    print(forms1[0:20])
+    print(forms2[0:20])
+    print(calc_phon_distances(forms1, forms2))
+    # print(f'they have {(170 - len(forms1)) * 2} nexus values different')

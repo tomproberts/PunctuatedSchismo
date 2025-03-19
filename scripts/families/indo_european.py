@@ -17,10 +17,10 @@ IE_COR_PARAMETER_ID_COLUMN = 'Parameter_ID'
 IE_COR_LANGUAGE_ID_COLUMN = 'Language_ID'
 
 
-class Italic(LanguageFamily):
+class IndoEuropean(LanguageFamily):
     FORM_COLUMN = IE_COR_FORM_COLUMN
     COGNACY_COLUMN = IE_COR_COGNATE_ID_COLUMN
-    name = 'Italic'
+    name = 'IndoEuropean'
 
     def __init__(self):
         super().__init__()
@@ -30,24 +30,13 @@ class Italic(LanguageFamily):
 
     def load_languages(self):
         all_languages = pd.read_csv(IE_COR_LANGUAGES_CSV)
-        italic_languages = all_languages[all_languages.Clade.str.startswith(IE_COR_ITALIC_CLADE)]
-        self.glottocodes = list(italic_languages.Glottocode)
-        self.languages = list(italic_languages.Name)
-        self._language_ids = list(italic_languages.ID)
+        self.glottocodes = list(all_languages.Glottocode)
+        self.languages = list(all_languages.Name)
+        self._language_ids = list(all_languages.ID)
 
-    @property
-    def cherries(self) -> list[(str, str)]:
-        return [
-            ('port1283', 'braz1246'),
-            ('stan1288', 'olds1249'),
-            ('oldc1251', 'stan1289'),
-            ('stan1290', 'fran1269'),
-            ('ladi1250', 'friu1240'),
-            ('neap1235', 'ital1282'),
-            ('sout2614', 'barb1262'),
-            ('roma1327', 'megl1237'),
-            ('umbr1253', 'osca1245')
-        ]
+    # @property
+    # def glottolog_cherries(self) -> list[(str, str)]:
+    #     return []
 
     @property
     def language_ids(self):
@@ -85,3 +74,28 @@ class Italic(LanguageFamily):
         if self._all_forms is None:
             self._all_forms = pd.read_csv(IE_COR_FORMS_CSV)
         return self._all_forms
+
+
+class Italic(IndoEuropean):
+    name = 'Italic'
+
+    def load_languages(self):
+        all_languages = pd.read_csv(IE_COR_LANGUAGES_CSV)
+        italic_languages = all_languages[all_languages.Clade.str.startswith(IE_COR_ITALIC_CLADE)]
+        self.glottocodes = list(italic_languages.Glottocode)
+        self.languages = list(italic_languages.Name)
+        self._language_ids = list(italic_languages.ID)
+
+    @property
+    def glottolog_cherries(self) -> list[(str, str)]:
+        return [
+            ('port1283', 'braz1246'),
+            ('stan1288', 'olds1249'),
+            ('oldc1251', 'stan1289'),
+            ('stan1290', 'fran1269'),
+            ('ladi1250', 'friu1240'),
+            ('neap1235', 'ital1282'),
+            ('sout2614', 'barb1262'),
+            ('roma1327', 'megl1237'),
+            ('umbr1253', 'osca1245')
+        ]
