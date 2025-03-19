@@ -2,15 +2,23 @@ class LanguageFamily:
     def __init__(self):
         # TODO: reimplement as dictionary
         self._name = None
+        self._family_glottocode = None
         self._glottocodes = []
         self._languages = []
         self.load_languages()
+        self.verify_unique_glottocodes()
 
     @property
     def name(self):
         if self._name is None:
             raise NotImplementedError('self.name not provided')
         return self._name
+
+    @property
+    def family_glottocode(self):
+        if self._family_glottocode is None:
+            raise NotImplementedError('self.family_glottocode not provided')
+        return self._family_glottocode
 
     @property
     def FORM_COLUMN(self):
@@ -23,6 +31,10 @@ class LanguageFamily:
     @name.setter
     def name(self, name):
         self._name = name
+
+    @family_glottocode.setter
+    def family_glottocode(self, family_glottocode):
+        self._family_glottocode = family_glottocode
 
     def get_forms_for_language(self, glottocode, extended=False):
         raise NotImplementedError(f'get_forms_for_language not implemented for {self.name}')
@@ -62,7 +74,15 @@ class LanguageFamily:
         raise GlottocodeNotFound(glottocode, self.name)
 
     def load_languages(self):
-        raise NotImplemented("load_languages method not implemented")
+        raise NotImplemented('load_languages method not implemented')
+
+    def verify_unique_glottocodes(self):
+        uniques = set()
+        doubles = set()
+        for glottocode in self.glottocodes:
+            (uniques if glottocode not in uniques else doubles).add(glottocode)
+        if len(doubles) > 0:
+            raise DuplicateGlottocodes(doubles)
 
 
 class GlottocodeNotFound(Exception):
@@ -72,4 +92,10 @@ class GlottocodeNotFound(Exception):
             message = f"Could not find language with Glottocode '{glottocode}'"
         else:
             message = f"Could not find language with Glottocode '{glottocode}' in family {family}"
+        super().__init__(message)
+
+
+class DuplicateGlottocodes(Exception):
+    def __init__(self, glottocodes=None):
+        message = f"Duplicate glottocodes '{"','".join(glottocodes)}' found, perhaps implement self.patch()?"
         super().__init__(message)

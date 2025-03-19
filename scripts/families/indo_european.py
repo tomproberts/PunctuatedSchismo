@@ -21,6 +21,7 @@ class IndoEuropean(LanguageFamily):
     FORM_COLUMN = IE_COR_FORM_COLUMN
     COGNACY_COLUMN = IE_COR_COGNATE_ID_COLUMN
     name = 'IndoEuropean'
+    family_glottocode = 'indo1319'
 
     def __init__(self):
         super().__init__()

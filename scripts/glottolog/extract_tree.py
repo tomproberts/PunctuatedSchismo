@@ -1,7 +1,7 @@
 import re
 import unicodedata
 
-from scripts.families.indo_european import Italic
+from scripts.families.indo_european import Italic, IndoEuropean
 
 GLOTTOLOG_TREES = 'data/glottolog/tree_glottolog_newick.txt'
 GLOTTOCODES_OUT = 'data/glottolog/glottocodes/'
@@ -30,7 +30,6 @@ def prune_tree_string(tree_string, keep):
                 if token_next[0].isalpha():
                     i = i + 1
                     if token_next in keep:
-                        pull_up = True
                         tmp = [token_next]
                 while stack and stack[-1] != '(':
                     tmp.append(stack.pop())
@@ -49,10 +48,19 @@ def tokenise(tree_string):
     return re.findall(r'([\(\),]|[a-z]{4}[0-9]{4})', tree_string)
 
 
-def get_glottolog_tree_string(family, ascii=True):
+def get_glottolog_tree_string(family_glottocode, ascii=True):
+    tree_line = 0
+    tree_string = ''
     with open(GLOTTOLOG_TREES) as f:
-        all_trees = f.readlines()
-    tree_string = all_trees[250]
+        i = 0
+        for line in f:
+            if family_glottocode in line:
+                tree_line = i
+                tree_string = line
+            i = i + 1
+
+    # tree_line = 250
+    assert tree_line == 250
 
     # change extended characters to ascii, e.g. ç to c, ā to a
     if ascii:
@@ -82,9 +90,14 @@ def verify_correct(pruned, keep):
     assert len(tree.get_leaves()) == len(set(keep))
 
 
+def write_out_glottolog_tree(tree_string, family_name):
+    with open(f'{GLOTTOCODES_OUT}{family_name}.newick', 'w') as f:
+        f.write(tree_string)
+
+
 if __name__ == '__main__':
-    family = Italic()
-    ie_tree = get_glottolog_tree_string('Indo-European')
+    family = IndoEuropean()
+    ie_tree = get_glottolog_tree_string(family.family_glottocode)
     ie_tree = glottocodes_only_tree(ie_tree)
     keep = family.glottocodes
 
@@ -93,5 +106,4 @@ if __name__ == '__main__':
     verify_correct(pruned, keep)
 
     print(pruned)
-    with open(f'{GLOTTOCODES_OUT}{family.name}.newick', 'w') as f:
-        f.write(pruned)
+    # write_out_glottolog_tree(pruned, family.name)
