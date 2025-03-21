@@ -6,6 +6,7 @@ class LanguageFamily:
         self._glottocodes = []
         self._languages = []
         self.load_languages()
+        self.patch()
         self.verify_unique_glottocodes()
 
     @property
@@ -83,15 +84,36 @@ class LanguageFamily:
             (uniques if glottocode not in uniques else doubles).add(glottocode)
         if len(doubles) > 0:
             raise DuplicateGlottocodes(doubles)
+            #print(f"Warning: duplicate glottocodes '{"','".join(doubles)}' found, perhaps implement self.patch()?")
+
+    def patch(self):
+        pass
+
+    def set_language_glottocode(self, language_name, glottocode):
+        try:
+            i = self._languages.index(language_name)
+            self._glottocodes[i] = glottocode
+            return
+        except ValueError:
+            pass
+        raise LanguageNotFound(language_name, self.name)
 
 
 class GlottocodeNotFound(Exception):
     def __init__(self, glottocode, family=None):
-        self.glottocode = glottocode
         if family is None:
             message = f"Could not find language with Glottocode '{glottocode}'"
         else:
             message = f"Could not find language with Glottocode '{glottocode}' in family {family}"
+        super().__init__(message)
+
+
+class LanguageNotFound(Exception):
+    def __init__(self, language, family=None):
+        if family is None:
+            message = f"Could not find language '{language}'"
+        else:
+            message = f"Could not find language '{language}' in family {family}"
         super().__init__(message)
 
 

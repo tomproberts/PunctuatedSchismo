@@ -76,6 +76,9 @@ class IndoEuropean(LanguageFamily):
             self._all_forms = pd.read_csv(IE_COR_FORMS_CSV)
         return self._all_forms
 
+    def patch(self):
+        self.set_language_glottocode('Old Polish', 'oldp1256')
+
 
 class Italic(IndoEuropean):
     name = 'Italic'
@@ -100,3 +103,6 @@ class Italic(IndoEuropean):
             ('roma1327', 'megl1237'),
             ('umbr1253', 'osca1245')
         ]
+
+    def patch(self):
+        pass
