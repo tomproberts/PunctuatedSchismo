@@ -108,24 +108,37 @@ def tree_convert_glottocodes_to_labels(tree_string, family, normalise=True):
     for family_glottocode in family.glottocodes:
         language = family.get_language(family_glottocode)
         if normalise:
-            language = re.sub(r'[ -:\(\)]', '', asciify(language))
+            language = re.sub(r'[ -:.\(\)]', '', asciify(language))
         tree_string = tree_string.replace(family_glottocode, language)
     return tree_string
 
 
+def fix_problematic_groupings(tree_string, family):
+    if family.name == 'Italic' or family.name == 'IndoEuropean':
+        tree_string = remove_grouping(tree_string, 'stan1290', 'angl1258')
+    if family.name == 'IndoEuropean':
+        tree_string = remove_grouping(tree_string, 'faro1244', 'icel1247')
+        tree_string = remove_grouping(tree_string, 'czec1258', 'oldc1253')
+
+    return tree_string
+
+
 if __name__ == '__main__':
-    family = Italic()
+    family = IndoEuropean()
     ie_tree = get_glottolog_tree_string(family.family_glottocode)
     ie_tree = glottocodes_only_tree(ie_tree)
     keep = family.glottocodes
 
     # Prune tree
     pruned = prune_tree_string(ie_tree, keep)
-    pruned = remove_grouping(pruned, 'stan1290', 'angl1258')
+    pruned = fix_problematic_groupings(pruned, family)
     verify_correct(pruned, keep)
-
     print(pruned)
+
+    # Generate labelled version
     labelled = tree_convert_glottocodes_to_labels(pruned, family)
     print(labelled)
+
+    # Export
     write_out_glottolog_tree(pruned, family.name)
     write_out_glottolog_tree(labelled, family.name, labelled=True)

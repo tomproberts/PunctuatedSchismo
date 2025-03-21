@@ -78,6 +78,17 @@ class IndoEuropean(LanguageFamily):
 
     def patch(self):
         self.set_language_glottocode('Old Polish', 'oldp1256')
+        self.set_language_glottocode('Middle Cornish', 'midd1380')
+        self.set_language_glottocode('Late Cornish', 'corn1251')
+        self.set_language_glottocode('Old Swedish', 'olds1252')
+        # No glottocode for early modern slovenian, set to something topologically close
+        self.set_language_glottocode('Slovene: Early Modern', 'wind1243')
+        self.set_language_glottocode('Old Czech', 'oldc1253')
+        self.set_language_glottocode('Kurdish S.: Elami', 'feyl1238')
+        self.set_language_glottocode('Kurdish S.: Qorveh', 'koly1245')
+        # Both are south-eastern dialects but no finer granularity of course
+        self.set_language_glottocode('Macedonian: Suho', 'sout3278')
+        self.set_language_glottocode('Macedonian: Visoka', 'sout3277')
 
 
 class Italic(IndoEuropean):
