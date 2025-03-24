@@ -24,30 +24,32 @@ class IndoEuropean(LanguageFamily):
     family_glottocode = 'indo1319'
 
     def __init__(self):
-        super().__init__()
-        self._language_ids = []
+        self.loaded = False
+        self.language_ids = []
+        self.languages_ascii = []
         self._all_forms = None
         self._cognates_merged = False
+        super().__init__()
 
     def load_languages(self):
         all_languages = pd.read_csv(IE_COR_LANGUAGES_CSV)
         self.glottocodes = list(all_languages.Glottocode)
         self.languages = list(all_languages.Name)
-        self._language_ids = list(all_languages.ID)
+        self.language_ids = list(all_languages.ID)
+        self.languages_ascii = list(all_languages.ascii_name)
+        self.loaded = True
 
     # @property
     # def glottolog_cherries(self) -> list[(str, str)]:
     #     return []
 
-    @property
-    def language_ids(self):
-        if len(self._language_ids) == 0:
-            self.load_languages()
-        return self._language_ids
-
     def get_language_id(self, glottocode):
         index = super().get_index(glottocode)
         return self.language_ids[index]
+
+    def get_language_ascii(self, glottocode):
+        index = super().get_index(glottocode)
+        return self.languages_ascii[index]
 
     def get_forms_for_language(self, glottocode, extended=False):
         all_forms = self.merge_on_cognate_ids() if extended else self.ie_cor_forms
@@ -100,6 +102,7 @@ class Italic(IndoEuropean):
         self.glottocodes = list(italic_languages.Glottocode)
         self.languages = list(italic_languages.Name)
         self._language_ids = list(italic_languages.ID)
+        self._languages_ascii = list(italic_languages.ascii_name)
 
     @property
     def glottolog_cherries(self) -> list[(str, str)]:

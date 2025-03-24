@@ -1,6 +1,6 @@
 import re
 
-from scripts.families.indo_european import Italic
+from scripts.families.indo_european import Italic, IndoEuropean
 from scripts.utils import asciify
 
 GLOTTOLOG_TREES = 'data/glottolog/tree_glottolog_newick.txt'
@@ -132,7 +132,7 @@ def fix_problematic_groupings(tree_string, family):
 
 
 if __name__ == '__main__':
-    family = Italic()
+    family = IndoEuropean()
     ie_tree = get_glottolog_tree_string(family.family_glottocode)
     ie_tree = glottocodes_only_tree(ie_tree)
     keep = family.glottocodes

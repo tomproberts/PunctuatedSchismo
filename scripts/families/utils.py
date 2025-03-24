@@ -2,12 +2,13 @@ from scripts.utils import asciify_alphanumeric
 
 
 class LanguageFamily:
+    _name = None
+    _family_glottocode = None
+    _glottocodes = []
+    _languages = []
+
     def __init__(self):
         # TODO: reimplement as dictionary
-        self._name = None
-        self._family_glottocode = None
-        self._glottocodes = []
-        self._languages = []
         self.load_languages()
         self.patch()
         self.verify_unique_glottocodes()
