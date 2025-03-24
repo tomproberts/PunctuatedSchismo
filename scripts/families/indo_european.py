@@ -17,47 +17,39 @@ IE_COR_PARAMETER_ID_COLUMN = 'Parameter_ID'
 IE_COR_LANGUAGE_ID_COLUMN = 'Language_ID'
 
 
-class Italic(LanguageFamily):
+class IndoEuropean(LanguageFamily):
     FORM_COLUMN = IE_COR_FORM_COLUMN
     COGNACY_COLUMN = IE_COR_COGNATE_ID_COLUMN
-    name = 'Italic'
+    name = 'IndoEuropean'
+    family_glottocode = 'indo1319'
 
     def __init__(self):
-        super().__init__()
-        self._language_ids = []
+        self.loaded = False
+        self.language_ids = []
+        self.languages_ascii = []
         self._all_forms = None
         self._cognates_merged = False
+        super().__init__()
 
     def load_languages(self):
         all_languages = pd.read_csv(IE_COR_LANGUAGES_CSV)
-        italic_languages = all_languages[all_languages.Clade.str.startswith(IE_COR_ITALIC_CLADE)]
-        self.glottocodes = list(italic_languages.Glottocode)
-        self.languages = list(italic_languages.Name)
-        self._language_ids = list(italic_languages.ID)
+        self.glottocodes = list(all_languages.Glottocode)
+        self.languages = list(all_languages.Name)
+        self.language_ids = list(all_languages.ID)
+        self.languages_ascii = list(all_languages.ascii_name)
+        self.loaded = True
 
-    @property
-    def cherries(self) -> list[(str, str)]:
-        return [
-            ('port1283', 'braz1246'),
-            ('stan1288', 'olds1249'),
-            ('oldc1251', 'stan1289'),
-            ('stan1290', 'fran1269'),
-            ('ladi1250', 'friu1240'),
-            ('neap1235', 'ital1282'),
-            ('sout2614', 'barb1262'),
-            ('roma1327', 'megl1237'),
-            ('umbr1253', 'osca1245')
-        ]
-
-    @property
-    def language_ids(self):
-        if len(self._language_ids) == 0:
-            self.load_languages()
-        return self._language_ids
+    # @property
+    # def glottolog_cherries(self) -> list[(str, str)]:
+    #     return []
 
     def get_language_id(self, glottocode):
         index = super().get_index(glottocode)
         return self.language_ids[index]
+
+    def get_language_ascii(self, glottocode):
+        index = super().get_index(glottocode)
+        return self.languages_ascii[index]
 
     def get_forms_for_language(self, glottocode, extended=False):
         all_forms = self.merge_on_cognate_ids() if extended else self.ie_cor_forms
@@ -85,3 +77,46 @@ class Italic(LanguageFamily):
         if self._all_forms is None:
             self._all_forms = pd.read_csv(IE_COR_FORMS_CSV)
         return self._all_forms
+
+    def patch(self):
+        self.set_language_glottocode('Old Polish', 'oldp1256')
+        self.set_language_glottocode('Middle Cornish', 'midd1380')
+        self.set_language_glottocode('Late Cornish', 'corn1251')
+        self.set_language_glottocode('Old Swedish', 'olds1252')
+        # No glottocode for early modern slovenian, set to something topologically equal
+        self.set_language_glottocode('Slovene: Early Modern', 'wind1243')
+        self.set_language_glottocode('Old Czech', 'oldc1253')
+        self.set_language_glottocode('Kurdish S.: Elami', 'feyl1238')
+        self.set_language_glottocode('Kurdish S.: Qorveh', 'koly1245')
+        # Both are south-eastern dialects but no finer granularity of course
+        self.set_language_glottocode('Macedonian: Suho', 'sout3278')
+        self.set_language_glottocode('Macedonian: Visoka', 'sout3277')
+
+
+class Italic(IndoEuropean):
+    name = 'Italic'
+
+    def load_languages(self):
+        all_languages = pd.read_csv(IE_COR_LANGUAGES_CSV)
+        italic_languages = all_languages[all_languages.Clade.str.startswith(IE_COR_ITALIC_CLADE)]
+        self.glottocodes = list(italic_languages.Glottocode)
+        self.languages = list(italic_languages.Name)
+        self._language_ids = list(italic_languages.ID)
+        self._languages_ascii = list(italic_languages.ascii_name)
+
+    @property
+    def glottolog_cherries(self) -> list[(str, str)]:
+        return [
+            ('port1283', 'braz1246'),
+            ('stan1288', 'olds1249'),
+            ('oldc1251', 'stan1289'),
+            ('stan1290', 'fran1269'),
+            ('ladi1250', 'friu1240'),
+            ('neap1235', 'ital1282'),
+            ('sout2614', 'barb1262'),
+            ('roma1327', 'megl1237'),
+            ('umbr1253', 'osca1245')
+        ]
+
+    def patch(self):
+        pass

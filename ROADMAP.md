@@ -4,8 +4,8 @@ Here is the list of tasks that I need to be working on, along with rough dates f
 ## Tasks
 - [x] Probably set up dedicated github repo, since we have to open-source everything at the end **(14. Feb)**
 - [x] Understand phylogenetics to correct tree heights, and to fully understand the beast configs from Douglas **(26. Feb)**
-- [ ] Learn how to convert all the datasets to presence/absence matrices (technically not necessary if I take the data from the configs of the cited papers) **(28. Feb)**
-- [ ] Make extracting Glottolog trees more robust **(10. Mar)**
+- [x] Learn how to convert all the datasets to presence/absence matrices (technically not necessary if I take the data from the configs of the cited papers) **(28. Feb)**
+- [x] Make extracting Glottolog trees more robust **(10. Mar)**
 - [ ] Fit trees on new families (clades?) **(21. Mar)**
   - [ ] Austronesian
   - [ ] Pama-Nyungan
