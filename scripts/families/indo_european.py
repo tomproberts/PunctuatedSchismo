@@ -81,7 +81,7 @@ class IndoEuropean(LanguageFamily):
         self.set_language_glottocode('Middle Cornish', 'midd1380')
         self.set_language_glottocode('Late Cornish', 'corn1251')
         self.set_language_glottocode('Old Swedish', 'olds1252')
-        # No glottocode for early modern slovenian, set to something topologically close
+        # No glottocode for early modern slovenian, set to something topologically equal
         self.set_language_glottocode('Slovene: Early Modern', 'wind1243')
         self.set_language_glottocode('Old Czech', 'oldc1253')
         self.set_language_glottocode('Kurdish S.: Elami', 'feyl1238')

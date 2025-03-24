@@ -9,10 +9,8 @@ DATA_DIR = 'data'
 
 
 def check_dir_exists(dir_name: str):
-    # check that data dir exists
-    if not os.path.exists(DATA_DIR):
+    if not os.path.exists(dir_name):
         raise Exception('Data directory does not exist, are you running the script from the right location?')
-    os.makedirs(dir_name, exist_ok=True)
 
 
 def write_out_df(predictor: str, file_name_base: str, df: pandas.DataFrame):

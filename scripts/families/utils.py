@@ -1,3 +1,6 @@
+from scripts.utils import asciify_alphanumeric
+
+
 class LanguageFamily:
     def __init__(self):
         # TODO: reimplement as dictionary
@@ -51,6 +54,11 @@ class LanguageFamily:
         index = self.get_index(glottocode)
         return self.languages[index]
 
+    def get_language_ascii(self, glottocode):
+        l = self.get_language(glottocode)
+        l = asciify_alphanumeric(l)
+        return l
+
     @property
     def glottocodes(self):
         return self._glottocodes
@@ -84,7 +92,7 @@ class LanguageFamily:
             (uniques if glottocode not in uniques else doubles).add(glottocode)
         if len(doubles) > 0:
             raise DuplicateGlottocodes(doubles)
-            #print(f"Warning: duplicate glottocodes '{"','".join(doubles)}' found, perhaps implement self.patch()?")
+            # print(f"Warning: duplicate glottocodes '{"','".join(doubles)}' found, perhaps implement self.patch()?")
 
     def patch(self):
         pass
