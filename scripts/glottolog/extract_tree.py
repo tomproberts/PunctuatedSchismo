@@ -1,6 +1,6 @@
 import re
 
-from scripts.families.indo_european import Italic, IndoEuropean
+from scripts.families.indo_european import IndoEuropean
 from scripts.utils import asciify
 
 GLOTTOLOG_TREES = 'data/glottolog/tree_glottolog_newick.txt'
@@ -131,27 +131,28 @@ def fix_problematic_groupings(tree_string, family):
     return tree_string
 
 
-if __name__ == '__main__':
-    family = IndoEuropean()
-    ie_tree = get_glottolog_tree_string(family.family_glottocode)
-    ie_tree = glottocodes_only_tree(ie_tree)
-    keep = family.glottocodes
+def generate_glottolog_trees(family):
+    tree = get_glottolog_tree_string(family.family_glottocode)
+    tree = glottocodes_only_tree(tree)
+    select = family.glottocodes
 
     # Prune tree
-    pruned = prune_tree_string(ie_tree, keep)
+    pruned = prune_tree_string(tree, select)
     pruned = fix_problematic_groupings(pruned, family)
-    verify_correct(pruned, keep)
-    print(pruned)
+    verify_correct(pruned, select)
 
     # Generate labelled version for plots
     labelled = tree_convert_glottocodes_to_labels(pruned, family)
-    print(labelled)
 
     # Generate ascii version for beast
     labelled_ascii = tree_convert_glottocodes_to_labels(pruned, family, ascii=True)
-    print(labelled_ascii)
 
     # Export
     write_out_glottolog_tree_codes(pruned, family.name)
     write_out_glottolog_tree_labels(labelled, family.name)
     write_out_glottolog_tree_ascii(labelled_ascii, family.name)
+
+
+if __name__ == '__main__':
+    family = IndoEuropean()
+    generate_glottolog_trees(family)
