@@ -1,5 +1,9 @@
 from enum import Enum
 
+import newick
+from itertools import combinations
+
+from scripts.families.indo_european import Italic
 from scripts.families.utils import LanguageFamily
 
 GLOTTOLOG_DIR = 'data/glottolog'
@@ -21,15 +25,25 @@ def glottolog_tree_file(type: GlottologTreeType, family_name: str) -> str:
     return f'{GLOTTOLOG_DIR}/{type.value}/{family_name}.newick'
 
 
-def glottolog_cherries(family: LanguageFamily):
-    if family.name == 'Italic':
-        return [('port1283', 'braz1246'),
-                ('stan1288', 'olds1249'),
-                ('oldc1251', 'stan1289'),
-                ('stan1290', 'fran1269'),
-                ('ladi1250', 'friu1240'),
-                ('neap1235', 'ital1282'),
-                ('sout2614', 'barb1262'),
-                ('roma1327', 'megl1237'),
-                ('umbr1253', 'osca1245')]
-    raise NotImplementedError(f'glottolog cherries not implemented for {family.name}')
+def glottolog_cherries(family: LanguageFamily) -> [(str, str)]:
+    file_name = glottolog_tree_file(GlottologTreeType.GLOTTOCODES, family.name)
+    tree = newick.read(file_name)
+    assert tree
+    tree = tree[0]
+    cherries = []
+
+    def for_node(node: newick.Node) -> None:
+        # Get leaf babies of node
+        leaves = [n.name for n in node.descendants if n.is_leaf]
+        if len(leaves) > 1:
+            # Add all possible binary cherries compatible with Glottolog topology
+            for p in combinations(leaves, 2):
+                cherries.append(p)
+
+    tree.visit(for_node)
+    return cherries
+
+
+if __name__ == '__main__':
+    cherries = glottolog_cherries(Italic())
+    print(cherries)
