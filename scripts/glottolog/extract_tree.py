@@ -1,13 +1,8 @@
 import re
 
-from scripts.families.indo_european import IndoEuropean
+from scripts.families.indo_european import IndoEuropean, Italic
+from scripts.glottolog.trees import GlottologTreeType, write_out_glottolog_tree, ALL_TREES
 from scripts.utils import asciify
-
-GLOTTOLOG_TREES = 'data/glottolog/tree_glottolog_newick.txt'
-GLOTTOCODES_OUT = 'data/glottolog/glottocodes/'
-GLOTTONAMES_OUT = 'data/glottolog/names/'
-GLOTTOASCII_OUT = 'data/glottolog/ascii/'
-
 
 def prune_tree_string(tree_string, keep):
     tokenised = tokenise(tree_string)
@@ -52,7 +47,7 @@ def tokenise(tree_string):
 def get_glottolog_tree_string(family_glottocode):
     tree_line = 0
     tree_string = ''
-    with open(GLOTTOLOG_TREES) as f:
+    with open(ALL_TREES) as f:
         i = 0
         for line in f:
             if family_glottocode in line:
@@ -85,23 +80,6 @@ def verify_correct(pruned, keep):
     tree = tree[0]
 
     assert len(tree.get_leaves()) == len(set(keep))
-
-
-def write_out_glottolog_tree(tree_string, family_name, out_dir):
-    with open(f'{out_dir}{family_name}.newick', 'w') as f:
-        f.write(tree_string)
-
-
-def write_out_glottolog_tree_codes(tree_string, family_name):
-    write_out_glottolog_tree(tree_string, family_name, GLOTTOCODES_OUT)
-
-
-def write_out_glottolog_tree_labels(tree_string, family_name):
-    write_out_glottolog_tree(tree_string, family_name, GLOTTONAMES_OUT)
-
-
-def write_out_glottolog_tree_ascii(tree_string, family_name):
-    write_out_glottolog_tree(tree_string, family_name, GLOTTOASCII_OUT)
 
 
 def remove_grouping(pruned, lang1, lang2):
@@ -148,11 +126,11 @@ def generate_glottolog_trees(family):
     labelled_ascii = tree_convert_glottocodes_to_labels(pruned, family, ascii=True)
 
     # Export
-    write_out_glottolog_tree_codes(pruned, family.name)
-    write_out_glottolog_tree_labels(labelled, family.name)
-    write_out_glottolog_tree_ascii(labelled_ascii, family.name)
+    write_out_glottolog_tree(pruned, family.name, GlottologTreeType.GLOTTOCODES)
+    write_out_glottolog_tree(labelled, family.name, GlottologTreeType.NAMES)
+    write_out_glottolog_tree(labelled_ascii, family.name, GlottologTreeType.ASCII)
 
 
 if __name__ == '__main__':
-    family = IndoEuropean()
+    family = Italic()
     generate_glottolog_trees(family)
