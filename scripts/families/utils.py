@@ -45,7 +45,7 @@ class LanguageFamily:
         raise NotImplementedError(f'get_forms_for_language not implemented for {self.name}')
 
     @property
-    def glottolog_cherries(self):
+    def cherries(self):
         raise NotImplementedError(f'Cherries not implemented for {self.name}')
 
     def __contains__(self, item):
