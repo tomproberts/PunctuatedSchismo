@@ -3,15 +3,14 @@ from nexus import NexusReader
 import pandas as pd
 
 from scripts.families.indo_european import Italic
-
-N_TAXA = 4958
+from scripts.families.utils import LanguageFamily
 
 
 def write_out_data(data, family_name) -> None:
     pd.DataFrame(data).to_csv(f'data/gammaspike/{family_name}.csv', index=False)
 
 
-def visit_tree(tree_nexus_file) -> dict:
+def visit_tree(tree_nexus_file, family: LanguageFamily) -> dict:
     translate = tree_nexus_file.trees.translators
     tree: newick.Node = tree_nexus_file.trees.trees[0].newick_tree
 
@@ -27,9 +26,9 @@ def visit_tree(tree_nexus_file) -> dict:
         leaves_ascii.append(ascii_name)
         leaves_name.append(family.get_language(glottocode))
         leaves_glottocode.append(glottocode)
-
-        leaves_weightedSpikes.append(N_TAXA * float(node.properties['weightedSpikes']))
-        leaves_weightedSpikes_median.append(N_TAXA * float(node.properties['weightedSpikes_median']))
+        # scale bursts sizes for number of cognate sets
+        leaves_weightedSpikes.append(family.n_taxa * float(node.properties['weightedSpikes']))
+        leaves_weightedSpikes_median.append(family.n_taxa * float(node.properties['weightedSpikes_median']))
 
     # visit leaf nodes
     tree.visit(visitor, lambda node: node.is_leaf)
@@ -48,6 +47,6 @@ def get_summary_tree_nexus(family_name) -> NexusReader:
 if __name__ == '__main__':
     family = Italic()
     tree_nexus_file = get_summary_tree_nexus(family.name)
-    data = visit_tree(tree_nexus_file)
+    data = visit_tree(tree_nexus_file, family)
 
     write_out_data(data, family.name)

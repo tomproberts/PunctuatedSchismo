@@ -33,6 +33,10 @@ class LanguageFamily:
     def COGNACY_COLUMN(self):
         raise NotImplementedError('self.COGNACY_COLUMN not provided')
 
+    @property
+    def n_taxa(self):
+        raise NotImplementedError('number of taxa not provided')
+
     @name.setter
     def name(self, name):
         self._name = name
@@ -43,6 +47,9 @@ class LanguageFamily:
 
     def get_forms_for_language(self, glottocode, extended=False):
         raise NotImplementedError(f'get_forms_for_language not implemented for {self.name}')
+
+    def get_glottocode_from_ascii(self, glottocode, extended=False):
+        raise NotImplementedError(f'get_glottocode_from_ascii not implemented for {self.name}')
 
     @property
     def cherries(self):
