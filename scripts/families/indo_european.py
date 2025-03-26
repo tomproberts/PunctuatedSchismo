@@ -22,6 +22,7 @@ class IndoEuropean(LanguageFamily):
     COGNACY_COLUMN = IE_COR_COGNATE_ID_COLUMN
     name = 'IndoEuropean'
     family_glottocode = 'indo1319'
+    n_taxa = 4958
 
     def __init__(self):
         self.loaded = False
@@ -46,6 +47,10 @@ class IndoEuropean(LanguageFamily):
     def get_language_ascii(self, glottocode):
         index = super().get_index(glottocode)
         return self.languages_ascii[index]
+
+    def get_glottocode_from_ascii(self, ascii_name):
+        i = self.languages_ascii.index(ascii_name)
+        return self.glottocodes[i]
 
     def get_forms_for_language(self, glottocode, extended=False):
         all_forms = self.merge_on_cognate_ids() if extended else self.ie_cor_forms
