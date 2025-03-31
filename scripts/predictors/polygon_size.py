@@ -1,34 +1,25 @@
-import geopandas
 import pandas as pd
 
 from scripts.families.indo_european import Italic
+from scripts.predictors.polygons.glottography import Glottography
 from scripts.predictors.utils import write_out_df
 
 POLYGON_SIZE = 'area'
 
 if __name__ == '__main__':
-    glottocodes = pd.read_csv(
-        'data/glottography/bouckaert2012indoeuropean/glottocode_to_polygons.csv',
-        index_col=0)[['name', 'glottocode', 'year']]
-    countries_gdf = geopandas.read_file(
-        'data/glottography/bouckaert2012indoeuropean/raw.gpkg')
+    glottography = Glottography()
 
     family = Italic()
-    italics = family.glottocodes
-    polygon_glottocodes = list(glottocodes.glottocode)
+    required_glottocodes = family.glottocodes
 
     df_glottocodes = []
     df_area = []
-    for code in italics:
-        if code in polygon_glottocodes:
-            row = glottocodes[glottocodes.glottocode == code]
-            if len(row) > 1:
-                print(f'{row}')
-            id = row.index.values[0]
-            area = round(countries_gdf[countries_gdf.polygon_id == id].area.iloc[0], 0)
-
-            df_glottocodes.append(code)
+    for code in required_glottocodes:
+        polygon = glottography.get_polygon(code)
+        if polygon is not None:
+            area = round(polygon.area.iloc[0], 0)
             # df_names.append(family.get_language(code))
+            df_glottocodes.append(code)
             df_area.append(area)
 
     df = pd.DataFrame({'glottocode': df_glottocodes, 'area_cartesian': df_area})
