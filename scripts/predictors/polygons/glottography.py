@@ -1,13 +1,12 @@
 import geopandas
 import pandas as pd
-from pip._internal.index import sources
 
 
 class Glottography:
     def __init__(self, settings):
         self.settings = settings
         self._glottocodes = None
-        self._countries_gdf = None
+        self._raw_polygons = None
 
     @property
     def glottocodes(self):
@@ -18,27 +17,36 @@ class Glottography:
         return self._glottocodes
 
     @property
-    def countries_gdf(self):
-        if self._countries_gdf is None:
-            self._countries_gdf = geopandas.read_file(f'data/glottography/{self.settings[0]}/raw.gpkg')
-        return self._countries_gdf
+    def raw_polygons(self):
+        if self._raw_polygons is None:
+            self._raw_polygons = geopandas.read_file(f'data/glottography/{self.settings[0]}/raw.gpkg')
+        return self._raw_polygons
 
     def get_polygon(self, glottocode):
         glottocodes = self.glottocodes
-        countries_gdf = self.countries_gdf
+        raw_polygons = self.raw_polygons
         polygon_glottocodes = list(glottocodes.glottocode)
-        if glottocode in polygon_glottocodes:
+
+        index = None
+        if glottocode in self.settings.patches.keys():
+            _, index = self.settings.patches[glottocode]
+        elif glottocode in polygon_glottocodes:
             row = glottocodes[glottocodes.glottocode == glottocode]
             if len(row) > 1:
                 print(f'Multiple! {row}')
                 raise MultiplePolygonException(glottocode)
             index = row.index.values[0]
-            return countries_gdf[countries_gdf.polygon_id == index]
+
+        if index is not None:
+            return raw_polygons[raw_polygons.polygon_id == index]
         raise LiterallyNoPolygonException(glottocode)
 
 
 class GlottographyConfig:
-    def __init__(self, sources: [str]):
+    def __init__(self, sources: [str], patches: {str: (int, int)} = None):
+        if patches is None:
+            patches = {}
+        self.patches = patches
         self.sources = sources
 
     def __getitem__(self, source_index: int):
