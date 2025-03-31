@@ -1,6 +1,5 @@
 import geopandas
 import pandas as pd
-from shapely.measurement import length
 
 from scripts.families.indo_european import Italic
 from scripts.predictors.utils import write_out_df
@@ -9,10 +8,10 @@ POLYGON_SIZE = 'area'
 
 if __name__ == '__main__':
     glottocodes = pd.read_csv(
-        '/home/thomas/gis/glottography-data/bouckaert2012indoeuropean/bouckaert2012indoeuropean_glottocode_to_polygons.csv',
+        'data/glottography/bouckaert2012indoeuropean/glottocode_to_polygons.csv',
         index_col=0)[['name', 'glottocode', 'year']]
     countries_gdf = geopandas.read_file(
-        '/home/thomas/gis/glottography-data/bouckaert2012indoeuropean/bouckaert2012indoeuropean_raw.gpkg')
+        'data/glottography/bouckaert2012indoeuropean/raw.gpkg')
 
     family = Italic()
     italics = family.glottocodes
