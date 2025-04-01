@@ -90,7 +90,7 @@ def remove_grouping(pruned, lang1, lang2):
 
 def tree_convert_glottocodes_to_labels(tree_string, family, ascii=False):
     # TODO: Make more efficient? Technically doesn't matter
-    for family_glottocode in family.glottocodes:
+    for family_glottocode in family.glottocode_map:
         if ascii:
             language = family.get_language_ascii(family_glottocode)
         else:
@@ -112,7 +112,7 @@ def fix_problematic_groupings(tree_string, family):
 def generate_glottolog_trees(family):
     tree = get_glottolog_tree_string(family.family_glottocode)
     tree = glottocodes_only_tree(tree)
-    select = family.glottocodes
+    select = family.glottocode_map
 
     # Prune tree
     pruned = prune_tree_string(tree, select)

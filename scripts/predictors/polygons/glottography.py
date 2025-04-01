@@ -5,43 +5,50 @@ import pandas as pd
 class Glottography:
     def __init__(self, settings):
         self.settings = settings
-        self._glottocodes = None
-        self._raw_polygons = None
+        self.glottocode_map = self.init_glottocode_map(settings.sources)
+        self.raw_polygons = self.init_polygons(settings.sources)
 
-    @property
-    def glottocodes(self):
-        if self._glottocodes is None:
-            self._glottocodes = pd.read_csv(
-                f'data/glottography/{self.settings[0]}_glottocode_to_polygons.csv',
-                index_col=0)[['name', 'glottocode', 'year']]
-        return self._glottocodes
+    @staticmethod
+    def init_glottocode_map(sources):
+        glottocode_map = []
+        for source in sources:
+            glottocode_map.append(pd.read_csv(
+                f'data/glottography/{source}_glottocode_to_polygons.csv',
+                index_col=0)[['name', 'glottocode', 'year']])
+        return glottocode_map
 
-    @property
-    def raw_polygons(self):
-        if self._raw_polygons is None:
-            self._raw_polygons = geopandas.read_file(f'data/glottography/{self.settings[0]}_raw.gpkg')
-        return self._raw_polygons
+    @staticmethod
+    def init_polygons(sources):
+        polygons = []
+        for source in sources:
+            polygons.append(geopandas.read_file(f'data/glottography/{source}_raw.gpkg'))
+        return polygons
 
     def get_polygon(self, glottocode):
-        glottocodes = self.glottocodes
-        raw_polygons = self.raw_polygons
-        polygon_glottocodes = list(glottocodes.glottocode)
-
-        index = None
+        # Check patches
         if glottocode in self.settings.patches.keys():
-            _, index = self.settings.patches[glottocode]
-        elif glottocode in polygon_glottocodes:
-            row = glottocodes[glottocodes.glottocode == glottocode]
-            if len(row) > 1:
-                print(row)
-                raise MultiplePolygonException(glottocode)
-            index = row.index.values[0]
-
-        if index is not None:
-            polygon = raw_polygons[raw_polygons.polygon_id == index]
+            s, index = self.settings.patches[glottocode]
+            raws = self.raw_polygons[s]
+            polygon = raws[raws.polygon_id == index]
             if len(polygon) > 0:
                 return polygon
             raise PolygonNotFoundException(index)
+
+        # Loop through all sources
+        for (glottocodes, raw_polygons) in zip(self.glottocode_map, self.raw_polygons):
+            polygon_glottocodes = list(glottocodes.glottocode)
+            if glottocode in polygon_glottocodes:
+                row = glottocodes[glottocodes.glottocode == glottocode]
+                if len(row) > 1:
+                    print(row)
+                    raise MultiplePolygonException(glottocode)
+                index = row.index.values[0]
+                polygon = raw_polygons[raw_polygons.polygon_id == index]
+                if len(polygon) > 0:
+                    return polygon
+                raise PolygonNotFoundException(index)
+
+        # Otherwise not present
         raise LiterallyNoPolygonException(glottocode)
 
 

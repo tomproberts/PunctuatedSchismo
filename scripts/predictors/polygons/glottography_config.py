@@ -25,11 +25,11 @@ def indoeuropean_config():
                                        'gheg1238': (0, 4),  # Kosovo
                                        'arbe1236': (0, 3),  # Sicilian Albanian
                                        'mode1248': (0, 35),  # Modern Greek has wrong glottocode
+                                       'angl1258': (1, 32),
+                                       'oldf1239': (1, 34),
                                        # 'neap1235': (0, 0),
-                                       # 'angl1258': (0, 0),
                                        # 'olds1249': (0, 0),
                                        # 'dalm1243': (0, 0),
-                                       # 'oldf1239': (0, 0),
                                        # 'fran1269': (0, 0),
                                        # 'megl1237': (0, 0),
                                        # 'oldp1253': (0, 0),
