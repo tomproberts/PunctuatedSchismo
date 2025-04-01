@@ -1,0 +1,87 @@
+import geopandas
+import pandas as pd
+
+
+class Glottography:
+    def __init__(self, settings):
+        self.settings = settings
+        self.glottocode_map = self.init_glottocode_map(settings.sources)
+        self.raw_polygons = self.init_polygons(settings.sources)
+
+    @staticmethod
+    def init_glottocode_map(sources):
+        glottocode_map = []
+        for source in sources:
+            glottocode_map.append(pd.read_csv(
+                f'data/glottography/{source}_glottocode_to_polygons.csv',
+                index_col=0)[['name', 'glottocode', 'year']])
+        return glottocode_map
+
+    @staticmethod
+    def init_polygons(sources):
+        polygons = []
+        for source in sources:
+            polygons.append(geopandas.read_file(f'data/glottography/{source}_raw.gpkg'))
+        return polygons
+
+    def get_polygon(self, glottocode):
+        # Check patches
+        if glottocode in self.settings.patches.keys():
+            s, index = self.settings.patches[glottocode]
+            raws = self.raw_polygons[s]
+            polygon = raws[raws.polygon_id == index]
+            if len(polygon) > 0:
+                return polygon
+            raise PolygonNotFoundException(index)
+
+        # Loop through all sources
+        for (glottocodes, raw_polygons) in zip(self.glottocode_map, self.raw_polygons):
+            polygon_glottocodes = list(glottocodes.glottocode)
+            if glottocode in polygon_glottocodes:
+                row = glottocodes[glottocodes.glottocode == glottocode]
+                if len(row) > 1:
+                    print(row)
+                    raise MultiplePolygonException(glottocode)
+                index = row.index.values[0]
+                polygon = raw_polygons[raw_polygons.polygon_id == index]
+                if len(polygon) > 0:
+                    return polygon
+                raise PolygonNotFoundException(index)
+
+        # Otherwise not present
+        raise LiterallyNoPolygonException(glottocode)
+
+
+class GlottographyConfig:
+    def __init__(self, sources: [str], patches: {str: (int, int)} = None):
+        if patches is None:
+            patches = {}
+        self.patches = patches
+        self.sources = sources
+
+    def __getitem__(self, source_index: int):
+        if len(self.sources) == 0:
+            raise RuntimeError('No sources defined for Glottography config')
+        if source_index < len(self.sources):
+            return self.sources[source_index]
+        else:
+            raise IndexError(f'Index {source_index} is out of range for config sources')
+
+
+class LiterallyNoPolygonException(Exception):
+    def __init__(self, glottocode):
+        super().__init__(f"Could not find a polygon for '{glottocode}'")
+
+
+class MultiplePolygonException(Exception):
+    def __init__(self, glottocode):
+        super().__init__(f"Multiple polygons for '{glottocode}', please specify")
+
+
+class PolygonNotFoundException(Exception):
+    def __init__(self, polygon_id, source=None):
+        if source is None:
+            msg = f"Polygon with id '{polygon_id}' not found"
+        else:
+            msg = f"Polygon with id '{polygon_id}' not found in source '{source}'"
+        super().__init__(msg)

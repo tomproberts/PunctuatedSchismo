@@ -48,7 +48,7 @@ class LanguageFamily:
     def get_forms_for_language(self, glottocode, extended=False):
         raise NotImplementedError(f'get_forms_for_language not implemented for {self.name}')
 
-    def get_glottocode_from_ascii(self, glottocode, extended=False):
+    def get_glottocode_from_ascii(self, ascii_name):
         raise NotImplementedError(f'get_glottocode_from_ascii not implemented for {self.name}')
 
     @property
