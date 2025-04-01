@@ -1,8 +1,14 @@
 from scripts.predictors.polygons.glottography import GlottographyConfig
 
 
+def get_config(family_name: str):
+    if family_name == 'Italic' or family_name == 'IndoEuropean':
+        return indoeuropean_config()
+    raise RuntimeError(f'Unknown family {family_name}')
+
+
 def indoeuropean_config():
-    return GlottographyConfig(sources=['bouckaert2012indoeuropean', 'dedio2019britain'],
+    return GlottographyConfig(sources=['bouckaert2012indoeuropean', 'dedio2019britain', 'asher2007world'],
                               patches={'sout2614': (0, 80),
                                        'barb1262': (0, 81),
                                        'czec1258': (0, 21),
@@ -15,6 +21,7 @@ def indoeuropean_config():
                                        'oldi1245': (0, 63),
                                        'lith1251': (0, 49),  # Not sure what Lithuanian_ST is
                                        'swed1254': (0, 89),
+                                       'braz1246': (0, 72),
                                        'tokh1242': (0, 93),
                                        'tokh1243': (0, 94),
                                        'iron1242': (0, 41),  # Iron_Ossetic has wrong glottocode
@@ -27,13 +34,4 @@ def indoeuropean_config():
                                        'mode1248': (0, 35),  # Modern Greek has wrong glottocode
                                        'angl1258': (1, 32),
                                        'oldf1239': (1, 34),
-                                       # 'neap1235': (0, 0),
-                                       # 'olds1249': (0, 0),
-                                       # 'dalm1243': (0, 0),
-                                       # 'fran1269': (0, 0),
-                                       # 'megl1237': (0, 0),
-                                       # 'oldp1253': (0, 0),
-                                       # 'oldc1251': (0, 0),
-                                       # 'braz1246': (0, 0),
-                                       # 'mila1243': (0, 0),
                                        })
