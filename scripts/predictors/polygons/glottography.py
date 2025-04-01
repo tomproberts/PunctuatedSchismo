@@ -12,14 +12,14 @@ class Glottography:
     def glottocodes(self):
         if self._glottocodes is None:
             self._glottocodes = pd.read_csv(
-                f'data/glottography/{self.settings[0]}/glottocode_to_polygons.csv',
+                f'data/glottography/{self.settings[0]}_glottocode_to_polygons.csv',
                 index_col=0)[['name', 'glottocode', 'year']]
         return self._glottocodes
 
     @property
     def raw_polygons(self):
         if self._raw_polygons is None:
-            self._raw_polygons = geopandas.read_file(f'data/glottography/{self.settings[0]}/raw.gpkg')
+            self._raw_polygons = geopandas.read_file(f'data/glottography/{self.settings[0]}_raw.gpkg')
         return self._raw_polygons
 
     def get_polygon(self, glottocode):
@@ -33,12 +33,15 @@ class Glottography:
         elif glottocode in polygon_glottocodes:
             row = glottocodes[glottocodes.glottocode == glottocode]
             if len(row) > 1:
-                print(f'Multiple! {row}')
+                print(row)
                 raise MultiplePolygonException(glottocode)
             index = row.index.values[0]
 
         if index is not None:
-            return raw_polygons[raw_polygons.polygon_id == index]
+            polygon = raw_polygons[raw_polygons.polygon_id == index]
+            if len(polygon) > 0:
+                return polygon
+            raise PolygonNotFoundException(index)
         raise LiterallyNoPolygonException(glottocode)
 
 
@@ -66,3 +69,12 @@ class LiterallyNoPolygonException(Exception):
 class MultiplePolygonException(Exception):
     def __init__(self, glottocode):
         super().__init__(f"Multiple polygons for '{glottocode}', please specify")
+
+
+class PolygonNotFoundException(Exception):
+    def __init__(self, polygon_id, source=None):
+        if source is None:
+            msg = f"Polygon with id '{polygon_id}' not found"
+        else:
+            msg = f"Polygon with id '{polygon_id}' not found in source '{source}'"
+        super().__init__(msg)

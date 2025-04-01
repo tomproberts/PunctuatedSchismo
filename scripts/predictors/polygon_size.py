@@ -1,6 +1,6 @@
 import pandas as pd
 
-from scripts.families.indo_european import Italic
+from scripts.families.indo_european import Italic, IndoEuropean
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
 from scripts.predictors.polygons.glottography_config import indoeuropean_config
 from scripts.predictors.utils import write_out_df
@@ -11,7 +11,7 @@ if __name__ == '__main__':
     family = Italic()
     required_glottocodes = family.glottocodes
 
-    glottography = Glottography(indoeuropean_config)
+    glottography = Glottography(indoeuropean_config())
 
     df_glottocodes = []
     df_area = []
