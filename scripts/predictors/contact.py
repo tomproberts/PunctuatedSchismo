@@ -15,7 +15,7 @@ from scripts.predictors.utils import write_out_df
 
 CONTACT_DIR = 'contact'
 
-SEED = None
+SEED = 1
 N_POINTS = 500
 
 
@@ -48,8 +48,8 @@ def write_out_contact(family_name, cherries, mean_distances, median_distances):
     dataframe = pd.DataFrame(data={
         'language_1': [ls[0] for ls in cherries],
         'language_2': [ls[1] for ls in cherries],
-        'median_contact': median_distances,
-        'mean_contact': mean_distances
+        'median_distance': median_distances,
+        'mean_distance': mean_distances
     })
     write_out_df(CONTACT_DIR, file_name, dataframe)
 
@@ -62,14 +62,14 @@ def calculate_euclidean_distances(cherries, glottography):
         try:
             polygon_1 = glottography.get_polygon(language_1)
             polygon_2 = glottography.get_polygon(language_2)
-
-            sampled_points = sample_points(polygon_2)
-
-            paths = calculate_lines(sampled_points, polygon_1)
-            distances = [p.length for p in paths]
         except LiterallyNoPolygonException as e:
             print(f'Warning: {e} (skipping)')
             continue
+
+        sampled_points = sample_points(polygon_1)
+
+        paths = calculate_lines(sampled_points, polygon_2)
+        distances = [p.length for p in paths]
 
         new_cherries.append((language_1, language_2))
         median_distances.append(median(distances))
@@ -114,5 +114,6 @@ if __name__ == '__main__':
     write_out_contact(family.name, cherries, mean_distances, median_distances)
     print(f'Wrote out contact distances for {family.name}')
 
-    cherry = cherries[106]
+    cherry = ('oldf1239', 'wall1255')
+    plot_contact(cherry[0], cherry[1], glottography, 50)
     plot_contact(cherry[1], cherry[0], glottography, 50)
