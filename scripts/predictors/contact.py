@@ -7,7 +7,7 @@ from shapely.geometry.linestring import LineString
 from shapely.geometry.point import Point
 from shapely.ops import nearest_points
 
-from scripts.families.indo_european import Italic
+from scripts.families.indo_european import Italic, IndoEuropean
 from scripts.glottolog.trees import glottolog_cherries
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
 from scripts.predictors.polygons.glottography_config import get_config
@@ -17,7 +17,6 @@ CONTACT_DIR = 'contact'
 
 SEED = None
 N_POINTS = 500
-GRAPH = False
 
 
 def find_closest_point(start, polygon) -> Point:
@@ -26,22 +25,6 @@ def find_closest_point(start, polygon) -> Point:
         return start
     p1, _ = nearest_points(polygon, start)
     return p1
-
-
-def graph_base_polygons(polygon_1, polygon_2):
-    combined = pd.concat([polygon_1, polygon_2])
-    base = combined.plot(color='white', edgecolor='black')
-    combined.apply(lambda x: base.annotate(text=x['name'], xy=x.geometry.centroid.coords[0], ha='center'), axis=1)
-    return base
-
-
-def plot_points(polygon_points, base):
-    polygon_points.plot(ax=base, markersize=1)
-
-
-def draw_lines(distances, base):
-    lines = geopandas.GeoDataFrame(index=list(range(len(distances))), geometry=distances)
-    lines.plot(ax=base, color='red')
 
 
 def calculate_lines(points, other_polygon) -> [LineString]:
@@ -55,8 +38,8 @@ def calculate_lines(points, other_polygon) -> [LineString]:
     return distances
 
 
-def sample_points(polygon):
-    return polygon.sample_points(N_POINTS, rng=SEED).explode(index_parts=True)
+def sample_points(polygon, n_points=N_POINTS):
+    return polygon.sample_points(n_points, rng=SEED).explode(index_parts=True)
 
 
 def write_out_contact(family_name, cherries, mean_distances, median_distances):
@@ -79,24 +62,18 @@ def calculate_euclidean_distances(cherries, glottography):
         try:
             polygon_1 = glottography.get_polygon(language_1)
             polygon_2 = glottography.get_polygon(language_2)
+
+            sampled_points = sample_points(polygon_2)
+
+            paths = calculate_lines(sampled_points, polygon_1)
+            distances = [p.length for p in paths]
         except LiterallyNoPolygonException as e:
             print(f'Warning: {e} (skipping)')
             continue
 
-        umbrian_points = sample_points(polygon_2)
-
-        paths = calculate_lines(umbrian_points, polygon_1)
-        distances = [p.length for p in paths]
-
         new_cherries.append((language_1, language_2))
         median_distances.append(median(distances))
         mean_distances.append(mean(distances))
-
-        if GRAPH:
-            base = graph_base_polygons(polygon_1, polygon_2)
-            # plot_points(umbrian_points, base)
-            draw_lines(paths, base)
-            plt.show()
 
     return new_cherries, mean_distances, median_distances
 
@@ -106,13 +83,36 @@ def double_reverse(cherries):
     return cherries + reversed_cherries
 
 
+def plot_contact(language_1, language_2, glottography, n_points):
+    # Calculate polygons and lines
+    polygon_1 = glottography.get_polygon(language_1)
+    polygon_2 = glottography.get_polygon(language_2)
+    sampled_points = sample_points(polygon_2, n_points)
+    paths = calculate_lines(sampled_points, polygon_1)
+
+    # Graph base polygons
+    combined = pd.concat([polygon_2, polygon_1])
+    base = combined.plot(color='white', edgecolor='black')
+    combined.apply(lambda x: base.annotate(text=x['name'], xy=x.geometry.centroid.coords[0], ha='center'), axis=1)
+
+    # Plot individual points
+    sampled_points.plot(ax=base, markersize=1)
+
+    # Draw lines
+    lines = geopandas.GeoDataFrame(index=list(range(len(paths))), geometry=paths)
+    lines.plot(ax=base, color='red')
+    plt.show()
+
+
 if __name__ == '__main__':
-    family = Italic()
+    family = IndoEuropean()
     cherries = glottolog_cherries(family)
-    # cherries = [cherries[-1], cherries[2], cherries[-2]]
     cherries = double_reverse(cherries)
 
     glottography = Glottography(get_config(family.name))
     cherries, mean_distances, median_distances = calculate_euclidean_distances(cherries, glottography)
     write_out_contact(family.name, cherries, mean_distances, median_distances)
     print(f'Wrote out contact distances for {family.name}')
+
+    cherry = cherries[106]
+    plot_contact(cherry[1], cherry[0], glottography, 50)
