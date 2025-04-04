@@ -10,14 +10,47 @@ from scripts.glottolog.trees import glottolog_cherries
 from scripts.predictors.polygons.glottography import Glottography
 from scripts.predictors.polygons.glottography_config import get_config
 
+SEED = None
+N_POINTS = 50
 
-def find_closest_point(start, polygon):
-    polygon = polygon['geometry']
-    if polygon.contains(start).iloc[0]:
+
+def find_closest_point(start, polygon) -> Point:
+    polygon = polygon.geometry.values[0]
+    if polygon.contains(start):
         return start
     p1, _ = nearest_points(polygon, start)
-    return p1.geometry.iloc[0]
-    # return Point(1575000, 5172177)
+    return p1
+
+
+def graph_base_polygons(polygon_1, polygon_2):
+    combined = pd.concat([polygon_1, polygon_2])
+    base = combined.plot(color='white', edgecolor='black')
+    combined.apply(lambda x: base.annotate(text=x['name'], xy=x.geometry.centroid.coords[0], ha='center'), axis=1)
+    return base
+
+
+def plot_points(polygon_points, base):
+    polygon_points.plot(ax=base, markersize=1)
+
+
+def draw_lines(distances, base):
+    lines = geopandas.GeoDataFrame(index=list(range(len(distances))), geometry=distances)
+    lines.plot(ax=base, color='red')
+
+
+def calculate_lines(points, other_polygon) -> [LineString]:
+    distances = []
+    geometry = points.geometry
+    for i in range(len(points)):
+        point = geometry.values[i]
+        end = find_closest_point(point, other_polygon)
+        distance = LineString([point, end])
+        distances.append(distance)
+    return distances
+
+
+def sample_points(polygon):
+    return polygon.sample_points(N_POINTS, rng=SEED).explode(index_parts=True)
 
 
 if __name__ == '__main__':
@@ -29,21 +62,11 @@ if __name__ == '__main__':
     oscan = glottography.get_polygon(oscan_glottocode)
     umbrian = glottography.get_polygon(umbrian_glottocode)
 
-    combined = pd.concat([oscan, umbrian])
-    base = combined.plot(color='white', edgecolor='black')
-    combined.apply(lambda x: base.annotate(text=x['name'], xy=x.geometry.centroid.coords[0], ha='center'), axis=1)
-    umbrian_points = umbrian.sample_points(10, rng=10).explode(index_parts=True)
-    # oscan_points = oscan.sample_points(100)
-    umbrian_points.plot(ax=base, markersize=1)
+    base = graph_base_polygons(oscan, umbrian)
+    umbrian_points = sample_points(umbrian)
 
-    # point = Point(1600000, 5152177)
-    distances = []
-    for i in range(len(umbrian_points)):
-        point = umbrian_points.geometry.iloc[i]
-        end = find_closest_point(point, oscan)
-        distance = LineString([point, end])
-        distances.append(distance)
-    lines = geopandas.GeoDataFrame(index=list(range(len(distances))), geometry=distances)
-    lines.plot(ax=base, color='red')
+    # plot_points(umbrian_points, base)
+    distances = calculate_lines(umbrian_points, oscan)
 
+    draw_lines(distances, base)
     plt.show()
