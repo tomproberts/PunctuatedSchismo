@@ -1,15 +1,15 @@
 import pandas as pd
 
-from scripts.families.indo_european import Italic, IndoEuropean
+from scripts.families.dravidian import Dravidian
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
-from scripts.predictors.polygons.glottography_config import indoeuropean_config, get_config
+from scripts.predictors.polygons.glottography_config import get_config
 from scripts.predictors.utils import write_out_df
 
 POLYGON_SIZE = 'area'
 
 
 def write_out_polygon_size(dataframe, family_name):
-    file_name = f'{family_name}.area'
+    file_name = f'{family_name}.cartesian'
     write_out_df(POLYGON_SIZE, file_name, dataframe)
 
 
@@ -30,7 +30,7 @@ def calculate_areas(glottography, required_glottocodes):
 
 
 if __name__ == '__main__':
-    family = IndoEuropean()
+    family = Dravidian()
     required_glottocodes = family.glottocodes
 
     glottography = Glottography(get_config(family.name))
