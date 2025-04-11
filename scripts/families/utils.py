@@ -91,7 +91,7 @@ class LanguageFamily:
         raise GlottocodeNotFound(glottocode, self.name)
 
     def load_languages(self):
-        raise NotImplemented('load_languages method not implemented')
+        raise NotImplementedError('load_languages method not implemented')
 
     def verify_unique_glottocodes(self):
         uniques = set()
