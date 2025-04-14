@@ -51,10 +51,6 @@ class LanguageFamily:
     def get_glottocode_from_ascii(self, ascii_name):
         raise NotImplementedError(f'get_glottocode_from_ascii not implemented for {self.name}')
 
-    @property
-    def cherries(self):
-        raise NotImplementedError(f'Cherries not implemented for {self.name}')
-
     def __contains__(self, item):
         return item in self._glottocodes
 
