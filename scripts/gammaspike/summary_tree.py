@@ -2,6 +2,7 @@ import newick
 from nexus import NexusReader
 import pandas as pd
 
+from scripts.families.dravidian import Dravidian
 from scripts.families.indo_european import Italic
 from scripts.families.utils import LanguageFamily
 
@@ -44,8 +45,33 @@ def get_summary_tree_nexus(family_name) -> NexusReader:
     return NexusReader.from_file(f'data/summarytree/{family_name}.nex')
 
 
+def summary_tree_cherries(family: LanguageFamily) -> [(str, str)]:
+    tree = get_summary_tree_nexus(family.name)
+    assert tree
+    taxa = tree.taxa.taxa
+    tree = tree.trees[0].newick_tree
+    cherries = []
+
+
+    def nx_glottocode(node_id: str) -> str:
+        ascii = taxa[int(node_id)]
+        return family.get_glottocode_from_ascii(ascii)
+
+
+    def for_node(node: newick.Node) -> None:
+        leaves = [n.name for n in node.descendants if n.is_leaf]
+        if len(leaves) > 1:
+            assert len(leaves) == 2
+            cherry = nx_glottocode(leaves[0]), nx_glottocode(leaves[1])
+            cherries.append(cherry)
+
+
+    tree.visit(for_node)
+    return cherries
+
+
 if __name__ == '__main__':
-    family = Italic()
+    family = Dravidian()
     tree_nexus_file = get_summary_tree_nexus(family.name)
     data = visit_tree(tree_nexus_file, family)
 
