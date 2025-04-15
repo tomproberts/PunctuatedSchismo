@@ -44,14 +44,6 @@ class IndoEuropean(LanguageFamily):
         index = super().get_index(glottocode)
         return self.language_ids[index]
 
-    def get_language_ascii(self, glottocode):
-        index = super().get_index(glottocode)
-        return self.languages_ascii[index]
-
-    def get_glottocode_from_ascii(self, ascii_name):
-        i = self.languages_ascii.index(ascii_name)
-        return self.glottocodes[i]
-
     def get_forms_for_language(self, glottocode, extended=False):
         all_forms = self.merge_on_cognate_ids() if extended else self.ie_cor_forms
         lang_id = self.get_language_id(glottocode)

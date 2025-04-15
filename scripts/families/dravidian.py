@@ -10,10 +10,6 @@ class Dravidian(LanguageFamily):
     family_glottocode = 'drav1251'
     n_taxa = 877
 
-    def __init__(self):
-        self.languages_ascii = []
-        super().__init__()
-
     def load_languages(self):
         all_languages = pd.read_csv(DRAVLEX_LANGUAGES_CSV)
         self.glottocodes = list(all_languages.Glottocode)

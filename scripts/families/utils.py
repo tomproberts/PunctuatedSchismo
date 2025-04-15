@@ -6,6 +6,7 @@ class LanguageFamily:
     _family_glottocode = None
     _glottocodes = []
     _languages = []
+    _languages_ascii = []
 
     def __init__(self):
         # TODO: reimplement as dictionary
@@ -45,11 +46,22 @@ class LanguageFamily:
     def family_glottocode(self, family_glottocode):
         self._family_glottocode = family_glottocode
 
+    @property
+    def languages_ascii(self):
+        if not self._languages_ascii:
+            self._languages_ascii = [asciify_alphanumeric(l) for l in self.languages]
+        return self._languages_ascii
+
+    @languages_ascii.setter
+    def languages_ascii(self, languages_ascii):
+        self._languages_ascii = languages_ascii
+
     def get_forms_for_language(self, glottocode, extended=False):
         raise NotImplementedError(f'get_forms_for_language not implemented for {self.name}')
 
     def get_glottocode_from_ascii(self, ascii_name):
-        raise NotImplementedError(f'get_glottocode_from_ascii not implemented for {self.name}')
+        i = self.languages_ascii.index(ascii_name)
+        return self.glottocodes[i]
 
     def __contains__(self, item):
         return item in self._glottocodes
@@ -59,9 +71,8 @@ class LanguageFamily:
         return self.languages[index]
 
     def get_language_ascii(self, glottocode):
-        l = self.get_language(glottocode)
-        l = asciify_alphanumeric(l)
-        return l
+        index = self.get_index(glottocode)
+        return self.languages_ascii[index]
 
     @property
     def glottocodes(self):

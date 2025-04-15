@@ -1,9 +1,8 @@
 import newick
-from nexus import NexusReader
 import pandas as pd
+from nexus import NexusReader
 
 from scripts.families.dravidian import Dravidian
-from scripts.families.indo_european import Italic
 from scripts.families.utils import LanguageFamily
 
 
@@ -28,8 +27,8 @@ def visit_tree(tree_nexus_file, family: LanguageFamily) -> dict:
         leaves_name.append(family.get_language(glottocode))
         leaves_glottocode.append(glottocode)
         # scale bursts sizes for number of cognate sets
-        leaves_weightedSpikes.append(family.n_taxa * float(node.properties['weightedSpikes']))
-        leaves_weightedSpikes_median.append(family.n_taxa * float(node.properties['weightedSpikes_median']))
+        leaves_weightedSpikes.append(family.n_taxa / 2 * float(node.properties['weightedSpikes']))
+        leaves_weightedSpikes_median.append(family.n_taxa / 2 * float(node.properties['weightedSpikes_median']))
 
     # visit leaf nodes
     tree.visit(visitor, lambda node: node.is_leaf)
