@@ -5,7 +5,7 @@ source("scripts/families/LanguageFamilies.R")
 FAMILY <- DRAVIDIAN
 SCALESTUBS <- TRUE
 
-summary.tree <- paste0("data/summarytree/", FAMILY, ".nex")
+summary.tree <- paste0("data/gammaspike/summarytree/", FAMILY, ".nex")
 tree <- read.beast(summary.tree)
 df <- as_tibble(tree)
 df$scaled_spikes <- df$weightedSpikes_median * get_n_taxa(FAMILY) / 2

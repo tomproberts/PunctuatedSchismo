@@ -1,6 +1,5 @@
 from scripts.families.dravidian import Dravidian
-from scripts.families.indo_european import Italic, IndoEuropean
-from scripts.glottolog.trees import glottolog_cherries
+from scripts.gammaspike.summary_tree import summary_tree_cherries
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
 from scripts.predictors.polygons.glottography_config import get_config
 
@@ -19,7 +18,7 @@ if __name__ == '__main__':
     # Find consequences
     half_cherries = []
     both_missing = []
-    for (l1, l2) in glottolog_cherries(family):
+    for (l1, l2) in summary_tree_cherries(family):
         if l1 in not_present:
             if l2 not in not_present:
                 half_cherries.append(l1)
