@@ -4,6 +4,8 @@ from scripts.predictors.polygons.glottography import GlottographyConfig
 def get_config(family_name: str):
     if family_name == 'Italic' or family_name == 'IndoEuropean':
         return indoeuropean_config()
+    if family_name == 'Dravidian':
+        return dravidian_config()
     raise RuntimeError(f'Unknown family {family_name}')
 
 
@@ -35,3 +37,8 @@ def indoeuropean_config():
                                        'angl1258': (1, 32),
                                        'oldf1239': (1, 34),
                                        })
+
+
+def dravidian_config():
+    return GlottographyConfig(sources=['steever2019dravidian'],
+                              patches={})

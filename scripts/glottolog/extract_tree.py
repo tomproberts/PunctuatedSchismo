@@ -1,8 +1,10 @@
 import re
 
+from scripts.families.dravidian import Dravidian
 from scripts.families.indo_european import IndoEuropean, Italic
 from scripts.glottolog.trees import GlottologTreeType, write_out_glottolog_tree, ALL_TREES
 from scripts.utils import asciify
+
 
 def prune_tree_string(tree_string, keep):
     tokenised = tokenise(tree_string)
@@ -14,9 +16,11 @@ def prune_tree_string(tree_string, keep):
         if token == '(':
             stack.append(token)
         elif token[0].isalpha():
+            # token is language, cache
             prev = token
         elif token == ',' or token == ')':
             if prev:
+                # check if cached token is in our list
                 if prev in keep:
                     stack.append(prev)
                 prev = None
@@ -24,9 +28,11 @@ def prune_tree_string(tree_string, keep):
                 token_next = tokenised[i + 1]
                 tmp = []
                 if token_next[0].isalpha():
+                    # named internal node
                     i = i + 1
                     if token_next in keep:
                         tmp = [token_next]
+                # Collapse stack:
                 while stack and stack[-1] != '(':
                     tmp.append(stack.pop())
                 if stack and stack[-1] == '(':
@@ -41,18 +47,18 @@ def prune_tree_string(tree_string, keep):
 
 
 def tokenise(tree_string):
+    # only tokenises glottocodes, no other labels!
     return re.findall(r'([\(\),]|[a-z]{4}[0-9]{4})', tree_string)
 
 
 def get_glottolog_tree_string(family_glottocode):
-    tree_line = 0
     tree_string = ''
     with open(ALL_TREES) as f:
         i = 0
         for line in f:
             if family_glottocode in line:
-                tree_line = i
                 tree_string = line
+                break
             i = i + 1
 
     # change extended characters to ascii, e.g. ç to c, ā to a
@@ -90,7 +96,7 @@ def remove_grouping(pruned, lang1, lang2):
 
 def tree_convert_glottocodes_to_labels(tree_string, family, ascii=False):
     # TODO: Make more efficient? Technically doesn't matter
-    for family_glottocode in family.glottocode_map:
+    for family_glottocode in family.glottocodes:
         if ascii:
             language = family.get_language_ascii(family_glottocode)
         else:
@@ -112,7 +118,7 @@ def fix_problematic_groupings(tree_string, family):
 def generate_glottolog_trees(family):
     tree = get_glottolog_tree_string(family.family_glottocode)
     tree = glottocodes_only_tree(tree)
-    select = family.glottocode_map
+    select = family.glottocodes
 
     # Prune tree
     pruned = prune_tree_string(tree, select)
@@ -132,5 +138,5 @@ def generate_glottolog_trees(family):
 
 
 if __name__ == '__main__':
-    family = Italic()
+    family = Dravidian()
     generate_glottolog_trees(family)

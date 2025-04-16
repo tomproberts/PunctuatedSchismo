@@ -7,7 +7,7 @@ GLOTTOLOG.ASCII <- "data/glottolog/ascii/"
 GLOTTOLOG.CODES <- "data/glottolog/glottocodes/"
 
 TYPE <- GLOTTOLOG.NAMES
-FAMILY <- "IndoEuropean"
+FAMILY <- "Dravidian"
 
 glottolog.tree <- read.newick(paste0(TYPE, FAMILY, ".newick"))
 if (TYPE == GLOTTOLOG.NAMES) {
