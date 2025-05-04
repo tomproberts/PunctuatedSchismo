@@ -1,10 +1,10 @@
-from scripts.families.dravidian import Dravidian
+from scripts.families.indo_european import IndoEuropean
 from scripts.gammaspike.summary_tree import summary_tree_cherries
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
 from scripts.predictors.polygons.glottography_config import get_config
 
 if __name__ == '__main__':
-    family = Dravidian()
+    family = IndoEuropean()
     glottography = Glottography(get_config(family.name))
 
     # Find missing
@@ -32,9 +32,9 @@ if __name__ == '__main__':
         print(f'{len(half_cherries)} broken cherries (only one polygon out of two):')
         half_cherries = set(half_cherries)
         for l in half_cherries:
-            print(f'\t†cherry, because {family.get_language(l)} ({l}) missing')
+            print(f'- †cherry, because {family.get_language(l)} ({l}) missing')
 
     if len(both_missing) > 0:
         print(f'{len(both_missing)} dead cherries (neither polygon present):')
         for (l1, l2) in both_missing:
-            print(f'\t†cherry, because both {family.get_language(l1)} ({l1}) and {family.get_language(l2)} ({l2}) missing')
+            print(f'- †cherry, because both {family.get_language(l1)} ({l1}) and {family.get_language(l2)} ({l2}) missing')
