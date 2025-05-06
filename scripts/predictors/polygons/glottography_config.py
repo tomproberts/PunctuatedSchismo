@@ -48,4 +48,25 @@ def dravidian_config():
 
 def uralic_config():
     return GlottographyConfig(sources=['rantanen2022urhia'],
-                              patches={})
+                              patches={
+                                  'sout2674': (0, 159),
+                                  'umes1235': (0, 187),
+                                  'pite1240': (0, 140),
+                                  'nort2671': (0, 128),
+                                  'inar1241': (0, 1),
+                                  'kild1236': (0, 65),
+                                  'finn1318': (0, 30),
+                                  'kare1335': (0, 50),
+                                  'veps1250': (0, 193),
+                                  'ingr1248': (0, 44),
+                                  'esto1258': (0, 120),
+                                  'sout2679': (0, 156),
+                                  'erzy1239': (0, 21),
+                                  'east2328': (0, 19),
+                                  'komi1268': (0, 83),
+                                  'komi1269': (0, 72),
+                                  'udmu1245': (0, 185),
+                                  'hung1274': (0, 42),
+                                  'ngan1291': (0, 117),
+                                  'nene1249': (0, 179),
+                              })
