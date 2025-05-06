@@ -35,8 +35,8 @@ class LanguageFamily:
         raise NotImplementedError('self.COGNACY_COLUMN not provided')
 
     @property
-    def n_taxa(self):
-        raise NotImplementedError('number of taxa not provided')
+    def n_sites(self):
+        raise NotImplementedError('number of sites not provided')
 
     @name.setter
     def name(self, name):

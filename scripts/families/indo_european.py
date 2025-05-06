@@ -22,7 +22,7 @@ class IndoEuropean(LanguageFamily):
     COGNACY_COLUMN = IE_COR_COGNATE_ID_COLUMN
     name = 'IndoEuropean'
     family_glottocode = 'indo1319'
-    n_taxa = 4958
+    n_sites = 4958
 
     def __init__(self):
         self.loaded = False

@@ -8,7 +8,7 @@ SCALESTUBS <- TRUE
 summary.tree <- paste0("data/gammaspike/summarytree/", FAMILY, ".nex")
 tree <- read.beast(summary.tree)
 df <- as_tibble(tree)
-df$scaled_spikes <- df$weightedSpikes_median * get_n_taxa(FAMILY) / 2
+df$scaled_spikes <- df$weightedSpikes_median * get_n_sites(FAMILY) / 2
 
 aesthetics <- if (SCALESTUBS)
   aes(color = weightedSpikes_median / (nstubs_median + 1)) else
