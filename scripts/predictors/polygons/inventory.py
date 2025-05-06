@@ -1,11 +1,11 @@
-from scripts.families.dravidian import Dravidian
-from scripts.families.indo_european import IndoEuropean
-from scripts.gammaspike.summary_tree import summary_tree_cherries
+from scripts.families.uralic import Uralic
+from scripts.gammaspike.summary_tree import summary_tree_cherries, NoSummaryTree
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
 from scripts.predictors.polygons.glottography_config import get_config
 
 if __name__ == '__main__':
-    family = Dravidian()
+    family = Uralic()
+    n_langs = len(family.languages)
     glottography = Glottography(get_config(family.name))
 
     # Find missing
@@ -16,34 +16,42 @@ if __name__ == '__main__':
         except LiterallyNoPolygonException:
             not_present.append(glottocode)
 
-    # Find consequences
+    # Find broken cherries
     half_cherries = []
     both_missing = []
-    summary_cherries = summary_tree_cherries(family)
-    for (l1, l2) in summary_cherries:
-        if l1 in not_present:
-            if l2 not in not_present:
-                half_cherries.append(l1)
-            else:
-                both_missing.append((l1, l2))
-        elif l2 in not_present:
-            half_cherries.append(l2)
+    summary_cherries = []
+    try:
+        summary_cherries = summary_tree_cherries(family)
+        for (l1, l2) in summary_cherries:
+            if l1 in not_present:
+                if l2 not in not_present:
+                    half_cherries.append(l1)
+                else:
+                    both_missing.append((l1, l2))
+            elif l2 in not_present:
+                half_cherries.append(l2)
+    except NoSummaryTree:
+        pass
 
     # Output consequences
-    n_langs = len(family.languages)
     print(f'### *{family.name}* ({n_langs} taxa)')
-
+    # Summary
     print('\nSummary:')
-    n_complete_cherries = len(summary_cherries) - len(half_cherries) - len(both_missing)
-    print(f'- {n_complete_cherries} out of {len(summary_cherries)} cherries present')
+    if summary_cherries:
+        n_complete_cherries = len(summary_cherries) - len(half_cherries) - len(both_missing)
+        print(f'- {n_complete_cherries} out of {len(summary_cherries)} cherries present')
+    else:
+        print('- NO SUMMARY TREE FOUND = NO CHERRY INFORMATION')
     print(f'- {n_langs - len(not_present)} out of {n_langs} polygons present')
 
+    # Half-broken cherries
     if len(half_cherries) > 0:
         print(f'\n{len(half_cherries)} broken cherries (only one polygon out of two):')
         half_cherries = set(half_cherries)
         for l in half_cherries:
             print(f'- †cherry, because {family.get_language(l)} ({l}) missing')
 
+    # Fully-broken cherries
     if len(both_missing) > 0:
         print(f'\n{len(both_missing)} dead cherries (neither polygon present):')
         for (l1, l2) in both_missing:

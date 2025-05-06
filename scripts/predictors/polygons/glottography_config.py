@@ -6,7 +6,9 @@ def get_config(family_name: str):
         return indoeuropean_config()
     if family_name == 'Dravidian':
         return dravidian_config()
-    raise RuntimeError(f'Unknown family {family_name}')
+    if family_name == 'Uralic':
+        return uralic_config()
+    raise RuntimeError(f'Glottography Error: unknown family {family_name}')
 
 
 def indoeuropean_config():
@@ -41,4 +43,9 @@ def indoeuropean_config():
 
 def dravidian_config():
     return GlottographyConfig(sources=['steever2019dravidian'],
+                              patches={})
+
+
+def uralic_config():
+    return GlottographyConfig(sources=['rantanen2022urhia'],
                               patches={})

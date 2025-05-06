@@ -41,7 +41,11 @@ def visit_tree(tree_nexus_file, family: LanguageFamily) -> dict:
 
 
 def get_summary_tree_nexus(family_name) -> NexusReader:
-    return NexusReader.from_file(f'data/gammaspike/summarytree/{family_name}.nex')
+    try:
+        return NexusReader.from_file(f'data/gammaspike/summarytree/{family_name}.nex')
+    except Exception as e:
+        trace = str(e)
+    raise NoSummaryTree(family_name, trace)
 
 
 def summary_tree_cherries(family: LanguageFamily) -> [(str, str)]:
@@ -64,6 +68,11 @@ def summary_tree_cherries(family: LanguageFamily) -> [(str, str)]:
 
     tree.visit(for_node)
     return cherries
+
+
+class NoSummaryTree(Exception):
+    def __init__(self, family_name, error='no stacktrace'):
+        super().__init__(f'No summary tree present for {family_name}\n({error})')
 
 
 if __name__ == '__main__':
