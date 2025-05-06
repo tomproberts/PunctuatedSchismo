@@ -10,6 +10,8 @@ def get_config(family_name: str):
         return uralic_config()
     if family_name == 'UtoAztecan':
         return uto_config()
+    if family_name == 'SinoTibetan':
+        return sinotibetan_config()
     raise RuntimeError(f'Glottography Error: unknown family {family_name}')
 
 
@@ -54,6 +56,15 @@ def uto_config():
                               patches={
                                   'nort2954': (0, 4617),
                                   'pipi1250': (0, 5042)
+                              })
+def sinotibetan_config():
+    return GlottographyConfig(sources=['asher2007world'],
+                              patches={
+                                  'zaiw1241': (0, 369),
+                                  'byan1241': (0, 1004),
+                                  'lash1243': (0, 3281),
+                                  'lisu1250': (0, 3378),
+                                  'maru1249': (0, 3749),
                               })
 
 
