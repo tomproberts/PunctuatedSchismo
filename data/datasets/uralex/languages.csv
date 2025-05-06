@@ -1,5 +1,5 @@
 ID,Name,Glottocode,Glottolog_Name,ISO639P3code,Macroarea,Latitude,Longitude,Family,Description,Subgroup
-0,Proto-Uralic*,ural1272,,,,,,,,(reconstr.)
+0,Proto-Uralic*,,,,,,,,,(reconstr.)
 101,South Saami,sout2674,South Saami,sma,Eurasia,62.8801,13.7006,Uralic,,Saami
 102,Ume Saami,umes1235,Ume Saami,sju,Eurasia,64.6383,18.646,Uralic,,Saami
 104,Pite Saami,pite1240,Pite Saami,sje,Eurasia,66.4011,17.4261,Uralic,,Saami
