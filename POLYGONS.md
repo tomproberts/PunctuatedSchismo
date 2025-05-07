@@ -51,33 +51,35 @@ period (e.g Modern English).
 Summary:
 
 - 20 out of 50 cherries present
-- 95 out of 160 polygons present
+- 96 out of 160 polygons present
+- 'slov1268' (Slovene, Slovene: Early Modern) have the same polygon
+- 'sout3278' (Macedonian: Visoka, Macedonian: Suho) have the same polygon
 
 23 broken cherries (only one polygon out of two):
 
-- †cherry, because Kalaṣa-alâ: Nišeigrâm ([chim1297](https://glottolog.org/resource/languoid/id/chim1297)) missing
-- †cherry, because German: Bernese ([swis1247](https://glottolog.org/resource/languoid/id/swis1247)) missing
-- †cherry, because Hawrami ([hawr1243](https://glottolog.org/resource/languoid/id/hawr1243)) missing
-- †cherry, because Slovene: Kostel ([lowe1384](https://glottolog.org/resource/languoid/id/lowe1384)) missing
-- †cherry, because Rusyn ([rusy1239](https://glottolog.org/resource/languoid/id/rusy1239)) missing
-- †cherry, because Pashai: North-West ([nort2665](https://glottolog.org/resource/languoid/id/nort2665)) missing
 - †cherry, because Greek: Cypriot ([cypr1249](https://glottolog.org/resource/languoid/id/cypr1249)) missing
-- †cherry, because Megleno-Romanian ([megl1237](https://glottolog.org/resource/languoid/id/megl1237)) missing
-- †cherry, because Old Spanish ([olds1249](https://glottolog.org/resource/languoid/id/olds1249)) missing
-- †cherry, because Old Welsh ([oldw1241](https://glottolog.org/resource/languoid/id/oldw1241)) missing
-- †cherry, because Old Polish ([oldp1256](https://glottolog.org/resource/languoid/id/oldp1256)) missing
-- †cherry, because Sorbian: Lower ([lowe1385](https://glottolog.org/resource/languoid/id/lowe1385)) missing
-- †cherry, because Latgalian ([east2282](https://glottolog.org/resource/languoid/id/east2282)) missing
-- †cherry, because Franco-Provençal ([fran1269](https://glottolog.org/resource/languoid/id/fran1269)) missing
-- †cherry, because Palula ([ashr1238](https://glottolog.org/resource/languoid/id/ashr1238)) missing
-- †cherry, because Raji: Barzoki ([cent2264](https://glottolog.org/resource/languoid/id/cent2264)) missing
-- †cherry, because Neapolitan ([neap1235](https://glottolog.org/resource/languoid/id/neap1235)) missing
-- †cherry, because Luvian ([cune1239](https://glottolog.org/resource/languoid/id/cune1239)) missing
 - †cherry, because Old Catalan ([oldc1251](https://glottolog.org/resource/languoid/id/oldc1251)) missing
 - †cherry, because Armenian: Western ([homs1234](https://glottolog.org/resource/languoid/id/homs1234)) missing
-- †cherry, because Lari ([lari1253](https://glottolog.org/resource/languoid/id/lari1253)) missing
+- †cherry, because Slovene: Kostel ([lowe1384](https://glottolog.org/resource/languoid/id/lowe1384)) missing
+- †cherry, because Franco-Provençal ([fran1269](https://glottolog.org/resource/languoid/id/fran1269)) missing
+- †cherry, because Palula ([ashr1238](https://glottolog.org/resource/languoid/id/ashr1238)) missing
+- †cherry, because Pashai: North-West ([nort2665](https://glottolog.org/resource/languoid/id/nort2665)) missing
+- †cherry, because Latgalian ([east2282](https://glottolog.org/resource/languoid/id/east2282)) missing
 - †cherry, because Khotanese ([khot1251](https://glottolog.org/resource/languoid/id/khot1251)) missing
+- †cherry, because Raji: Barzoki ([cent2264](https://glottolog.org/resource/languoid/id/cent2264)) missing
+- †cherry, because Lari ([lari1253](https://glottolog.org/resource/languoid/id/lari1253)) missing
+- †cherry, because Sorbian: Lower ([lowe1385](https://glottolog.org/resource/languoid/id/lowe1385)) missing
+- †cherry, because Old Spanish ([olds1249](https://glottolog.org/resource/languoid/id/olds1249)) missing
 - †cherry, because Kurdish C.: Jafi ([cent1972](https://glottolog.org/resource/languoid/id/cent1972)) missing
+- †cherry, because Megleno-Romanian ([megl1237](https://glottolog.org/resource/languoid/id/megl1237)) missing
+- †cherry, because German: Bernese ([swis1247](https://glottolog.org/resource/languoid/id/swis1247)) missing
+- †cherry, because Neapolitan ([neap1235](https://glottolog.org/resource/languoid/id/neap1235)) missing
+- †cherry, because Luvian ([cune1239](https://glottolog.org/resource/languoid/id/cune1239)) missing
+- †cherry, because Kalaṣa-alâ: Nišeigrâm ([chim1297](https://glottolog.org/resource/languoid/id/chim1297)) missing
+- †cherry, because Old Polish ([oldp1256](https://glottolog.org/resource/languoid/id/oldp1256)) missing
+- †cherry, because Old Welsh ([oldw1241](https://glottolog.org/resource/languoid/id/oldw1241)) missing
+- †cherry, because Rusyn ([rusy1239](https://glottolog.org/resource/languoid/id/rusy1239)) missing
+- †cherry, because Hawrami ([hawr1243](https://glottolog.org/resource/languoid/id/hawr1243)) missing
 
 7 dead cherries (neither polygon present):
 
@@ -87,8 +89,9 @@ Summary:
   Treger ([treg1244](https://glottolog.org/resource/languoid/id/treg1244)) missing
 - †cherry, because both Norwegian: Bokmål ([norw1259](https://glottolog.org/resource/languoid/id/norw1259)) and
   Norwegian: Nynorsk ([norw1262](https://glottolog.org/resource/languoid/id/norw1262)) missing
-- †cherry, because both Macedonian: Suho ([sout3278](https://glottolog.org/resource/languoid/id/sout3278)) and
-  Macedonian: Visoka ([sout3277](https://glottolog.org/resource/languoid/id/sout3277)) missing
+- †cherry, because both (Macedonian: Visoka, Macedonian:
+  Suho) ([sout3278](https://glottolog.org/resource/languoid/id/sout3278)) and (Macedonian: Visoka, Macedonian:
+  Suho) ([sout3278](https://glottolog.org/resource/languoid/id/sout3278)) missing
 - †cherry, because both Kâta-vari: Eastern ([east2308](https://glottolog.org/resource/languoid/id/east2308)) and
   Kâta-vari: Ktivi ([west2372](https://glottolog.org/resource/languoid/id/west2372)) missing
 - †cherry, because both Kurdish S.: Elami ([feyl1238](https://glottolog.org/resource/languoid/id/feyl1238)) and Kurdish
@@ -105,15 +108,15 @@ Summary:
 
 3 broken cherries (only one polygon out of two):
 
-- †cherry, because Betta_Kurumba ([bett1235](https://glottolog.org/resource/languoid/id/bett1235)) missing
-- †cherry, because Yeruva ([ravu1237](https://glottolog.org/resource/languoid/id/ravu1237)) missing
 - †cherry, because Malto ([saur1249](https://glottolog.org/resource/languoid/id/saur1249)) missing
+- †cherry, because Betta Kurumba ([bett1235](https://glottolog.org/resource/languoid/id/bett1235)) missing
+- †cherry, because Yeruva ([ravu1237](https://glottolog.org/resource/languoid/id/ravu1237)) missing
 
 2 dead cherries (neither polygon present):
 
 - †cherry, because both Gondi ([nort2702](https://glottolog.org/resource/languoid/id/nort2702)) and
   Koya ([koya1251](https://glottolog.org/resource/languoid/id/koya1251)) missing
-- †cherry, because both Ollari_Gadba ([pott1240](https://glottolog.org/resource/languoid/id/pott1240)) and
+- †cherry, because both Ollari Gadba ([pott1240](https://glottolog.org/resource/languoid/id/pott1240)) and
   Parji ([duru1236](https://glottolog.org/resource/languoid/id/duru1236)) missing
 
 ### *Uralic* (27 taxa)
@@ -160,30 +163,30 @@ Summary:
 Summary:
 
 - NO SUMMARY TREE FOUND = NO CHERRY INFORMATION
-- 30 out of 50 polygons present
+- 32 out of 50 polygons present
+- 'hakk1236' (Longgang Chinese, Xingning Chinese) have the same polygon
+- 'amdo1237' (Alike Tibetan, Xiahe Tibetan) have the same polygon
 
-20 missing polygons:
+18 missing polygons:
 
-- Beijing ([beij1235](https://glottolog.org/resource/languoid/id/beij1235))
+- Beijing Chinese ([beij1235](https://glottolog.org/resource/languoid/id/beij1235))
 - Bokar ([boka1249](https://glottolog.org/resource/languoid/id/boka1249))
-- Chaozhou ([chao1238](https://glottolog.org/resource/languoid/id/chao1238))
-- DarangTaraon ([diga1241](https://glottolog.org/resource/languoid/id/diga1241))
-- Guangzhou ([guan1279](https://glottolog.org/resource/languoid/id/guan1279))
+- Chaozhou Chinese ([chao1238](https://glottolog.org/resource/languoid/id/chao1238))
+- Darang Taraon ([diga1241](https://glottolog.org/resource/languoid/id/diga1241))
+- Guangzhou Chinese ([guan1279](https://glottolog.org/resource/languoid/id/guan1279))
 - Hakha ([haka1240](https://glottolog.org/resource/languoid/id/haka1240))
 - Hayu ([wayu1241](https://glottolog.org/resource/languoid/id/wayu1241))
 - Japhug ([japh1234](https://glottolog.org/resource/languoid/id/japh1234))
-- Jieyang ([chao1239](https://glottolog.org/resource/languoid/id/chao1239))
-- OldBurmese ([oldb1235](https://glottolog.org/resource/languoid/id/oldb1235))
-- OldChinese ([oldc1244](https://glottolog.org/resource/languoid/id/oldc1244))
-- OldTibetan ([clas1254](https://glottolog.org/resource/languoid/id/clas1254))
+- Jieyang Chinese ([chao1239](https://glottolog.org/resource/languoid/id/chao1239))
+- Old Burmese ([oldb1235](https://glottolog.org/resource/languoid/id/oldb1235))
+- Old Chinese ([oldc1244](https://glottolog.org/resource/languoid/id/oldc1244))
+- Old Tibetan ([clas1254](https://glottolog.org/resource/languoid/id/clas1254))
 - Tangut ([tang1334](https://glottolog.org/resource/languoid/id/tang1334))
-- Alike ([inno1234](https://glottolog.org/resource/languoid/id/inno1234))
-- Batang ([kham1282](https://glottolog.org/resource/languoid/id/kham1282))
-- Lhasa ([utsa1239](https://glottolog.org/resource/languoid/id/utsa1239))
+- Batang Tibetan ([kham1282](https://glottolog.org/resource/languoid/id/kham1282))
+- Lhasa Tibetan ([utsa1239](https://glottolog.org/resource/languoid/id/utsa1239))
 - Ukhrul ([ukhr1238](https://glottolog.org/resource/languoid/id/ukhr1238))
-- WobziKhroskyabs ([eree1240](https://glottolog.org/resource/languoid/id/eree1240))
-- Xingning ([yuet1238](https://glottolog.org/resource/languoid/id/yuet1238))
-- MaerkangrGyalrong ([situ1238](https://glottolog.org/resource/languoid/id/situ1238))
+- Wobzi Khroskyabs ([eree1240](https://glottolog.org/resource/languoid/id/eree1240))
+- Maerkang rGyalrong ([situ1238](https://glottolog.org/resource/languoid/id/situ1238))
 
 ### *Pama-Nyungan* (306 taxa)
 

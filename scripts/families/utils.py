@@ -4,9 +4,9 @@ from scripts.utils import asciify_alphanumeric
 class LanguageFamily:
     _name = None
     _family_glottocode = None
-    _id_map = {}  # {'lang_id': ('glottocode', 'language_name', 'language_ascii'),...}
 
     def __init__(self):
+        self._id_map = dict()  # {'lang_id': ('glottocode', 'language_name', 'language_ascii'),...}
         self.load_languages()
         self.patch()
         self.verify_unique_glottocodes()
@@ -106,6 +106,14 @@ class LanguageFamily:
 
     @language_ids.setter
     def language_ids(self, value):
+        # check for duplicates
+        singles = []
+        for new_id in value:
+            if new_id not in singles:
+                singles.append(new_id)
+            else:
+                raise DuplicateLanguageID(new_id)
+
         # if map is initialised
         if bool(self._id_map):
             self.verify_fit('language ids', value)
@@ -247,3 +255,8 @@ class DuplicateGlottocodes(Exception):
     def __init__(self, glottocodes=None):
         message = f"Duplicate glottocodes '{"','".join(glottocodes)}' found, perhaps implement self.patch()?"
         super().__init__(message)
+
+
+class DuplicateLanguageID(Exception):
+    def __init__(self, language_id):
+        super().__init__(f"Duplicate language ID '{language_id}', language ID's must be unique!")
