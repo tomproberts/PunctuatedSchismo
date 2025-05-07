@@ -24,7 +24,7 @@ def visit_tree(tree_nexus_file, family: LanguageFamily) -> dict:
         ascii_name = translate[node.name]
         glottocode = family.get_glottocode_from_ascii(ascii_name)
         leaves_ascii.append(ascii_name)
-        leaves_name.append(family.get_language(glottocode))
+        leaves_name.append(family.get_language_from_glottocode(glottocode))
         leaves_glottocode.append(glottocode)
         # scale bursts sizes for number of cognate sets
         leaves_weightedSpikes.append(family.n_sites / 2 * float(node.properties['weightedSpikes']))

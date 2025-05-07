@@ -26,27 +26,22 @@ class IndoEuropean(LanguageFamily):
 
     def __init__(self):
         self.loaded = False
-        self.language_ids = []
-        self.languages_ascii = []
         self._all_forms = None
         self._cognates_merged = False
         super().__init__()
 
     def load_languages(self):
         all_languages = pd.read_csv(IE_COR_LANGUAGES_CSV)
+        self.language_ids = list(all_languages.ID)
         self.glottocodes = list(all_languages.Glottocode)
         self.languages = list(all_languages.Name)
-        self.language_ids = list(all_languages.ID)
         self.languages_ascii = list(all_languages.ascii_name)
         self.loaded = True
 
-    def get_language_id(self, glottocode):
-        index = super().get_index(glottocode)
-        return self.language_ids[index]
-
-    def get_forms_for_language(self, glottocode, extended=False):
+    def get_forms_for_language(self, lang_id, extended=False, glottocode=False):
+        if glottocode:
+            lang_id = self.get_language_id_from_glottocode(lang_id)
         all_forms = self.merge_on_cognate_ids() if extended else self.ie_cor_forms
-        lang_id = self.get_language_id(glottocode)
         forms = all_forms[all_forms[IE_COR_LANGUAGE_ID_COLUMN] == lang_id]
         if extended:
             return forms
@@ -68,7 +63,9 @@ class IndoEuropean(LanguageFamily):
     @property
     def ie_cor_forms(self):
         if self._all_forms is None:
-            self._all_forms = pd.read_csv(IE_COR_FORMS_CSV)
+            df = pd.read_csv(IE_COR_FORMS_CSV)
+            df[IE_COR_LANGUAGE_ID_COLUMN] = df[IE_COR_LANGUAGE_ID_COLUMN].astype(str)
+            self._all_forms = df
         return self._all_forms
 
     def patch(self):
@@ -77,13 +74,12 @@ class IndoEuropean(LanguageFamily):
         self.set_language_glottocode('Late Cornish', 'corn1251')
         self.set_language_glottocode('Old Swedish', 'olds1252')
         # No glottocode for early modern slovenian, set to something topologically equal
-        self.set_language_glottocode('Slovene: Early Modern', 'wind1243')
         self.set_language_glottocode('Old Czech', 'oldc1253')
         self.set_language_glottocode('Kurdish S.: Elami', 'feyl1238')
         self.set_language_glottocode('Kurdish S.: Qorveh', 'koly1245')
         # Both are south-eastern dialects but no finer granularity of course
         self.set_language_glottocode('Macedonian: Suho', 'sout3278')
-        self.set_language_glottocode('Macedonian: Visoka', 'sout3277')
+        self.set_language_glottocode('Macedonian: Visoka', 'sout3278')
 
 
 class Italic(IndoEuropean):
@@ -92,9 +88,9 @@ class Italic(IndoEuropean):
     def load_languages(self):
         all_languages = pd.read_csv(IE_COR_LANGUAGES_CSV)
         italic_languages = all_languages[all_languages.Clade.str.startswith(IE_COR_ITALIC_CLADE)]
+        self.language_ids = list(italic_languages.ID)
         self.glottocodes = list(italic_languages.Glottocode)
         self.languages = list(italic_languages.Name)
-        self.language_ids = list(italic_languages.ID)
         self.languages_ascii = list(italic_languages.ascii_name)
 
     def patch(self):

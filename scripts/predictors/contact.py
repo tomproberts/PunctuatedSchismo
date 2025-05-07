@@ -111,6 +111,7 @@ if __name__ == '__main__':
 
     glottography = Glottography(get_config(family.name))
     cherries, mean_distances, median_distances = calculate_euclidean_distances(cherries, glottography)
+    # TODO: include language IDs
     write_out_contact(family.name, cherries, mean_distances, median_distances)
     print(f'Wrote out contact distances for {family.name}')
 
