@@ -8,7 +8,7 @@ DRAVLEX_LANGUAGES_CSV = f'{DRAVLEX_DIR}/languages.csv'
 class Dravidian(LanguageFamily):
     name = 'Dravidian'
     family_glottocode = 'drav1251'
-    n_taxa = 877
+    n_sites = 877
 
     def load_languages(self):
         all_languages = pd.read_csv(DRAVLEX_LANGUAGES_CSV)

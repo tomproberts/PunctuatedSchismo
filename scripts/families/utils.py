@@ -35,8 +35,8 @@ class LanguageFamily:
         raise NotImplementedError('self.COGNACY_COLUMN not provided')
 
     @property
-    def n_taxa(self):
-        raise NotImplementedError('number of taxa not provided')
+    def n_sites(self):
+        raise NotImplementedError('number of sites not provided')
 
     @name.setter
     def name(self, name):
@@ -104,7 +104,9 @@ class LanguageFamily:
         uniques = set()
         doubles = set()
         for glottocode in self.glottocodes:
-            (uniques if glottocode not in uniques else doubles).add(glottocode)
+            if type(glottocode) is str:
+                (uniques if glottocode not in uniques else doubles).add(glottocode)
+            # TODO: else, it's float.NAN, i.e. missing glottocode
         if len(doubles) > 0:
             raise DuplicateGlottocodes(doubles)
             # print(f"Warning: duplicate glottocodes '{"','".join(doubles)}' found, perhaps implement self.patch()?")
