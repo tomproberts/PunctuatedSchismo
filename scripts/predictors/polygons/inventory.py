@@ -1,4 +1,5 @@
 from scripts.families.sino_tibetan import SinoTibetan
+from scripts.families.uto_aztecan import UtoAztecan
 from scripts.gammaspike.summary_tree import summary_tree_cherries, NoSummaryTree
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
 from scripts.predictors.polygons.glottography_config import get_config
@@ -9,7 +10,7 @@ def to_glottolink(glottocode):
 
 
 if __name__ == '__main__':
-    family = SinoTibetan()
+    family = UtoAztecan()
     n_langs = len(family.languages)
     glottography = Glottography(get_config(family.name))
 
@@ -48,6 +49,10 @@ if __name__ == '__main__':
     else:
         print('- NO SUMMARY TREE FOUND = NO CHERRY INFORMATION')
     print(f'- {n_langs - len(not_present)} out of {n_langs} polygons present')
+    # Mention duplicates
+    duplicates = family.get_duplicate_glottocodes()
+    if len(duplicates) > 0:
+        print(f"- however, repeated glottocodes '{"', '".join(duplicates)}' found in dataset")
 
     if summary_cherries:
         # Half-broken cherries

@@ -187,7 +187,7 @@ class LanguageFamily:
     def load_languages(self):
         raise NotImplementedError('load_languages method not implemented')
 
-    def verify_unique_glottocodes(self):
+    def get_duplicate_glottocodes(self):
         uniques = set()
         doubles = set()
         for (glottocode, language_name, _) in self._id_map.values():
@@ -195,9 +195,13 @@ class LanguageFamily:
                 (uniques if glottocode not in uniques else doubles).add(glottocode)
             else:
                 print(f"Warning: no glottocode specified for language '{language_name}'")
-        if len(doubles) > 0:
-            print(f"Warning: duplicate glottocodes '{"','".join(doubles)}' found, perhaps implement self.patch()?")
-            # raise DuplicateGlottocodes(doubles)
+        return doubles
+
+    def verify_unique_glottocodes(self):
+        duplicates = self.get_duplicate_glottocodes()
+        if len(duplicates) > 0:
+            print(f"Warning: duplicate glottocodes '{"','".join(duplicates)}' found, perhaps implement self.patch()?")
+            # raise DuplicateGlottocodes(duplicates)
 
     def patch(self):
         pass

@@ -12,5 +12,6 @@ class UtoAztecan(LanguageFamily):
 
     def load_languages(self):
         all_languages = pd.read_csv(UTO_LANGUAGES_CSV)
+        self.language_ids = list(all_languages.ID)
         self.glottocodes = list(all_languages.Glottocode)
         self.languages = list(all_languages.Name)

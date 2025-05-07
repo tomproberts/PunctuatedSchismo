@@ -12,10 +12,6 @@ class SinoTibetan(LanguageFamily):
 
     def load_languages(self):
         all_languages = pd.read_csv(SINOTIBETAN_LANGUAGES_CSV)
+        self.language_ids = list(all_languages.ID)
         self.glottocodes = list(all_languages.Glottocode)
-        self.languages = list(all_languages.ID)
-
-    def patch(self):
-        # Both randomly assigned to similar place on topology, investigate later!
-        self.set_language_glottocode('Alike', 'inno1234')
-        self.set_language_glottocode('Xingning', 'yuet1238')
+        self.languages = list(all_languages.Name_in_Text)

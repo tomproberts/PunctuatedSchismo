@@ -32,9 +32,9 @@ class IndoEuropean(LanguageFamily):
 
     def load_languages(self):
         all_languages = pd.read_csv(IE_COR_LANGUAGES_CSV)
+        self.language_ids = list(all_languages.ID)
         self.glottocodes = list(all_languages.Glottocode)
         self.languages = list(all_languages.Name)
-        self.language_ids = list(all_languages.ID)
         self.languages_ascii = list(all_languages.ascii_name)
         self.loaded = True
 
@@ -71,13 +71,12 @@ class IndoEuropean(LanguageFamily):
         self.set_language_glottocode('Late Cornish', 'corn1251')
         self.set_language_glottocode('Old Swedish', 'olds1252')
         # No glottocode for early modern slovenian, set to something topologically equal
-        self.set_language_glottocode('Slovene: Early Modern', 'wind1243')
         self.set_language_glottocode('Old Czech', 'oldc1253')
         self.set_language_glottocode('Kurdish S.: Elami', 'feyl1238')
         self.set_language_glottocode('Kurdish S.: Qorveh', 'koly1245')
         # Both are south-eastern dialects but no finer granularity of course
         self.set_language_glottocode('Macedonian: Suho', 'sout3278')
-        self.set_language_glottocode('Macedonian: Visoka', 'sout3277')
+        self.set_language_glottocode('Macedonian: Visoka', 'sout3278')
 
 
 class Italic(IndoEuropean):
@@ -86,9 +85,9 @@ class Italic(IndoEuropean):
     def load_languages(self):
         all_languages = pd.read_csv(IE_COR_LANGUAGES_CSV)
         italic_languages = all_languages[all_languages.Clade.str.startswith(IE_COR_ITALIC_CLADE)]
+        self.language_ids = list(italic_languages.ID)
         self.glottocodes = list(italic_languages.Glottocode)
         self.languages = list(italic_languages.Name)
-        self.language_ids = list(italic_languages.ID)
         self.languages_ascii = list(italic_languages.ascii_name)
 
     def patch(self):
