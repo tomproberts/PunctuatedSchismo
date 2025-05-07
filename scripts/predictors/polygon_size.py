@@ -36,4 +36,5 @@ if __name__ == '__main__':
     glottography = Glottography(get_config(family.name))
 
     df = calculate_areas(glottography, required_glottocodes)
+    # TODO: include language IDs
     write_out_polygon_size(df, family.name)
