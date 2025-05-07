@@ -1,4 +1,4 @@
-from scripts.utils import asciify_alphanumeric
+from scripts.utils import asciify_alphanumeric, is_valid_identifier
 
 
 class LanguageFamily:
@@ -119,11 +119,11 @@ class LanguageFamily:
             self.verify_fit('language ids', value)
             new_map = {}
             for (old_lang_id, new_lang_id) in zip(self._id_map, value):
-                new_map[new_lang_id] = self._id_map[old_lang_id]
+                new_map[verify_id(new_lang_id)] = self._id_map[old_lang_id]
             self._id_map = new_map
         else:
             for lang_id in value:
-                self._id_map[lang_id] = (None, None, None)
+                self._id_map[verify_id(lang_id)] = (None, None, None)
 
     @property
     def glottocodes(self):
@@ -233,6 +233,13 @@ class LanguageFamily:
             raise LanguageNotFound(language_name, self.name)
 
 
+def verify_id(lang_id):
+    lang_id = str(lang_id)
+    if not is_valid_identifier(lang_id):
+        raise InvalidLanguageID(lang_id)
+    return lang_id
+
+
 class GlottocodeNotFound(Exception):
     def __init__(self, glottocode, family=None):
         if family is None:
@@ -259,4 +266,10 @@ class DuplicateGlottocodes(Exception):
 
 class DuplicateLanguageID(Exception):
     def __init__(self, language_id):
-        super().__init__(f"Duplicate language ID '{language_id}', language ID's must be unique!")
+        super().__init__(f"Duplicate language ID '{language_id}', language ID's must be unique")
+
+
+class InvalidLanguageID(Exception):
+    def __init__(self, language_id):
+        super().__init__(
+            f"Invalid language ID '{language_id}', may only contain alpha-numeric characters and underscores")

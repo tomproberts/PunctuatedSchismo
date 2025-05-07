@@ -2,6 +2,10 @@ import re
 
 from scripts.families.dravidian import Dravidian
 from scripts.families.indo_european import IndoEuropean, Italic
+from scripts.families.sino_tibetan import SinoTibetan
+from scripts.families.uralic import Uralic
+from scripts.families.utils import LanguageFamily
+from scripts.families.uto_aztecan import UtoAztecan
 from scripts.glottolog.trees import GlottologTreeType, write_out_glottolog_tree, ALL_TREES
 from scripts.utils import asciify
 
@@ -94,14 +98,36 @@ def remove_grouping(pruned, lang1, lang2):
     return pruned
 
 
-def tree_convert_glottocodes_to_labels(tree_string, family, ascii=False):
-    # TODO: Make more efficient? Technically doesn't matter
+def escape_glottocodes(tree_string):
+    return re.sub(r'([a-z]{4}[0-9]{4})', r'$\1$', tree_string)
+
+
+def escape_ids(tree_string):
+    return re.sub(r'([a-zA-Z0-9_]+)', r'$\1$', tree_string)
+
+
+def tree_convert_ids_to_labels(tree_string, family):
+    tree_string = escape_ids(tree_string)
+    for lang_id, label in zip(family.language_ids, family.languages):
+        tree_string = tree_string.replace(f'${lang_id}$', f"'{label}'")
+    return tree_string
+
+
+def tree_convert_ids_to_ascii(tree_string, family):
+    tree_string = escape_ids(tree_string)
+    for lang_id, label_ascii in zip(family.language_ids, family.languages_ascii):
+        tree_string = tree_string.replace(f'${lang_id}$', label_ascii)
+    return tree_string
+
+
+def tree_convert_glottocodes_to_ids(tree_string, family):
+    # Escape glottocodes in case ids are literally glottocodes and messed up
+    tree_string = escape_glottocodes(tree_string)
+    # Replace
     for family_glottocode in family.glottocodes:
-        if ascii:
-            language = family.get_language_ascii_from_glottocode(family_glottocode)
-        else:
-            language = f"'{family.get_language_from_glottocode(family_glottocode)}'"
-        tree_string = tree_string.replace(family_glottocode, language)
+        ids = family.get_language_ids_from_glottocode(family_glottocode)
+        replace_text = ids[0] if len(ids) == 1 else ','.join(ids)
+        tree_string = tree_string.replace(f'${family_glottocode}$', replace_text)
     return tree_string
 
 
@@ -111,6 +137,9 @@ def fix_problematic_groupings(tree_string, family):
     if family.name == 'IndoEuropean':
         tree_string = remove_grouping(tree_string, 'faro1244', 'icel1247')
         tree_string = remove_grouping(tree_string, 'czec1258', 'oldc1253')
+    if family.name == 'Uralic':
+        # TODO: hoist up Proto-Uralic so that it's an outgroup
+        pass
 
     return tree_string
 
@@ -118,25 +147,29 @@ def fix_problematic_groupings(tree_string, family):
 def generate_glottolog_trees(family):
     tree = get_glottolog_tree_string(family.family_glottocode)
     tree = glottocodes_only_tree(tree)
-    select = family.glottocodes
+    select = set(family.glottocodes)
 
     # Prune tree
-    pruned = prune_tree_string(tree, select)
-    pruned = fix_problematic_groupings(pruned, family)
-    verify_correct(pruned, select)
+    pruned_glottocodes = prune_tree_string(tree, select)
+    pruned_glottocodes = fix_problematic_groupings(pruned_glottocodes, family)
+    verify_correct(pruned_glottocodes, select)
+
+    # Convert to IDs
+    id_labelled = tree_convert_glottocodes_to_ids(pruned_glottocodes, family)
 
     # Generate labelled version for plots
-    labelled = tree_convert_glottocodes_to_labels(pruned, family)
+    labelled = tree_convert_ids_to_labels(id_labelled, family)
 
     # Generate ascii version for beast
-    labelled_ascii = tree_convert_glottocodes_to_labels(pruned, family, ascii=True)
+    labelled_ascii = tree_convert_ids_to_ascii(id_labelled, family)
 
     # Export
-    write_out_glottolog_tree(pruned, family.name, GlottologTreeType.GLOTTOCODES)
+    write_out_glottolog_tree(pruned_glottocodes, family.name, GlottologTreeType.GLOTTOCODES)
+    write_out_glottolog_tree(id_labelled, family.name, GlottologTreeType.ID)
     write_out_glottolog_tree(labelled, family.name, GlottologTreeType.NAMES)
     write_out_glottolog_tree(labelled_ascii, family.name, GlottologTreeType.ASCII)
 
 
 if __name__ == '__main__':
-    family = Dravidian()
+    family = Uralic()
     generate_glottolog_trees(family)

@@ -14,6 +14,7 @@ class GlottologTreeType(Enum):
     GLOTTOCODES = 'glottocodes'
     NAMES = 'names'
     ASCII = 'ascii'
+    ID = 'id'
 
 
 def write_out_glottolog_tree(tree_string: str, family_name: str, type: GlottologTreeType) -> None:
@@ -22,7 +23,7 @@ def write_out_glottolog_tree(tree_string: str, family_name: str, type: Glottolog
 
 
 def glottolog_tree_file(type: GlottologTreeType, family_name: str) -> str:
-    return f'{GLOTTOLOG_DIR}/{type.value}/{family_name}.newick'
+    return f'{GLOTTOLOG_DIR}/{type.value}.{family_name}.newick'
 
 
 def glottolog_cherries(family: LanguageFamily) -> [(str, str)]:
