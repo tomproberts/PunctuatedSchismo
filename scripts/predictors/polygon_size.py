@@ -23,7 +23,7 @@ def calculate_areas(glottography, required_glottocodes):
             df_glottocodes.append(code)
             df_area.append(area)
         except LiterallyNoPolygonException as e:
-            print(f'{e} ({family.get_language(code)})')
+            print(f'{e} ({family.get_language_from_glottocode(code)})')
 
     # TODO: Include sources?
     return pd.DataFrame({'glottocode': df_glottocodes, 'area_cartesian': df_area})

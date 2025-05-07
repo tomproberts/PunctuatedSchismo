@@ -7,7 +7,7 @@ from scripts.predictors.utils import write_out_phonological_distance
 def main():
     family = Italic()
     cherries = trees.glottolog_cherries(family)
-    print('\n'.join([f'({family.get_language(x)}, {family.get_language(y)})' for (x, y) in cherries]))
+    print('\n'.join([f'({family.get_language_from_glottocode(x)}, {family.get_language_from_glottocode(y)})' for (x, y) in cherries]))
     phon_distances = calculate_distances(family, cherries, MEAN)
     print(phon_distances)
     write_out_phonological_distance(family, cherries, phon_distances)

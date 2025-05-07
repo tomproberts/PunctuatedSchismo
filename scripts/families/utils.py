@@ -4,12 +4,9 @@ from scripts.utils import asciify_alphanumeric
 class LanguageFamily:
     _name = None
     _family_glottocode = None
-    _glottocodes = []
-    _languages = []
-    _languages_ascii = []
+    _id_map = {}  # {'lang_id': ('glottocode', 'language_name', 'language_ascii'),...}
 
     def __init__(self):
-        # TODO: reimplement as dictionary
         self.load_languages()
         self.patch()
         self.verify_unique_glottocodes()
@@ -46,16 +43,6 @@ class LanguageFamily:
     def family_glottocode(self, family_glottocode):
         self._family_glottocode = family_glottocode
 
-    @property
-    def languages_ascii(self):
-        if not self._languages_ascii:
-            self._languages_ascii = [asciify_alphanumeric(l) for l in self.languages]
-        return self._languages_ascii
-
-    @languages_ascii.setter
-    def languages_ascii(self, languages_ascii):
-        self._languages_ascii = languages_ascii
-
     def get_forms_for_language(self, glottocode, extended=False):
         raise NotImplementedError(f'get_forms_for_language not implemented for {self.name}')
 
@@ -64,38 +51,86 @@ class LanguageFamily:
         return self.glottocodes[i]
 
     def __contains__(self, item):
-        return item in self._glottocodes
+        return item in self.glottocodes
 
-    def get_language(self, glottocode):
-        index = self.get_index(glottocode)
-        return self.languages[index]
+    def get_language_from_glottocode(self, glottocode):
+        for (lang_glottocode, language_name, _) in self._id_map:
+            if glottocode == lang_glottocode:
+                return language_name
+        raise GlottocodeNotFound(glottocode)
 
-    def get_language_ascii(self, glottocode):
-        index = self.get_index(glottocode)
-        return self.languages_ascii[index]
+    def get_language_ascii_from_glottocode(self, glottocode):
+        for (lang_glottocode, lang_name, lang_ascii) in self._id_map:
+            if glottocode == lang_glottocode:
+                if lang_ascii is not None:
+                    return lang_ascii
+                return asciify_alphanumeric(lang_name)
+        raise GlottocodeNotFound(glottocode)
 
     @property
     def glottocodes(self):
-        return self._glottocodes
+        # if map is initialised
+        if bool(self._id_map):
+            return [glottocode for (glottocode, _, _) in self._id_map.values()]
+        return []
 
     @glottocodes.setter
     def glottocodes(self, value):
-        self._glottocodes = value
+        # if map is initialised
+        if bool(self._id_map):
+            assert len(self._id_map) == len(value)
+            for (lang_id, glottocode) in zip(self._id_map, value):
+                (_, lang_name, lang_ascii) = self._id_map[lang_id]
+                self._id_map[lang_id] = (glottocode, lang_name, lang_ascii)
+        else:
+            for glottocode in value:
+                self._id_map[glottocode] = (glottocode, None, None)
 
     @property
     def languages(self):
-        return self._languages
+        # if map is initialised
+        if bool(self._id_map):
+            return [lang_name for (_, lang_name, _) in self._id_map.values()]
+        return []
 
     @languages.setter
     def languages(self, value):
-        self._languages = value
+        # if map is initialised
+        if bool(self._id_map):
+            assert len(self._id_map) == len(value)
+            for (lang_id, lang_name) in zip(self._id_map, value):
+                (glottocode, _, lang_ascii) = self._id_map[lang_id]
+                self._id_map[lang_id] = (glottocode, lang_name, lang_ascii)
+        else:
+            for lang_name in value:
+                self._id_map[lang_name] = (None, lang_name, None)
 
-    def get_index(self, glottocode):
-        try:
-            return self.glottocodes.index(glottocode)
-        except ValueError:
-            pass
-        raise GlottocodeNotFound(glottocode, self.name)
+    @property
+    def languages_ascii(self):
+        self.check_and_generate_ascii_names()
+        # if map is initialised
+        if bool(self._id_map):
+            return [lang_ascii for (_, _, lang_ascii) in self._id_map.values()]
+        return []
+        # self._tmp_languages_ascii = [asciify_alphanumeric(l) for l in self.languages]
+
+    def check_and_generate_ascii_names(self):
+        if bool(self._id_map):
+            (_, _, sample_ascii) = next(iter(self._id_map.values()))
+            if sample_ascii is None:
+                self.languages_ascii = [asciify_alphanumeric(l) for l in self.languages]
+
+    @languages_ascii.setter
+    def languages_ascii(self, value):
+        # if map is initialised
+        if bool(self._id_map):
+            assert len(self._id_map) == len(value)
+            for (lang_id, lang_ascii) in zip(self._id_map, value):
+                (glottocode, lang_name, _) = self._id_map[lang_id]
+                self._id_map[lang_id] = (glottocode, lang_name, lang_ascii)
+        else:
+            for lang_ascii in value:
+                self._id_map[lang_ascii] = (None, lang_ascii, None)
 
     def load_languages(self):
         raise NotImplementedError('load_languages method not implemented')
@@ -115,13 +150,14 @@ class LanguageFamily:
         pass
 
     def set_language_glottocode(self, language_name, glottocode):
-        try:
-            i = self._languages.index(language_name)
-            self._glottocodes[i] = glottocode
-            return
-        except ValueError:
-            pass
-        raise LanguageNotFound(language_name, self.name)
+        found = False
+        for key, (_, match_name, lang_ascii) in self._id_map.items():
+            if language_name == match_name:
+                self._id_map[key] = (glottocode, language_name, lang_ascii)
+                found = True
+                break
+        if not found:
+            raise LanguageNotFound(language_name, self.name)
 
 
 class GlottocodeNotFound(Exception):

@@ -98,9 +98,9 @@ def tree_convert_glottocodes_to_labels(tree_string, family, ascii=False):
     # TODO: Make more efficient? Technically doesn't matter
     for family_glottocode in family.glottocodes:
         if ascii:
-            language = family.get_language_ascii(family_glottocode)
+            language = family.get_language_ascii_from_glottocode(family_glottocode)
         else:
-            language = f"'{family.get_language(family_glottocode)}'"
+            language = f"'{family.get_language_from_glottocode(family_glottocode)}'"
         tree_string = tree_string.replace(family_glottocode, language)
     return tree_string
 

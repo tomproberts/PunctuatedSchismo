@@ -55,16 +55,16 @@ if __name__ == '__main__':
             print(f'\n{len(half_cherries)} broken cherries (only one polygon out of two):')
             half_cherries = set(half_cherries)
             for l in half_cherries:
-                print(f'- †cherry, because {family.get_language(l)} ({to_glottolink(l)}) missing')
+                print(f'- †cherry, because {family.get_language_from_glottocode(l)} ({to_glottolink(l)}) missing')
 
         # Fully-broken cherries
         if len(both_missing) > 0:
             print(f'\n{len(both_missing)} dead cherries (neither polygon present):')
             for (l1, l2) in both_missing:
                 print(
-                    f'- †cherry, because both {family.get_language(l1)} ({to_glottolink(l1)}) and {family.get_language(l2)} ({to_glottolink(l2)}) missing')
+                    f'- †cherry, because both {family.get_language_from_glottocode(l1)} ({to_glottolink(l1)}) and {family.get_language_from_glottocode(l2)} ({to_glottolink(l2)}) missing')
     else:
         # List missing polygons
         print(f'\n{len(not_present)} missing polygons:')
         for p in not_present:
-            print(f'- {family.get_language(p)} ({to_glottolink(p)})')
+            print(f'- {family.get_language_from_glottocode(p)} ({to_glottolink(p)})')
