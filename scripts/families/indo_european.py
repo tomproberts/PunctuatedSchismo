@@ -26,8 +26,6 @@ class IndoEuropean(LanguageFamily):
 
     def __init__(self):
         self.loaded = False
-        self.language_ids = []
-        self.languages_ascii = []
         self._all_forms = None
         self._cognates_merged = False
         super().__init__()
@@ -40,13 +38,9 @@ class IndoEuropean(LanguageFamily):
         self.languages_ascii = list(all_languages.ascii_name)
         self.loaded = True
 
-    def get_language_id(self, glottocode):
-        index = super().get_index(glottocode)
-        return self.language_ids[index]
-
     def get_forms_for_language(self, glottocode, extended=False):
         all_forms = self.merge_on_cognate_ids() if extended else self.ie_cor_forms
-        lang_id = self.get_language_id(glottocode)
+        lang_id = self.get_language_id_from_glottocode(glottocode)
         forms = all_forms[all_forms[IE_COR_LANGUAGE_ID_COLUMN] == lang_id]
         if extended:
             return forms

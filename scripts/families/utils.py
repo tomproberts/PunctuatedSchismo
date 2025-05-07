@@ -54,18 +54,68 @@ class LanguageFamily:
         return item in self.glottocodes
 
     def get_language_from_glottocode(self, glottocode):
-        for (lang_glottocode, language_name, _) in self._id_map:
+        language_names = self.get_languages_from_glottocode(glottocode)
+        if not language_names:
+            raise GlottocodeNotFound(glottocode)
+        if len(language_names) == 1:
+            return language_names[0]
+        raise DuplicateGlottocodes([glottocode])
+
+    def get_languages_from_glottocode(self, glottocode):
+        languages = []
+        for (lang_glottocode, language_name, _) in self._id_map.values():
             if glottocode == lang_glottocode:
-                return language_name
-        raise GlottocodeNotFound(glottocode)
+                languages.append(language_name)
+        return languages
 
     def get_language_ascii_from_glottocode(self, glottocode):
-        for (lang_glottocode, lang_name, lang_ascii) in self._id_map:
+        language_asciis = self.get_language_asciis_from_glottocode(glottocode)
+        # Return
+        if not language_asciis:
+            raise GlottocodeNotFound(glottocode)
+        if len(language_asciis) == 1:
+            return language_asciis[0]
+        raise DuplicateGlottocodes([glottocode])
+
+    def get_language_asciis_from_glottocode(self, glottocode):
+        self.check_and_generate_ascii_names()
+        language_asciis = []
+        for (lang_glottocode, lang_name, lang_ascii) in self._id_map.values():
             if glottocode == lang_glottocode:
-                if lang_ascii is not None:
-                    return lang_ascii
-                return asciify_alphanumeric(lang_name)
-        raise GlottocodeNotFound(glottocode)
+                language_asciis.append(lang_ascii)
+        return language_asciis
+
+    def get_language_id_from_glottocode(self, glottocode):
+        language_ids = self.get_language_ids_from_glottocode(glottocode)
+        if not language_ids:
+            raise GlottocodeNotFound(glottocode)
+        if len(language_ids) == 1:
+            return language_ids[0]
+        raise DuplicateGlottocodes([glottocode])
+
+    def get_language_ids_from_glottocode(self, glottocode):
+        language_ids = []
+        for key, (lang_glottocode, _, _) in self._id_map.items():
+            if glottocode == lang_glottocode:
+                language_ids.append(key)
+        return language_ids
+
+    @property
+    def language_ids(self):
+        return list(self._id_map.keys())
+
+    @language_ids.setter
+    def language_ids(self, value):
+        # if map is initialised
+        if bool(self._id_map):
+            self.verify_fit('language ids', value)
+            new_map = {}
+            for (old_lang_id, new_lang_id) in zip(self._id_map, value):
+                new_map[new_lang_id] = self._id_map[old_lang_id]
+            self._id_map = new_map
+        else:
+            for lang_id in value:
+                self._id_map[lang_id] = (None, None, None)
 
     @property
     def glottocodes(self):
@@ -78,13 +128,16 @@ class LanguageFamily:
     def glottocodes(self, value):
         # if map is initialised
         if bool(self._id_map):
-            assert len(self._id_map) == len(value)
+            self.verify_fit('glottocodes', value)
             for (lang_id, glottocode) in zip(self._id_map, value):
                 (_, lang_name, lang_ascii) = self._id_map[lang_id]
                 self._id_map[lang_id] = (glottocode, lang_name, lang_ascii)
         else:
             for glottocode in value:
-                self._id_map[glottocode] = (glottocode, None, None)
+                key = glottocode
+                while key in self._id_map:
+                    key = f'{key}+'
+                self._id_map[key] = (glottocode, None, None)
 
     @property
     def languages(self):
@@ -97,7 +150,7 @@ class LanguageFamily:
     def languages(self, value):
         # if map is initialised
         if bool(self._id_map):
-            assert len(self._id_map) == len(value)
+            self.verify_fit('languages', value)
             for (lang_id, lang_name) in zip(self._id_map, value):
                 (glottocode, _, lang_ascii) = self._id_map[lang_id]
                 self._id_map[lang_id] = (glottocode, lang_name, lang_ascii)
@@ -112,7 +165,6 @@ class LanguageFamily:
         if bool(self._id_map):
             return [lang_ascii for (_, _, lang_ascii) in self._id_map.values()]
         return []
-        # self._tmp_languages_ascii = [asciify_alphanumeric(l) for l in self.languages]
 
     def check_and_generate_ascii_names(self):
         if bool(self._id_map):
@@ -124,7 +176,7 @@ class LanguageFamily:
     def languages_ascii(self, value):
         # if map is initialised
         if bool(self._id_map):
-            assert len(self._id_map) == len(value)
+            self.verify_fit('asciis', value)
             for (lang_id, lang_ascii) in zip(self._id_map, value):
                 (glottocode, lang_name, _) = self._id_map[lang_id]
                 self._id_map[lang_id] = (glottocode, lang_name, lang_ascii)
@@ -138,16 +190,25 @@ class LanguageFamily:
     def verify_unique_glottocodes(self):
         uniques = set()
         doubles = set()
-        for glottocode in self.glottocodes:
+        for (glottocode, language_name, _) in self._id_map.values():
             if type(glottocode) is str:
                 (uniques if glottocode not in uniques else doubles).add(glottocode)
-            # TODO: else, it's float.NAN, i.e. missing glottocode
+            else:
+                print(f"Warning: no glottocode specified for language '{language_name}'")
         if len(doubles) > 0:
-            raise DuplicateGlottocodes(doubles)
-            # print(f"Warning: duplicate glottocodes '{"','".join(doubles)}' found, perhaps implement self.patch()?")
+            print(f"Warning: duplicate glottocodes '{"','".join(doubles)}' found, perhaps implement self.patch()?")
+            # raise DuplicateGlottocodes(doubles)
 
     def patch(self):
         pass
+
+    def verify_fit(self, parameter_name, value):
+        try:
+            assert len(self._id_map) == len(value)
+        except:
+            print(f'id_map ({len(self._id_map)}): {self._id_map}')
+            print(f'{parameter_name} ({len(value)}): {value}')
+            raise AssertionError(f'id_map and {parameter_name} must have same length')
 
     def set_language_glottocode(self, language_name, glottocode):
         found = False
