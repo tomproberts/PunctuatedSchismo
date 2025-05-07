@@ -38,9 +38,10 @@ class IndoEuropean(LanguageFamily):
         self.languages_ascii = list(all_languages.ascii_name)
         self.loaded = True
 
-    def get_forms_for_language(self, glottocode, extended=False):
+    def get_forms_for_language(self, lang_id, extended=False, glottocode=False):
+        if glottocode:
+            lang_id = self.get_language_id_from_glottocode(lang_id)
         all_forms = self.merge_on_cognate_ids() if extended else self.ie_cor_forms
-        lang_id = self.get_language_id_from_glottocode(glottocode)
         forms = all_forms[all_forms[IE_COR_LANGUAGE_ID_COLUMN] == lang_id]
         if extended:
             return forms
@@ -62,7 +63,9 @@ class IndoEuropean(LanguageFamily):
     @property
     def ie_cor_forms(self):
         if self._all_forms is None:
-            self._all_forms = pd.read_csv(IE_COR_FORMS_CSV)
+            df = pd.read_csv(IE_COR_FORMS_CSV)
+            df[IE_COR_LANGUAGE_ID_COLUMN] = df[IE_COR_LANGUAGE_ID_COLUMN].astype(str)
+            self._all_forms = df
         return self._all_forms
 
     def patch(self):
