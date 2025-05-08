@@ -22,7 +22,7 @@ calculate their distance from another group/area (e.g. shortest walking distance
 ## Guidelines
 
 The polygons we use should be as close to the areas where the languages/subgroups were immediately after the split,
-since their modern day locations are not necessarily representative of inter-group dynamics at the split event (this is
+since their modern day locations are not necessarily representative of intergroup dynamics at the split event (this is
 particularly the case in a colonial context).
 In the case of settlement, e.g. as was the case for Faroese, the polygons for each group should exclude each other (
 which may not be the case for the rough area of Old Norse).
@@ -41,7 +41,7 @@ period (e.g Modern English).
 | `IndoEuropean` | [IE-CoR](https://iecor.clld.org/languages)                                        | \~ some in `glottography`           |
 | `Dravidian`    | [DravLex](https://github.com/phlorest/kolipakam_et_al2018)                        | \~ ✓(map available in paper)        |
 | `PamaNyungan`  | [Chirila](https://github.com/phlorest/bouckaert_et_al2018)                        | ✓ (all? polygons available)         |
-| `Uralic`       | [UraLex](https://github.com/lexibank/uralex)                                      | ✓ (4 missing from `glottography`)   |
+| `Uralic`       | [UraLex](https://github.com/lexibank/uralex)                                      | ✓ (all in `glottography:rantanen`)  |
 | `UtoAztecan`   | [Greenhill et al. 2023](https://github.com/lexibank/utoaztecan)                   | ? ✓ (most in `glottography:world`?) |
 | `SinoTibetan`  | [Sino-Tibetan Database of Lexical Cognates](https://github.com/lexibank/sagartst) | \~ (maybe in `glottography:world`?) |
 | `Austronesian` | ? maybe need permission from Simon Greenhill                                      | ?                                   |
@@ -124,16 +124,11 @@ Summary:
 Summary:
 
 - NO SUMMARY TREE FOUND = NO CHERRY INFORMATION
-- 21 out of 27 polygons present
+- 26 out of 27 polygons present
 
-6 missing polygons:
+1 missing polygon:
 
 - Proto-Uralic* ([ural1272](https://glottolog.org/resource/languoid/id/ural1272))
-- Skolt Saami ([skol1241](https://glottolog.org/resource/languoid/id/skol1241))
-- Western Votic ([west2391](https://glottolog.org/resource/languoid/id/west2391))
-- Courland Livonian ([west1760](https://glottolog.org/resource/languoid/id/west1760))
-- Sosva Mansi ([nort2677](https://glottolog.org/resource/languoid/id/nort2677))
-- Selkup ([tazz1244](https://glottolog.org/resource/languoid/id/tazz1244))
 
 ### *UtoAztecan* (46 taxa)
 

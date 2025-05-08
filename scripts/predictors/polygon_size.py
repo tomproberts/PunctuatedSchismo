@@ -1,6 +1,6 @@
 import pandas as pd
 
-from scripts.families.dravidian import Dravidian
+from scripts.families.uralic import Uralic
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
 from scripts.predictors.polygons.glottography_config import get_config
 from scripts.predictors.utils import write_out_df
@@ -30,7 +30,7 @@ def calculate_areas(glottography, required_glottocodes):
 
 
 if __name__ == '__main__':
-    family = Dravidian()
+    family = Uralic()
     required_glottocodes = family.glottocodes
 
     glottography = Glottography(get_config(family.name))
@@ -38,3 +38,4 @@ if __name__ == '__main__':
     df = calculate_areas(glottography, required_glottocodes)
     # TODO: include language IDs
     write_out_polygon_size(df, family.name)
+    print(f'Wrote out polygon sizes for {family.name}')

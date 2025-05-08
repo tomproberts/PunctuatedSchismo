@@ -57,6 +57,8 @@ def uto_config():
                                   'nort2954': (0, 4617),
                                   'pipi1250': (0, 5042)
                               })
+
+
 def sinotibetan_config():
     return GlottographyConfig(sources=['asher2007world'],
                               patches={
@@ -90,5 +92,10 @@ def uralic_config():
                                   'udmu1245': (0, 185),
                                   'hung1274': (0, 42),
                                   'ngan1291': (0, 117),
-                                  'nene1249': (0, 179)
+                                  'nene1249': (0, 179),
+                                  'skol1241': (0, 151),  # in glottography as 'sklo1241'
+                                  'west2391': (0, 198),  # mapped to parent Votic
+                                  'west1760': (0, 90),  # mapped to parent Livonian
+                                  'nort2677': (0, 124),  # mapped to parent Northern Mansi
+                                  'tazz1244': (0, 146)  # mapped to parent Selkup
                               })
