@@ -2,7 +2,7 @@ library(ggtree)
 library(treeio)
 source("scripts/families/LanguageFamilies.R")
 
-FAMILY <- DRAVIDIAN
+FAMILY <- URALIC
 SCALESTUBS <- TRUE
 
 summary.tree <- paste0("data/gammaspike/summarytree/", FAMILY, ".nex")

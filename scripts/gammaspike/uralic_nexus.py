@@ -3,18 +3,18 @@ from tqdm import tqdm
 
 from scripts.utils import asciify_alphanumeric
 
-COGNATE_MATRIX_CSV = "data/datasets/uralex/cognate_matrix.csv"
+COGNATE_MATRIX_CSV = 'data/datasets/uralex/cognate_matrix.csv'
 
 
 def get_cognate_matrix():
-    uralic_forms = pd.read_csv("data/datasets/uralex/forms.csv")
+    uralic_forms = pd.read_csv('data/datasets/uralex/forms.csv')
     uralic_forms.Language_ID = uralic_forms.Language_ID.astype(str)
     uralic_forms.Parameter_ID = uralic_forms.Parameter_ID.astype(str)
     uralic_forms.form_set = uralic_forms.form_set.astype(str)
 
     parameter_ids = uralic_forms.Parameter_ID.unique()
 
-    uralic_languages = pd.read_csv("data/datasets/uralex/languages.csv", index_col=0)
+    uralic_languages = pd.read_csv('data/datasets/uralex/languages.csv', index_col=0)
     uralic_languages.index = uralic_languages.index.astype(str)
     uralic_languages.sort_index(inplace=True)
     languages = list(uralic_languages.index)
@@ -76,9 +76,9 @@ def make_binarised(cognate_matrix):
     return cognate_matrix
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     cognate_matrix = get_cognate_matrix()
     cognate_matrix = make_binarised(cognate_matrix)
 
     cognate_matrix.to_csv(COGNATE_MATRIX_CSV)
-    print(f"Wrote cognate matrix to {COGNATE_MATRIX_CSV}")
+    print(f'Wrote cognate matrix to {COGNATE_MATRIX_CSV}')
