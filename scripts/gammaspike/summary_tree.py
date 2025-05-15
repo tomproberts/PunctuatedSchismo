@@ -3,6 +3,7 @@ import pandas as pd
 from nexus import NexusReader
 
 from scripts.families.dravidian import Dravidian
+from scripts.families.uralic import Uralic
 from scripts.families.utils import LanguageFamily
 
 
@@ -76,7 +77,7 @@ class NoSummaryTree(Exception):
 
 
 if __name__ == '__main__':
-    family = Dravidian()
+    family = Uralic()
     tree_nexus_file = get_summary_tree_nexus(family.name)
     data = visit_tree(tree_nexus_file, family)
 
