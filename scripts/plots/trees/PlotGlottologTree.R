@@ -6,7 +6,7 @@ GLOTTOLOG.DIR <- "data/glottolog/"
 
 # names|ascii|glottocodes|id
 TYPE <- "names"
-FAMILY <- "Uralic"
+FAMILY <- "UtoAztecan"
 
 glottolog.tree <- read.newick(paste0(GLOTTOLOG.DIR, TYPE, ".", FAMILY, ".newick"))
 if (TYPE == "names") {

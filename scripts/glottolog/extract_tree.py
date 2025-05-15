@@ -74,14 +74,20 @@ def glottocodes_only_tree(tree_string):
     return re.sub(r'\'[A-Z][^[]*\[([a-z]{4}[0-9]{4})\][^\']*\'', r'\1', tree_string)
 
 
+def extract_all_glottocodes(glottocodes_tree):
+    return re.findall(r'([a-z]{4}[0-9]{4})', glottocodes_tree)
+
+
 def verify_correct(pruned, keep):
     # Check no duplicates
-    pruned_glottocodes = re.findall(r'([a-z]{4}[0-9]{4})', pruned)
+    pruned_glottocodes = extract_all_glottocodes(pruned)
     assert len(pruned_glottocodes) == len(set(pruned_glottocodes))
 
     # Check all required languages are still present in pruned tree
     missing = set(keep) - set(pruned_glottocodes)
-    assert len(missing) == 0
+    if len(missing) != 0:
+        print(f'Missing glottocodes from tree: {', '.join(missing)}')
+        assert len(missing) == 0
 
     # Assert valid tree
     from newick import loads
@@ -158,10 +164,19 @@ def generate_glottolog_trees(family):
     tree = glottocodes_only_tree(tree)
     select = set(family.glottocodes)
 
+    # Check all glottocodes are in language family (according to Glottolog)
+    missing = set(select) - set(extract_all_glottocodes(tree))
+    if len(missing) > 0:
+        print(f'Warning, glottolog tree for {family.name} is missing the following glottocodes: {', '.join(missing)}')
+
     # Prune tree
     pruned_glottocodes = prune_tree_string(tree, select)
     pruned_glottocodes = fix_problematic_groupings(pruned_glottocodes, family)
-    verify_correct(pruned_glottocodes, select)
+    try:
+        verify_correct(pruned_glottocodes, select)
+    except AssertionError as e:
+        print(f'Tree: {tree}')
+        raise e
 
     # Convert to IDs
     id_labelled = tree_convert_glottocodes_to_ids(pruned_glottocodes, family)
@@ -180,5 +195,5 @@ def generate_glottolog_trees(family):
 
 
 if __name__ == '__main__':
-    family = Uralic()
+    family = UtoAztecan()
     generate_glottolog_trees(family)
