@@ -18,4 +18,4 @@ class Uralic(LanguageFamily):
         self.languages = list(all_languages.Name)
 
     def patch(self):
-        self.set_language_glottocode('Proto-Uralic*', 'ural1272')
+        self.delete_language('Proto-Uralic*')

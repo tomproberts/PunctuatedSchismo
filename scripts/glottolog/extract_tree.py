@@ -151,11 +151,12 @@ def fix_problematic_groupings(tree_string, family):
 
 def make_outgroup(tree_string, lang):
     # TODO: Probably missed edge cases
-    moved = re.sub(f'{lang},', '', tree_string)
-    if moved == tree_string:
-        moved = re.sub(f',{lang}', '', tree_string)
-    if moved:
-        return f'({lang},{moved[0:-1]});'
+    if lang in tree_string:
+        moved = re.sub(f'{lang},', '', tree_string)
+        if moved == tree_string:
+            moved = re.sub(f',{lang}', '', tree_string)
+        if moved:
+            return f'({lang},{moved[0:-1]});'
     return tree_string
 
 
@@ -195,5 +196,5 @@ def generate_glottolog_trees(family):
 
 
 if __name__ == '__main__':
-    family = UtoAztecan()
+    family = Uralic()
     generate_glottolog_trees(family)

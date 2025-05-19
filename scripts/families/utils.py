@@ -100,6 +100,16 @@ class LanguageFamily:
                 language_ids.append(key)
         return language_ids
 
+    def get_language_id_from_name(self, language_name):
+        language_id = None
+        for key, (_, n, _) in self._id_map.items():
+            if n == language_name:
+                language_id = key
+                break
+        if language_id is None:
+            raise LanguageNotFound(language_name, self.name)
+        return language_id
+
     @property
     def language_ids(self):
         return list(self._id_map.keys())
@@ -231,6 +241,10 @@ class LanguageFamily:
                 break
         if not found:
             raise LanguageNotFound(language_name, self.name)
+
+    def delete_language(self, language_name):
+        key = self.get_language_id_from_name(language_name)
+        del self._id_map[key]
 
 
 def verify_id(lang_id):
