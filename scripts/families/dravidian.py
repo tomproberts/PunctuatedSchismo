@@ -9,6 +9,7 @@ class Dravidian(LanguageFamily):
     name = 'Dravidian'
     family_glottocode = 'drav1251'
     n_sites = 877
+    n_concepts = 100
 
     def load_languages(self):
         all_languages = pd.read_csv(DRAVLEX_LANGUAGES_CSV)
@@ -16,3 +17,6 @@ class Dravidian(LanguageFamily):
         self.glottocodes = list(all_languages.Glottocode)
         self.languages = list(all_languages.Name)
         self.languages_ascii = list(all_languages.ID)
+
+    def patch(self):
+        self.set_language_glottocode('Malto', 'malt1248')

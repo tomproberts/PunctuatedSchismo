@@ -35,6 +35,10 @@ class LanguageFamily:
     def n_sites(self):
         raise NotImplementedError('number of sites not provided')
 
+    @property
+    def n_concepts(self):
+        raise NotImplementedError('number of concepts not provided')
+
     @name.setter
     def name(self, name):
         self._name = name

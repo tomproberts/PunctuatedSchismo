@@ -28,13 +28,13 @@ p1 <- paste0("weightedSpikes.", l1)
 bursts.1 <- df[, p1]
 bursts.2 <- df[, paste0("weightedSpikes.", l2)]
 
-hdi.int <- hdi(bursts.1, credMass = 0.95)
-bursts.1 <- bursts.1[bursts.1 > hdi.int["lower"] & bursts.1 < hdi.int["upper"]]
-hdi.int <- hdi(bursts.2, credMass = 0.95)
-bursts.2 <- bursts.2[bursts.2 > hdi.int["lower"] & bursts.2 < hdi.int["upper"]]
-
-df2 <- data.frame(burst = bursts.1, name = cherry[1], s = "left")
-df3 <- data.frame(burst = bursts.2, name = cherry[2], s = "right")
+# hdi.int <- hdi(bursts.1, credMass = 0.95)
+# bursts.1 <- bursts.1[bursts.1 > hdi.int["lower"] & bursts.1 < hdi.int["upper"]]
+# hdi.int <- hdi(bursts.2, credMass = 0.95)
+# bursts.2 <- bursts.2[bursts.2 > hdi.int["lower"] & bursts.2 < hdi.int["upper"]]
+name <- paste0(cherry[1], '×\n', cherry[2])
+df2 <- data.frame(burst = bursts.1, name = cherry[1], g = name, s = "left")
+df3 <- data.frame(burst = bursts.2, name = cherry[2], g = name, s = "right")
 df2 <- rbind(df2, df3)
 
 ggplot(df2) +
@@ -42,5 +42,5 @@ ggplot(df2) +
   theme(legend.position = "none",
         axis.text = element_text(size = 11),
         axis.title = element_text(size = 14)) +
-  aes(x = name, y = burst, side = s, fill = s) +
+  aes(x = g, y = burst, fill = s, side = s) +  #
   stat_halfeye()
