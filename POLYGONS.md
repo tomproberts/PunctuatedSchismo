@@ -103,32 +103,25 @@ Summary:
 
 Summary:
 
-- 0 out of 5 cherries present
-- 9 out of 20 polygons present
+- 2 out of 5 cherries present
+- 13 out of 20 polygons present
 
-3 broken cherries (only one polygon out of two):
+2 broken cherries (only one polygon out of two):
 
-- †cherry, because Malto ([saur1249](https://glottolog.org/resource/languoid/id/saur1249)) missing
 - †cherry, because Betta Kurumba ([bett1235](https://glottolog.org/resource/languoid/id/bett1235)) missing
 - †cherry, because Yeruva ([ravu1237](https://glottolog.org/resource/languoid/id/ravu1237)) missing
 
-2 dead cherries (neither polygon present):
+1 dead cherries (neither polygon present):
 
-- †cherry, because both Gondi ([nort2702](https://glottolog.org/resource/languoid/id/nort2702)) and
-  Koya ([koya1251](https://glottolog.org/resource/languoid/id/koya1251)) missing
 - †cherry, because both Ollari Gadba ([pott1240](https://glottolog.org/resource/languoid/id/pott1240)) and
   Parji ([duru1236](https://glottolog.org/resource/languoid/id/duru1236)) missing
 
-### *Uralic* (27 taxa)
+### *Uralic* (26 taxa)
 
 Summary:
 
-- NO SUMMARY TREE FOUND = NO CHERRY INFORMATION
-- 26 out of 27 polygons present
-
-1 missing polygon:
-
-- Proto-Uralic* ([ural1272](https://glottolog.org/resource/languoid/id/ural1272))
+- 8 out of 8 cherries present
+- 26 out of 26 polygons present
 
 ### *UtoAztecan* (46 taxa)
 
