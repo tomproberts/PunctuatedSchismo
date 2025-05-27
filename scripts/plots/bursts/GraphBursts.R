@@ -1,10 +1,9 @@
 library(ggplot2)
 library(ggdist)
-library(HDInterval)
 source("scripts/gammaspike/SummaryTree.R")
 
 FAMILY <- DRAVIDIAN
-BURN.IN <- 2000
+BURN.IN <- 2000  # Uralic: 200
 
 df <- read.csv(paste0("data/gammaspike/full/", FAMILY, ".log"), sep = "\t", comment.char = "#")
 df <- df[(BURN.IN + 1):nrow(df),]
@@ -20,27 +19,31 @@ get_translation <- function(family) {
 
 translation <- get_translation(FAMILY)
 
-cherry <- cherries[[1]]
-l1 <- translation[[cherry[1]]]
-l2 <- translation[[cherry[2]]]
+result.df <- setNames(data.frame(matrix(ncol = 4, nrow = 0)), c("burst", "name", "cherry", "s"))
+for (cherry in cherries) {
+  l1 <- translation[[cherry[1]]]
+  l2 <- translation[[cherry[2]]]
 
-p1 <- paste0("weightedSpikes.", l1)
-bursts.1 <- df[, p1]
-bursts.2 <- df[, paste0("weightedSpikes.", l2)]
+  p1 <- paste0("weightedSpikes.", l1 - 1)
+  p2 <- paste0("weightedSpikes.", l2 - 1)
+  bursts.1 <- df[1:1000, p1]
+  bursts.2 <- df[1:1000, p2]
 
-# hdi.int <- hdi(bursts.1, credMass = 0.95)
-# bursts.1 <- bursts.1[bursts.1 > hdi.int["lower"] & bursts.1 < hdi.int["upper"]]
-# hdi.int <- hdi(bursts.2, credMass = 0.95)
-# bursts.2 <- bursts.2[bursts.2 > hdi.int["lower"] & bursts.2 < hdi.int["upper"]]
-name <- paste0(cherry[1], '×\n', cherry[2])
-df2 <- data.frame(burst = bursts.1, name = cherry[1], g = name, s = "left")
-df3 <- data.frame(burst = bursts.2, name = cherry[2], g = name, s = "right")
-df2 <- rbind(df2, df3)
+  name <- paste0(cherry[1], ' ×\n', cherry[2])
+  df2 <- data.frame(burst = bursts.1, name = cherry[1], cherry = name, s = "left")
+  result.df <- rbind(result.df, df2)
+  df3 <- data.frame(burst = bursts.2, name = cherry[2], cherry = name, s = "right")
+  result.df <- rbind(result.df, df3)
+}
 
-ggplot(df2) +
+ggplot(result.df) +
   theme_light() +
   theme(legend.position = "none",
         axis.text = element_text(size = 11),
         axis.title = element_text(size = 14)) +
-  aes(x = g, y = burst, fill = s, side = s) +  #
-  stat_halfeye()
+  aes(x = cherry, y = burst, fill = s, side = s) +  #
+  stat_slab(aes(fill_ramp = after_stat(level)),
+            # .width = c(.5, .89, 1), scale = 1.1, width = 0.7, normalize = "xy", trim = FALSE
+            .width = c(.5, .89, 1), scale = .14, width = 1.5, normalize = "groups",
+  ) +
+  coord_cartesian(ylim = c(0, 0.3))  # 0.3, 0.05

@@ -19,6 +19,24 @@ def print_burst(family, burst, mean=False):
 
 
 if __name__ == '__main__':
+    family = IndoEuropean()
+    print('--Douglas--')
+    print_clock_rate(family, 9.485e-3)
+    print_burst(family, 1.183e-3)
+
     family = Uralic()
+    print('\n--Before--')
     print_clock_rate(family, 5.685e-2)
     print_burst(family, 8.328e-3, mean=True)
+    print('--After--')
+    print_clock_rate(family, 2.858e-2)
+    print_burst(family, 1.679e-2, mean=True)
+    print_burst(family, 0.2)
+
+    family = Dravidian()
+    print('\n--Before--')
+    print_clock_rate(family, 1.915e-2)
+    print_burst(family, 3.042e-2, mean=True)
+    print('--After--')
+    print_clock_rate(family, 4.808e-2)
+    print_burst(family, 4.998e-4, mean=True)
