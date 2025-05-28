@@ -44,6 +44,6 @@ ggplot(result.df) +
   aes(x = cherry, y = burst, fill = s, side = s) +  #
   stat_slab(aes(fill_ramp = after_stat(level)),
             # .width = c(.5, .89, 1), scale = 1.1, width = 0.7, normalize = "xy", trim = FALSE
-            .width = c(.5, .89, 1), scale = .14, width = 1.5, normalize = "groups",
+            .width = c(.5, .89, 1), scale = .18, width = 1, normalize = "groups",
   ) +
   coord_cartesian(ylim = c(0, 0.3))  # 0.3, 0.05
