@@ -9,6 +9,8 @@ URALEX_LANGUAGES_CSV = f'{URALEX_DIR}/languages.csv'
 class Uralic(LanguageFamily):
     name = 'Uralic'
     family_glottocode = 'ural1272'
+    n_sites = 3655
+    n_concepts = 313
 
     def load_languages(self):
         all_languages = pd.read_csv(URALEX_LANGUAGES_CSV)
@@ -17,4 +19,4 @@ class Uralic(LanguageFamily):
         self.languages = list(all_languages.Name)
 
     def patch(self):
-        self.set_language_glottocode('Proto-Uralic*', 'ural1272')
+        self.delete_language('Proto-Uralic*')

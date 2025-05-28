@@ -3,4 +3,7 @@ tmp/
 .Rhistory
 .DS_Store
 __pycache__/
-glottography/
+data/gammaspike/full/*.log
+data/gammaspike/full/*.trees
+data/glottography/*.csv
+data/glottography/*.gpkg

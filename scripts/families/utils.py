@@ -35,6 +35,10 @@ class LanguageFamily:
     def n_sites(self):
         raise NotImplementedError('number of sites not provided')
 
+    @property
+    def n_concepts(self):
+        raise NotImplementedError('number of concepts not provided')
+
     @name.setter
     def name(self, name):
         self._name = name
@@ -99,6 +103,16 @@ class LanguageFamily:
             if glottocode == lang_glottocode:
                 language_ids.append(key)
         return language_ids
+
+    def get_language_id_from_name(self, language_name):
+        language_id = None
+        for key, (_, n, _) in self._id_map.items():
+            if n == language_name:
+                language_id = key
+                break
+        if language_id is None:
+            raise LanguageNotFound(language_name, self.name)
+        return language_id
 
     @property
     def language_ids(self):
@@ -231,6 +245,10 @@ class LanguageFamily:
                 break
         if not found:
             raise LanguageNotFound(language_name, self.name)
+
+    def delete_language(self, language_name):
+        key = self.get_language_id_from_name(language_name)
+        del self._id_map[key]
 
 
 def verify_id(lang_id):

@@ -144,9 +144,19 @@ def fix_problematic_groupings(tree_string, family):
         tree_string = remove_grouping(tree_string, 'faro1244', 'icel1247')
         tree_string = remove_grouping(tree_string, 'czec1258', 'oldc1253')
     if family.name == 'Uralic':
-        # TODO: hoist up Proto-Uralic so that it's an outgroup
-        pass
+        tree_string = make_outgroup(tree_string, 'ural1272')
 
+    return tree_string
+
+
+def make_outgroup(tree_string, lang):
+    # TODO: Probably missed edge cases
+    if lang in tree_string:
+        moved = re.sub(f'{lang},', '', tree_string)
+        if moved == tree_string:
+            moved = re.sub(f',{lang}', '', tree_string)
+        if moved:
+            return f'({lang},{moved[0:-1]});'
     return tree_string
 
 
@@ -186,5 +196,5 @@ def generate_glottolog_trees(family):
 
 
 if __name__ == '__main__':
-    family = UtoAztecan()
+    family = Uralic()
     generate_glottolog_trees(family)
