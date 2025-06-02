@@ -1,7 +1,7 @@
 library(treeio)
 source("scripts/families/LanguageFamilies.R")
 
-MANUAL <- list(ITALIC)
+MANUAL <- list(ITALIC, DOUGLAS)
 
 get_summary_cherries <- function(family) {
   if (family %in% MANUAL) return(manual.cherries(family))
@@ -35,6 +35,14 @@ manual.cherries <- function(family) {
     c("OldFrench", "AngloNorman"),
     c("Ladin", "Friulian"),
     c("Italian", "Neapolitan"),
+    c("SardinianNuoro", "SardinianLogudoro"),
+    c("Romanian", "MeglenoRomanian"),
+    c("Umbrian", "Oscan")
+  ))
+  if (family == DOUGLAS) return(list(
+    c("French", "FrancoProvencal"),
+    c("Ladin", "Friulian"),
+    c("Italian", "Milanese"),
     c("SardinianNuoro", "SardinianLogudoro"),
     c("Romanian", "MeglenoRomanian"),
     c("Umbrian", "Oscan")

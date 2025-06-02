@@ -3,7 +3,7 @@ library(ggdist)
 source("scripts/gammaspike/SummaryTree.R")
 source("scripts/gammaspike/FullPosterior.R")
 
-FAMILY <- ITALIC
+FAMILY <- DOUGLAS
 df <- get_full_log(FAMILY)
 
 cherries <- get_summary_cherries(FAMILY)
