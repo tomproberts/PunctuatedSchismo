@@ -7,6 +7,7 @@ from shapely.geometry.linestring import LineString
 from shapely.geometry.point import Point
 from shapely.ops import nearest_points
 
+from scripts.families.dravidian import Dravidian
 from scripts.families.uralic import Uralic
 from scripts.glottolog.trees import glottolog_cherries
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
@@ -105,16 +106,17 @@ def plot_contact(language_1, language_2, glottography, n_points):
 
 
 if __name__ == '__main__':
-    family = Uralic()
-    cherries = glottolog_cherries(family)
-    cherries = double_reverse(cherries)
+    family = Dravidian()
+    # cherries = glottolog_cherries(family)
+    # cherries = double_reverse(cherries)
 
     glottography = Glottography(get_config(family.name))
-    cherries, mean_distances, median_distances = calculate_euclidean_distances(cherries, glottography)
+    # cherries, mean_distances, median_distances = calculate_euclidean_distances(cherries, glottography)
     # TODO: include language IDs
-    write_out_contact(family.name, cherries, mean_distances, median_distances)
-    print(f'Wrote out contact distances for {family.name}')
+    # write_out_contact(family.name, cherries, mean_distances, median_distances)
+    # print(f'Wrote out contact distances for {family.name}')
 
-    cherry = ('west2391', 'esto1258')
+    cherry = ('malt1248', 'kuru1302')
+    # cherry = ('nort2702', 'koya1251')
     plot_contact(cherry[0], cherry[1], glottography, 50)
     plot_contact(cherry[1], cherry[0], glottography, 50)
