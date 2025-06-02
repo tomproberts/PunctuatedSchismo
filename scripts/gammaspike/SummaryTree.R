@@ -1,10 +1,7 @@
 library(treeio)
 source("scripts/families/LanguageFamilies.R")
 
-MANUAL <- list(ITALIC, DOUGLAS)
-
 get_summary_cherries <- function(family) {
-  if (family %in% MANUAL) return(manual.cherries(family))
   summary.tree <- paste0("data/gammaspike/summarytree/", family, ".nex")
   df <- as_tibble(read.beast(summary.tree))
   df <- df[!is.na(df$label),]
@@ -29,7 +26,7 @@ get_summary_cherries <- function(family) {
   return(cherries)
 }
 
-manual.cherries <- function(family) {
+get_manual_cherries <- function(family) {
   if (family == ITALIC) return(list(
     c("French", "FrancoProvencal"),
     c("OldFrench", "AngloNorman"),
