@@ -1,21 +1,12 @@
 library(ggplot2)
 library(ggdist)
 source("scripts/gammaspike/SummaryTree.R")
+source("scripts/gammaspike/FullPosterior.R")
 
-FAMILY <- DRAVIDIAN
-BURN.IN <- 2000  # Uralic: 200
-
-df <- read.csv(paste0("data/gammaspike/full/", FAMILY, ".log"), sep = "\t", comment.char = "#")
-df <- df[(BURN.IN + 1):nrow(df),]
+FAMILY <- ITALIC
+df <- get_full_log(FAMILY)
 
 cherries <- get_summary_cherries(FAMILY)
-
-get_translation <- function(family) {
-  t <- read.csv(paste0("data/gammaspike/translations/", family, ".translation"))
-  translation <- t$node
-  names(translation) <- t$ascii_name
-  return(translation)
-}
 
 translation <- get_translation(FAMILY)
 
@@ -46,4 +37,4 @@ ggplot(result.df) +
             # .width = c(.5, .89, 1), scale = 1.1, width = 0.7, normalize = "xy", trim = FALSE
             .width = c(.5, .89, 1), scale = .18, width = 1, normalize = "groups",
   ) +
-  coord_cartesian(ylim = c(0, 0.3))  # 0.3, 0.05
+  coord_cartesian(ylim = c(0, 0.02))  # 0.3, 0.05

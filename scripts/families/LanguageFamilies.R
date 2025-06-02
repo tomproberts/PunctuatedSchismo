@@ -4,7 +4,13 @@ DRAVIDIAN <- "Dravidian"
 URALIC <- "Uralic"
 
 get_n_sites <- function(family) {
-  if (family == ITALIC || family == INDO.EUROPEAN) return (4958)
-  if (family == DRAVIDIAN) return (877)
-  if (family == URALIC) return (3655)
+  family <- check_indoeuropean(family)
+  if (family == INDO.EUROPEAN) return(4958)
+  if (family == DRAVIDIAN) return(877)
+  if (family == URALIC) return(3655)
+}
+
+check_indoeuropean <- function(family) {
+  if (family == ITALIC) return(INDO.EUROPEAN)
+  return(family)
 }
