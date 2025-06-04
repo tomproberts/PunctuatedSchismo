@@ -123,14 +123,14 @@ Summary:
 - 8 out of 8 cherries present
 - 26 out of 26 polygons present
 
-### *UtoAztecan* (46 taxa)
+### *UtoAztecan* (35 taxa)
 
 Summary:
 
 - NO SUMMARY TREE FOUND = NO CHERRY INFORMATION
-- 33 out of 46 polygons present
+- 26 out of 35 polygons present
 
-13 missing polygons:
+9 missing polygons:
 
 - Shoshone (Gosiute) ([gosi1242](https://glottolog.org/resource/languoid/id/gosi1242))
 - Luiseño ([luis1253](https://glottolog.org/resource/languoid/id/luis1253))
@@ -141,10 +141,6 @@ Summary:
 - Zacapoaxtla Nahuatl ([high1278](https://glottolog.org/resource/languoid/id/high1278))
 - Southeastern Tepehuan ([sout2976](https://glottolog.org/resource/languoid/id/sout2976))
 - Kitanemuk ([kita1252](https://glottolog.org/resource/languoid/id/kita1252))
-- San Juan Pueblo Tewa ([sanj1276](https://glottolog.org/resource/languoid/id/sanj1276))
-- Proto-Keresan ([kere1287](https://glottolog.org/resource/languoid/id/kere1287))
-- Santa Ana ([sant1426](https://glottolog.org/resource/languoid/id/sant1426))
-- Santa Domingo ([sant1425](https://glottolog.org/resource/languoid/id/sant1425))
 
 ### *SinoTibetan* (50 taxa)
 
