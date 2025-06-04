@@ -28,7 +28,8 @@ for (cherry in cherries) {
   result.df <- rbind(result.df, df3)
 }
 
-result.df$burst <- result.df$burst * 1470  # IE:1470 or Drav:350
+burst.to.percentage <- 0.5 * get_n_sites(FAMILY) / get_n_concepts(FAMILY) * 100
+result.df$burst <- result.df$burst * burst.to.percentage
 
 ggplot(result.df) +
   theme_light() +
