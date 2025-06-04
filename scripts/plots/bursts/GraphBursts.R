@@ -3,7 +3,7 @@ library(ggdist)
 source("scripts/gammaspike/SummaryTree.R")
 source("scripts/gammaspike/FullPosterior.R")
 
-FAMILY <- DOUGLAS
+FAMILY <- INDO.EUROPEAN
 df <- get_full_log(FAMILY)
 
 # cherries <- get_summary_cherries(FAMILY)
@@ -28,14 +28,18 @@ for (cherry in cherries) {
   result.df <- rbind(result.df, df3)
 }
 
+result.df$burst <- result.df$burst * 1470  # IE:1470 or Drav:350
+
 ggplot(result.df) +
   theme_light() +
   theme(legend.position = "none",
-        axis.text = element_text(size = 11),
-        axis.title = element_text(size = 14)) +
-  aes(x = cherry, y = burst, fill = side, side = side) +  #
+        axis.text = element_text(size = 12),
+        axis.title = element_text(size = 18)) +
+  aes(x = cherry, y = burst, fill = side, side = side) +
   stat_slab(aes(fill_ramp = after_stat(level)),
             # .width = c(.5, .89, 1), scale = 1.1, width = 0.7, normalize = "xy", trim = FALSE
             .width = c(.5, .89, 1), scale = .18, width = 1, normalize = "groups",
   ) +
-  coord_cartesian(ylim = c(0, 0.02))  # 0.3, 0.05
+  coord_cartesian(ylim = c(0, 20)) +
+  xlab("language pair") +
+  ylab("punctuated change (% vocab)")
