@@ -54,6 +54,14 @@ class LanguageFamily:
         i = self.languages_ascii.index(ascii_name)
         return self.glottocodes[i]
 
+    def get_glottocode_from_language_id(self, language_id):
+        (g, _, _) = self._id_map[language_id]
+        return g
+
+    def get_language_from_language_id(self, language_id):
+        (_, l, _) = self._id_map[language_id]
+        return l
+
     def __contains__(self, item):
         return item in self.glottocodes
 
@@ -112,6 +120,16 @@ class LanguageFamily:
                 break
         if language_id is None:
             raise LanguageNotFound(language_name, self.name)
+        return language_id
+
+    def get_language_id_from_ascii(self, ascii_name):
+        language_id = None
+        for key, (_, _, n) in self._id_map.items():
+            if n == ascii_name:
+                language_id = key
+                break
+        if language_id is None:
+            raise LanguageNotFound(ascii_name, self.name)
         return language_id
 
     @property
