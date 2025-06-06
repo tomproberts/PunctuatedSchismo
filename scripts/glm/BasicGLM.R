@@ -7,8 +7,8 @@ if (!exists("bursts")) {
   bursts <- read.csv("data/gammaspike/summarytree/Douglas.csv")
   page.counts <- read.csv("data/predictors/grambank_pageCounts.csv")
   page.counts <- page.counts[, c("glcode", "total_pages")]
-  areas <- read.csv("data/predictors/area/IndoEuropean.cartesian.csv")
-  distances <- read.csv("data/predictors/contact/IndoEuropean.contact.euclidean.csv")
+  areas <- read.csv("data/predictors/area/IndoEuropean.geodesic.csv")
+  distances <- read.csv("data/predictors/contact/IndoEuropean.contact.geodesic.csv")
 }
 
 lang1 <- c("gheg1238", "tsak1248", "capp1239", "nucl1235", "tokh1242", "fran1269", "stan1289", "olds1249", "port1283", "friu1240", "ital1282", "sout2614", "megl1237", "osca1245", "vann1244", "corn1251", "midd1363", "manx1243", "norw1259", "elfd1234", "icel1247", "dutc1256", "stan1295", "stan1293", "bela1254", "czec1258", "kash1274", "lowe1385", "sout3278", "slov1268", "east2282", "assa1263", "hind1269", "kala1373", "east2308", "khow1242", "digo1242", "sogd1245", "sari1246", "sout2645", "maza1291", "hawr1243", "feyl1238", "hitt1242")
@@ -36,31 +36,29 @@ df[is.na(df$total_pages),]$total_pages <- 1
 
 # Areas
 df <- merge(df, areas, by.x = "lang", by.y = "glottocode")
-df$area_cartesian <- df$area_cartesian / 1e6
+df$area_geodesic <- df$area_geodesic
 
 # Contact
 df <- merge(df, distances, by.x = c("lang", "lang_sister"), by.y = c("language_1", "language_2"))
-df$median_distance <- df$median_distance / 1e6
-df$mean_distance <- df$mean_distance / 1e6
+df$median_distance <- df$median_distance
+df$mean_distance <- df$mean_distance
 
 # Sisters
-df <- merge(df, df[, c("lang", "weightedSpikes_median", "total_pages", "area_cartesian", "median_distance")],
+df <- merge(df, df[, c("lang", "weightedSpikes_median", "total_pages", "area_geodesic", "median_distance")],
             by.x = "lang_sister", by.y = "lang", suffixes = c("", "_sister"))
 
 df$burst <- log(df$weightedSpikes_median / df$weightedSpikes_median_sister)
-df$area_ratio <- log(df$area_cartesian / df$area_cartesian_sister) / 10
+df$area_ratio <- log(df$area_geodesic / df$area_geodesic_sister) / 10
 df$pages_ratio <- log(df$total_pages / df$total_pages_sister)
 df$distance_diff <- df$median_distance - df$median_distance_sister
 df$log_total_pages <- log(df$total_pages)
-df$log_area_cartesian <- log(df$area_cartesian)
-df$log_area_cartesian_sister <- log(df$area_cartesian_sister)
-df$median_distance_km <- 650 * df$median_distance
-df$median_distance_km_sister <- 650 * df$median_distance_sister
-df$median_distance_km[df$median_distance_km < 0.1] <- 0.1
-df$log_median_distance_km <- log(df$median_distance_km)
+df$log_area_geodesic <- log(df$area_geodesic)
+df$log_area_geodesic_sister <- log(df$area_geodesic_sister)
+df$median_distance[df$median_distance < 0.1] <- 0.1
+df$log_median_distance <- log(df$median_distance)
 
 if (FALSE) {
-  ggplot(df, aes(x = log_median_distance_km, y = weightedSpikes_median)) +
+  ggplot(df, aes(x = log_median_distance, y = weightedSpikes_median)) +
     geom_text(data = df, aes(label = Name), size = 4) +
     geom_smooth(method = "glm", method.args = list(family = Gamma(link = "log")), formula = y ~ x) +
     ylim(1, 10) +
@@ -72,9 +70,9 @@ if (TRUE) {
   fit <- brm(formula = weightedSpikes_median ~
     # (1 | cherry) +
     log_total_pages +
-      log(median_distance_km) +
-      log_area_cartesian_sister +
-      log_area_cartesian,
+      log(median_distance) +
+      log_area_geodesic_sister +
+      log_area_geodesic,
              family = Gamma(link = "log"),
              data = df)
   save(fit, file = "data/glm/basic.RData")
@@ -83,12 +81,12 @@ if (TRUE) {
 # Graph brms
 if (exists("fit")) {
   print(summary(fit))
-  plot_predictions(fit, condition = "median_distance_km", allow_new_levels = TRUE) +
+  plot_predictions(fit, condition = "median_distance", allow_new_levels = TRUE) +
     # geom_text(aes(x = median_distance_km, y = response, label = Name), position = position_nudge(y = -0.08), data = df, size = 4) +
     # geom_point(aes(x = median_distance_km, y = response), data = df, size = 1) +
     xlab("Median distance from sibling [~km]") +
     ylab("Expected punctuated change [# lexeme changes]") +
-    ggtitle("Constrained spikes ~ median_distance_km") +
+    ggtitle("Constrained spikes ~ median_distance") +
     # xlim(0, 100) +
     theme_classic() +
     theme(axis.title = element_text(size = 14))

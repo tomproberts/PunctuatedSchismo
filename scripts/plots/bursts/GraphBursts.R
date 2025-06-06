@@ -3,7 +3,7 @@ library(ggdist)
 source("scripts/gammaspike/SummaryTree.R")
 source("scripts/gammaspike/FullPosterior.R")
 
-FAMILY <- INDO.EUROPEAN
+FAMILY <- DOUGLAS
 df <- get_full_log(FAMILY)
 
 # cherries <- get_summary_cherries(FAMILY)
@@ -11,6 +11,7 @@ cherries <- get_manual_cherries(FAMILY)
 
 translation <- get_translation(FAMILY)
 
+df <- df[1:1000,]
 result.df <- setNames(data.frame(matrix(ncol = 4, nrow = 0)), c("burst", "name", "cherry", "side"))
 for (cherry in cherries) {
   l1 <- translation[[cherry[1]]]
@@ -18,8 +19,8 @@ for (cherry in cherries) {
 
   p1 <- paste0("weightedSpikes.", l1 - 1)
   p2 <- paste0("weightedSpikes.", l2 - 1)
-  bursts.1 <- df[1:1000, p1]
-  bursts.2 <- df[1:1000, p2]
+  bursts.1 <- df[, p1]
+  bursts.2 <- df[, p2]
 
   name <- paste0(cherry[1], ' ×\n', cherry[2])
   df2 <- data.frame(burst = bursts.1, name = cherry[1], cherry = name, side = "left")

@@ -6,19 +6,19 @@ library(dplyr)
 load("data/glm/basic.RData")
 
 pars <- c(
-  "b_log_area_cartesian_sister",
-  "b_log_area_cartesian",
+  "b_log_area_geodesic_sister",
+  "b_log_area_geodesic",
   "b_log_total_pages",
-  "b_logmedian_distance_km"
+  "b_logmedian_distance"
 )
 
 draws <- as.data.frame(fit)
 draws <- draws[, pars]
 
 draws <- rename(draws,
-                "log(median distance)" = b_logmedian_distance_km,
-                "log(area)" = b_log_area_cartesian,
-                "log(area of sister)" = b_log_area_cartesian_sister,
+                "log(median distance)" = b_logmedian_distance,
+                "log(area)" = b_log_area_geodesic,
+                "log(area of sister)" = b_log_area_geodesic_sister,
                 "log(total pages)" = b_log_total_pages,
 )
 

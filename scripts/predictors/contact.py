@@ -8,6 +8,7 @@ from shapely.geometry.point import Point
 from shapely.ops import nearest_points
 
 from scripts.families.dravidian import Dravidian
+from scripts.families.indo_european import IndoEuropean, Italic
 from scripts.families.uralic import Uralic
 from scripts.glottolog.trees import glottolog_cherries
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
@@ -43,8 +44,8 @@ def sample_points(polygon, n_points=N_POINTS):
     return polygon.sample_points(n_points, rng=SEED).explode(index_parts=True)
 
 
-def write_out_contact(family_name, cherries, mean_distances, median_distances):
-    file_name = f'{family_name}.contact.euclidean'
+def write_out_contact(family_name, cherries, mean_distances, median_distances, type):
+    file_name = f'{family_name}.contact.{type}'
     assert len(cherries) == len(median_distances) == len(median_distances)
     dataframe = pd.DataFrame(data={
         'language_1': [ls[0] for ls in cherries],
@@ -70,7 +71,7 @@ def calculate_euclidean_distances(cherries, glottography):
         sampled_points = sample_points(polygon_1)
 
         paths = calculate_lines(sampled_points, polygon_2)
-        distances = [p.length for p in paths]
+        distances = [p.length / 1e3 for p in paths]
 
         new_cherries.append((language_1, language_2))
         median_distances.append(median(distances))
@@ -106,17 +107,17 @@ def plot_contact(language_1, language_2, glottography, n_points):
 
 
 if __name__ == '__main__':
-    family = Dravidian()
-    # cherries = glottolog_cherries(family)
-    # cherries = double_reverse(cherries)
+    family = Uralic()
+    cherries = glottolog_cherries(family)
+    cherries = double_reverse(cherries)
 
     glottography = Glottography(get_config(family.name))
-    # cherries, mean_distances, median_distances = calculate_euclidean_distances(cherries, glottography)
+    cherries, mean_distances, median_distances = calculate_euclidean_distances(cherries, glottography)
     # TODO: include language IDs
-    # write_out_contact(family.name, cherries, mean_distances, median_distances)
-    # print(f'Wrote out contact distances for {family.name}')
+    write_out_contact(family.name, cherries, mean_distances, median_distances, type="geodesic")
+    print(f'Wrote out contact distances for {family.name}')
 
-    cherry = ('malt1248', 'kuru1302')
-    # cherry = ('nort2702', 'koya1251')
-    plot_contact(cherry[0], cherry[1], glottography, 50)
-    plot_contact(cherry[1], cherry[0], glottography, 50)
+    # cherry = ('malt1248', 'kuru1302')
+    # # cherry = ('nort2702', 'koya1251')
+    # plot_contact(cherry[0], cherry[1], glottography, 50)
+    # plot_contact(cherry[1], cherry[0], glottography, 50)

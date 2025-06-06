@@ -3,10 +3,10 @@ import pandas as pd
 
 
 class Glottography:
-    def __init__(self, settings):
+    def __init__(self, settings, geodesic=True):
         self.settings = settings
         self.glottocode_map = self.init_glottocode_map(settings.sources)
-        self.raw_polygons = self.init_polygons(settings.sources)
+        self.raw_polygons = self.init_polygons(settings.sources, geodesic)
 
     @staticmethod
     def init_glottocode_map(sources):
@@ -18,10 +18,13 @@ class Glottography:
         return glottocode_map
 
     @staticmethod
-    def init_polygons(sources):
+    def init_polygons(sources, geodesic=True):
         polygons = []
         for source in sources:
-            polygons.append(geopandas.read_file(f'data/glottography/{source}_raw.gpkg'))
+            all = geopandas.read_file(f'data/glottography/{source}_raw.gpkg')
+            if geodesic:
+                all = all.to_crs("EPSG:32633")
+            polygons.append(all)
         return polygons
 
     def get_polygon(self, glottocode):
