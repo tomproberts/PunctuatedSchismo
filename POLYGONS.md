@@ -103,18 +103,8 @@ Summary:
 
 Summary:
 
-- 2 out of 5 cherries present
-- 13 out of 20 polygons present
-
-2 broken cherries (only one polygon out of two):
-
-- †cherry, because Betta Kurumba ([bett1235](https://glottolog.org/resource/languoid/id/bett1235)) missing
-- †cherry, because Yeruva ([ravu1237](https://glottolog.org/resource/languoid/id/ravu1237)) missing
-
-1 dead cherries (neither polygon present):
-
-- †cherry, because both Ollari Gadba ([pott1240](https://glottolog.org/resource/languoid/id/pott1240)) and
-  Parji ([duru1236](https://glottolog.org/resource/languoid/id/duru1236)) missing
+- 5 out of 5 cherries present
+- 17 out of 20 polygons present
 
 ### *Uralic* (26 taxa)
 

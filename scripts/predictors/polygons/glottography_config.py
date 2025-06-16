@@ -47,7 +47,7 @@ def indoeuropean_config():
 
 
 def dravidian_config():
-    return GlottographyConfig(sources=['steever2019dravidian', 'asher2007world'],
+    return GlottographyConfig(sources=['ravula', 'steever2019dravidian', 'asher2007world'],
                               patches={})
 
 
