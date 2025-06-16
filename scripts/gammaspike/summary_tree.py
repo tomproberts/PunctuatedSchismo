@@ -3,6 +3,7 @@ import pandas as pd
 from nexus import NexusReader
 
 from scripts.families.dravidian import Dravidian
+from scripts.families.indo_european import IndoEuropean
 from scripts.families.uralic import Uralic
 from scripts.families.utils import LanguageFamily
 
@@ -23,9 +24,10 @@ def visit_tree(tree_nexus_file, family: LanguageFamily) -> dict:
 
     def visitor(node: newick.Node) -> None:
         ascii_name = translate[node.name]
-        glottocode = family.get_glottocode_from_ascii(ascii_name)
+        language_id = family.get_language_id_from_ascii(ascii_name)
         leaves_ascii.append(ascii_name)
-        leaves_name.append(family.get_language_from_glottocode(glottocode))
+        leaves_name.append(family.get_language_from_language_id(language_id))
+        glottocode = family.get_glottocode_from_language_id(language_id)
         leaves_glottocode.append(glottocode)
         # scale bursts sizes for number of cognate sets
         leaves_weightedSpikes.append(family.n_sites / 2 * float(node.properties['weightedSpikes']))
@@ -77,7 +79,7 @@ class NoSummaryTree(Exception):
 
 
 if __name__ == '__main__':
-    family = Uralic()
+    family = IndoEuropean()
     tree_nexus_file = get_summary_tree_nexus(family.name)
     data = visit_tree(tree_nexus_file, family)
 
