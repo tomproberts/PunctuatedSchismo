@@ -12,7 +12,10 @@ def get_cognate_matrix():
     uralic_forms.Parameter_ID = uralic_forms.Parameter_ID.astype(str)
     uralic_forms.form_set = uralic_forms.form_set.astype(str)
 
-    parameter_ids = uralic_forms.Parameter_ID.unique()
+    # select Leipzig-Jakarta
+    parameters = pd.read_csv('data/datasets/uralex/parameters.csv')
+    parameters.ID = parameters.ID.astype(str)
+    parameter_ids = parameters[parameters.Leipzig_Jakarta == 'yes'].ID.unique()
 
     uralic_languages = pd.read_csv('data/datasets/uralex/languages.csv', index_col=0)
     uralic_languages.index = uralic_languages.index.astype(str)
@@ -22,7 +25,6 @@ def get_cognate_matrix():
 
     n_langs = len(languages)
     all_params = {}
-
     for param in tqdm(parameter_ids):
         forms = uralic_forms[uralic_forms.Parameter_ID == param]
         forms = forms[['Language_ID', 'form_set']]
