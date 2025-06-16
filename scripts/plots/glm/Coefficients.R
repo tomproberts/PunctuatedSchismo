@@ -3,7 +3,7 @@ library(ggdist)
 library(tidyr)
 library(dplyr)
 
-load("data/glm/basic.RData")
+load("data/glm/Douglas.RData")
 
 pars <- c(
   "b_log_area_geodesic_sister",
@@ -27,8 +27,8 @@ draws.df <- pivot_longer(draws, cols = everything(), names_to = "coefficient", v
 ggplot(draws.df, aes(x = value, y = coefficient)) +
   theme_light() +
   theme(legend.position = "none",
-        axis.text = element_text(size = 12),
-        axis.title = element_text(size = 18)) +
+        axis.text = element_text(size = 10),
+        axis.title = element_text(size = 12)) +
   stat_interval(aes(interval_alpha = after_stat(level)),
                 .width = c(0.5, 0.89, 1),
                 interval_colour = "#00bfc4", linewidth = 6) +

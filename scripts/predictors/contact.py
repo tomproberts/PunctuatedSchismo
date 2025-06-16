@@ -44,12 +44,14 @@ def sample_points(polygon, n_points=N_POINTS):
     return polygon.sample_points(n_points, rng=SEED).explode(index_parts=True)
 
 
-def write_out_contact(family_name, cherries, mean_distances, median_distances, type):
-    file_name = f'{family_name}.contact.{type}'
+def write_out_contact(family, cherries, mean_distances, median_distances, type):
+    file_name = f'{family.name}.contact.{type}'
     assert len(cherries) == len(median_distances) == len(median_distances)
     dataframe = pd.DataFrame(data={
-        'language_1': [ls[0] for ls in cherries],
-        'language_2': [ls[1] for ls in cherries],
+        'language_1': [family.get_language_ascii_from_glottocode(ls[0]) for ls in cherries],
+        'language_2': [family.get_language_ascii_from_glottocode(ls[1]) for ls in cherries],
+        'Glottocode_1': [ls[0] for ls in cherries],
+        'Glottocode_2': [ls[1] for ls in cherries],
         'median_distance': median_distances,
         'mean_distance': mean_distances
     })
@@ -114,7 +116,7 @@ if __name__ == '__main__':
     glottography = Glottography(get_config(family.name))
     cherries, mean_distances, median_distances = calculate_euclidean_distances(cherries, glottography)
     # TODO: include language IDs
-    write_out_contact(family.name, cherries, mean_distances, median_distances, type="geodesic")
+    write_out_contact(family, cherries, mean_distances, median_distances, type="geodesic")
     print(f'Wrote out contact distances for {family.name}')
 
     # cherry = ('malt1248', 'kuru1302')
