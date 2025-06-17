@@ -9,7 +9,7 @@ get_n_sites <- function(family) {
   if (family == INDO.EUROPEAN) return(4958)
   if (family == DOUGLAS) return(4990)
   if (family == DRAVIDIAN) return(877)
-  if (family == URALIC) return(3655)
+  if (family == URALIC) return(942)
 }
 
 get_n_concepts <- function(family) {
@@ -17,7 +17,7 @@ get_n_concepts <- function(family) {
   if (family == INDO.EUROPEAN) return(170)
   if (family == DOUGLAS) return(170)
   if (family == DRAVIDIAN) return(100)
-  if (family == URALIC) return(313)
+  if (family == URALIC) return(101)
 }
 
 check_indoeuropean <- function(family) {
