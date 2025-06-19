@@ -1,4 +1,4 @@
-from scripts.families.uralic import Uralic
+from scripts.families.indo_european import IndoEuropean
 from scripts.gammaspike.summary_tree import summary_tree_cherries, NoSummaryTree
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
 from scripts.predictors.polygons.glottography_config import get_config
@@ -9,7 +9,7 @@ def to_glottolink(glottocode):
 
 
 if __name__ == '__main__':
-    family = Uralic()
+    family = IndoEuropean()
     n_langs = len(family.languages)
     glottography = Glottography(get_config(family.name))
 

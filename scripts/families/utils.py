@@ -51,8 +51,12 @@ class LanguageFamily:
         raise NotImplementedError(f'get_forms_for_language not implemented for {self.name}')
 
     def get_glottocode_from_ascii(self, ascii_name):
-        i = self.languages_ascii.index(ascii_name)
-        return self.glottocodes[i]
+        try:
+            i = self.languages_ascii.index(ascii_name)
+            return self.glottocodes[i]
+        except ValueError:
+            pass
+        raise LanguageNotFound(ascii_name, self.name)
 
     def get_glottocode_from_language_id(self, language_id):
         (g, _, _) = self._id_map[language_id]
@@ -268,6 +272,9 @@ class LanguageFamily:
         key = self.get_language_id_from_name(language_name)
         del self._id_map[key]
 
+    def add_language(self, language_name, glottocode):
+        self._id_map[language_name] = (glottocode, language_name, asciify_alphanumeric(language_name))
+
 
 def verify_id(lang_id):
     lang_id = str(lang_id)
@@ -286,7 +293,7 @@ class GlottocodeNotFound(Exception):
 
 
 class LanguageNotFound(Exception):
-    def __init__(self, language, family=None):
+    def __init__(self, language, family: str = None):
         if family is None:
             message = f"Could not find language '{language}'"
         else:

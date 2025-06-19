@@ -42,6 +42,6 @@ ggplot(result.df) +
             # .width = c(.5, .89, 1), scale = 1.1, width = 0.7, normalize = "xy", trim = FALSE
             .width = c(.5, .89, 1), scale = .18, width = 1, normalize = "groups",
   ) +
-  coord_cartesian(ylim = c(0, 100)) +
+  coord_cartesian(ylim = c(0, 200)) +
   xlab("language pair") +
   ylab("punctuated change (% vocab)")
