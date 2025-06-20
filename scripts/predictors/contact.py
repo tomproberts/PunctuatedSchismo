@@ -7,8 +7,6 @@ from shapely.geometry.linestring import LineString
 from shapely.geometry.point import Point
 from shapely.ops import nearest_points
 
-from scripts.families.dravidian import Dravidian
-from scripts.families.indo_european import IndoEuropean, Italic
 from scripts.families.uralic import Uralic
 from scripts.families.utils import LanguageFamily
 from scripts.glottolog.trees import glottolog_cherries

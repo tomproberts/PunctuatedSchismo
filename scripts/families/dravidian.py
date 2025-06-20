@@ -6,6 +6,7 @@ DRAVLEX_LANGUAGES_CSV = f'{DRAVLEX_DIR}/languages.csv'
 
 
 class Dravidian(LanguageFamily):
+    DEPRECATED = True
     name = 'Dravidian'
     family_glottocode = 'drav1251'
     n_sites = 877
