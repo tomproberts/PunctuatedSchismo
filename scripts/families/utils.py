@@ -2,10 +2,13 @@ from scripts.utils import asciify_alphanumeric, is_valid_identifier
 
 
 class LanguageFamily:
+    DEPRECATED = False
     _name = None
     _family_glottocode = None
 
     def __init__(self):
+        if self.DEPRECATED:
+            print(f'Warning, {self.name} is deprecated!')
         self._id_map = dict()  # {'lang_id': ('glottocode', 'language_name', 'language_ascii'),...}
         self.load_languages()
         self.patch()
@@ -51,8 +54,12 @@ class LanguageFamily:
         raise NotImplementedError(f'get_forms_for_language not implemented for {self.name}')
 
     def get_glottocode_from_ascii(self, ascii_name):
-        i = self.languages_ascii.index(ascii_name)
-        return self.glottocodes[i]
+        try:
+            i = self.languages_ascii.index(ascii_name)
+            return self.glottocodes[i]
+        except ValueError:
+            pass
+        raise LanguageNotFound(ascii_name, self.name)
 
     def get_glottocode_from_language_id(self, language_id):
         (g, _, _) = self._id_map[language_id]
@@ -123,6 +130,7 @@ class LanguageFamily:
         return language_id
 
     def get_language_id_from_ascii(self, ascii_name):
+        self.check_and_generate_ascii_names()
         language_id = None
         for key, (_, _, n) in self._id_map.items():
             if n == ascii_name:
@@ -268,6 +276,9 @@ class LanguageFamily:
         key = self.get_language_id_from_name(language_name)
         del self._id_map[key]
 
+    def add_language(self, language_name, glottocode):
+        self._id_map[language_name] = (glottocode, language_name, asciify_alphanumeric(language_name))
+
 
 def verify_id(lang_id):
     lang_id = str(lang_id)
@@ -286,7 +297,7 @@ class GlottocodeNotFound(Exception):
 
 
 class LanguageNotFound(Exception):
-    def __init__(self, language, family=None):
+    def __init__(self, language, family: str = None):
         if family is None:
             message = f"Could not find language '{language}'"
         else:

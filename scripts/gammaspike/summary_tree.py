@@ -2,9 +2,7 @@ import newick
 import pandas as pd
 from nexus import NexusReader
 
-from scripts.families.dravidian import Dravidian
 from scripts.families.indo_european import IndoEuropean
-from scripts.families.uralic import Uralic
 from scripts.families.utils import LanguageFamily
 
 

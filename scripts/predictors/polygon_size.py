@@ -1,7 +1,5 @@
 import pandas as pd
 
-from scripts.families.dravidian import Dravidian
-from scripts.families.indo_european import IndoEuropean, Italic
 from scripts.families.uralic import Uralic
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
 from scripts.predictors.polygons.glottography_config import get_config

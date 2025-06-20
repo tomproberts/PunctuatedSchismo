@@ -7,10 +7,11 @@ URALEX_LANGUAGES_CSV = f'{URALEX_DIR}/languages.csv'
 
 
 class Uralic(LanguageFamily):
+    DEPRECATED = True
     name = 'Uralic'
     family_glottocode = 'ural1272'
-    n_sites = 3655
-    n_concepts = 313
+    n_sites = 942
+    n_concepts = 101
 
     def load_languages(self):
         all_languages = pd.read_csv(URALEX_LANGUAGES_CSV)

@@ -7,9 +7,8 @@ from shapely.geometry.linestring import LineString
 from shapely.geometry.point import Point
 from shapely.ops import nearest_points
 
-from scripts.families.dravidian import Dravidian
-from scripts.families.indo_european import IndoEuropean, Italic
 from scripts.families.uralic import Uralic
+from scripts.families.utils import LanguageFamily
 from scripts.glottolog.trees import glottolog_cherries
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
 from scripts.predictors.polygons.glottography_config import get_config
@@ -108,18 +107,26 @@ def plot_contact(language_1, language_2, glottography, n_points):
     plt.show()
 
 
-if __name__ == '__main__':
-    family = Uralic()
+def calculate_output_contact(family: LanguageFamily, glottography):
     cherries = glottolog_cherries(family)
     cherries = double_reverse(cherries)
-
-    glottography = Glottography(get_config(family.name))
     cherries, mean_distances, median_distances = calculate_euclidean_distances(cherries, glottography)
     # TODO: include language IDs
     write_out_contact(family, cherries, mean_distances, median_distances, type="geodesic")
     print(f'Wrote out contact distances for {family.name}')
 
-    # cherry = ('malt1248', 'kuru1302')
-    # # cherry = ('nort2702', 'koya1251')
-    # plot_contact(cherry[0], cherry[1], glottography, 50)
-    # plot_contact(cherry[1], cherry[0], glottography, 50)
+
+if __name__ == '__main__':
+    # family = IndoEuropean()
+    family = Uralic()
+    glottography = Glottography(get_config(family.name))
+
+    plot_contact(family.get_glottocode_from_ascii('KarelianProper'), family.get_glottocode_from_ascii('Veps'),
+                 glottography, 50)
+    plot_contact(family.get_glottocode_from_ascii('PiteSaami'), family.get_glottocode_from_ascii('SouthSaami'),
+                 glottography, 50)
+    plot_contact(family.get_glottocode_from_ascii('KomiPermyak'), family.get_glottocode_from_ascii('KomiZyrian'),
+                 glottography, 50)
+    # plot_contact('vlaa1240', 'dutc1256', glottography, 50)
+
+    # calculate_output_contact(family, glottography)

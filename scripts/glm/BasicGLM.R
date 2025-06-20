@@ -56,7 +56,7 @@ if (FALSE) {
   ggplot(df, aes(x = log_median_distance, y = weightedSpikes_median)) +
     geom_text(data = df, aes(label = Name), size = 4) +
     geom_smooth(method = "glm", method.args = list(family = Gamma(link = "log")), formula = y ~ x) +
-    ylim(1, 10) +
+    # ylim(1, 200) +
     theme_classic()
 }
 

@@ -5,24 +5,19 @@ library(dplyr)
 
 load("data/glm/Douglas.RData")
 
-pars <- c(
-  "b_log_area_geodesic_sister",
-  "b_log_area_geodesic",
-  "b_log_total_pages",
-  "b_logmedian_distance"
+par.names <- c(
+  "log(median distance)" = "b_logmedian_distance",
+  "log(area)" = "b_log_area_geodesic",
+  "log(area of sister)" = "b_log_area_geodesic_sister",
+  "log(total pages)" = "b_log_total_pages"
 )
 
 draws <- as.data.frame(fit)
+pars <- colnames(draws)
+pars <- pars[sapply(pars, function(n) return(startsWith(n, "b_") & n != "b_Intercept"))]
+
 draws <- draws[, pars]
-
-draws <- rename(draws,
-                "log(median distance)" = b_logmedian_distance,
-                "log(area)" = b_log_area_geodesic,
-                "log(area of sister)" = b_log_area_geodesic_sister,
-                "log(total pages)" = b_log_total_pages,
-)
-
-draws.df <- pivot_longer(draws, cols = everything(), names_to = "coefficient", values_to = "value")
+draws.df <- pivot_longer(rename(draws, any_of(par.names)), cols = everything(), names_to = "coefficient", values_to = "value")
 
 ggplot(draws.df, aes(x = value, y = coefficient)) +
   theme_light() +
