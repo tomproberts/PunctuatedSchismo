@@ -7,6 +7,7 @@ URALEX_LANGUAGES_CSV = f'{URALEX_DIR}/languages.csv'
 
 
 class Uralic(LanguageFamily):
+    DEPRECATED = True
     name = 'Uralic'
     family_glottocode = 'ural1272'
     n_sites = 942

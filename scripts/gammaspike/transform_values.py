@@ -1,4 +1,3 @@
-from scripts.families.dravidian import Dravidian
 from scripts.families.indo_european import IndoEuropean
 from scripts.families.uralic import Uralic
 
@@ -25,17 +24,15 @@ if __name__ == '__main__':
     print_burst(family, 1.183e-3)
 
     family = Uralic()
-    print('\n--Prior--')
+    print('\n--Prior (long root)--')
     print_clock_rate(family, 9.66e-4)
     print_burst(family, 1.04e-2, mean=True)
-    print('--Posterior--')
+    print('--Posterior (long root)--')
     print_clock_rate(family, 1.083e-3)
     print_burst(family, 2.127e-2, mean=True)
-
-    # family = Dravidian()
-    # print('\n--Before--')
-    # print_clock_rate(family, 1.915e-2)
-    # print_burst(family, 3.042e-2, mean=True)
-    # print('--After--')
-    # print_clock_rate(family, 4.808e-2)
-    # print_burst(family, 4.998e-4, mean=True)
+    print('\n--Prior (constrained)--')
+    print_clock_rate(family, 4.952e-2)
+    print_burst(family, 1.032e-2, mean=True)
+    print('--Posterior (constrained)--')
+    print_clock_rate(family, 3.612e-2)
+    print_burst(family, 0.106, mean=True)

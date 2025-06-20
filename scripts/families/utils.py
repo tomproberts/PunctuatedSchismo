@@ -2,10 +2,13 @@ from scripts.utils import asciify_alphanumeric, is_valid_identifier
 
 
 class LanguageFamily:
+    DEPRECATED = False
     _name = None
     _family_glottocode = None
 
     def __init__(self):
+        if self.DEPRECATED:
+            print(f'Warning, {self.name} is deprecated!')
         self._id_map = dict()  # {'lang_id': ('glottocode', 'language_name', 'language_ascii'),...}
         self.load_languages()
         self.patch()
@@ -127,6 +130,7 @@ class LanguageFamily:
         return language_id
 
     def get_language_id_from_ascii(self, ascii_name):
+        self.check_and_generate_ascii_names()
         language_id = None
         for key, (_, _, n) in self._id_map.items():
             if n == ascii_name:
