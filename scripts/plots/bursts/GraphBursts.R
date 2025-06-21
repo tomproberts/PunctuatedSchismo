@@ -3,7 +3,7 @@ library(ggdist)
 source("scripts/gammaspike/SummaryTree.R")
 source("scripts/gammaspike/FullPosterior.R")
 
-FAMILY <- URALIC
+FAMILY <- SINO.TIBETAN
 df <- get_full_log(FAMILY)
 
 cherries <- get_summary_cherries(FAMILY)
@@ -42,6 +42,6 @@ ggplot(result.df) +
             # .width = c(.5, .89, 1), scale = 1.1, width = 0.7, normalize = "xy", trim = FALSE
             .width = c(.5, .89, 1), scale = .18, width = 1, normalize = "groups",
   ) +
-  coord_cartesian(ylim = c(0, 200)) +
+  coord_cartesian(ylim = c(0, 20)) +
   xlab("language pair") +
   ylab("punctuated change (% vocab)")
