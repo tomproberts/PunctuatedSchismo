@@ -4,7 +4,7 @@ library(treeio)
 source("scripts/families/LanguageFamilies.R")
 
 # Think about how number of taxa affects gammaShape etc.
-FAMILY <- INDO.EUROPEAN
+FAMILY <- SINO.TIBETAN
 SCALESTUBS <- TRUE
 
 summary.tree <- paste0("data/gammaspike/summarytree/", FAMILY, ".nex")
