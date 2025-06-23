@@ -3,15 +3,15 @@ library(ggdist)
 source("scripts/gammaspike/SummaryTree.R")
 source("scripts/gammaspike/FullPosterior.R")
 
-FAMILY <- SINO.TIBETAN
+FAMILY <- INDO.EUROPEAN
 df <- get_full_log(FAMILY)
 
-cherries <- get_summary_cherries(FAMILY)
-# cherries <- get_manual_cherries(FAMILY)
+# cherries <- get_summary_cherries(FAMILY)
+cherries <- get_manual_cherries(FAMILY)
 
 translation <- get_translation(FAMILY)
 
-df <- df[1:1000,]
+df <- df[1000:2000,]
 result.df <- setNames(data.frame(matrix(ncol = 4, nrow = 0)), c("burst", "name", "cherry", "side"))
 for (cherry in cherries) {
   l1 <- translation[[cherry[1]]]
