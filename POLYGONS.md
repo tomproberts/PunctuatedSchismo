@@ -136,31 +136,27 @@ Summary:
 
 Summary:
 
-- NO SUMMARY TREE FOUND = NO CHERRY INFORMATION
+- 7 out of 15 cherries present
 - 32 out of 50 polygons present
-- 'hakk1236' (Longgang Chinese, Xingning Chinese) have the same polygon
 - 'amdo1237' (Alike Tibetan, Xiahe Tibetan) have the same polygon
+- 'hakk1236' (Longgang Chinese, Xingning Chinese) have the same polygon
 
-18 missing polygons:
+5 broken cherries (only one polygon out of two):
 
-- Beijing Chinese ([beij1235](https://glottolog.org/resource/languoid/id/beij1235))
-- Bokar ([boka1249](https://glottolog.org/resource/languoid/id/boka1249))
-- Chaozhou Chinese ([chao1238](https://glottolog.org/resource/languoid/id/chao1238))
-- Darang Taraon ([diga1241](https://glottolog.org/resource/languoid/id/diga1241))
-- Guangzhou Chinese ([guan1279](https://glottolog.org/resource/languoid/id/guan1279))
-- Hakha ([haka1240](https://glottolog.org/resource/languoid/id/haka1240))
-- Hayu ([wayu1241](https://glottolog.org/resource/languoid/id/wayu1241))
-- Japhug ([japh1234](https://glottolog.org/resource/languoid/id/japh1234))
-- Jieyang Chinese ([chao1239](https://glottolog.org/resource/languoid/id/chao1239))
-- Old Burmese ([oldb1235](https://glottolog.org/resource/languoid/id/oldb1235))
-- Old Chinese ([oldc1244](https://glottolog.org/resource/languoid/id/oldc1244))
-- Old Tibetan ([clas1254](https://glottolog.org/resource/languoid/id/clas1254))
-- Tangut ([tang1334](https://glottolog.org/resource/languoid/id/tang1334))
-- Batang Tibetan ([kham1282](https://glottolog.org/resource/languoid/id/kham1282))
-- Lhasa Tibetan ([utsa1239](https://glottolog.org/resource/languoid/id/utsa1239))
-- Ukhrul ([ukhr1238](https://glottolog.org/resource/languoid/id/ukhr1238))
-- Wobzi Khroskyabs ([eree1240](https://glottolog.org/resource/languoid/id/eree1240))
-- Maerkang rGyalrong ([situ1238](https://glottolog.org/resource/languoid/id/situ1238))
+- †cherry, because Darang Taraon ([diga1241](https://glottolog.org/resource/languoid/id/diga1241)) missing
+- †cherry, because Wobzi Khroskyabs ([eree1240](https://glottolog.org/resource/languoid/id/eree1240)) missing
+- †cherry, because Hakha ([haka1240](https://glottolog.org/resource/languoid/id/haka1240)) missing
+- †cherry, because Hayu ([wayu1241](https://glottolog.org/resource/languoid/id/wayu1241)) missing
+- †cherry, because Old Burmese ([oldb1235](https://glottolog.org/resource/languoid/id/oldb1235)) missing
+
+3 dead cherries (neither polygon present):
+
+- †cherry, because both Chaozhou Chinese ([chao1238](https://glottolog.org/resource/languoid/id/chao1238)) and Jieyang
+  Chinese ([chao1239](https://glottolog.org/resource/languoid/id/chao1239)) missing
+- †cherry, because both Japhug ([japh1234](https://glottolog.org/resource/languoid/id/japh1234)) and Maerkang
+  rGyalrong ([situ1238](https://glottolog.org/resource/languoid/id/situ1238)) missing
+- †cherry, because both Batang Tibetan ([kham1282](https://glottolog.org/resource/languoid/id/kham1282)) and Lhasa
+  Tibetan ([utsa1239](https://glottolog.org/resource/languoid/id/utsa1239)) missing
 
 ### *Pama-Nyungan* (306 taxa)
 

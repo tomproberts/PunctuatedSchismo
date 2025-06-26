@@ -17,3 +17,4 @@ class SinoTibetan(LanguageFamily):
         self.language_ids = list(all_languages.ID)
         self.glottocodes = list(all_languages.Glottocode)
         self.languages = list(all_languages.Name_in_Text)
+        self.languages_ascii = [str(l).replace('_', '') for l in all_languages.Name]

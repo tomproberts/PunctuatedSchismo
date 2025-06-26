@@ -3,15 +3,15 @@ library(ggdist)
 source("scripts/gammaspike/SummaryTree.R")
 source("scripts/gammaspike/FullPosterior.R")
 
-FAMILY <- INDO.EUROPEAN
+FAMILY <- SINO.TIBETAN
 df <- get_full_log(FAMILY)
 
-# cherries <- get_summary_cherries(FAMILY)
-cherries <- get_manual_cherries(FAMILY)
+cherries <- get_summary_cherries(FAMILY)
+# cherries <- get_manual_cherries(FAMILY)
 
 translation <- get_translation(FAMILY)
 
-df <- df[1000:2000,]
+# df <- df[1000:2000,]
 result.df <- setNames(data.frame(matrix(ncol = 4, nrow = 0)), c("burst", "name", "cherry", "side"))
 for (cherry in cherries) {
   l1 <- translation[[cherry[1]]]
@@ -42,6 +42,6 @@ ggplot(result.df) +
             # .width = c(.5, .89, 1), scale = 1.1, width = 0.7, normalize = "xy", trim = FALSE
             .width = c(.5, .89, 1), scale = .18, width = 1, normalize = "groups",
   ) +
-  coord_cartesian(ylim = c(0, 20)) +
+  coord_cartesian(ylim = c(0, 80)) +
   xlab("language pair") +
   ylab("punctuated change (% vocab)")
