@@ -15,7 +15,7 @@ def get_cognate_matrix():
     # select Leipzig-Jakarta
     parameters = pd.read_csv('data/datasets/uralex/parameters.csv')
     parameters.ID = parameters.ID.astype(str)
-    parameter_ids = parameters[parameters.Leipzig_Jakarta == 'yes'].ID.unique()
+    parameter_ids = parameters[parameters.Ura100 == 'yes'].ID.unique()
 
     uralic_languages = pd.read_csv('data/datasets/uralex/languages.csv', index_col=0)
     uralic_languages.index = uralic_languages.index.astype(str)
