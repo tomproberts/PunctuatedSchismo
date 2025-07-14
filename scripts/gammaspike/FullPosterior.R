@@ -3,7 +3,7 @@ get_burn_in <- function(family) {
   if (family == INDO.EUROPEAN) return(1000)
   if (family == DRAVIDIAN) return(1500)
   if (family == URALIC) return(350)
-  if (family == SINO.TIBETAN) return(300)
+  if (family == SINO.TIBETAN) return(500)
   return(0)
 }
 
