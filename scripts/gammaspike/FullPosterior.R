@@ -1,8 +1,9 @@
 get_burn_in <- function(family) {
   family <- check_indoeuropean(family)
-  if (family == INDO.EUROPEAN) return(7000)
+  if (family == INDO.EUROPEAN) return(1000)
   if (family == DRAVIDIAN) return(1500)
-  if (family == URALIC) return(500)
+  if (family == URALIC) return(350)
+  if (family == SINO.TIBETAN) return(500)
   return(0)
 }
 

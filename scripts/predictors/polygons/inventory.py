@@ -1,4 +1,5 @@
 from scripts.families.indo_european import IndoEuropean
+from scripts.families.sino_tibetan import SinoTibetan
 from scripts.gammaspike.summary_tree import summary_tree_cherries, NoSummaryTree
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
 from scripts.predictors.polygons.glottography_config import get_config
@@ -9,7 +10,7 @@ def to_glottolink(glottocode):
 
 
 if __name__ == '__main__':
-    family = IndoEuropean()
+    family = SinoTibetan()
     n_langs = len(family.languages)
     glottography = Glottography(get_config(family.name))
 

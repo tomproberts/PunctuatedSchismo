@@ -1,4 +1,5 @@
 from scripts.families.indo_european import IndoEuropean
+from scripts.families.sino_tibetan import SinoTibetan
 from scripts.families.uralic import Uralic
 
 
@@ -19,20 +20,16 @@ def print_burst(family, burst, mean=False):
 
 if __name__ == '__main__':
     family = IndoEuropean()
-    print('--Douglas--')
-    print_clock_rate(family, 9.485e-3)
-    print_burst(family, 1.183e-3)
+    print('--Posterior--')
+    print_clock_rate(family, 9.186e-3)
+    print_burst(family, 1.23e-3)
 
-    family = Uralic()
-    print('\n--Prior (long root)--')
-    print_clock_rate(family, 9.66e-4)
-    print_burst(family, 1.04e-2, mean=True)
-    print('--Posterior (long root)--')
-    print_clock_rate(family, 1.083e-3)
-    print_burst(family, 2.127e-2, mean=True)
-    print('\n--Prior (constrained)--')
-    print_clock_rate(family, 4.952e-2)
-    print_burst(family, 1.032e-2, mean=True)
-    print('--Posterior (constrained)--')
-    print_clock_rate(family, 3.612e-2)
-    print_burst(family, 0.106, mean=True)
+    family = SinoTibetan()
+    print('\n--Gradual--')
+    print_clock_rate(family, 2.641e-3)
+    # print('--Prior--')
+    # print_clock_rate(family, 4.971e-2)
+    # print_burst(family, 4.715e-3, mean=True)
+    print('--Posterior--')
+    print_clock_rate(family, 5.7e-3)
+    print_burst(family, 6.226e-3, mean=True)
