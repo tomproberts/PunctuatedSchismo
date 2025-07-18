@@ -40,37 +40,37 @@
 | Oscan                                                                           | Umbrian                                                                    | ✓                         | ✓                         |
 
 ### Balto-Slavic
-| `lang1`                                                                        | `lang2`                                                                          | `polygon1`        | `polygon2`    |
-|--------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-------------------|---------------|
-| Latgalian [east2282](https://glottolog.org/resource/languoid/id/east2282)      | Latvian                                                                          | ❌ `enciklopedija` | ✓             |
-| Belarusian                                                                     | Ukrainian                                                                        | ✓                 | ✓             |
-| Czech                                                                          | Slovak                                                                           | ✓                 | ✓             |
-| Kashubian [kash1274](https://glottolog.org/resource/languoid/id/kash1274)      | Polish                                                                           | ❌ `nitsch1957`    | ✓             |
-| SorbianLower [lowe1385](https://glottolog.org/resource/languoid/id/lowe1385)   | SorbianUpper (❕wrong in glottography)                                            | ❌ `mucka1886`     | ✓ `mucka1886` |
-| MacedonianSuho [sout3278](https://glottolog.org/resource/languoid/id/sout3278) | MacedonianVisoka [sout3278](https://glottolog.org/resource/languoid/id/sout3278) | ❌                 | ❌             |
-| Slovene                                                                        | SloveneKostel [lowe1384](https://glottolog.org/resource/languoid/id/lowe1384)    | ✓                 | ❌             |
+| `lang1`                                                                        | `lang2`                                                                          | `polygon1`         | `polygon2`         |
+|--------------------------------------------------------------------------------|----------------------------------------------------------------------------------|--------------------|--------------------|
+| Latgalian [east2282](https://glottolog.org/resource/languoid/id/east2282)      | Latvian                                                                          | ❌ `enciklopedija`  | ❌ `enciklopedija`  |
+| Belarusian                                                                     | Ukrainian                                                                        | ✓                  | ✓                  |
+| Czech                                                                          | Slovak                                                                           | ✓                  | ✓                  |
+| Kashubian [kash1274](https://glottolog.org/resource/languoid/id/kash1274)      | Polish                                                                           | ❌ `nitsch1957`     | ❌ `nitsch1957`     |
+| SorbianLower [lowe1385](https://glottolog.org/resource/languoid/id/lowe1385)   | SorbianUpper (❕wrong in glottography)                                            | ❌ `mucka1886`      | ❌ `mucka1886`      |
+| MacedonianSuho [sout3278](https://glottolog.org/resource/languoid/id/sout3278) | MacedonianVisoka [sout3278](https://glottolog.org/resource/languoid/id/sout3278) | ❌ `małecki1933`    | ❌ `małecki1933`    |
+| Slovene                                                                        | SloveneKostel [lowe1384](https://glottolog.org/resource/languoid/id/lowe1384)    | ❌ `slovenskiAtlas` | ❌ `slovenskiAtlas` |
 
 ### Indo-Iranian
-| `lang1`                                                                         | `lang2`                                                                         | `polygon1` | `polygon2` |
-|---------------------------------------------------------------------------------|---------------------------------------------------------------------------------|------------|------------|
-| Assamese                                                                        | Bengali                                                                         | ✓          | ✓          |
-| Hindi                                                                           | Urdu                                                                            | ✓          | ✓          |
-| Gawri                                                                           | Palula [ashr1238](https://glottolog.org/resource/languoid/id/ashr1238)          | ✓          | ❌          |
-| KatavariEastern [east2308](https://glottolog.org/resource/languoid/id/east2308) | KatavariKtivi [west2372](https://glottolog.org/resource/languoid/id/west2372)   | ❌          | ❌          |
-| Khowar                                                                          | PashaiNorthWest [nort2665](https://glottolog.org/resource/languoid/id/nort2665) | ✓          | ❌          |
-| OsseticDigor                                                                    | OsseticIron                                                                     | ✓          | ✓          |
-| Sogdian [sogd1245](https://glottolog.org/resource/languoid/id/sogd1245)         | Yaghnobi [yagn1238](https://glottolog.org/resource/languoid/id/yagn1238)        | ❌          | ❌          |
-| Sarikoli [sari1246](https://glottolog.org/resource/languoid/id/sari1246)        | Wakhi                                                                           | ❌          | ✓          |
-| Delvari                                                                         | Lari [lari1253](https://glottolog.org/resource/languoid/id/lari1253)            | ✓          | ❌          |
-| Mazanderani                                                                     | Tati                                                                            | ✓          | ✓          |
-| Hawrami [hawr1243](https://glottolog.org/resource/languoid/id/hawr1243)         | KurdishCJafi [cent1972](https://glottolog.org/resource/languoid/id/cent1972)    | ❌          | ❌          |
-| KurdishSElami [feyl1238](https://glottolog.org/resource/languoid/id/feyl1238)   | KurdishSQorveh [koly1245](https://glottolog.org/resource/languoid/id/koly1245)  | ❌          | ❌          |
+| `lang1`                                                                         | `lang2`                                                                         | `polygon1`      | `polygon2`      |
+|---------------------------------------------------------------------------------|---------------------------------------------------------------------------------|-----------------|-----------------|
+| Assamese                                                                        | Bengali                                                                         | ✓               | ✓               |
+| Hindi                                                                           | Urdu                                                                            | ✓               | ✓               |
+| Gawri                                                                           | Palula [ashr1238](https://glottolog.org/resource/languoid/id/ashr1238)          | ✓               | ❌               |
+| KatavariEastern [east2308](https://glottolog.org/resource/languoid/id/east2308) | KatavariKtivi [west2372](https://glottolog.org/resource/languoid/id/west2372)   | ❌               | ❌               |
+| Khowar                                                                          | PashaiNorthWest [nort2665](https://glottolog.org/resource/languoid/id/nort2665) | ✓               | ❌               |
+| OsseticDigor                                                                    | OsseticIron                                                                     | ✓               | ✓               |
+| Sogdian [sogd1245](https://glottolog.org/resource/languoid/id/sogd1245)         | Yaghnobi [yagn1238](https://glottolog.org/resource/languoid/id/yagn1238)        | ❌               | ❌               |
+| Sarikoli [sari1246](https://glottolog.org/resource/languoid/id/sari1246)        | Wakhi                                                                           | ❌               | ✓               |
+| Delvari                                                                         | Lari [lari1253](https://glottolog.org/resource/languoid/id/lari1253)            | ✓               | ❌               |
+| Mazanderani                                                                     | Tati                                                                            | ✓               | ✓               |
+| Hawrami [hawr1243](https://glottolog.org/resource/languoid/id/hawr1243)         | KurdishCJafi [cent1972](https://glottolog.org/resource/languoid/id/cent1972)    | ❌               | ❌               |
+| KurdishSElami [feyl1238](https://glottolog.org/resource/languoid/id/feyl1238)   | KurdishSQorveh [koly1245](https://glottolog.org/resource/languoid/id/koly1245)  | ❌ `belelli2019` | ❌ `belelli2019` |
 
 ### Miscellaneous
-| `lang1`                                                                          | `lang2`                                                                         | `polygon1` | `polygon2` |
-|----------------------------------------------------------------------------------|---------------------------------------------------------------------------------|------------|------------|
-| AlbanianGheg                                                                     | AlbanianStandard                                                                | ✓          | ✓          |
-| GreekCappodocian [capp1239](https://glottolog.org/resource/languoid/id/capp1239) | GreekPontic [pont1253](https://glottolog.org/resource/languoid/id/pont1253)     | ❌          | ❌          |
-| ArmenianEastern                                                                  | ArmenianWestern [homs1234](https://glottolog.org/resource/languoid/id/homs1234) | ✓          | ❌          |
-| TocharianA                                                                       | TocharianB                                                                      | ✓          | ✓          |
-| Hittite                                                                          | Luvian [cune1239](https://glottolog.org/resource/languoid/id/cune1239)          | ✓          | ❌          |
+| `lang1`                                                                          | `lang2`                                                                         | `polygon1`               | `polygon2`                  |
+|----------------------------------------------------------------------------------|---------------------------------------------------------------------------------|--------------------------|-----------------------------|
+| AlbanianGheg                                                                     | AlbanianStandard                                                                | ✓                        | ✓                           |
+| GreekCappodocian [capp1239](https://glottolog.org/resource/languoid/id/capp1239) | GreekPontic [pont1253](https://glottolog.org/resource/languoid/id/pont1253)     | ❌ `wikimedia:asia_minor` | ❌ `wikimedia:asia_minor`    |
+| ArmenianEastern                                                                  | ArmenianWestern [homs1234](https://glottolog.org/resource/languoid/id/homs1234) | ❌ `adjarian1909`         | ❌ `adjarian1909`            |
+| TocharianA                                                                       | TocharianB                                                                      | ✓                        | ✓                           |
+| Hittite                                                                          | Luvian [cune1239](https://glottolog.org/resource/languoid/id/cune1239)          | ✓                        | ❌ `bouckaert2012:luvi1235`? |
