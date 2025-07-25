@@ -11,7 +11,7 @@
 | `lang1`                                                                         | `lang2`                                                                          | `polygon1`                | `polygon2`                |
 |---------------------------------------------------------------------------------|----------------------------------------------------------------------------------|---------------------------|---------------------------|
 | NorwegianBokmal [norw1259](https://glottolog.org/resource/languoid/id/norw1259) | NorwegianNynorsk [norw1262](https://glottolog.org/resource/languoid/id/norw1262) | ❌ (low priority)          | ❌ (low priority)          |
-| Elfdalian [elfd1234](https://glottolog.org/resource/languoid/id/elfd1234)       | Swedish                                                                          | ❌ `svenskaDialektgrupper` | ❌ `svenskaDialektgrupper` |
+| Elfdalian [elfd1234](https://glottolog.org/resource/languoid/id/elfd1234)       | Swedish                                                                          | ✅ `svenskaDialektgrupper` | ✅ `svenskaDialektgrupper` |
 | Icelandic                                                                       | OldIcelandic                                                                     | ✓                         | ✓                         |
 | Dutch                                                                           | Flemish                                                                          | ✓                         | ✓                         |
 | German                                                                          | GermanBernese [swis1247](https://glottolog.org/resource/languoid/id/swis1247)    | ✓                         | ❌ `wiesinger1983`         |
@@ -20,7 +20,7 @@
 ### Celtic
 | `lang1`                                                                      | `lang2`                                                                      | `polygon1`          | `polygon2`          |
 |------------------------------------------------------------------------------|------------------------------------------------------------------------------|---------------------|---------------------|
-| BretonGwened [vann1244](https://glottolog.org/resource/languoid/id/vann1244) | BretonTreger [treg1244](https://glottolog.org/resource/languoid/id/treg1244) | ❌ `atlasDeBretagne` | ❌ `atlasDeBretagne` |
+| BretonGwened [vann1244](https://glottolog.org/resource/languoid/id/vann1244) | BretonTreger [treg1244](https://glottolog.org/resource/languoid/id/treg1244) | ✅ `atlasDeBretagne` | ✅ `atlasDeBretagne` |
 | LateCornish                                                                  | MiddleCornish                                                                | ✓                   | ✓                   |
 | MiddleWelsh                                                                  | WelshNorth                                                                   | ✓                   | ✓                   |
 | GaelicManx                                                                   | GaelicScottish                                                               | ✓                   | ✓                   |
@@ -34,8 +34,8 @@
 | OldSpanish [olds1249](https://glottolog.org/resource/languoid/id/olds1249)      | Spanish                                                                    | ❌                         | ✓                         |
 | Portuguese                                                                      | PortugueseBrazilian                                                        | ✓                         | ✓                         |
 | Friulian                                                                        | Ladin                                                                      | ✓                         | ✓                         |
-| Italian                                                                         | Milanese [mila1243](https://glottolog.org/resource/languoid/id/mila1243)   | ✓                         | ❌ `lisn:italy`            |
-| SardinianLogudoro                                                               | SardinianNuoro                                                             | ❌ `oxfordRomance:map17-1` | ❌ `oxfordRomance:map17-1` |
+| Italian                                                                         | Milanese [mila1243](https://glottolog.org/resource/languoid/id/mila1243)   | ✅ `lisn:italy`            | ✅ `lisn:italy`            |
+| SardinianLogudoro                                                               | SardinianNuoro                                                             | ✅ `oxfordRomance:map17-1` | ✅ `oxfordRomance:map17-1` |
 | MeglenoRomanian [megl1237](https://glottolog.org/resource/languoid/id/megl1237) | Romanian                                                                   | ❌ `oxfordRomance:map8-1`  | ✓                         |
 | Oscan                                                                           | Umbrian                                                                    | ✓                         | ✓                         |
 
