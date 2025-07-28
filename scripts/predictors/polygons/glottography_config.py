@@ -12,6 +12,8 @@ def get_config(family_name: str):
         return uto_config()
     if family_name == 'SinoTibetan':
         return sinotibetan_config()
+    if family_name == 'Bantu':
+        return bantu_config()
     raise RuntimeError(f'Glottography Error: unknown family {family_name}')
 
 
@@ -99,3 +101,6 @@ def uralic_config():
                                   'nort2677': (0, 124),  # mapped to parent Northern Mansi
                                   'tazz1244': (0, 146)  # mapped to parent Selkup
                               })
+
+def bantu_config():
+    return GlottographyConfig(sources=['asher2007world'])

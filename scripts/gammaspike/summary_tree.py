@@ -89,7 +89,6 @@ def get_sorted_summary_tree_cherries_ascii(family: LanguageFamily) -> [(str, [(s
         if clade not in clade_dict:
             clade = 'Miscellaneous'
         clade_dict[clade].append((lang1, lang2))
-    print(clade_dict.items())
     return [(clade, cherries) for (clade, cherries) in clade_dict.items()]
 
 

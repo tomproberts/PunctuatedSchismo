@@ -288,7 +288,7 @@ class LanguageFamily:
     def get_clades(self):
         return []
 
-    def get_clade_from_ascii(self, ascii):
+    def get_clade_from_ascii(self, ascii: str):
         return ''
 
 

@@ -1,3 +1,4 @@
+from scripts.families.bantu import Bantu
 from scripts.families.sino_tibetan import SinoTibetan
 from scripts.families.uralic import Uralic
 from scripts.families.uto_aztecan import UtoAztecan
@@ -62,7 +63,7 @@ def polygon_inventory_markdown(family, glottography):
 
 if __name__ == '__main__':
     # Load family
-    family = UtoAztecan()
+    family = Bantu()
     glottography = Glottography(get_config(family.name))
 
     # Generate markdown report
