@@ -1,7 +1,5 @@
 from scripts.families.bantu import Bantu
 from scripts.families.sino_tibetan import SinoTibetan
-from scripts.families.uralic import Uralic
-from scripts.families.uto_aztecan import UtoAztecan
 from scripts.gammaspike.summary_tree import get_sorted_summary_tree_cherries_ascii
 from scripts.predictors.polygons.glottography import Glottography
 from scripts.predictors.polygons.glottography_config import get_config
@@ -27,7 +25,6 @@ def polygon_inventory_markdown(family, glottography):
             # Get glottocode
             glotto1 = family.get_glottocode_from_ascii(lang1)
             glotto2 = family.get_glottocode_from_ascii(lang2)
-
             # Check polygons
             poly1 = glottography.get_source(glotto1)
             poly2 = glottography.get_source(glotto2)
@@ -36,6 +33,11 @@ def polygon_inventory_markdown(family, glottography):
             # Stringify
             poly1 = '❌' if poly1 is None else f'✔ `{poly1}`'
             poly2 = '❌' if poly2 is None else f'✔ `{poly2}`'
+
+            # If duplicate, don't count
+            if glotto1 == glotto2:
+                missing += 1
+                poly2 = '?❌ (duplicate)'
 
             # Write line
             lines.append(f'| {name1} {to_glottolink(glotto1)} | {name2} {to_glottolink(glotto2)} | {poly1} | {poly2} |')
@@ -49,7 +51,7 @@ def polygon_inventory_markdown(family, glottography):
     header.append('### Summary')
     header.append(f'- {len_cherries - missing} out of {len_cherries} cherries present')
     # Warn about duplicate polygons
-    duplicates = family.get_duplicate_glottocodes()
+    duplicates = sorted(family.get_duplicate_glottocodes())
     if len(duplicates) > 0:
         for dup_glottocode in duplicates:
             language_names = family.get_languages_from_glottocode(dup_glottocode)
@@ -63,7 +65,7 @@ def polygon_inventory_markdown(family, glottography):
 
 if __name__ == '__main__':
     # Load family
-    family = Bantu()
+    family = SinoTibetan()
     glottography = Glottography(get_config(family.name))
 
     # Generate markdown report

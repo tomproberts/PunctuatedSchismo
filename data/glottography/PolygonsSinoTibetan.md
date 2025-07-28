@@ -1,6 +1,6 @@
 ## *SinoTibetan* (50 taxa)
 ### Summary
-- 8 out of 15 cherries present
+- 6 out of 15 cherries present
 - 'amdo1237' (Alike Tibetan, Xiahe Tibetan) have the same polygon
 - 'hakk1236' (Longgang Chinese, Xingning Chinese) have the same polygon
 
@@ -14,14 +14,14 @@
 ### Tibetan
 | `lang1` | `lang2` | `polygon1` | `polygon2` |
 |---------|---------|------------|------------|
-| Alike Tibetan [amdo1237](https://glottolog.org/resource/languoid/id/amdo1237) | Xiahe Tibetan [amdo1237](https://glottolog.org/resource/languoid/id/amdo1237) | ✔ `asher2007world` | ✔ `asher2007world` |
+| Alike Tibetan [amdo1237](https://glottolog.org/resource/languoid/id/amdo1237) | Xiahe Tibetan [amdo1237](https://glottolog.org/resource/languoid/id/amdo1237) | ✔ `asher2007world` | ?❌ (duplicate) |
 | Batang Tibetan [kham1282](https://glottolog.org/resource/languoid/id/kham1282) | Lhasa Tibetan [utsa1239](https://glottolog.org/resource/languoid/id/utsa1239) | ❌ | ❌ |
 
 ### Sinitic
 | `lang1` | `lang2` | `polygon1` | `polygon2` |
 |---------|---------|------------|------------|
 | Chaozhou Chinese [chao1238](https://glottolog.org/resource/languoid/id/chao1238) | Jieyang Chinese [chao1239](https://glottolog.org/resource/languoid/id/chao1239) | ❌ | ❌ |
-| Longgang Chinese [hakk1236](https://glottolog.org/resource/languoid/id/hakk1236) | Xingning Chinese [hakk1236](https://glottolog.org/resource/languoid/id/hakk1236) | ✔ `asher2007world` | ✔ `asher2007world` |
+| Longgang Chinese [hakk1236](https://glottolog.org/resource/languoid/id/hakk1236) | Xingning Chinese [hakk1236](https://glottolog.org/resource/languoid/id/hakk1236) | ✔ `asher2007world` | ?❌ (duplicate) |
 
 ### Kiranti
 | `lang1` | `lang2` | `polygon1` | `polygon2` |
