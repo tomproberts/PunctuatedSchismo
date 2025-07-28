@@ -79,17 +79,18 @@ def get_sorted_summary_tree_cherries_ascii(family: LanguageFamily) -> [(str, [(s
     if not possible_clades:
         return [('Cherries', cherries)]
     # initialise clade sorting
-    clade_dict = {'Miscellaneous': []}
+    clade_dict = {}
     for clade in possible_clades:
-        clade_dict[clade.name] = []
+        clade_dict[clade] = []
+    clade_dict['Miscellaneous'] = []
     # sort cherries
     for (lang1, lang2) in cherries:
         clade = family.get_clade_from_ascii(lang1)
         if clade not in clade_dict:
-            clade_dict['Miscellaneous'].append(clade)
-        else:
-            clade_dict[clade].append(clade)
-    return [(clade, cherries) for (clade, cherries) in clade_dict.values()]
+            clade = 'Miscellaneous'
+        clade_dict[clade].append((lang1, lang2))
+    print(clade_dict.items())
+    return [(clade, cherries) for (clade, cherries) in clade_dict.items()]
 
 
 class NoSummaryTree(Exception):

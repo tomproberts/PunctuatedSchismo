@@ -1,14 +1,12 @@
+from scripts.families.sino_tibetan import SinoTibetan
 from scripts.families.uralic import Uralic
 from scripts.gammaspike.summary_tree import get_sorted_summary_tree_cherries_ascii
 from scripts.predictors.polygons.glottography import Glottography
 from scripts.predictors.polygons.glottography_config import get_config
 from scripts.predictors.polygons.inventory import to_glottolink
 
-if __name__ == '__main__':
-    # Load family
-    family = Uralic()
-    glottography = Glottography(get_config(family.name))
 
+def polygon_inventory_markdown(family, glottography):
     # Get cherries
     clades_cherries = get_sorted_summary_tree_cherries_ascii(family)
 
@@ -58,8 +56,19 @@ if __name__ == '__main__':
 
     # Write out
     lines = header + lines
-    md = '\n'.join(lines)
-    filename = f'data/glottography/POLYGONS-{family.name}.md'
+    return '\n'.join(lines)
+
+
+if __name__ == '__main__':
+    # Load family
+    family = SinoTibetan()
+    glottography = Glottography(get_config(family.name))
+
+    # Generate markdown report
+    md = polygon_inventory_markdown(family, glottography)
+
+    # Write out
+    filename = f'data/glottography/Polygons{family.name}.md'
     with open(filename, 'w') as f:
         f.write(md)
 
