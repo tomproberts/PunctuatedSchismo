@@ -1,4 +1,3 @@
-from scripts.families.indo_european import IndoEuropean
 from scripts.families.sino_tibetan import SinoTibetan
 from scripts.gammaspike.summary_tree import summary_tree_cherries, NoSummaryTree
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException

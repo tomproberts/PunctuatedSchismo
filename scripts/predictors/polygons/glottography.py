@@ -54,6 +54,23 @@ class Glottography:
         # Otherwise not present
         raise LiterallyNoPolygonException(glottocode)
 
+    def get_source(self, glottocode):
+        # Check patches
+        if glottocode in self.settings.patches.keys():
+            s, index = self.settings.patches[glottocode]
+            raws = self.raw_polygons[s]
+            polygon = raws[raws.polygon_id == index]
+            if len(polygon) > 0:
+                return self.settings.sources[s]
+            raise PolygonNotFoundException(index)
+
+        # Loop through all sources
+        for (s, glottocodes) in zip(self.settings.sources, self.glottocode_map):
+            polygon_glottocodes = list(glottocodes.glottocode)
+            if glottocode in polygon_glottocodes:
+                return s
+        return None
+
 
 class GlottographyConfig:
     def __init__(self, sources: [str], patches: {str: (int, int)} = None):

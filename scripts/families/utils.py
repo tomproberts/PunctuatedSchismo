@@ -87,6 +87,12 @@ class LanguageFamily:
                 languages.append(language_name)
         return languages
 
+    def get_language_from_ascii(self, ascii_name):
+        self.check_and_generate_ascii_names()
+        for (_, language_name, language_ascii) in self._id_map.values():
+            if ascii_name == language_ascii: return language_name
+        raise LanguageNotFound(ascii_name, self.name)
+
     def get_language_ascii_from_glottocode(self, glottocode):
         language_asciis = self.get_language_asciis_from_glottocode(glottocode)
         # Return
