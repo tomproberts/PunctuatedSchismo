@@ -285,6 +285,12 @@ class LanguageFamily:
     def add_language(self, language_name, glottocode):
         self._id_map[language_name] = (glottocode, language_name, asciify_alphanumeric(language_name))
 
+    def get_clades(self):
+        return []
+
+    def get_clade_from_ascii(self, ascii):
+        return ''
+
 
 def verify_id(lang_id):
     lang_id = str(lang_id)

@@ -1,6 +1,7 @@
 ## *IndoEuropean* unconstrained (160 taxa)
 
 ### Summary
+
 - 18 out of 44 cherries present
 - 96 out of 160 polygons present
 - 'slov1268' (Slovene, Slovene: Early Modern) have the same polygon

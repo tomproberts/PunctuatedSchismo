@@ -49,7 +49,7 @@ def get_summary_tree_nexus(family_name) -> NexusReader:
     raise NoSummaryTree(family_name, trace)
 
 
-def summary_tree_cherries(family: LanguageFamily, as_glottocode = True) -> [(str, str)]:
+def summary_tree_cherries(family: LanguageFamily, as_glottocode=True) -> [(str, str)]:
     tree = get_summary_tree_nexus(family.name)
     assert tree
     taxa = tree.taxa.taxa
@@ -71,6 +71,25 @@ def summary_tree_cherries(family: LanguageFamily, as_glottocode = True) -> [(str
 
     tree.visit(for_node)
     return cherries
+
+
+def get_sorted_summary_tree_cherries_ascii(family: LanguageFamily) -> [(str, [(str, str)])]:
+    cherries = summary_tree_cherries(family, as_glottocode=False)
+    possible_clades = family.get_clades()
+    if not possible_clades:
+        return [('Cherries', cherries)]
+    # initialise clade sorting
+    clade_dict = {'Miscellaneous': []}
+    for clade in possible_clades:
+        clade_dict[clade.name] = []
+    # sort cherries
+    for (lang1, lang2) in cherries:
+        clade = family.get_clade_from_ascii(lang1)
+        if clade not in clade_dict:
+            clade_dict['Miscellaneous'].append(clade)
+        else:
+            clade_dict[clade].append(clade)
+    return [(clade, cherries) for (clade, cherries) in clade_dict.values()]
 
 
 class NoSummaryTree(Exception):
