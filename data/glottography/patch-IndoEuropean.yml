@@ -1,0 +1,18 @@
+name: Indo-European
+clades:
+  - name: Germanic
+    cherries:
+
+      - lang1:
+          ascii_name: NorwegianBokmal
+          glottocode: norw1259
+        lang2:
+          ascii_name: NorwegianNynorsk
+          glottocode: norw1262
+
+      - lang1:
+          ascii_name: Elfdalian
+          glottocode: elfd1234
+        lang2:
+          ascii_name: Swedish
+          glottocode: stan1248
