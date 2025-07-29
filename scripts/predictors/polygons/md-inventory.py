@@ -1,3 +1,4 @@
+from scripts.families.indo_european import IndoEuropean
 from scripts.families.sino_tibetan import SinoTibetan
 from scripts.families.uto_aztecan import UtoAztecan
 from scripts.gammaspike.summary_tree import get_sorted_summary_tree_cherries_ascii
@@ -66,7 +67,7 @@ def polygon_inventory_markdown(family, glottography):
 
 if __name__ == '__main__':
     # Load family
-    family = SinoTibetan()
+    family = IndoEuropean()
     glottography = Glottography(get_config(family.name))
 
     # Generate markdown report

@@ -1,6 +1,6 @@
 import pandas as pd
 
-from scripts.families.utils import LanguageFamily
+from scripts.families.utils import LanguageFamily, LanguageNotFound
 
 IE_COR_DIR = 'data/datasets/ie-cor'
 
@@ -24,6 +24,7 @@ class IndoEuropean(LanguageFamily):
     family_glottocode = 'indo1319'
     n_sites = 4958
     n_concepts = 170
+    clades = {}
 
     def __init__(self):
         self.loaded = False
@@ -38,6 +39,7 @@ class IndoEuropean(LanguageFamily):
         self.languages = list(all_languages.Name)
         self.languages_ascii = list(all_languages.ascii_name)
         self.loaded = True
+        self.clades = dict(zip(self.languages_ascii, list(all_languages.clade_name)))
 
     def get_forms_for_language(self, lang_id, extended=False, glottocode=False):
         if glottocode:
@@ -81,6 +83,16 @@ class IndoEuropean(LanguageFamily):
         # Both are south-eastern dialects but no finer granularity of course
         self.set_language_glottocode('Macedonian: Suho', 'sout3278')
         self.set_language_glottocode('Macedonian: Visoka', 'sout3278')
+
+    def get_clades(self):
+        return ['Germanic', 'Celtic', 'Italic', 'Balto-Slavic', 'Indo-Iranic']
+
+    def get_clade_from_ascii(self, ascii):
+        try:
+            return self.clades[ascii]
+        except KeyError:
+            pass
+        raise LanguageNotFound(ascii)
 
 
 class Italic(IndoEuropean):
