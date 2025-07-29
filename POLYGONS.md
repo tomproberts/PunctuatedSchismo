@@ -42,6 +42,7 @@ period (e.g Modern English).
 | `Dravidian`    | [DravLex](https://github.com/phlorest/kolipakam_et_al2018)                            | 5/5 cherries available             |
 | `Uralic`       | [UraLex](https://github.com/lexibank/uralex)                                          | 8/8 cherries in `rantanen2022urhia`|
 | `UtoAztecan`   | [Greenhill et al. 2023](https://github.com/lexibank/utoaztecan)                       | 8/12 cherries in `glottography`    |
+| `Bantu`        | [Bantu Basic Vocabulary Database](https://github.com/lexibank/bantubvd/)              | 56/140 cherries in `glottography`  |
 | `SinoTibetan`  | [Sino-Tibetan Database of Lexical Cognates](https://github.com/lexibank/sagartst)     | 6/15 cherries in `asher2007world`  |
 | `Philippines`  | [Austronesian Basic Vocabulary Database](https://github.com/lexibank/abvdphilippines) | 4/66 cherries in `glottography`    |
 | `PamaNyungan`  | [Chirila](https://github.com/phlorest/bouckaert_et_al2018)                            | all/most polygons available        |
@@ -53,6 +54,8 @@ period (e.g Modern English).
 ### [*Uralic*](./data/glottography/PolygonsUralic.md) (26 taxa, 8/8 cherries)
 
 ### [*UtoAztecan*](./data/glottography/PolygonsUtoAztecan.md) (35 taxa, 8/12 cherries)
+
+### [*Bantu*](./data/glottography/PolygonsBantu.md) (425 taxa, 56/140 cherries)
 
 ### [*SinoTibetan*](./data/glottography/PolygonsSinoTibetan.md) (50 taxa, 6/15 cherries)
 
