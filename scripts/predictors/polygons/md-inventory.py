@@ -1,6 +1,4 @@
 from scripts.families.indo_european import IndoEuropean
-from scripts.families.sino_tibetan import SinoTibetan
-from scripts.families.uto_aztecan import UtoAztecan
 from scripts.gammaspike.summary_tree import get_sorted_summary_tree_cherries_ascii
 from scripts.predictors.polygons.glottography import Glottography
 from scripts.predictors.polygons.glottography_config import get_config
