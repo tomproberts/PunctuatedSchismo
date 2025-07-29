@@ -2,7 +2,7 @@ import pandas as pd
 
 from scripts.families.utils import LanguageFamily
 
-SINOTIBETAN_DIR = "data/datasets/sagartst"
+SINOTIBETAN_DIR = 'data/datasets/sagartst'
 SINOTIBETAN_LANGUAGES_CSV = f'{SINOTIBETAN_DIR}/languages.csv'
 
 

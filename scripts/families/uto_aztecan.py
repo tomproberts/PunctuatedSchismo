@@ -2,7 +2,7 @@ import pandas as pd
 
 from scripts.families.utils import LanguageFamily
 
-UTO_DIR = "data/datasets/utoaztecan"
+UTO_DIR = 'data/datasets/utoaztecan'
 UTO_LANGUAGES_CSV = f'{UTO_DIR}/languages.csv'
 
 UTO_AZTECAN_FAMILY = 'Uto-Aztecan'

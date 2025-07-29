@@ -2,7 +2,7 @@ import pandas as pd
 
 from scripts.families.utils import LanguageFamily
 
-BANTU_DIR = "data/datasets/grollemund"
+BANTU_DIR = 'data/datasets/grollemund'
 BANTU_LANGUAGES_CSV = f'{BANTU_DIR}/languages.csv'
 
 

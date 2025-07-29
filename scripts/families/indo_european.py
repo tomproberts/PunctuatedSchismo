@@ -2,7 +2,7 @@ import pandas as pd
 
 from scripts.families.utils import LanguageFamily
 
-IE_COR_DIR = "data/datasets/ie-cor"
+IE_COR_DIR = 'data/datasets/ie-cor'
 
 IE_COR_LANGUAGES_CSV = f'{IE_COR_DIR}/languages.csv'
 IE_COR_FORMS_CSV = f'{IE_COR_DIR}/forms.csv'

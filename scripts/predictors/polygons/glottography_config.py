@@ -14,6 +14,8 @@ def get_config(family_name: str):
         return sinotibetan_config()
     if family_name == 'Bantu':
         return bantu_config()
+    if family_name == 'Philippines':
+        return philippines_config()
     raise RuntimeError(f'Glottography Error: unknown family {family_name}')
 
 
@@ -103,4 +105,7 @@ def uralic_config():
                               })
 
 def bantu_config():
+    return GlottographyConfig(sources=['asher2007world'])
+
+def philippines_config():
     return GlottographyConfig(sources=['asher2007world'])
