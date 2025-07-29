@@ -2,7 +2,7 @@ import pandas as pd
 
 from scripts.families.utils import LanguageFamily
 
-URALEX_DIR = "data/datasets/uralex"
+URALEX_DIR = 'data/datasets/uralex'
 URALEX_LANGUAGES_CSV = f'{URALEX_DIR}/languages.csv'
 
 

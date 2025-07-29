@@ -2,7 +2,7 @@ import pandas as pd
 
 from scripts.families.utils import LanguageFamily
 
-CHIRILA_DIR = "data/datasets/chirila"
+CHIRILA_DIR = 'data/datasets/chirila'
 CHIRILA_LANGUAGES_CSV = f'{CHIRILA_DIR}/languages.csv'
 
 
