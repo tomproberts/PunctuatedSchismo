@@ -49,26 +49,47 @@ def get_summary_tree_nexus(family_name) -> NexusReader:
     raise NoSummaryTree(family_name, trace)
 
 
-def summary_tree_cherries(family: LanguageFamily) -> [(str, str)]:
+def summary_tree_cherries(family: LanguageFamily, as_glottocode=True) -> [(str, str)]:
     tree = get_summary_tree_nexus(family.name)
     assert tree
     taxa = tree.taxa.taxa
     tree = tree.trees[0].newick_tree
     cherries = []
 
-    def nx_glottocode(node_id: str) -> str:
+    def nx_output(node_id: str) -> str:
         ascii = taxa[int(node_id) - 1]
-        return family.get_glottocode_from_ascii(ascii)
+        if as_glottocode:
+            return family.get_glottocode_from_ascii(ascii)
+        return ascii
 
     def for_node(node: newick.Node) -> None:
         leaves = [n.name for n in node.descendants if n.is_leaf]
         if len(leaves) > 1:
             assert len(leaves) == 2
-            cherry = nx_glottocode(leaves[0]), nx_glottocode(leaves[1])
+            cherry = nx_output(leaves[0]), nx_output(leaves[1])
             cherries.append(cherry)
 
     tree.visit(for_node)
     return cherries
+
+
+def get_sorted_summary_tree_cherries_ascii(family: LanguageFamily) -> [(str, [(str, str)])]:
+    cherries = summary_tree_cherries(family, as_glottocode=False)
+    possible_clades = family.get_clades()
+    if not possible_clades:
+        return [('Cherries', cherries)]
+    # initialise clade sorting
+    clade_dict = {}
+    for clade in possible_clades:
+        clade_dict[clade] = []
+    clade_dict['Miscellaneous'] = []
+    # sort cherries
+    for (lang1, lang2) in cherries:
+        clade = family.get_clade_from_ascii(lang1)
+        if clade not in clade_dict:
+            clade = 'Miscellaneous'
+        clade_dict[clade].append((lang1, lang2))
+    return [(clade, cherries) for (clade, cherries) in clade_dict.items()]
 
 
 class NoSummaryTree(Exception):

@@ -1,7 +1,7 @@
 import pandas as pd
 from scripts.families.utils import LanguageFamily
 
-DRAVLEX_DIR = "data/datasets/dravlex"
+DRAVLEX_DIR = 'data/datasets/dravlex'
 DRAVLEX_LANGUAGES_CSV = f'{DRAVLEX_DIR}/languages.csv'
 
 

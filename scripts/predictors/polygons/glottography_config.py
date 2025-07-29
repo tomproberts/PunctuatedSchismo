@@ -1,5 +1,15 @@
 from scripts.predictors.polygons.glottography import GlottographyConfig
 
+# Available glottography datasets
+ASHER_2007_WORLD = 'asher2007world'
+BOUCKAERT_2012_INDOEUROPEAN = 'bouckaert2012indoeuropean'
+DEDIO_2019_BRITAIN = 'dedio2019britain'
+RANTANEN_2022_URHIA = 'rantanen2022urhia'
+NATIVELAND_2024_LANGUAGES = 'nativeland2024languages'
+STEEVER_2019_DRAVIDIAN = 'steever2019dravidian'
+GODDARD_1999_NATIVE = 'goddard1999native'
+HAYNIE_2019_MODERN = 'haynie2019modern'
+
 
 def get_config(family_name: str):
     if family_name == 'Italic' or family_name == 'IndoEuropean':
@@ -12,11 +22,15 @@ def get_config(family_name: str):
         return uto_config()
     if family_name == 'SinoTibetan':
         return sinotibetan_config()
+    if family_name == 'Bantu':
+        return bantu_config()
+    if family_name == 'Philippines':
+        return philippines_config()
     raise RuntimeError(f'Glottography Error: unknown family {family_name}')
 
 
 def indoeuropean_config():
-    return GlottographyConfig(sources=['bouckaert2012indoeuropean', 'dedio2019britain', 'asher2007world'],
+    return GlottographyConfig(sources=[BOUCKAERT_2012_INDOEUROPEAN, DEDIO_2019_BRITAIN, ASHER_2007_WORLD],
                               patches={
                                   'sout2614': (0, 80),
                                   'barb1262': (0, 81),
@@ -47,12 +61,12 @@ def indoeuropean_config():
 
 
 def dravidian_config():
-    return GlottographyConfig(sources=['ravula', 'steever2019dravidian', 'asher2007world'],
+    return GlottographyConfig(sources=['ravula', STEEVER_2019_DRAVIDIAN, ASHER_2007_WORLD],
                               patches={})
 
 
 def uto_config():
-    return GlottographyConfig(sources=['asher2007world'],
+    return GlottographyConfig(sources=[ASHER_2007_WORLD, NATIVELAND_2024_LANGUAGES],
                               patches={
                                   'nort2954': (0, 4617),
                                   'pipi1250': (0, 5042)
@@ -60,7 +74,7 @@ def uto_config():
 
 
 def sinotibetan_config():
-    return GlottographyConfig(sources=['asher2007world'],
+    return GlottographyConfig(sources=[ASHER_2007_WORLD],
                               patches={
                                   'zaiw1241': (0, 369),
                                   'byan1241': (0, 1004),
@@ -71,7 +85,7 @@ def sinotibetan_config():
 
 
 def uralic_config():
-    return GlottographyConfig(sources=['rantanen2022urhia'],
+    return GlottographyConfig(sources=[RANTANEN_2022_URHIA],
                               patches={
                                   'sout2674': (0, 159),
                                   'umes1235': (0, 187),
@@ -99,3 +113,11 @@ def uralic_config():
                                   'nort2677': (0, 124),  # mapped to parent Northern Mansi
                                   'tazz1244': (0, 146)  # mapped to parent Selkup
                               })
+
+
+def bantu_config():
+    return GlottographyConfig(sources=[ASHER_2007_WORLD])
+
+
+def philippines_config():
+    return GlottographyConfig(sources=[ASHER_2007_WORLD])
