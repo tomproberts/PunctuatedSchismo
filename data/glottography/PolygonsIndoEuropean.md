@@ -27,14 +27,14 @@
 | `lang1` | `lang2` | `polygon1` | `polygon2` |
 |---------|---------|------------|------------|
 | Anglo-Norman [angl1258](https://glottolog.org/resource/languoid/id/angl1258) | Old French [oldf1239](https://glottolog.org/resource/languoid/id/oldf1239) | ✔ `dedio2019britain` | ✔ `dedio2019britain` |
-| Franco-Provençal [fran1269](https://glottolog.org/resource/languoid/id/fran1269) | French [stan1290](https://glottolog.org/resource/languoid/id/stan1290) | ❌ `lisn:france` | ✔ `bouckaert2012indoeuropean` |
+| Franco-Provençal [fran1269](https://glottolog.org/resource/languoid/id/fran1269) | French [stan1290](https://glottolog.org/resource/languoid/id/stan1290) | ✅ `lisn:france` | ✅ `lisn:france` |
 | Catalan [stan1289](https://glottolog.org/resource/languoid/id/stan1289) | Old Catalan [oldc1251](https://glottolog.org/resource/languoid/id/oldc1251) | ✔ `bouckaert2012indoeuropean` | ❌ |
 | Old Spanish [olds1249](https://glottolog.org/resource/languoid/id/olds1249) | Spanish [stan1288](https://glottolog.org/resource/languoid/id/stan1288) | ❌ | ✔ `bouckaert2012indoeuropean` |
 | Portuguese [port1283](https://glottolog.org/resource/languoid/id/port1283) | Portuguese: Brazilian [braz1246](https://glottolog.org/resource/languoid/id/braz1246) | ✔ `bouckaert2012indoeuropean` | ✔ `bouckaert2012indoeuropean` |
 | Friulian [friu1240](https://glottolog.org/resource/languoid/id/friu1240) | Ladin [ladi1250](https://glottolog.org/resource/languoid/id/ladi1250) | ✔ `bouckaert2012indoeuropean` | ✔ `bouckaert2012indoeuropean` |
 | Italian [ital1282](https://glottolog.org/resource/languoid/id/ital1282) | Milanese [mila1243](https://glottolog.org/resource/languoid/id/mila1243) | ✅ `lisn:italy` | ✅ `lisn:italy` |
 | Sardinian: Logudoro [sout2614](https://glottolog.org/resource/languoid/id/sout2614) | Sardinian: Nuoro [barb1262](https://glottolog.org/resource/languoid/id/barb1262) | ✅ `oxfordRomance:map17-1` | ✅ `oxfordRomance:map17-1` |
-| Megleno-Romanian [megl1237](https://glottolog.org/resource/languoid/id/megl1237) | Romanian [roma1327](https://glottolog.org/resource/languoid/id/roma1327) | ❌ `oxfordRomance:map8-1` | ✔ `bouckaert2012indoeuropean` |
+| Megleno-Romanian [megl1237](https://glottolog.org/resource/languoid/id/megl1237) | Romanian [roma1327](https://glottolog.org/resource/languoid/id/roma1327) | ✅ `oxfordRomance:map8-1` | ✔ `bouckaert2012indoeuropean` |
 | Oscan [osca1245](https://glottolog.org/resource/languoid/id/osca1245) | Umbrian [umbr1253](https://glottolog.org/resource/languoid/id/umbr1253) | ✔ `bouckaert2012indoeuropean` | ✔ `bouckaert2012indoeuropean` |
 
 ### Balto-Slavic
