@@ -45,7 +45,7 @@
 | Kashubian [kash1274](https://glottolog.org/resource/languoid/id/kash1274) | Polish [poli1260](https://glottolog.org/resource/languoid/id/poli1260) | ✅ `nitsch1957` | ✅ `nitsch1957` |
 | Sorbian: Lower [lowe1385](https://glottolog.org/resource/languoid/id/lowe1385) | Sorbian: Upper [uppe1395](https://glottolog.org/resource/languoid/id/uppe1395) | ✅ `mucka1886` | ✅ `mucka1886` |
 | Macedonian: Suho [sout3278](https://glottolog.org/resource/languoid/id/sout3278) | Macedonian: Visoka [sout3278](https://glottolog.org/resource/languoid/id/sout3278) | ❌ `małecki1933` | ❌ `małecki1933` |
-| Slovene [slov1268](https://glottolog.org/resource/languoid/id/slov1268) | Slovene: Kostel [lowe1384](https://glottolog.org/resource/languoid/id/lowe1384) | ❌ `slovenskiAtlas` | ❌ `slovenskiAtlas` |
+| Slovene [slov1268](https://glottolog.org/resource/languoid/id/slov1268) | Slovene: Kostel [lowe1384](https://glottolog.org/resource/languoid/id/lowe1384) | ✅ `slovenskiAtlas2016` | ✅ `slovenskiAtlas2016` |
 | Latgalian [east2282](https://glottolog.org/resource/languoid/id/east2282) | Latvian [latv1249](https://glottolog.org/resource/languoid/id/latv1249) | ✅ `enciklopedija` | ✅ `enciklopedija` |
 
 ### Indo-Iranic
