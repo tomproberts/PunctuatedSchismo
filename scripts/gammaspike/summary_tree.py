@@ -3,7 +3,9 @@ import pandas as pd
 from nexus import NexusReader
 
 from scripts.families.sino_tibetan import SinoTibetan
+from scripts.families.uralic import Uralic
 from scripts.families.utils import LanguageFamily
+from scripts.families.uto_aztecan import UtoAztecan
 
 
 def write_out_data(data, family_name) -> None:
@@ -49,7 +51,7 @@ def get_summary_tree_nexus(family_name) -> NexusReader:
     raise NoSummaryTree(family_name, trace)
 
 
-def summary_tree_cherries(family: LanguageFamily, as_glottocode=True) -> [(str, str)]:
+def summary_tree_cherries(family: LanguageFamily, as_glottocode=True) -> list[tuple[str, str]]:
     tree = get_summary_tree_nexus(family.name)
     assert tree
     taxa = tree.taxa.taxa
@@ -66,14 +68,14 @@ def summary_tree_cherries(family: LanguageFamily, as_glottocode=True) -> [(str, 
         leaves = [n.name for n in node.descendants if n.is_leaf]
         if len(leaves) > 1:
             assert len(leaves) == 2
-            cherry = nx_output(leaves[0]), nx_output(leaves[1])
+            cherry: tuple[str, str] = nx_output(leaves[0]), nx_output(leaves[1])
             cherries.append(cherry)
 
     tree.visit(for_node)
     return cherries
 
 
-def get_sorted_summary_tree_cherries_ascii(family: LanguageFamily) -> [(str, [(str, str)])]:
+def get_sorted_summary_tree_cherries_ascii(family: LanguageFamily) -> list[tuple[str, list[tuple[str, str]]]]:
     cherries = summary_tree_cherries(family, as_glottocode=False)
     possible_clades = family.get_clades()
     if not possible_clades:
@@ -89,7 +91,7 @@ def get_sorted_summary_tree_cherries_ascii(family: LanguageFamily) -> [(str, [(s
         if clade not in clade_dict:
             clade = 'Miscellaneous'
         clade_dict[clade].append((lang1, lang2))
-    return [(clade, cherries) for (clade, cherries) in clade_dict.items()]
+    return list(clade_dict.items())
 
 
 class NoSummaryTree(Exception):
@@ -98,7 +100,7 @@ class NoSummaryTree(Exception):
 
 
 if __name__ == '__main__':
-    family = SinoTibetan()
+    family = Uralic()
     tree_nexus_file = get_summary_tree_nexus(family.name)
     data = visit_tree(tree_nexus_file, family)
 
