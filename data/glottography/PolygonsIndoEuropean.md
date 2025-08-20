@@ -44,7 +44,7 @@
 | Czech [czec1258](https://glottolog.org/resource/languoid/id/czec1258) | Slovak [slov1269](https://glottolog.org/resource/languoid/id/slov1269) | ✔ `bouckaert2012indoeuropean` | ✔ `bouckaert2012indoeuropean` |
 | Kashubian [kash1274](https://glottolog.org/resource/languoid/id/kash1274) | Polish [poli1260](https://glottolog.org/resource/languoid/id/poli1260) | ✅ `nitsch1957` | ✅ `nitsch1957` |
 | Sorbian: Lower [lowe1385](https://glottolog.org/resource/languoid/id/lowe1385) | Sorbian: Upper [uppe1395](https://glottolog.org/resource/languoid/id/uppe1395) | ✅ `mucka1886` | ✅ `mucka1886` |
-| Macedonian: Suho [sout3278](https://glottolog.org/resource/languoid/id/sout3278) | Macedonian: Visoka [sout3278](https://glottolog.org/resource/languoid/id/sout3278) | ❌ `małecki1933` | ❌ `małecki1933` |
+| ~~Macedonian: Suho~~ [sout3278](https://glottolog.org/resource/languoid/id/sout3278) | ~~Macedonian: Visoka~~ [sout3278](https://glottolog.org/resource/languoid/id/sout3278) | ❌ `małecki1933` | ❌ `małecki1933` |
 | Slovene [slov1268](https://glottolog.org/resource/languoid/id/slov1268) | Slovene: Kostel [lowe1384](https://glottolog.org/resource/languoid/id/lowe1384) | ✅ `slovenskiAtlas2016` | ✅ `slovenskiAtlas2016` |
 | Latgalian [east2282](https://glottolog.org/resource/languoid/id/east2282) | Latvian [latv1249](https://glottolog.org/resource/languoid/id/latv1249) | ✅ `enciklopedija` | ✅ `enciklopedija` |
 
@@ -68,7 +68,7 @@
 | `lang1` | `lang2` | `polygon1` | `polygon2` |
 |---------|---------|------------|------------|
 | Albanian: Gheg [gheg1238](https://glottolog.org/resource/languoid/id/gheg1238) | Albanian: Standard [alba1267](https://glottolog.org/resource/languoid/id/alba1267) | ✔ `bouckaert2012indoeuropean` | ✔ `bouckaert2012indoeuropean` |
-| Greek: Cappadocian [capp1239](https://glottolog.org/resource/languoid/id/capp1239) | Greek: Pontic [pont1253](https://glottolog.org/resource/languoid/id/pont1253) | ❌ `wikimedia:asia_minor` | ❌ `wikimedia:asia_minor` |
+| Greek: Cappadocian [capp1239](https://glottolog.org/resource/languoid/id/capp1239) | Greek: Pontic [pont1253](https://glottolog.org/resource/languoid/id/pont1253) | ✅ `wikimedia:asia_minor` | ✅ `wikimedia:asia_minor` |
 | Armenian: Eastern [nucl1235](https://glottolog.org/resource/languoid/id/nucl1235) | Armenian: Western [homs1234](https://glottolog.org/resource/languoid/id/homs1234) | ❌ `adjarian1909` | ❌ `adjarian1909` |
 | Tocharian A [tokh1242](https://glottolog.org/resource/languoid/id/tokh1242) | Tocharian B [tokh1243](https://glottolog.org/resource/languoid/id/tokh1243) | ✔ `bouckaert2012indoeuropean` | ✔ `bouckaert2012indoeuropean` |
 | ~~Hittite~~ [hitt1242](https://glottolog.org/resource/languoid/id/hitt1242) | ~~Luvian~~ [cune1239](https://glottolog.org/resource/languoid/id/cune1239) | ✔ `bouckaert2012indoeuropean` | ❌ `bouckaert2012:luvi1235`? |
