@@ -12,7 +12,7 @@
 | Elfdalian [elfd1234](https://glottolog.org/resource/languoid/id/elfd1234) | Swedish [swed1254](https://glottolog.org/resource/languoid/id/swed1254) | ✅ `svenskaDialektgrupper` | ✅ `svenskaDialektgrupper` |
 | Icelandic [icel1247](https://glottolog.org/resource/languoid/id/icel1247) | Old Icelandic [oldn1244](https://glottolog.org/resource/languoid/id/oldn1244) | ✔ `bouckaert2012indoeuropean` | ✔ `bouckaert2012indoeuropean` |
 | Dutch [dutc1256](https://glottolog.org/resource/languoid/id/dutc1256) | Flemish [vlaa1240](https://glottolog.org/resource/languoid/id/vlaa1240) | ✔ `bouckaert2012indoeuropean` | ✔ `bouckaert2012indoeuropean` |
-| German [stan1295](https://glottolog.org/resource/languoid/id/stan1295) | German: Bernese [swis1247](https://glottolog.org/resource/languoid/id/swis1247) | ❌ `wiesinger1983` | ❌ `wiesinger1983` |
+| German [stan1295](https://glottolog.org/resource/languoid/id/stan1295) | German: Bernese [swis1247](https://glottolog.org/resource/languoid/id/swis1247) | ✅ `wiesinger1983` | ✅ `wiesinger1983` |
 | English [stan1293](https://glottolog.org/resource/languoid/id/stan1293) | Old English [olde1238](https://glottolog.org/resource/languoid/id/olde1238) | ✔ `bouckaert2012indoeuropean` | ✔ `dedio2019britain` |
 
 ### Celtic
@@ -53,15 +53,15 @@
 |---------|---------|------------|------------|
 | Assamese [assa1263](https://glottolog.org/resource/languoid/id/assa1263) | Bengali [beng1280](https://glottolog.org/resource/languoid/id/beng1280) | ✔ `bouckaert2012indoeuropean` | ✔ `bouckaert2012indoeuropean` |
 | Hindi [hind1269](https://glottolog.org/resource/languoid/id/hind1269) | Urdu [urdu1245](https://glottolog.org/resource/languoid/id/urdu1245) | ✔ `bouckaert2012indoeuropean` | ✔ `bouckaert2012indoeuropean` |
-| Gawri [kala1373](https://glottolog.org/resource/languoid/id/kala1373) | Palula [ashr1238](https://glottolog.org/resource/languoid/id/ashr1238) | ✔ `asher2007world` | ❌ `asher:phal1254` |
+| Gawri [kala1373](https://glottolog.org/resource/languoid/id/kala1373) | Palula [ashr1238](https://glottolog.org/resource/languoid/id/ashr1238) | ✔ `asher2007world` | ✔ `asher2007world:phal1254` |
 | Kâta-vari: Eastern [east2308](https://glottolog.org/resource/languoid/id/east2308) | Kâta-vari: Ktivi [west2372](https://glottolog.org/resource/languoid/id/west2372) | ❌ `gmi` subtract Komviri? | ❌ `asher:left:kati1270` |
-| Khowar [khow1242](https://glottolog.org/resource/languoid/id/khow1242) | Pashai: North-West [nort2665](https://glottolog.org/resource/languoid/id/nort2665) | ✔ `asher2007world` | ❌ `asher:pash1270` |
+| Khowar [khow1242](https://glottolog.org/resource/languoid/id/khow1242) | Pashai: North-West [nort2665](https://glottolog.org/resource/languoid/id/nort2665) | ✔ `asher2007world` | ✔ `asher2007world:pash1270` |
 | Ossetic: Digor [digo1242](https://glottolog.org/resource/languoid/id/digo1242) | Ossetic: Iron [iron1242](https://glottolog.org/resource/languoid/id/iron1242) | ✔ `bouckaert2012indoeuropean` | ✔ `bouckaert2012indoeuropean` |
 | Sogdian [sogd1245](https://glottolog.org/resource/languoid/id/sogd1245) | Yaghnobi [yagn1238](https://glottolog.org/resource/languoid/id/yagn1238) | ❌ | ❌ `compendiumIranicarum` |
 | Sarikoli [sari1246](https://glottolog.org/resource/languoid/id/sari1246) | Wakhi [wakh1245](https://glottolog.org/resource/languoid/id/wakh1245) | ❌ `compendiumIranicarum` | ✔ `compendiumIranicarum` |
 | Delvari [sout2645](https://glottolog.org/resource/languoid/id/sout2645) | Lari [lari1253](https://glottolog.org/resource/languoid/id/lari1253) | ✔ `compendiumIranicarum` | ❌ `compendiumIranicarum` |
 | Mazanderani [maza1291](https://glottolog.org/resource/languoid/id/maza1291) | Tati [take1255](https://glottolog.org/resource/languoid/id/take1255) | ✔ `asher2007world` | ✔ `asher2007world` |
-| Hawrami [hawr1243](https://glottolog.org/resource/languoid/id/hawr1243) | Kurdish C.: Jafi [cent1972](https://glottolog.org/resource/languoid/id/cent1972) | ❌ `haig2014` | ❌ `haig2014` |
+| Hawrami [hawr1243](https://glottolog.org/resource/languoid/id/hawr1243) | Kurdish C.: Jafi [cent1972](https://glottolog.org/resource/languoid/id/cent1972) | ✅ `haig2014` | ✅ `haig2014` |
 | Kurdish S.: Elami [feyl1238](https://glottolog.org/resource/languoid/id/feyl1238) | Kurdish S.: Qorveh [koly1245](https://glottolog.org/resource/languoid/id/koly1245) | ❌ `belelli2019` | ❌ `belelli2019` |
 
 ### Miscellaneous

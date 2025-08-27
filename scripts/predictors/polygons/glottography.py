@@ -73,7 +73,7 @@ class Glottography:
 
 
 class GlottographyConfig:
-    def __init__(self, sources: [str], patches: {str: (int, int)} = None):
+    def __init__(self, sources: list[str], patches: dict[str, tuple[int, int]] = None):
         if patches is None:
             patches = {}
         self.patches = patches

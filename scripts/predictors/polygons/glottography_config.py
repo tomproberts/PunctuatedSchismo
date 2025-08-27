@@ -57,6 +57,8 @@ def indoeuropean_config():
                                   'mode1248': (0, 35),  # Modern Greek has wrong glottocode
                                   'angl1258': (1, 32),
                                   'oldf1239': (1, 34),
+                                  'ashr1238': (2, 4995),  # 'Standard' Palula
+                                  'nort2665': (2, 4945),  # All of Pashai
                               })
 
 
