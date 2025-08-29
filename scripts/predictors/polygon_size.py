@@ -1,6 +1,6 @@
 import pandas as pd
 
-from scripts.families.uralic import Uralic
+from scripts.families.indo_european import IndoEuropean
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
 from scripts.predictors.polygons.glottography_config import get_config
 from scripts.predictors.utils import write_out_df
@@ -32,7 +32,7 @@ def calculate_areas(glottography, required_glottocodes):
 
 
 if __name__ == '__main__':
-    family = Uralic()
+    family = IndoEuropean()
     required_glottocodes = family.glottocodes
 
     glottography = Glottography(get_config(family.name), geodesic=True)

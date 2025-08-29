@@ -3,13 +3,14 @@ library(marginaleffects)
 library(ggplot2)
 library(bayesplot)
 library(collapse)
+source("scripts/gammaspike/SummaryTree.R")
 
-bursts <- read.csv("data/gammaspike/summarytree/Douglas.csv")
+bursts <- read.csv("data/gammaspike/summarytree/IndoEuropean.csv")
 page.counts <- read.csv("data/predictors/grambank_pageCounts.csv")[, c("glcode", "total_pages")]
 areas <- read.csv("data/predictors/area/IndoEuropean.geodesic.csv")
 distances <- read.csv("data/predictors/contact/IndoEuropean.contact.geodesic.csv")
 
-cherries <- get_summary_cherries(DOUGLAS)
+cherries <- get_summary_cherries(INDO.EUROPEAN)
 lang1 <- sapply(cherries, function(e) return(e[1]))
 lang2 <- sapply(cherries, function(e) return(e[2]))
 
@@ -66,12 +67,11 @@ if (TRUE) {
     # (1 | cherry) +
     log_total_pages +
       log(median_distance) +
-      log_area_geodesic_sister +
-      log_area_geodesic,
+      log_area_geodesic_sister,
              family = Gamma(link = "log"),
              data = df,
              iter = 4000)
-  save(fit, file = "data/glm/Douglas.RData")
+  save(fit, file = "data/glm/IndoEuropean.RData")
 }
 
 # Graph brms
