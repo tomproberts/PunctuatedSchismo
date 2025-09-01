@@ -37,7 +37,7 @@ df <- merge(df, areas, by.x = "Glottocode", by.y = "glottocode")
 # Contact
 df <- merge(df, distances, by.x = c("lang", "lang_sister"), by.y = c("language_1", "language_2"))
 
-# Sisters
+# Sisters TODO: Somehow removes Sardinian, Slovene is also duplicated?
 df <- merge(df, df[, c("lang", "weightedSpikes_median", "total_pages", "area_geodesic", "median_distance")],
             by.x = "lang_sister", by.y = "lang", suffixes = c("", "_sister"))
 
@@ -67,6 +67,7 @@ if (TRUE) {
     # (1 | cherry) +
     log_total_pages +
       log(median_distance) +
+      log_area_geodesic +
       log_area_geodesic_sister,
              family = Gamma(link = "log"),
              data = df,
