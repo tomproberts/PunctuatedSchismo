@@ -3,13 +3,16 @@ library(ggdist)
 library(tidyr)
 library(dplyr)
 
-load("data/glm/IndoEuropean.RData")
+load("data/glm/Douglas.RData")
 
 par.names <- c(
   "log(median distance)" = "b_logmedian_distance",
+  "log(area)" = "b_logarea_geodesic",
   "log(area)" = "b_log_area_geodesic",
+  "log(area of sister)" = "b_logarea_geodesic_sister",
   "log(area of sister)" = "b_log_area_geodesic_sister",
-  "log(total pages)" = "b_log_total_pages"
+  "log(total pages)" = "b_log_total_pages",
+  "log(total pages of sister)" = "b_log_total_page_sister"
 )
 
 draws <- as.data.frame(fit)
