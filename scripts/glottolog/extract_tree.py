@@ -1,6 +1,6 @@
 import re
 
-from scripts.families.dravidian import Dravidian
+from scripts.families.indo_european import IndoEuropean
 from scripts.glottolog.trees import GlottologTreeType, write_out_glottolog_tree, ALL_TREES
 from scripts.utils import asciify
 
@@ -191,5 +191,5 @@ def generate_glottolog_trees(family):
 
 
 if __name__ == '__main__':
-    family = Dravidian()
+    family = IndoEuropean()
     generate_glottolog_trees(family)
