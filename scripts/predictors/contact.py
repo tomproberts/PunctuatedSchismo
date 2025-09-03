@@ -7,7 +7,7 @@ from shapely.geometry.linestring import LineString
 from shapely.geometry.point import Point
 from shapely.ops import nearest_points
 
-from scripts.families.uralic import Uralic
+from scripts.families.indo_european import IndoEuropean
 from scripts.families.utils import LanguageFamily
 from scripts.glottolog.trees import glottolog_cherries
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
@@ -117,16 +117,8 @@ def calculate_output_contact(family: LanguageFamily, glottography):
 
 
 if __name__ == '__main__':
-    # family = IndoEuropean()
-    family = Uralic()
+    family = IndoEuropean()
     glottography = Glottography(get_config(family.name))
-
-    plot_contact(family.get_glottocode_from_ascii('KarelianProper'), family.get_glottocode_from_ascii('Veps'),
-                 glottography, 50)
-    plot_contact(family.get_glottocode_from_ascii('PiteSaami'), family.get_glottocode_from_ascii('SouthSaami'),
-                 glottography, 50)
-    plot_contact(family.get_glottocode_from_ascii('KomiPermyak'), family.get_glottocode_from_ascii('KomiZyrian'),
-                 glottography, 50)
     # plot_contact('vlaa1240', 'dutc1256', glottography, 50)
 
-    # calculate_output_contact(family, glottography)
+    calculate_output_contact(family, glottography)

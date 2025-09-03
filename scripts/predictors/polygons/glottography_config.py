@@ -9,6 +9,7 @@ NATIVELAND_2024_LANGUAGES = 'nativeland2024languages'
 STEEVER_2019_DRAVIDIAN = 'steever2019dravidian'
 GODDARD_1999_NATIVE = 'goddard1999native'
 HAYNIE_2019_MODERN = 'haynie2019modern'
+MISSING = 'roberts2026schismo'
 
 
 def get_config(family_name: str):
@@ -30,33 +31,35 @@ def get_config(family_name: str):
 
 
 def indoeuropean_config():
-    return GlottographyConfig(sources=[BOUCKAERT_2012_INDOEUROPEAN, DEDIO_2019_BRITAIN, ASHER_2007_WORLD],
+    return GlottographyConfig(sources=[MISSING, BOUCKAERT_2012_INDOEUROPEAN, DEDIO_2019_BRITAIN, ASHER_2007_WORLD],
                               patches={
-                                  'sout2614': (0, 80),
-                                  'barb1262': (0, 81),
-                                  'czec1258': (0, 21),
-                                  'nucl1235': (0, 19),
-                                  'dutc1256': (0, 25),  # wrong glottocode
-                                  'stan1293': (0, 26),  # Old_English has wrong glottocode
-                                  'hind1269': (0, 37),
-                                  'urdu1245': (0, 97),  # Urdu has wrong glottocode
-                                  'iris1253': (0, 40),
-                                  'oldi1245': (0, 63),
-                                  'lith1251': (0, 49),  # Not sure what Lithuanian_ST is
-                                  'swed1254': (0, 89),
-                                  'braz1246': (0, 72),
-                                  'tokh1242': (0, 93),
-                                  'tokh1243': (0, 94),
-                                  'iron1242': (0, 41),  # Iron_Ossetic has wrong glottocode
-                                  'digo1242': (0, 24),  # Ossetic has wrong glottocode
-                                  'oldp1254': (0, 65),  # Modern persian has wrong glottocode
-                                  'west2369': (0, 70),  # No Tehran Persian available
-                                  'alba1267': (0, 2),  # Standard Albanian
-                                  'gheg1238': (0, 4),  # Kosovo
-                                  'arbe1236': (0, 3),  # Sicilian Albanian
-                                  'mode1248': (0, 35),  # Modern Greek has wrong glottocode
-                                  'angl1258': (1, 32),
-                                  'oldf1239': (1, 34),
+                                  'sout2614': (1, 80),
+                                  'barb1262': (1, 81),
+                                  'czec1258': (1, 21),
+                                  'nucl1235': (1, 19),
+                                  'dutc1256': (1, 25),  # wrong glottocode
+                                  'stan1293': (1, 26),  # Old_English has wrong glottocode
+                                  'hind1269': (1, 37),
+                                  'urdu1245': (1, 97),  # Urdu has wrong glottocode
+                                  'iris1253': (1, 40),
+                                  'oldi1245': (1, 63),
+                                  'lith1251': (1, 49),  # Not sure what Lithuanian_ST is
+                                  'swed1254': (1, 89),
+                                  'braz1246': (1, 72),
+                                  'tokh1242': (1, 93),
+                                  'tokh1243': (1, 94),
+                                  'iron1242': (1, 41),  # Iron_Ossetic has wrong glottocode
+                                  'digo1242': (1, 24),  # Ossetic has wrong glottocode
+                                  'oldp1254': (1, 65),  # Modern persian has wrong glottocode
+                                  'west2369': (1, 70),  # No Tehran Persian available
+                                  'alba1267': (1, 2),  # Standard Albanian
+                                  'gheg1238': (1, 4),  # Kosovo
+                                  'arbe1236': (1, 3),  # Sicilian Albanian
+                                  'mode1248': (1, 35),  # Modern Greek has wrong glottocode
+                                  'angl1258': (2, 32),
+                                  'oldf1239': (2, 34),
+                                  'ashr1238': (3, 4995),  # 'Standard' Palula
+                                  'nort2665': (3, 4945),  # All of Pashai
                               })
 
 
@@ -66,21 +69,21 @@ def dravidian_config():
 
 
 def uto_config():
-    return GlottographyConfig(sources=[ASHER_2007_WORLD, NATIVELAND_2024_LANGUAGES],
+    return GlottographyConfig(sources=[MISSING, ASHER_2007_WORLD, NATIVELAND_2024_LANGUAGES],
                               patches={
-                                  'nort2954': (0, 4617),
-                                  'pipi1250': (0, 5042)
+                                  'nort2954': (1, 4617),
+                                  'pipi1250': (2, 5042)
                               })
 
 
 def sinotibetan_config():
-    return GlottographyConfig(sources=[ASHER_2007_WORLD],
+    return GlottographyConfig(sources=[MISSING, ASHER_2007_WORLD],
                               patches={
-                                  'zaiw1241': (0, 369),
-                                  'byan1241': (0, 1004),
-                                  'lash1243': (0, 3281),
-                                  'lisu1250': (0, 3378),
-                                  'maru1249': (0, 3749),
+                                  'zaiw1241': (1, 369),
+                                  'byan1241': (1, 1004),
+                                  'lash1243': (1, 3281),
+                                  'lisu1250': (1, 3378),
+                                  'maru1249': (1, 3749),
                               })
 
 
