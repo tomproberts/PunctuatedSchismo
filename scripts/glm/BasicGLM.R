@@ -65,14 +65,13 @@ if (FALSE) {
 # Fit the model
 if (TRUE) {
   fit <- brm(formula = weightedSpikes_median ~
-    # (1 | cherry) +
-    # log_total_pages +
+    log_total_pages +
       log(median_distance) +
       log(area_geodesic) +
       log(area_geodesic_sister),
              family = Gamma(link = "log"),
              data = df,
-             iter = 6000)
+             iter = 4000)
   save(fit, file = "data/glm/Douglas.RData")
 }
 

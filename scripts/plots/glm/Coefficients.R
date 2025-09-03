@@ -3,7 +3,7 @@ library(ggdist)
 library(tidyr)
 library(dplyr)
 
-load("data/glm/IndoEuropean.RData")
+load("data/glm/Douglas.RData")
 
 par.names <- c(
   "log(median distance)" = "b_logmedian_distance",
