@@ -120,7 +120,7 @@ def calculate_output_contact(family: LanguageFamily, glottography):
     cherries = glottolog_cherries(family, type=GlottologTreeType.ASCII)
     cherries = double_reverse(cherries)
     cherries, mean_distances, median_distances = calculate_euclidean_distances(family, cherries, glottography)
-    # TODO: include language IDs
+
     write_out_contact(family, cherries, mean_distances, median_distances, type="geodesic")
     print(f'Wrote out contact distances for {family.name}')
 
