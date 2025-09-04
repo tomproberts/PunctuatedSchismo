@@ -27,7 +27,7 @@ class Glottography:
             polygons.append(all)
         return polygons
 
-    def get_polygon(self, glottocode):
+    def get_polygon(self, glottocode, verbose=False):
         # Check patches
         if glottocode in self.settings.patches.keys():
             s, index = self.settings.patches[glottocode]
@@ -42,8 +42,8 @@ class Glottography:
             polygon_glottocodes = list(glottocodes.glottocode)
             if glottocode in polygon_glottocodes:
                 row = glottocodes[glottocodes.glottocode == glottocode]
+                if verbose: print(row)
                 if len(row) > 1:
-                    print(row)
                     raise MultiplePolygonException(glottocode)
                 index = row.index.values[0]
                 polygon = raw_polygons[raw_polygons.polygon_id == index]

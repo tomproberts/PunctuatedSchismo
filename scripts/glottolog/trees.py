@@ -26,7 +26,7 @@ def glottolog_tree_file(type: GlottologTreeType, family_name: str) -> str:
     return f'{GLOTTOLOG_DIR}/{type.value}.{family_name}.newick'
 
 
-def glottolog_cherries(family: LanguageFamily, type: GlottologTreeType = GlottologTreeType.GLOTTOCODES) -> [(str, str)]:
+def glottolog_cherries(family: LanguageFamily, type: GlottologTreeType = GlottologTreeType.GLOTTOCODES) -> list[tuple[str, str]]:
     file_name = glottolog_tree_file(type, family.name)
     tree = newick.read(file_name)
     assert tree
