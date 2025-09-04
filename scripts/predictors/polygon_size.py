@@ -32,8 +32,6 @@ def calculate_areas(glottography, asciis):
 
     # display errors
     print('\n'.join(errors))
-
-    # TODO: Include sources?
     return pd.DataFrame({'lang': df_ascii, 'glottocode': df_glottocodes, 'area': df_area})
 
 
