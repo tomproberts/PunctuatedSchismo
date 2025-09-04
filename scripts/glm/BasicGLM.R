@@ -32,24 +32,22 @@ df <- merge(df, page.counts, by.x = "Glottocode", by.y = "glcode", all.x = TRUE)
 df[is.na(df$total_pages),]$total_pages <- 1
 
 # Areas
-df <- merge(df, areas, by.x = "Glottocode", by.y = "glottocode")
+df <- merge(df, areas, by.x = "lang", by.y = "lang")
 
 # Contact
 df <- merge(df, distances, by.x = c("lang", "lang_sister"), by.y = c("language_1", "language_2"))
 
-# Sisters TODO: Somehow removes Sardinian, Slovene is also duplicated?
-df <- merge(df, df[, c("lang", "weightedSpikes_median", "total_pages", "area_geodesic", "median_distance")],
+# Sisters
+df <- merge(df, df[, c("lang", "weightedSpikes_median", "total_pages", "area", "median_distance")],
             by.x = "lang_sister", by.y = "lang", suffixes = c("", "_sister"))
 
 EPSILON <- 1
 df$burst <- log(df$weightedSpikes_median / df$weightedSpikes_median_sister)
-df$area_ratio <- log(df$area_geodesic / df$area_geodesic_sister)
+df$area_ratio <- log(df$area / df$area_sister)
 df$pages_ratio <- log(df$total_pages / df$total_pages_sister)
 df$distance_diff <- df$median_distance - df$median_distance_sister
 df$log_total_pages <- log(df$total_pages)
 df$log_total_pages_sister <- log(df$total_pages_sister)
-df$log_area_geodesic <- log(df$area_geodesic)
-df$log_area_geodesic_sister <- log(df$area_geodesic_sister)
 df$median_distance[df$median_distance < EPSILON] <- EPSILON
 df$log_median_distance <- log(df$median_distance)
 df$cherry <- factor(df$cherry)
@@ -67,8 +65,8 @@ if (TRUE) {
   fit <- brm(formula = weightedSpikes_median ~
     log_total_pages +
       log(median_distance) +
-      log(area_geodesic) +
-      log(area_geodesic_sister),
+      log(area) +
+      log(area_sister),
              family = Gamma(link = "log"),
              data = df,
              iter = 4000)
@@ -78,7 +76,7 @@ if (TRUE) {
 # Graph brms
 if (FALSE) {
   print(summary(fit))
-  plot_predictions(fit, condition = "area_geodesic_sister", allow_new_levels = TRUE) +
+  plot_predictions(fit, condition = "area_sister", allow_new_levels = TRUE) +
     # geom_text(aes(x = median_distance_km, y = response, label = Name), position = position_nudge(y = -0.08), data = df, size = 4) +
     # geom_point(aes(x = median_distance_km, y = response), data = df, size = 1) +
     xlab("Area of sibling [~km^2]") +
