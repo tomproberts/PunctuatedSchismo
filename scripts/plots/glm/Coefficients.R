@@ -13,9 +13,13 @@ par.names <- c(
   "log(total pages of sister)" = "b_log_total_page_sister"
 )
 
+exclude <- c(
+  "b_Intercept"
+)
+
 draws <- as.data.frame(fit)
 pars <- colnames(draws)
-pars <- pars[sapply(pars, function(n) return(startsWith(n, "b_") & n != "b_Intercept"))]
+pars <- pars[sapply(pars, function(n) return(startsWith(n, "b_") & !(n %in% exclude)))]
 
 draws <- draws[, pars]
 draws.df <- pivot_longer(rename(draws, any_of(par.names)), cols = everything(), names_to = "coefficient", values_to = "value")
