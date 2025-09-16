@@ -9,7 +9,8 @@ par.names <- c(
   "log(median distance)" = "b_logmedian_distance",
   "log(area)" = "b_log_area_geodesic",
   "log(area of sister)" = "b_log_area_geodesic_sister",
-  "log(total pages)" = "b_log_total_pages"
+  "log(total pages)" = "b_log_total_pages",
+  "number of loans" = "b_n_loans"
 )
 
 draws <- as.data.frame(fit)
