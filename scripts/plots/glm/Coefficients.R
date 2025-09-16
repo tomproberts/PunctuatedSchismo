@@ -10,7 +10,8 @@ par.names <- c(
   "log(area)" = "b_logarea",
   "log(area of sister)" = "b_logarea_sister",
   "log(total pages)" = "b_log_total_pages",
-  "log(total pages of sister)" = "b_log_total_page_sister"
+  "log(total pages of sister)" = "b_log_total_page_sister",
+  "number of loans" = "b_n_loans"
 )
 
 exclude <- c(

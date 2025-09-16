@@ -9,6 +9,7 @@ bursts <- read.csv("data/gammaspike/summarytree/Douglas.csv")
 page.counts <- read.csv("data/predictors/grambank_pageCounts.csv")[, c("glcode", "total_pages")]
 areas <- read.csv("data/predictors/area/IndoEuropean.geodesic.csv")
 distances <- read.csv("data/predictors/contact/IndoEuropean.contact.geodesic.csv")
+loans <- read.csv("data/predictors/loans/IndoEuropean.csv")
 
 cherries <- get_summary_cherries(INDO.EUROPEAN)
 lang1 <- sapply(cherries, function(e) return(e[1]))
@@ -30,6 +31,12 @@ df <- merge(df, bursts, by.x = "lang", by.y = "label")
 # Pages
 df <- merge(df, page.counts, by.x = "Glottocode", by.y = "glcode", all.x = TRUE)
 df[is.na(df$total_pages),]$total_pages <- 1
+
+# Loans
+df <- merge(df, loans[, c("lang", "n_loans")], by.x = "lang", by.y = "lang", all.x = TRUE)
+df[is.na(df$n_loans),]$n_loans <- 0
+df$spikesNoLoans <- df$weightedSpikes_median - df$n_loans
+# df[df$spikesNoLoans < 0,]$spikesNoLoans <- 0.2
 
 # Areas
 df <- merge(df, areas, by.x = "lang", by.y = "lang")
@@ -63,6 +70,8 @@ if (FALSE) {
 # Fit the model
 if (TRUE) {
   fit <- brm(formula = weightedSpikes_median ~
+    # (1 | cherry) +
+    n_loans +
     log_total_pages +
       log(median_distance) +
       log(area) +
