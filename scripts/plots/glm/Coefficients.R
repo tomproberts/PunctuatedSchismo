@@ -34,6 +34,7 @@ ggplot(draws.df, aes(x = value, y = coefficient)) +
                 .width = c(0.5, 0.89, 1),
                 interval_colour = "#00bfc4", linewidth = 6) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "darkgrey") +
+  xlab("strength of effect") +
   ylab("")
 
 # mcmc_areas(fit, prob = 0.89, pars = pars)

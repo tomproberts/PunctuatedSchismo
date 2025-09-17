@@ -60,7 +60,7 @@ df$log_median_distance <- log(df$median_distance)
 df$cherry <- factor(df$cherry)
 
 if (FALSE) {
-  ggplot(df, aes(x = log_median_distance, y = weightedSpikes_median)) +
+  ggplot(df, aes(x = log_total_pages, y = weightedSpikes_median)) +
     geom_text(data = df, aes(label = Name), size = 4) +
     geom_smooth(method = "glm", method.args = list(family = Gamma(link = "log")), formula = y ~ x) +
     # ylim(1, 200) +
@@ -71,8 +71,8 @@ if (FALSE) {
 if (TRUE) {
   fit <- brm(formula = weightedSpikes_median ~
     # (1 | cherry) +
+    # log_total_pages +
     n_loans +
-    log_total_pages +
       log(median_distance) +
       log(area) +
       log(area_sister),

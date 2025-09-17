@@ -1,3 +1,5 @@
+# Simulation for negatively correlated area and area-of-sister
+
 require(ggplot2)
 require(gridExtra)
 
