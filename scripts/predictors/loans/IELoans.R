@@ -20,6 +20,10 @@ loans <- merge(n.lexemes, loans, by = "Cognateset_ID")
 # Extract language ID
 loans$lang_id <- sapply(loans$Form_ID, function(x) str_split(x, "-")[[1]][1])
 
+# Manually exclude sets that aren't unique loans
+patch <- read.csv("data/predictors/loans/IndoEuropean.patch.csv")$cognate_set_id
+loans <- loans[!(loans$Cognateset_ID %in% patch),]
+
 # Count loans per language, listing the sets
 df <- loans %>%
   group_by(lang_id) %>%
@@ -30,6 +34,8 @@ df <- loans %>%
 
 # Include language name, tidy up
 df <- merge(languages, df, by.y = "lang_id", by.x = "ID")
-df <- df %>% rename(lang = ascii_name, name = Name) %>% select(!ID)
+df <- df %>%
+  rename(lang = ascii_name, name = Name) %>%
+  select(!ID)
 
 write.csv(df, "data/predictors/loans/IndoEuropean.csv", row.names = FALSE, quote = FALSE)
