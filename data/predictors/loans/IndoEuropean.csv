@@ -1,104 +1,104 @@
-lang,name,n_loans
-AlbanianGheg,Albanian: Gheg,6
-ArmenianWestern,Armenian: Western,3
-ArmenianEastern,Armenian: Eastern,2
-Bengali,Bengali,4
-Belarusian,Belarusian,1
-Danish,Danish,6
-English,English,25
-French,French,2
-Frisian,Frisian,11
-Greek,Greek: Modern Std,2
-GaelicIrish,Gaelic: Irish,3
-Italian,Italian,1
-Kashmiri,Kashmiri,3
-Ladin,Ladin,10
-Latvian,Latvian,4
-Lithuanian,Lithuanian,3
-SorbianLower,Sorbian: Lower,2
-SorbianUpper,Sorbian: Upper,1
-Marathi,Marathi,5
-Nepali,Nepali,3
-PersianTehran,Persian: Tehran,2
-Romanian,Romanian,13
-Russian,Russian,2
-SardinianLogudoro,Sardinian: Logudoro,2
-SardinianNuoro,Sardinian: Nuoro,2
-Sinhalese,Sinhalese,7
-Spanish,Spanish,1
-Swedish,Swedish,1
-Ukrainian,Ukrainian,1
-Wakhi,Wakhi,18
-Walloon,Walloon,6
-Hittite,Hittite,2
-TocharianA,Tocharian A,2
-TocharianB,Tocharian B,2
-Macedonian,Macedonian,1
-SerboCroatian,Serbo-Croat,1
-Maithili,Maithili,1
-GaelicScottish,Gaelic: Scottish,3
-KurdishNBahdini,Kurdish N.: Bahdini,12
-Urdu,Urdu,7
-Luxembourgish,Luxembourgish,2
-Friulian,Friulian,4
-OsseticIron,Ossetic: Iron,3
-OsseticDigor,Ossetic: Digor,4
-OldIrish,Old Irish,1
-ClassicalArmenian,Armenian: Classical,1
-Luvian,Luvian,1
-AlbanianStandard,Albanian: Standard,10
-Magahi,Magahi,1
-GaelicManx,Gaelic: Manx,3
-OldBreton,Old Breton,1
-MiddleBreton,Middle Breton,3
-Kashubian,Kashubian,3
-Polabian,Polabian,13
-MiddlePersian,Middle Persian,1
-Neapolitan,Neapolitan,1
-Latgalian,Latgalian,3
-GreekCypriot,Greek: Cypriot,7
-GreekItaliot,Greek: Italiot,11
-AngloNorman,Anglo-Norman,1
-DalmatianVegliote,Dalmatian: Vegliote,22
-Yaghnobi,Yaghnobi,14
-GreekCappodocian,Greek: Cappadocian,14
-Palula,Palula,4
-FrancoProvencal,Franco-Provençal,1
-Bhojpuri,Bhojpuri,1
-BretonTreger,Breton: Treger,2
-LateCornish,Late Cornish,10
-MiddleCornish,Middle Cornish,7
-BretonGwened,Breton: Gwened,6
-WelshNorth,Welsh: North,6
-MiddleWelsh,Middle Welsh,1
-Kumzari,Kumzari,24
-Rusyn,Rusyn,1
-MacedonianVisoka,Macedonian: Visoka,1
-MacedonianSuho,Macedonian: Suho,4
-Bakhtiari,Bakhtiari,1
-SloveneEarlyModern,Slovene: Early Modern,2
-SloveneKostel,Slovene: Kostel,3
-Mazanderani,Mazanderani,5
-Assamese,Assamese,2
-BalochiSistani,Balochi: Sistani,6
-Tati,Tati,1
-Lari,Lari,1
-Delvari,Delvari,2
-MeglenoRomanian,Megleno-Romanian,17
-OldOccitan,Old Occitan,2
-Khowar,Khowar,17
-KurdishSElami,Kurdish S.: Elami,1
-AlbanianArberesh,Albanian: Arbëresh,36
-Khwarazmian,Khwarazmian,1
-Gawarbati,Gawarbati,1
-Gawri,Gawri,4
-Pashto,Pashto,15
-PashaiNorthWest,Pashai: North-West,14
-Sarikoli,Sarikoli,16
-PortugueseBrazilian,Portuguese: Brazilian,4
-VasiVariPaski,Vâsi-vari: Paṣki,45
-KurdishSQorveh,Kurdish S.: Qorveh,5
-Kamviri,Kamviri,1
-KatavariKtivi,Kâta-vari: Ktivi,1
-KalasalaNiseigram,Kalaṣa-alâ: Nišeigrâm,7
-SanuviriWama,Saṇu-viri: Wâmâ,2
+name,lang,n_loans,cognate_sets
+Albanian: Gheg,AlbanianGheg,6,404;408;2221;5505;7942;7982
+Armenian: Western,ArmenianWestern,3,3340;5960;6001
+Armenian: Eastern,ArmenianEastern,2,5994;6058
+Bengali,Bengali,4,5609;6387;7398;7435
+Belarusian,Belarusian,1,2033
+Danish,Danish,6,4273;4323;5662;5768;9980;9981
+English,English,25,215;1344;2518;5231;5328;5342;5497;5499;5526;5568;5612;5616;5633;5663;5696;5724;5726;5767;5787;6148;6446;6452;8307;9719;9977
+French,French,2,8295;9447
+Frisian,Frisian,11,8004;8006;9692;9702;9703;9704;9705;9706;9707;9708;9709
+Greek: Modern Std,Greek,2,5570;5858
+Gaelic: Irish,GaelicIrish,3,5728;6267;6735
+Italian,Italian,1,6482
+Kashmiri,Kashmiri,3,7430;7436;9764
+Ladin,Ladin,10,3175;6386;6388;6389;6391;6395;6396;6398;6400;6402
+Latvian,Latvian,4,2981;5296;6849;8438
+Lithuanian,Lithuanian,3,1886;1906;6334
+Sorbian: Lower,SorbianLower,2,5618;5941
+Sorbian: Upper,SorbianUpper,1,4838
+Marathi,Marathi,5,1608;3925;4522;6967;7043
+Nepali,Nepali,3,3072;3092;4599
+Persian: Tehran,PersianTehran,2,124;3408
+Romanian,Romanian,13,6428;6449;6544;6569;6577;6585;6687;6689;6691;6701;6705;7802;7806
+Russian,Russian,2,5857;6063
+Sardinian: Logudoro,SardinianLogudoro,2,6518;8053
+Sardinian: Nuoro,SardinianNuoro,2,8059;8061
+Sinhalese,Sinhalese,7,1815;3866;3923;4472;5485;6118;7407
+Spanish,Spanish,1,9643
+Swedish,Swedish,1,5502
+Ukrainian,Ukrainian,1,4806
+Wakhi,Wakhi,18,3419;3629;3782;4645;5065;5509;5523;5583;5751;5781;5784;6566;8577;9194;9813;9824;9825;9828
+Walloon,Walloon,6,6501;6557;6822;6823;6827;6828
+Hittite,Hittite,2,3334;7641
+Tocharian A,TocharianA,2,5443;6263
+Tocharian B,TocharianB,2,5684;5813
+Macedonian,Macedonian,1,7400
+Serbo-Croat,SerboCroatian,1,5557
+Maithili,Maithili,1,3168
+Gaelic: Scottish,GaelicScottish,3,5329;5567;6509
+Kurdish N.: Bahdini,KurdishNBahdini,12,3549;3603;3674;4772;8173;8174;8688;8691;8694;9115;9254;9659
+Urdu,Urdu,7,2815;5785;6132;6316;6539;6953;9829
+Luxembourgish,Luxembourgish,2,6511;9714
+Friulian,Friulian,4,5322;7627;7634;9716
+Ossetic: Iron,OsseticIron,3,1954;7165;7170
+Ossetic: Digor,OsseticDigor,4,3863;6936;7178;7182
+Old Irish,OldIrish,1,5961
+Armenian: Classical,ClassicalArmenian,1,5953
+Luvian,Luvian,1,7091
+Albanian: Standard,AlbanianStandard,10,516;562;3826;3855;5346;5472;5925;6336;6433;6635
+Magahi,Magahi,1,9721
+Gaelic: Manx,GaelicManx,3,6266;6417;6767
+Old Breton,OldBreton,1,7984
+Middle Breton,MiddleBreton,3,5103;5500;5664
+Kashubian,Kashubian,3,5574;5598;6092
+Polabian,Polabian,13,5474;5577;5590;5625;5629;5674;5714;5717;5859;6264;7359;7768;8526
+Middle Persian,MiddlePersian,1,9308
+Neapolitan,Neapolitan,1,8098
+Latgalian,Latgalian,3,6579;6873;7159
+Greek: Cypriot,GreekCypriot,7,6213;6218;6223;6224;6233;6236;6256
+Greek: Italiot,GreekItaliot,11,5868;5869;5878;5915;6064;6082;6162;6169;6182;6636;8394
+Anglo-Norman,AngloNorman,1,6815
+Dalmatian: Vegliote,DalmatianVegliote,22,9313;9315;9316;9317;9318;9320;9321;9322;9323;9324;9325;9326;9327;9328;9329;9330;9331;9332;9333;9334;9335;9338
+Yaghnobi,Yaghnobi,14,5659;6024;6032;6037;6041;6491;9671;9675;9676;9677;9678;9680;9682;9900
+Greek: Cappadocian,GreekCappodocian,14,5905;5906;5907;5908;5910;5913;5914;5917;5918;5919;6084;6085;6231;6247
+Palula,Palula,4,5792;6490;6605;7328
+Franco-Provençal,FrancoProvencal,1,7347
+Bhojpuri,Bhojpuri,1,6555
+Breton: Treger,BretonTreger,2,7285;7337
+Late Cornish,LateCornish,10,7960;7968;7976;7981;9553;9554;9559;9561;9562;9563
+Middle Cornish,MiddleCornish,7,6023;7979;7986;9543;9544;9546;9547
+Breton: Gwened,BretonGwened,6,5698;7958;7977;7988;7990;7993
+Welsh: North,WelshNorth,6,6381;6422;6508;7241;7274;7275
+Middle Welsh,MiddleWelsh,1,8696
+Kumzari,Kumzari,24,7606;7667;7669;7670;7671;7676;7687;7691;7701;7703;7704;7708;7709;7710;7718;7719;7730;7733;8616;9155;9157;9171;9187;9190
+Rusyn,Rusyn,1,7664
+Macedonian: Visoka,MacedonianVisoka,1,7769
+Macedonian: Suho,MacedonianSuho,4,7748;7754;7761;7764
+Bakhtiari,Bakhtiari,1,9221
+Slovene: Early Modern,SloveneEarlyModern,2,7852;7855
+Slovene: Kostel,SloveneKostel,3,7847;7849;7850
+Mazanderani,Mazanderani,5,8186;8606;9290;9667;9670
+Assamese,Assamese,2,9950;9958
+Balochi: Sistani,BalochiSistani,6,8172;8176;8187;9241;9278;9672
+Tati,Tati,1,8169
+Lari,Lari,1,9800
+Delvari,Delvari,2,9142;9234
+Megleno-Romanian,MeglenoRomanian,17,9568;9570;9572;9573;9574;9575;9576;9580;9581;9583;9584;9585;9586;9587;9588;9589;9602
+Old Occitan,OldOccitan,2,962;9284
+Khowar,Khowar,17,8448;8457;8464;8475;8481;8729;8739;8799;8825;9049;9053;9054;9457;9506;9508;9509;9804
+Kurdish S.: Elami,KurdishSElami,1,9294
+Albanian: Arbëresh,AlbanianArberesh,36,8333;8336;8342;8344;8345;8353;8354;8355;8356;8357;8358;8360;8361;8362;8363;8368;8371;8377;8379;8397;8430;8495;8500;8517;8519;8520;8522;8523;8528;8529;8531;8535;8536;8538;8542;8543
+Khwarazmian,Khwarazmian,1,8941
+Gawarbati,Gawarbati,1,8465
+Gawri,Gawri,4,8764;8804;9540;9750
+Pashto,Pashto,15,3548;4725;8614;8685;8831;8832;9117;9131;9232;9261;9270;9311;9632;9640;9717
+Pashai: North-West,PashaiNorthWest,14,8766;8768;8771;8780;8791;8813;8815;9456;9590;9654;9754;9768;9769;9811
+Sarikoli,Sarikoli,16,9350;9352;9365;9371;9372;9382;9383;9390;9391;9392;9394;9396;9403;9409;9414;9655
+Portuguese: Brazilian,PortugueseBrazilian,4,9725;9726;9727;9728
+Vâsi-vari: Paṣki,VasiVariPaski,45,4714;7823;7824;7825;7827;7828;7829;7831;7832;7833;7835;7837;7841;7843;7878;7882;7894;7896;7899;7903;7908;7911;7919;7925;7930;7931;7933;7935;8472;9729;9730;9731;9732;9734;9735;9736;9737;9775;9842;9843;9845;9847;9849;9877;9897
+Kurdish S.: Qorveh,KurdishSQorveh,5,9793;9794;9796;9797;9798
+Kamviri,Kamviri,1,5712
+Kâta-vari: Ktivi,KatavariKtivi,1,9887
+Kalaṣa-alâ: Nišeigrâm,KalasalaNiseigram,7,6781;6788;6868;7237;9892;9893;9895
+Saṇu-viri: Wâmâ,SanuviriWama,2,9888;9889
