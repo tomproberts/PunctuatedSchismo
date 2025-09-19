@@ -18,7 +18,7 @@ Borrowings that only occur in the given language, but some may be just semantic 
 - [x] 🍒Breton: Treger (2 borrowings: 7285;7337)
 - [ ] Late Cornish (10 borrowings: 7960;7968;7976;7981;9553;9554;9559;9561;9562;9563)
 - [ ] Middle Cornish (7 borrowings: 6023;7979;7986;9543;9544;9546;9547)
-- [ ] 🍒Breton: Gwened (6 borrowings: 5698;7958;7977;7988;7990;7993)
+- [x] 🍒Breton: Gwened (6 borrowings: 5698;7958;7977;7988;7990;7993)
 - [ ] Welsh: North (6 borrowings: 6381;6422;6508;7241;7274;7275)
 - [ ] Middle Welsh (1 borrowing: 8696)
 
