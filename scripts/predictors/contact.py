@@ -127,6 +127,6 @@ def calculate_output_contact(family: LanguageFamily, glottography):
 if __name__ == '__main__':
     family = IndoEuropean()
     glottography = Glottography(get_config(family.name))
-    # plot_contact('vlaa1240', 'dutc1256', glottography, 50)
+    # plot_contact('logu1236', 'nuor1238', glottography, 50)
 
     calculate_output_contact(family, glottography)
