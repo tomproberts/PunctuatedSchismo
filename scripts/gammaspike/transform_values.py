@@ -1,4 +1,5 @@
 from scripts.families.indo_european import IndoEuropean
+from scripts.families.pama_nyungan import PamaNyungan
 from scripts.families.uralic import Uralic
 
 
@@ -23,6 +24,6 @@ if __name__ == '__main__':
     print_clock_rate(family, 9.186e-3)
     print_burst(family, 1.23e-3)
 
-    family = Uralic()
-    print_clock_rate(family, 7.402e-2)
-    print_burst(family, 5.771e-3, mean=True)
+    family = PamaNyungan()
+    print_clock_rate(family, 7.475e-3)
+    print_burst(family, 2.16e-3, mean=True)

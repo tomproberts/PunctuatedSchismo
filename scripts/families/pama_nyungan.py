@@ -8,6 +8,8 @@ CHIRILA_LANGUAGES_CSV = f'{CHIRILA_DIR}/languages.csv'
 
 class PamaNyungan(LanguageFamily):
     name = 'PamaNyungan'
+    n_sites = 18438
+    n_concepts = 200
 
     def load_languages(self):
         all_languages = pd.read_csv(CHIRILA_LANGUAGES_CSV)
