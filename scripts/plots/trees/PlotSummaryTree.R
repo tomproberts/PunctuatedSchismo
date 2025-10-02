@@ -3,8 +3,8 @@ library(ggtree)
 library(treeio)
 source("scripts/families/LanguageFamilies.R")
 
-FAMILY <- INDO.EUROPEAN
-SCALESTUBS <- TRUE
+FAMILY <- PAMA.NYUNGAN
+SCALESTUBS <- FALSE
 
 summary.tree <- paste0("data/gammaspike/summarytree/", FAMILY, ".nex")
 tree <- read.beast(summary.tree)

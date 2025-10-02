@@ -25,5 +25,6 @@ if __name__ == '__main__':
     print_burst(family, 1.23e-3)
 
     family = PamaNyungan()
-    print_clock_rate(family, 7.475e-3)
-    print_burst(family, 2.16e-3, mean=True)
+    print_clock_rate(family, 3.888e-3)
+    print_burst(family, 1.125e-3, mean=True)
+    print_burst(family, 0.04)
