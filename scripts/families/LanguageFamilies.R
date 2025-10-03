@@ -4,6 +4,7 @@ DRAVIDIAN <- "Dravidian"
 URALIC <- "Uralic"
 SINO.TIBETAN <- "SinoTibetan"
 UTO.AZTECAN <- "UtoAztecan"
+PAMA.NYUNGAN <- "PamaNyungan"
 
 get_n_sites <- function(family) {
   family <- check_indoeuropean(family)

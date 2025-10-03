@@ -1,5 +1,4 @@
 from scripts.families.indo_european import IndoEuropean
-from scripts.families.sino_tibetan import SinoTibetan
 from scripts.families.uralic import Uralic
 
 
@@ -24,12 +23,6 @@ if __name__ == '__main__':
     print_clock_rate(family, 9.186e-3)
     print_burst(family, 1.23e-3)
 
-    family = SinoTibetan()
-    print('\n--Gradual--')
-    print_clock_rate(family, 2.641e-3)
-    # print('--Prior--')
-    # print_clock_rate(family, 4.971e-2)
-    # print_burst(family, 4.715e-3, mean=True)
-    print('--Posterior--')
-    print_clock_rate(family, 5.7e-3)
-    print_burst(family, 6.226e-3, mean=True)
+    family = Uralic()
+    print_clock_rate(family, 7.402e-2)
+    print_burst(family, 5.771e-3, mean=True)
