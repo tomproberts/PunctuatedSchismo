@@ -8,9 +8,10 @@ from shapely.geometry.point import Point
 from shapely.ops import nearest_points
 from tqdm import tqdm
 
-from scripts.families.indo_european import IndoEuropean
 from scripts.families.utils import LanguageFamily
-from scripts.glottolog.trees import glottolog_cherries, GlottologTreeType
+from scripts.families.uto_aztecan import UtoAztecan
+from scripts.glottolog.trees import GlottologTreeType
+from scripts.glottolog.trees import glottolog_cherries
 from scripts.predictors.polygons.glottography import Glottography
 from scripts.predictors.polygons.glottography_config import get_config
 from scripts.predictors.utils import write_out_df
@@ -126,7 +127,7 @@ def calculate_output_contact(family: LanguageFamily, glottography):
 
 
 if __name__ == '__main__':
-    family = IndoEuropean()
+    family = UtoAztecan()
     glottography = Glottography(get_config(family.name))
     # plot_contact('vlaa1240', 'dutc1256', glottography, 50)
 

@@ -1,8 +1,9 @@
 import pandas as pd
 from tqdm import tqdm
 
-from scripts.families.indo_european import IndoEuropean
-from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException, MultiplePolygonException
+from scripts.families.uto_aztecan import UtoAztecan
+from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
+from scripts.predictors.polygons.glottography import MultiplePolygonException
 from scripts.predictors.polygons.glottography_config import get_config
 from scripts.predictors.utils import write_out_df
 
@@ -36,7 +37,7 @@ def calculate_areas(glottography, asciis):
 
 
 if __name__ == '__main__':
-    family = IndoEuropean()
+    family = UtoAztecan()
     required_ascii = family.languages_ascii
 
     glottography = Glottography(get_config(family.name), geodesic=True)

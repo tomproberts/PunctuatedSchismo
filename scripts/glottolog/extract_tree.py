@@ -1,6 +1,7 @@
 import re
 
 from scripts.families.dravidian import Dravidian
+from scripts.families.uto_aztecan import UtoAztecan
 from scripts.glottolog.trees import GlottologTreeType, write_out_glottolog_tree, ALL_TREES
 from scripts.utils import asciify
 
@@ -140,17 +141,19 @@ def fix_problematic_groupings(tree_string, family):
         tree_string = remove_grouping(tree_string, 'czec1258', 'oldc1253')
     if family.name == 'Uralic':
         tree_string = make_outgroup(tree_string, 'ural1272')
+    if family.name == 'UtoAztecan':
+        tree_string = make_outgroup(tree_string, '(kiow1266,sanj1276)', force=True)
 
     return tree_string
 
 
-def make_outgroup(tree_string, lang):
+def make_outgroup(tree_string, lang, force=False):
     # TODO: Probably missed edge cases
-    if lang in tree_string:
+    if lang in tree_string or force:
         moved = re.sub(f'{lang},', '', tree_string)
         if moved == tree_string:
             moved = re.sub(f',{lang}', '', tree_string)
-        if moved:
+        if force or moved:
             return f'({lang},{moved[0:-1]});'
     return tree_string
 
@@ -191,5 +194,5 @@ def generate_glottolog_trees(family):
 
 
 if __name__ == '__main__':
-    family = Dravidian()
+    family = UtoAztecan()
     generate_glottolog_trees(family)
