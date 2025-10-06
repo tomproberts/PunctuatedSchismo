@@ -3,7 +3,7 @@ library(ggtree)
 library(treeio)
 source("scripts/families/LanguageFamilies.R")
 
-FAMILY <- INDO.EUROPEAN
+FAMILY <- UTO.AZTECAN
 SCALESTUBS <- TRUE
 
 summary.tree <- paste0("data/gammaspike/summarytree/", FAMILY, ".nex")

@@ -100,7 +100,7 @@ class NoSummaryTree(Exception):
 
 
 if __name__ == '__main__':
-    family = Uralic()
+    family = UtoAztecan()
     tree_nexus_file = get_summary_tree_nexus(family.name)
     data = visit_tree(tree_nexus_file, family)
 
