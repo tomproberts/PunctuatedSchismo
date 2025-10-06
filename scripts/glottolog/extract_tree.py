@@ -1,6 +1,5 @@
 import re
 
-from scripts.families.dravidian import Dravidian
 from scripts.families.uto_aztecan import UtoAztecan
 from scripts.glottolog.trees import GlottologTreeType, write_out_glottolog_tree, ALL_TREES
 from scripts.utils import asciify

@@ -33,6 +33,16 @@ def get_config(family_name: str):
 def indoeuropean_config():
     return GlottographyConfig(sources=[MISSING, BOUCKAERT_2012_INDOEUROPEAN, DEDIO_2019_BRITAIN, ASHER_2007_WORLD],
                               patches={
+                                  'elfd1234': (0, 13),
+                                  'stan1295': (0, 12),
+                                  'swis1247': (0, 11),
+                                  'stan1290': (0, 33),
+                                  'mila1243': (0, 28),
+                                  'poli1260': (0, 23),
+                                  'slov1268': (0, 5),
+                                  'latv1249': (0, 1),
+                                  'lowe1384': (0, 6),
+
                                   'sout2614': (1, 80),
                                   'barb1262': (1, 81),
                                   'czec1258': (1, 21),

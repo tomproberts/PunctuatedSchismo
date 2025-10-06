@@ -83,6 +83,9 @@ class IndoEuropean(LanguageFamily):
         # Both are south-eastern dialects but no finer granularity of course
         self.set_language_glottocode('Macedonian: Suho', 'sout3278')
         self.set_language_glottocode('Macedonian: Visoka', 'sout3278')
+        # Sardinian dialects
+        self.set_language_glottocode('Sardinian: Logudoro', 'logu1236')
+        self.set_language_glottocode('Sardinian: Nuoro', 'nuor1238')
 
     def get_clades(self):
         return ['Germanic', 'Celtic', 'Italic', 'Balto-Slavic', 'Indo-Iranic']

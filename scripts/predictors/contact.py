@@ -71,7 +71,7 @@ def calculate_euclidean_distances(family, cherries, glottography):
             polygon_1 = glottography.get_polygon(glottocode_1)
             polygon_2 = glottography.get_polygon(glottocode_2)
         except Exception as e:
-            errors.append(e)
+            errors.append(f'Warning: {e} ({language_1} / {language_2})')
             continue
 
         sampled_points = sample_points(polygon_1)
@@ -84,8 +84,7 @@ def calculate_euclidean_distances(family, cherries, glottography):
         mean_distances.append(mean(distances))
 
     # show skipped languages
-    for e in errors:
-        print(f'Warning: {e} (ignored)')
+    '\n'.join(errors)
 
     return new_cherries, mean_distances, median_distances
 

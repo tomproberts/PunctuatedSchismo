@@ -2,8 +2,6 @@ import newick
 import pandas as pd
 from nexus import NexusReader
 
-from scripts.families.sino_tibetan import SinoTibetan
-from scripts.families.uralic import Uralic
 from scripts.families.utils import LanguageFamily
 from scripts.families.uto_aztecan import UtoAztecan
 
