@@ -3,19 +3,24 @@ library(ggdist)
 library(tidyr)
 library(dplyr)
 
-load("data/glm/IndoEuropean.RData")
+load("data/glm/Douglas.RData")
 
 par.names <- c(
   "log(median distance)" = "b_logmedian_distance",
-  "log(area)" = "b_log_area_geodesic",
-  "log(area of sister)" = "b_log_area_geodesic_sister",
+  "log(area)" = "b_logarea",
+  "log(area of sister)" = "b_logarea_sister",
   "log(total pages)" = "b_log_total_pages",
+  "log(total pages of sister)" = "b_log_total_page_sister",
   "number of loans" = "b_n_loans"
+)
+
+exclude <- c(
+  "b_Intercept"
 )
 
 draws <- as.data.frame(fit)
 pars <- colnames(draws)
-pars <- pars[sapply(pars, function(n) return(startsWith(n, "b_") & n != "b_Intercept"))]
+pars <- pars[sapply(pars, function(n) return(startsWith(n, "b_") & !(n %in% exclude)))]
 
 draws <- draws[, pars]
 draws.df <- pivot_longer(rename(draws, any_of(par.names)), cols = everything(), names_to = "coefficient", values_to = "value")
