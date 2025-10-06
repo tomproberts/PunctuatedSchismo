@@ -4,7 +4,7 @@ library(treeio)
 source("scripts/families/LanguageFamilies.R")
 
 FAMILY <- UTO.AZTECAN
-SCALESTUBS <- TRUE
+SCALESTUBS <- FALSE
 
 summary.tree <- paste0("data/gammaspike/summarytree/", FAMILY, ".nex")
 tree <- read.beast(summary.tree)
