@@ -1,0 +1,4029 @@
+[
+  {
+    "name": "Galaagu",
+    "fid": 1,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "NatjuCluster",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=NatjuCluster"
+  },
+  {
+    "name": "Ngatyumaya",
+    "fid": 2,
+    "description": "Better name for the language would be Marlpamaya (human language) rather than 'Ngajumaya\" (I language) (Doug Marmion, pc)",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "NatjuCluster",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=NatjuCluster"
+  },
+  {
+    "name": "Ngarinyin",
+    "fid": 3,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngarinyinic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngarinyinic"
+  },
+  {
+    "name": "Worla",
+    "fid": 4,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngarinyinic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngarinyinic"
+  },
+  {
+    "name": "Yapurarra",
+    "fid": 5,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngayarta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngayarta"
+  },
+  {
+    "name": "Andajin",
+    "fid": 6,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngarinyinic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngarinyinic"
+  },
+  {
+    "name": "Ngarlawangga",
+    "fid": 7,
+    "description": "name changed from Ngalawangka per Doug Marmion",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngayarta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngayarta"
+  },
+  {
+    "name": "Ngarluma",
+    "fid": 8,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngayarta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngayarta"
+  },
+  {
+    "name": "Martuthunira",
+    "fid": 9,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngayarta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngayarta"
+  },
+  {
+    "name": "Nhuwala",
+    "fid": 10,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngayarta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngayarta"
+  },
+  {
+    "name": "Palyku",
+    "fid": 11,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngayarta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngayarta"
+  },
+  {
+    "name": "Panyjima",
+    "fid": 12,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngayarta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngayarta"
+  },
+  {
+    "name": "Kurrama",
+    "fid": 13,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngayarta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngayarta"
+  },
+  {
+    "name": "Nyamal",
+    "fid": 14,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngayarta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngayarta"
+  },
+  {
+    "name": "Kariyarra",
+    "fid": 15,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngayarta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngayarta"
+  },
+  {
+    "name": "Jurruru",
+    "fid": 16,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngayarta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngayarta"
+  },
+  {
+    "name": "Wanamara",
+    "fid": 17,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Mayi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Mayi"
+  },
+  {
+    "name": "Mangala",
+    "fid": 18,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Marrngu",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Marrngu"
+  },
+  {
+    "name": "Mayi-Kulan",
+    "fid": 19,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Mayi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Mayi"
+  },
+  {
+    "name": "Ngawun",
+    "fid": 20,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Mayi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Mayi"
+  },
+  {
+    "name": "Mayi-Yapi",
+    "fid": 21,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Mayi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Mayi"
+  },
+  {
+    "name": "Mayi-Kutuna",
+    "fid": 22,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Mayi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Mayi"
+  },
+  {
+    "name": "Ayapathu",
+    "fid": 23,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Middle",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Middle"
+  },
+  {
+    "name": "Mayi-Thakurti",
+    "fid": 24,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Mayi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Mayi"
+  },
+  {
+    "name": "Kuuku Yani",
+    "fid": 25,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Middle",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Middle"
+  },
+  {
+    "name": "Kuuku-Ya'u",
+    "fid": 27,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Middle",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Middle"
+  },
+  {
+    "name": "Kugu Nhanhcara",
+    "fid": 29,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Middle",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Middle"
+  },
+  {
+    "name": "Kaanju",
+    "fid": 30,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Middle",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Middle"
+  },
+  {
+    "name": "Wik Mungkan",
+    "fid": 31,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Middle",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Middle"
+  },
+  {
+    "name": "Badjiri",
+    "fid": 33,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "South Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=South Maric"
+  },
+  {
+    "name": "Wadjabangayi",
+    "fid": 34,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "South Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=South Maric"
+  },
+  {
+    "name": "Gungabula",
+    "fid": 35,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "South Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=South Maric"
+  },
+  {
+    "name": "Gunggari",
+    "fid": 36,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "South Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=South Maric"
+  },
+  {
+    "name": "Bidjara",
+    "fid": 37,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "South Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=South Maric"
+  },
+  {
+    "name": "Yiningay",
+    "fid": 38,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "South Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=South Maric"
+  },
+  {
+    "name": "Guwamu",
+    "fid": 39,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "South Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=South Maric"
+  },
+  {
+    "name": "Gunya",
+    "fid": 40,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "South Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=South Maric"
+  },
+  {
+    "name": "Muruwari",
+    "fid": 41,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "SouthEastern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=SouthEastern"
+  },
+  {
+    "name": "Margany",
+    "fid": 42,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "South Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=South Maric"
+  },
+  {
+    "name": "Ritharrngu",
+    "fid": 43,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southern"
+  },
+  {
+    "name": "Nganyaywana",
+    "fid": 44,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "SouthEastern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=SouthEastern"
+  },
+  {
+    "name": "Goreng",
+    "fid": 45,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southern (#2)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southern (#2)"
+  },
+  {
+    "name": "Minang",
+    "fid": 46,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southern (#2)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southern (#2)"
+  },
+  {
+    "name": "Nyunga",
+    "fid": 47,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southern (#2)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southern (#2)"
+  },
+  {
+    "name": "Wudjari",
+    "fid": 48,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southern (#2)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southern (#2)"
+  },
+  {
+    "name": "Danggali",
+    "fid": 49,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Paakintyi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Paakintyi"
+  },
+  {
+    "name": "Barundji",
+    "fid": 50,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Paakintyi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Paakintyi"
+  },
+  {
+    "name": "Barindji",
+    "fid": 51,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Paakintyi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Paakintyi"
+  },
+  {
+    "name": "Kurnu",
+    "fid": 52,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Paakintyi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Paakintyi"
+  },
+  {
+    "name": "Wilyagali",
+    "fid": 53,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Paakintyi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Paakintyi"
+  },
+  {
+    "name": "Southern Paakantyi",
+    "fid": 54,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Paakintyi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Paakintyi"
+  },
+  {
+    "name": "Flinders Island",
+    "fid": 55,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Paman",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Paman"
+  },
+  {
+    "name": "Guugu-Yimidhirr",
+    "fid": 56,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Paman",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Paman"
+  },
+  {
+    "name": "Mbabaram",
+    "fid": 57,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Paman",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Paman"
+  },
+  {
+    "name": "Barrow Point",
+    "fid": 58,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Paman",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Paman"
+  },
+  {
+    "name": "Kuku Thaypan",
+    "fid": 60,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Rarmul Paman",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Rarmul Paman"
+  },
+  {
+    "name": "Ngalakgan",
+    "fid": 61,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Rembarrnga-Ngalakgan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Rembarrnga-Ngalakgan"
+  },
+  {
+    "name": "Mandandanji",
+    "fid": 63,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "South Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=South Maric"
+  },
+  {
+    "name": "Rembarrnga",
+    "fid": 64,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Rembarrnga-Ngalakgan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Rembarrnga-Ngalakgan"
+  },
+  {
+    "name": "Mbeiwum",
+    "fid": 65,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Yatay",
+    "fid": 66,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Umpila",
+    "fid": 67,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Yinwum",
+    "fid": 68,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Yadhaykenu",
+    "fid": 69,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Linngithigh",
+    "fid": 70,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Luthigh",
+    "fid": 71,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Anguthimri",
+    "fid": 72,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Aritinngithigh",
+    "fid": 73,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Muthanthi",
+    "fid": 74,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Uradhi",
+    "fid": 75,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Yupngayth",
+    "fid": 76,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Ndra'ngith",
+    "fid": 77,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Alngith",
+    "fid": 78,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Bandjigali",
+    "fid": 79,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Paakintyi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Paakintyi"
+  },
+  {
+    "name": "Malak Malak",
+    "fid": 80,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern Daly",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern Daly"
+  },
+  {
+    "name": "Kukatja",
+    "fid": 81,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#2)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#2)"
+  },
+  {
+    "name": "Yulparija",
+    "fid": 82,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#2)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#2)"
+  },
+  {
+    "name": "Nyaki Nyaki",
+    "fid": 83,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#3)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#3)"
+  },
+  {
+    "name": "Nganakarti",
+    "fid": 84,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#3)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#3)"
+  },
+  {
+    "name": "Balardung",
+    "fid": 85,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#3)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#3)"
+  },
+  {
+    "name": "Wajuk",
+    "fid": 86,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#3)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#3)"
+  },
+  {
+    "name": "Kukatj",
+    "fid": 87,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#4)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#4)"
+  },
+  {
+    "name": "Amangu",
+    "fid": 88,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#3)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#3)"
+  },
+  {
+    "name": "Wuthathi",
+    "fid": 89,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Mpalityan",
+    "fid": 90,
+    "description": "Changed from Mpalitjanh",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Mpakwithi",
+    "fid": 91,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Atampaya",
+    "fid": 92,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Angkamuthi",
+    "fid": 93,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Awngthim",
+    "fid": 94,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Gudang",
+    "fid": 95,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Luthigh",
+    "fid": 96,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#5)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#5)"
+  },
+  {
+    "name": "Duungidjawu",
+    "fid": 97,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Waka-Kabi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Waka-Kabi"
+  },
+  {
+    "name": "WakaWaka",
+    "fid": 98,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Waka-Kabi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Waka-Kabi"
+  },
+  {
+    "name": "Guweng",
+    "fid": 99,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Waka-Kabi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Waka-Kabi"
+  },
+  {
+    "name": "Batyala",
+    "fid": 100,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Waka-Kabi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Waka-Kabi"
+  },
+  {
+    "name": "GoorengGooreng",
+    "fid": 101,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Waka-Kabi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Waka-Kabi"
+  },
+  {
+    "name": "Gubbi Gubbi",
+    "fid": 102,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Waka-Kabi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Waka-Kabi"
+  },
+  {
+    "name": "Yangman",
+    "fid": 103,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Wardaman",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Wardaman"
+  },
+  {
+    "name": "Wardaman",
+    "fid": 104,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Wardaman",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Wardaman"
+  },
+  {
+    "name": "Warluwarra",
+    "fid": 105,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Warluwarric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Warluwarric"
+  },
+  {
+    "name": "Dagoman",
+    "fid": 106,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Wardaman",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Wardaman"
+  },
+  {
+    "name": "Bularnu",
+    "fid": 107,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Warluwarric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Warluwarric"
+  },
+  {
+    "name": "Yanyuwa",
+    "fid": 108,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Warluwarric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Warluwarric"
+  },
+  {
+    "name": "Yindjilandji",
+    "fid": 109,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Warluwarric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Warluwarric"
+  },
+  {
+    "name": "Wakaya",
+    "fid": 110,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Warluwarric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Warluwarric"
+  },
+  {
+    "name": "Warumungu",
+    "fid": 111,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Warumungic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western"
+  },
+  {
+    "name": "Wirangu",
+    "fid": 113,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Thura-Yura",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Thura-Yura"
+  },
+  {
+    "name": "Guyani",
+    "fid": 114,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Thura-Yura",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Thura-Yura"
+  },
+  {
+    "name": "Guwar",
+    "fid": 115,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Turubulic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Turubulic"
+  },
+  {
+    "name": "Nunukal",
+    "fid": 116,
+    "description": "Related to yagara, given by Tindale as the name of the Northern group of Stradbroke Island. (changed from Nukunul to Nunukal per Bill Pascoe)",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Turubulic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Turubulic"
+  },
+  {
+    "name": "Yagara",
+    "fid": 117,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Turubulic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Turubulic"
+  },
+  {
+    "name": "Turrbul",
+    "fid": 119,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Turubulic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Turubulic"
+  },
+  {
+    "name": "Janday",
+    "fid": 120,
+    "description": "Djindewal, Jandai",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Turubulic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Turubulic"
+  },
+  {
+    "name": "Umbugarla",
+    "fid": 121,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Umbugarlan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Umbugarlan"
+  },
+  {
+    "name": "Ngaduk",
+    "fid": 122,
+    "description": "In Birch's 2006 map, Ngaduk is also shown on the Western side of the river, north of Gonbudj.",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Umbugarlan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Umbugarlan"
+  },
+  {
+    "name": "Ngomburr",
+    "fid": 123,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Umbugarlan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Umbugarlan"
+  },
+  {
+    "name": "Bukurnidja",
+    "fid": 124,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Umbugarlan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Umbugarlan"
+  },
+  {
+    "name": "Wuli Wuli",
+    "fid": 125,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Waka-Kabi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Waka-Kabi"
+  },
+  {
+    "name": "Gonbudj",
+    "fid": 126,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Umbugarlan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Umbugarlan"
+  },
+  {
+    "name": "Bayali",
+    "fid": 127,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Waka-Kabi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Waka-Kabi"
+  },
+  {
+    "name": "Barunggam",
+    "fid": 128,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Waka-Kabi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Waka-Kabi"
+  },
+  {
+    "name": "Pinjarup",
+    "fid": 129,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southwestern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southwestern"
+  },
+  {
+    "name": "Wiilman",
+    "fid": 130,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southwestern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southwestern"
+  },
+  {
+    "name": "Wardandi",
+    "fid": 131,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southwestern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southwestern"
+  },
+  {
+    "name": "Bibbulman",
+    "fid": 132,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southwestern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southwestern"
+  },
+  {
+    "name": "Lardil",
+    "fid": 133,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Tangkic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Tangkic"
+  },
+  {
+    "name": "Kaniyang",
+    "fid": 134,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southwestern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southwestern"
+  },
+  {
+    "name": "Kayardild",
+    "fid": 135,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Tangkic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Tangkic"
+  },
+  {
+    "name": "Yukulta",
+    "fid": 136,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Tangkic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Tangkic"
+  },
+  {
+    "name": "Ngadjuri",
+    "fid": 137,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Thura-Yura",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Thura-Yura"
+  },
+  {
+    "name": "Minkin",
+    "fid": 138,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Tangkic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Tangkic"
+  },
+  {
+    "name": "Parnkala",
+    "fid": 139,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Thura-Yura",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Thura-Yura"
+  },
+  {
+    "name": "Nauo",
+    "fid": 140,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Thura-Yura",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Thura-Yura"
+  },
+  {
+    "name": "Adnyamathanha",
+    "fid": 141,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Thura-Yura",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Thura-Yura"
+  },
+  {
+    "name": "Nukunu",
+    "fid": 142,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Thura-Yura",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Thura-Yura"
+  },
+  {
+    "name": "Narrungga",
+    "fid": 143,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Thura-Yura",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Thura-Yura"
+  },
+  {
+    "name": "Kaurna",
+    "fid": 144,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Thura-Yura",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Thura-Yura"
+  },
+  {
+    "name": "Wagaman",
+    "fid": 146,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southern (#3)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southern (#3)"
+  },
+  {
+    "name": "Mbara",
+    "fid": 148,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southern (#3)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southern (#3)"
+  },
+  {
+    "name": "Ngan'gityemerri",
+    "fid": 149,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southern Daly",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southern Daly"
+  },
+  {
+    "name": "Murrinh-patha",
+    "fid": 150,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southern Daly",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southern Daly"
+  },
+  {
+    "name": "Kuthant",
+    "fid": 151,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southwest (#2)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southwest (#2)"
+  },
+  {
+    "name": "Mirning",
+    "fid": 152,
+    "description": "Spelling of the language name changed from Mirrniny per Doug Marmion.",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southwest",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southwest"
+  },
+  {
+    "name": "Kurtjar",
+    "fid": 153,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southwest (#2)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southwest (#2)"
+  },
+  {
+    "name": "Uw-Olgol",
+    "fid": 154,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southwest (#2)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southwest (#2)"
+  },
+  {
+    "name": "Koknar",
+    "fid": 155,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southwest (#2)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southwest (#2)"
+  },
+  {
+    "name": "Koko Bera",
+    "fid": 158,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southwest (#2)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southwest (#2)"
+  },
+  {
+    "name": "Yir Yoront",
+    "fid": 160,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Southwest (#2)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Southwest (#2)"
+  },
+  {
+    "name": "Malyangapa",
+    "fid": 161,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yardli",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yardli"
+  },
+  {
+    "name": "Kuku Yalanji",
+    "fid": 162,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yalanjic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yalanjic"
+  },
+  {
+    "name": "Wadikali",
+    "fid": 163,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yardli",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yardli"
+  },
+  {
+    "name": "Yardliyawarra",
+    "fid": 164,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yardli",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yardli"
+  },
+  {
+    "name": "Yidiny",
+    "fid": 165,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yidinyic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yidinyic"
+  },
+  {
+    "name": "Djabugay",
+    "fid": 166,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yidinyic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yidinyic"
+  },
+  {
+    "name": "YortaYorta",
+    "fid": 167,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yotayotic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yotayotic"
+  },
+  {
+    "name": "YabulaYabula",
+    "fid": 168,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yotayotic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yotayotic"
+  },
+  {
+    "name": "Ngarigu",
+    "fid": 169,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yuin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yuin"
+  },
+  {
+    "name": "Thawa",
+    "fid": 170,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yuin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yuin"
+  },
+  {
+    "name": "Dharawal",
+    "fid": 171,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yuin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yuin"
+  },
+  {
+    "name": "Ngunawal",
+    "fid": 172,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yuin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yuin"
+  },
+  {
+    "name": "Dhurga",
+    "fid": 173,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yuin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yuin"
+  },
+  {
+    "name": "Gundungurra",
+    "fid": 174,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yuin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yuin"
+  },
+  {
+    "name": "Djirringany",
+    "fid": 175,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yuin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yuin"
+  },
+  {
+    "name": "Nyulnyul",
+    "fid": 176,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "WesternNyulnyulan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=WesternNyulnyulan"
+  },
+  {
+    "name": "Kalaw Kawaw Ya",
+    "fid": 177,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Torres",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Torres"
+  },
+  {
+    "name": "Nimanburu",
+    "fid": 178,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "WesternNyulnyulan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=WesternNyulnyulan"
+  },
+  {
+    "name": "Jawi",
+    "fid": 179,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "WesternNyulnyulan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=WesternNyulnyulan"
+  },
+  {
+    "name": "Bardi",
+    "fid": 180,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "WesternNyulnyulan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=WesternNyulnyulan"
+  },
+  {
+    "name": "Jabirrjabirr",
+    "fid": 181,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "WesternNyulnyulan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=WesternNyulnyulan"
+  },
+  {
+    "name": "Umiida",
+    "fid": 182,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Worrorric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Worrorric"
+  },
+  {
+    "name": "Unggumi",
+    "fid": 183,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Worrorric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Worrorric"
+  },
+  {
+    "name": "Yawijibaya",
+    "fid": 184,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Worrorric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Worrorric"
+  },
+  {
+    "name": "Worrorra",
+    "fid": 185,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Worrorric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Worrorric"
+  },
+  {
+    "name": "Kwini",
+    "fid": 186,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Wunambalic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Wunambalic"
+  },
+  {
+    "name": "Unggarranggu",
+    "fid": 187,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Worrorric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Worrorric"
+  },
+  {
+    "name": "Gamberre",
+    "fid": 188,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Wunambalic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Wunambalic"
+  },
+  {
+    "name": "Wunambal",
+    "fid": 189,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Wunambalic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Wunambalic"
+  },
+  {
+    "name": "Muluriji",
+    "fid": 191,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Yalanjic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Yalanjic"
+  },
+  {
+    "name": "Jardwadjali",
+    "fid": 192,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Kulin"
+  },
+  {
+    "name": "Tjapwurrung",
+    "fid": 193,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Kulin"
+  },
+  {
+    "name": "Djadjawurung",
+    "fid": 194,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Kulin"
+  },
+  {
+    "name": "Baraba Baraba",
+    "fid": 195,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Kulin"
+  },
+  {
+    "name": "MathiMathi",
+    "fid": 196,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Kulin"
+  },
+  {
+    "name": "Nari Nari",
+    "fid": 197,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Kulin"
+  },
+  {
+    "name": "WathiWathi",
+    "fid": 198,
+    "description": "Wadi wadi (Not to be confused with Wodi Wodi, which is a Yuin-Kuri language)",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Kulin"
+  },
+  {
+    "name": "Warrnambool",
+    "fid": 199,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Kulin"
+  },
+  {
+    "name": "Wotjobaluk",
+    "fid": 200,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Kulin"
+  },
+  {
+    "name": "Wemba Wemba",
+    "fid": 201,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Kulin"
+  },
+  {
+    "name": "Ngaliwuru",
+    "fid": 202,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Mirndi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Mirndi"
+  },
+  {
+    "name": "Yari-Yari",
+    "fid": 203,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Kulin"
+  },
+  {
+    "name": "Jaminjung",
+    "fid": 204,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Mirndi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Mirndi"
+  },
+  {
+    "name": "Nungali",
+    "fid": 205,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Mirndi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Mirndi"
+  },
+  {
+    "name": "Kala Lagaw Ya",
+    "fid": 206,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Torres",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Torres"
+  },
+  {
+    "name": "Mabuiag",
+    "fid": 207,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Torres",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Torres"
+  },
+  {
+    "name": "Magati Ke",
+    "fid": 208,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Daly",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Daly"
+  },
+  {
+    "name": "Marramaninyshi",
+    "fid": 209,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Daly",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Daly"
+  },
+  {
+    "name": "Marrithiyel",
+    "fid": 210,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Daly",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Daly"
+  },
+  {
+    "name": "Emmi",
+    "fid": 211,
+    "description": "also known as Maranunggu",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Daly",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Daly"
+  },
+  {
+    "name": "Marringarr",
+    "fid": 212,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Daly",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Daly"
+  },
+  {
+    "name": "Giyug",
+    "fid": 213,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Daly",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Daly"
+  },
+  {
+    "name": "Ngalia",
+    "fid": 214,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Desert (Wati)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Desert (Wati)"
+  },
+  {
+    "name": "Warnman",
+    "fid": 215,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Desert (Wati)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Desert (Wati)"
+  },
+  {
+    "name": "Pitjantjatjara",
+    "fid": 216,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Desert (Wati)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Desert (Wati)"
+  },
+  {
+    "name": "Ngaanyatjarra",
+    "fid": 217,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Desert (Wati)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Desert (Wati)"
+  },
+  {
+    "name": "PintupiLuritja",
+    "fid": 218,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Desert (Wati)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Desert (Wati)"
+  },
+  {
+    "name": "Yankunytjatjara",
+    "fid": 219,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Desert (Wati)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Desert (Wati)"
+  },
+  {
+    "name": "Kartujarra",
+    "fid": 220,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Desert (Wati)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Desert (Wati)"
+  },
+  {
+    "name": "Ladji Ladji",
+    "fid": 222,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Kulin"
+  },
+  {
+    "name": "Putijarra",
+    "fid": 223,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Western Desert (Wati)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Western Desert (Wati)"
+  },
+  {
+    "name": "Yiman",
+    "fid": 224,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Yangga",
+    "fid": 225,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Ganulu",
+    "fid": 226,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Barada",
+    "fid": 227,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Yilba",
+    "fid": 228,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Gangulu",
+    "fid": 229,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Gayiri",
+    "fid": 230,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Biri",
+    "fid": 231,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Kokatha",
+    "fid": 232,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern"
+  },
+  {
+    "name": "Antakirinya",
+    "fid": 233,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern"
+  },
+  {
+    "name": "Matngele",
+    "fid": 234,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Daly",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Daly"
+  },
+  {
+    "name": "Kamu",
+    "fid": 235,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Daly",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Daly"
+  },
+  {
+    "name": "Boonwurrung",
+    "fid": 236,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Kulin"
+  },
+  {
+    "name": "Daungwurrung",
+    "fid": 237,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Kulin"
+  },
+  {
+    "name": "Ngarnka",
+    "fid": 238,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Mirndi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Mirndi"
+  },
+  {
+    "name": "Woiwurrung",
+    "fid": 239,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Kulin"
+  },
+  {
+    "name": "Djirbal",
+    "fid": 240,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Dyirbalic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Dyirbalic"
+  },
+  {
+    "name": "Guwinal",
+    "fid": 241,
+    "description": "name is doubtful, can't find in current sources",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Dharumbal",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Dharumbal"
+  },
+  {
+    "name": "Warrgamay",
+    "fid": 242,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Dyirbalic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Dyirbalic"
+  },
+  {
+    "name": "Nyawaygi",
+    "fid": 243,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Dyirbalic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Dyirbalic"
+  },
+  {
+    "name": "Wubuy",
+    "fid": 244,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Arnhem",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Arnhem"
+  },
+  {
+    "name": "Wulguru",
+    "fid": 245,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Dyirbalic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Dyirbalic"
+  },
+  {
+    "name": "Ngandi",
+    "fid": 246,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Arnhem",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Arnhem"
+  },
+  {
+    "name": "Anindilyakwa",
+    "fid": 247,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Arnhem",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Arnhem"
+  },
+  {
+    "name": "Wiri",
+    "fid": 248,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Yuwi",
+    "fid": 249,
+    "description": "Horton name for Wiri (dialect of Biri)",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Garingbal",
+    "fid": 250,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Barna",
+    "fid": 251,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Yambina",
+    "fid": 252,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Wadjigu",
+    "fid": 253,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Gabalbara",
+    "fid": 254,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Wangan",
+    "fid": 255,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "East Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=East Maric"
+  },
+  {
+    "name": "Bunuba",
+    "fid": 256,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Bunaban",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Bunaban"
+  },
+  {
+    "name": "Gooniyandi",
+    "fid": 257,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Bunaban",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Bunaban"
+  },
+  {
+    "name": "Dhuwal",
+    "fid": 258,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Central",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Central"
+  },
+  {
+    "name": "Dhuwala",
+    "fid": 259,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Central",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Central"
+  },
+  {
+    "name": "Dhay'yi",
+    "fid": 261,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Central",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Central"
+  },
+  {
+    "name": "Wiradjuri",
+    "fid": 262,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Central-NSW",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Central-NSW"
+  },
+  {
+    "name": "Ngiyambaa",
+    "fid": 263,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Central-NSW",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Central-NSW"
+  },
+  {
+    "name": "Yuwaliyaay",
+    "fid": 264,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Central-NSW",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Central-NSW"
+  },
+  {
+    "name": "Gamilaraay",
+    "fid": 265,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Central-NSW",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Central-NSW"
+  },
+  {
+    "name": "Yuwaalaraay",
+    "fid": 266,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Central-NSW",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Central-NSW"
+  },
+  {
+    "name": "Limilngan",
+    "fid": 268,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Darwin Region",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Darwin Region"
+  },
+  {
+    "name": "Wailwan",
+    "fid": 269,
+    "description": "Treated by Donaldson as the Northern dialect of Ngiyambaa",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Central-NSW",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Central-NSW"
+  },
+  {
+    "name": "Dharumbal",
+    "fid": 270,
+    "description": "Distant sister to Mbabaram in BBA 2018",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Dharumbal",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Dharumbal"
+  },
+  {
+    "name": "Kingkel",
+    "fid": 271,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Dharumbal",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Dharumbal"
+  },
+  {
+    "name": "Batjjamalh",
+    "fid": 272,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Anson Bay",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Anson Bay"
+  },
+  {
+    "name": "Alyawarr",
+    "fid": 273,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Arandic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Arandic"
+  },
+  {
+    "name": "Anmatyerre",
+    "fid": 274,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Arandic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Arandic"
+  },
+  {
+    "name": "Ayerreyenge",
+    "fid": 275,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Arandic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Arandic"
+  },
+  {
+    "name": "Antekerrepenhe",
+    "fid": 276,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Arandic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Arandic"
+  },
+  {
+    "name": "Lower Aranda",
+    "fid": 277,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Arandic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Arandic"
+  },
+  {
+    "name": "Kaytetye",
+    "fid": 278,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Arandic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Arandic"
+  },
+  {
+    "name": "WesternArrarnta",
+    "fid": 279,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Arandic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Arandic"
+  },
+  {
+    "name": "Central Arrernte",
+    "fid": 280,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Arandic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Arandic"
+  },
+  {
+    "name": "Minjangbal",
+    "fid": 281,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Bandjalangic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Bandjalangic"
+  },
+  {
+    "name": "Eastern Arrernte",
+    "fid": 282,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Arandic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Arandic"
+  },
+  {
+    "name": "Waalubal",
+    "fid": 283,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Bandjalangic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Bandjalangic"
+  },
+  {
+    "name": "Githabul",
+    "fid": 284,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Bandjalangic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Bandjalangic"
+  },
+  {
+    "name": "Yugambal",
+    "fid": 285,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Bigambal",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Bigambal"
+  },
+  {
+    "name": "Bigambal",
+    "fid": 286,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Bigambal",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Bigambal"
+  },
+  {
+    "name": "Purduna",
+    "fid": 287,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kanyara",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kanyara"
+  },
+  {
+    "name": "Pinikura",
+    "fid": 288,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kanyara",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kanyara"
+  },
+  {
+    "name": "Thalanyji",
+    "fid": 289,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kanyara",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kanyara"
+  },
+  {
+    "name": "Payungu",
+    "fid": 290,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kanyara",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kanyara"
+  },
+  {
+    "name": "PittaPitta",
+    "fid": 291,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Maya",
+    "fid": 292,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kanyara",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kanyara"
+  },
+  {
+    "name": "Mayawali",
+    "fid": 293,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Wangkayutyuru",
+    "fid": 294,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Mithaka",
+    "fid": 295,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Karuwali",
+    "fid": 296,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Karangura",
+    "fid": 297,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Wangkangurru",
+    "fid": 298,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Garlali",
+    "fid": 299,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Yandruwandha",
+    "fid": 300,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Yanda",
+    "fid": 301,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Guwa",
+    "fid": 302,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Mawng",
+    "fid": 303,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Iwaidjan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Iwaidjan"
+  },
+  {
+    "name": "Iwaidja",
+    "fid": 304,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Iwaidjan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Iwaidjan"
+  },
+  {
+    "name": "Marrgu",
+    "fid": 305,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Iwaidjan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Iwaidjan"
+  },
+  {
+    "name": "Wurrugu",
+    "fid": 306,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Iwaidjan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Iwaidjan"
+  },
+  {
+    "name": "Ilgar",
+    "fid": 307,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Iwaidjan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Iwaidjan"
+  },
+  {
+    "name": "Garig",
+    "fid": 308,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Iwaidjan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Iwaidjan"
+  },
+  {
+    "name": "Dharuk",
+    "fid": 309,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Iyora",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Iyora"
+  },
+  {
+    "name": "Darkinyung",
+    "fid": 310,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Iyora",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Iyora"
+  },
+  {
+    "name": "Thanggatti",
+    "fid": 311,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Iyora",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Iyora"
+  },
+  {
+    "name": "Iyora",
+    "fid": 312,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Iyora",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Iyora"
+  },
+  {
+    "name": "Miriwoong",
+    "fid": 313,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Jarrakan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Jarrakan"
+  },
+  {
+    "name": "Gija",
+    "fid": 314,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Jarrakan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Jarrakan"
+  },
+  {
+    "name": "Yalarnnga",
+    "fid": 315,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kalkatungic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kalkatungic"
+  },
+  {
+    "name": "Gajirrebeng",
+    "fid": 316,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Jarrakan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Jarrakan"
+  },
+  {
+    "name": "Thiin",
+    "fid": 317,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kanyara",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kanyara"
+  },
+  {
+    "name": "Kalkatungu",
+    "fid": 318,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kalkatungic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kalkatungic"
+  },
+  {
+    "name": "Garrwa",
+    "fid": 319,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Garrwan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Garrwan"
+  },
+  {
+    "name": "Waanyi",
+    "fid": 320,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Garrwan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Garrwan"
+  },
+  {
+    "name": "Erre",
+    "fid": 321,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Giimbiyu",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Giimbiyu"
+  },
+  {
+    "name": "Mengerrdji",
+    "fid": 322,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Giimbiyu",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Giimbiyu"
+  },
+  {
+    "name": "Gumbaynggir",
+    "fid": 323,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Gumbaynggiric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Gumbaynggiric"
+  },
+  {
+    "name": "Urningangk",
+    "fid": 324,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Giimbiyu",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Giimbiyu"
+  },
+  {
+    "name": "Baanbay",
+    "fid": 325,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Gumbaynggiric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Gumbaynggiric"
+  },
+  {
+    "name": "Yaygirr",
+    "fid": 326,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Gumbaynggiric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Gumbaynggiric"
+  },
+  {
+    "name": "Bininj Kunwok",
+    "fid": 327,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Gunwinygic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Gunwinygic"
+  },
+  {
+    "name": "Gunbalang",
+    "fid": 328,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Gunwinygic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Gunwinygic"
+  },
+  {
+    "name": "Wulwulam",
+    "fid": 329,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Gunwinyguan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Gunwinyguan"
+  },
+  {
+    "name": "Dalabon",
+    "fid": 330,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Gunwinygic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Gunwinygic"
+  },
+  {
+    "name": "Jawoyn",
+    "fid": 331,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Gunwinyguan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Gunwinyguan"
+  },
+  {
+    "name": "Uwinymil",
+    "fid": 332,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Gunwinyguan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Gunwinyguan"
+  },
+  {
+    "name": "Amurdak",
+    "fid": 333,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Iwaidjan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Iwaidjan"
+  },
+  {
+    "name": "Warray",
+    "fid": 334,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Gunwinyguan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Gunwinyguan"
+  },
+  {
+    "name": "Gudanji",
+    "fid": 335,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Mirndi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Mirndi"
+  },
+  {
+    "name": "Binbinka",
+    "fid": 336,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Mirndi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Mirndi"
+  },
+  {
+    "name": "Jingulu",
+    "fid": 337,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Mirndi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Mirndi"
+  },
+  {
+    "name": "Wambaya",
+    "fid": 338,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Mirndi",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Mirndi"
+  },
+  {
+    "name": "Kurnai",
+    "fid": 339,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Victoria",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Victoria"
+  },
+  {
+    "name": "Bidawal",
+    "fid": 340,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Victoria",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Victoria"
+  },
+  {
+    "name": "Muk-Thang",
+    "fid": 341,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Victoria",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Victoria"
+  },
+  {
+    "name": "Thangguai",
+    "fid": 342,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Victoria",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Victoria"
+  },
+  {
+    "name": "Dhudhuroa",
+    "fid": 343,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Victoria",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Victoria"
+  },
+  {
+    "name": "Nulit",
+    "fid": 344,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Victoria",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Victoria"
+  },
+  {
+    "name": "Yawuru",
+    "fid": 345,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "EasternNyulnyulan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=EasternNyulnyulan"
+  },
+  {
+    "name": "Waywurru",
+    "fid": 346,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Eastern Victoria",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Eastern Victoria"
+  },
+  {
+    "name": "Jukun",
+    "fid": 347,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "EasternNyulnyulan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=EasternNyulnyulan"
+  },
+  {
+    "name": "Nyikina",
+    "fid": 348,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "EasternNyulnyulan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=EasternNyulnyulan"
+  },
+  {
+    "name": "Ngumbarl",
+    "fid": 349,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "EasternNyulnyulan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=EasternNyulnyulan"
+  },
+  {
+    "name": "Warrwa",
+    "fid": 350,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "EasternNyulnyulan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=EasternNyulnyulan"
+  },
+  {
+    "name": "Warriyangga",
+    "fid": 351,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Mantharta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Mantharta"
+  },
+  {
+    "name": "Tharrgari",
+    "fid": 352,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Mantharta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Mantharta"
+  },
+  {
+    "name": "Gudjal",
+    "fid": 353,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Maric"
+  },
+  {
+    "name": "Alawa",
+    "fid": 354,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Maran",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Maran"
+  },
+  {
+    "name": "Yagalingu",
+    "fid": 355,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Maric"
+  },
+  {
+    "name": "Miyan",
+    "fid": 356,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Maric"
+  },
+  {
+    "name": "Dungaloo",
+    "fid": 357,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Maric"
+  },
+  {
+    "name": "Giya",
+    "fid": 358,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Maric"
+  },
+  {
+    "name": "Yirandali",
+    "fid": 359,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Maric"
+  },
+  {
+    "name": "Yuru",
+    "fid": 360,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Maric"
+  },
+  {
+    "name": "Yugul",
+    "fid": 361,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Marran",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Marran"
+  },
+  {
+    "name": "Bindal",
+    "fid": 362,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Maric"
+  },
+  {
+    "name": "Marra",
+    "fid": 363,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Marran",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Marran"
+  },
+  {
+    "name": "Warndarrang",
+    "fid": 364,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Marran",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Marran"
+  },
+  {
+    "name": "Nyangumarta",
+    "fid": 365,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Marrngu",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Marrngu"
+  },
+  {
+    "name": "Karajarri",
+    "fid": 366,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Marrngu",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Marrngu"
+  },
+  {
+    "name": "Larrakia",
+    "fid": 367,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Larrakiyan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Larrakiyan"
+  },
+  {
+    "name": "Wulna",
+    "fid": 368,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Larrakiyan",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Larrakiyan"
+  },
+  {
+    "name": "Keramin",
+    "fid": 369,
+    "description": "Also Kureinji, Yari-Yari",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "LowerMurray",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=LowerMurray"
+  },
+  {
+    "name": "Ngarkat",
+    "fid": 370,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "LowerMurray",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=LowerMurray"
+  },
+  {
+    "name": "Ngintait",
+    "fid": 371,
+    "description": "Also Ngindadj, Yuu-Yuu given as a reference name in Wafer and Lissarague)",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "LowerMurray",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=LowerMurray"
+  },
+  {
+    "name": "YithaYitha",
+    "fid": 372,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "LowerMurray",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=LowerMurray"
+  },
+  {
+    "name": "Ngarrindjeri",
+    "fid": 373,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "LowerMurray",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=LowerMurray"
+  },
+  {
+    "name": "Peramangk",
+    "fid": 374,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "LowerMurray",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=LowerMurray"
+  },
+  {
+    "name": "Ngaiawang",
+    "fid": 375,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "LowerMurray",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=LowerMurray"
+  },
+  {
+    "name": "Yaraldi",
+    "fid": 376,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "LowerMurray",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=LowerMurray"
+  },
+  {
+    "name": "Ndjebbana",
+    "fid": 377,
+    "description": "also called Gunavidji",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Maningrida",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Maningrida"
+  },
+  {
+    "name": "Raminyeri",
+    "fid": 378,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "LowerMurray",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=LowerMurray"
+  },
+  {
+    "name": "Gurrgoni",
+    "fid": 379,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Maningrida",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Maningrida"
+  },
+  {
+    "name": "Nakara",
+    "fid": 380,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Maningrida",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Maningrida"
+  },
+  {
+    "name": "Jiwarli",
+    "fid": 381,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Mantharta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Mantharta"
+  },
+  {
+    "name": "Burarra",
+    "fid": 382,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Maningrida",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Maningrida"
+  },
+  {
+    "name": "Kalaamaya",
+    "fid": 383,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kartu",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kartu"
+  },
+  {
+    "name": "Yingkarta",
+    "fid": 384,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kartu",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kartu"
+  },
+  {
+    "name": "Badimaya",
+    "fid": 385,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kartu",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kartu"
+  },
+  {
+    "name": "Nhanda",
+    "fid": 386,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kartu",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kartu"
+  },
+  {
+    "name": "Thaagurda",
+    "fid": 387,
+    "description": "Language mentioned in Doug Marmion's honour's thesis; not otherwise attested but seems to be a separate language",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kartu",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kartu"
+  },
+  {
+    "name": "Wajarri",
+    "fid": 388,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kartu",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kartu"
+  },
+  {
+    "name": "Kolakngat",
+    "fid": 389,
+    "description": "Kolakngat",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kulin"
+  },
+  {
+    "name": "Bunganditj",
+    "fid": 390,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kulin"
+  },
+  {
+    "name": "Birrpayi",
+    "fid": 391,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kuri",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kuri"
+  },
+  {
+    "name": "Wathawurrung",
+    "fid": 392,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kulin",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kulin"
+  },
+  {
+    "name": "Awabakal",
+    "fid": 393,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kuri",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kuri"
+  },
+  {
+    "name": "Worimi",
+    "fid": 394,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kuri",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kuri"
+  },
+  {
+    "name": "Aghu Tharnggala",
+    "fid": 395,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Lamalamic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Lamalamic"
+  },
+  {
+    "name": "Katthang",
+    "fid": 396,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kuri",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kuri"
+  },
+  {
+    "name": "Lamalama",
+    "fid": 398,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Lamalamic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Lamalamic"
+  },
+  {
+    "name": "Nhirrpi",
+    "fid": 399,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Pirlatapa",
+    "fid": 400,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Diyari",
+    "fid": 401,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Kungkarri",
+    "fid": 402,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Yawarrawarrka",
+    "fid": 403,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Pirriya",
+    "fid": 404,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Yarluyandi",
+    "fid": 405,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Ngamini",
+    "fid": 406,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Ngantangarra",
+    "fid": 407,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Wangkumara",
+    "fid": 408,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Thirarri",
+    "fid": 409,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Arabana",
+    "fid": 410,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Malkana",
+    "fid": 411,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kartu",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kartu"
+  },
+  {
+    "name": "Punthamara",
+    "fid": 412,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Karnic",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Karnic"
+  },
+  {
+    "name": "Tharrayi",
+    "fid": 413,
+    "description": "tindale's Tedei, per Doug Marmion. Probably the same as Thirrily (Southern Yingkarta?)",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kartu",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kartu"
+  },
+  {
+    "name": "Manthi",
+    "fid": 414,
+    "description": "Probably the Carnavon local group of Yingkarta (per Doug Marmion)",
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Kartu",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Kartu"
+  },
+  {
+    "name": "Wagiman",
+    "fid": 415,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Non Pama-Nyungan Languages file",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Non Pama-Nyungan Languages file"
+  },
+  {
+    "name": "Tiwi",
+    "fid": 416,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Non Pama-Nyungan Languages file",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Non Pama-Nyungan Languages file"
+  },
+  {
+    "name": "Gaagudju",
+    "fid": 417,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Non Pama-Nyungan Languages file",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Non Pama-Nyungan Languages file"
+  },
+  {
+    "name": "Kungarakany",
+    "fid": 418,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Non Pama-Nyungan Languages file",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Non Pama-Nyungan Languages file"
+  },
+  {
+    "name": "Warungu",
+    "fid": 419,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "North Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=North Maric"
+  },
+  {
+    "name": "Mangarrayi",
+    "fid": 420,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Non Pama-Nyungan Languages file",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Non Pama-Nyungan Languages file"
+  },
+  {
+    "name": "Djinba",
+    "fid": 421,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern"
+  },
+  {
+    "name": "Gugu Badhun",
+    "fid": 422,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "North Maric",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=North Maric"
+  },
+  {
+    "name": "Yan-nhangu",
+    "fid": 423,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern"
+  },
+  {
+    "name": "Dhangu",
+    "fid": 424,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern"
+  },
+  {
+    "name": "Djangu",
+    "fid": 425,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern"
+  },
+  {
+    "name": "Golpa",
+    "fid": 426,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern"
+  },
+  {
+    "name": "Ngardi",
+    "fid": 427,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#2)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#2)"
+  },
+  {
+    "name": "Djinang",
+    "fid": 428,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern"
+  },
+  {
+    "name": "Manjiljarra",
+    "fid": 429,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#2)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#2)"
+  },
+  {
+    "name": "Wangkajunga",
+    "fid": 430,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Northern (#2)",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Northern (#2)"
+  },
+  {
+    "name": "Yindjibarndi",
+    "fid": 431,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngayarta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngayarta"
+  },
+  {
+    "name": "Ngarla",
+    "fid": 432,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngayarta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngayarta"
+  },
+  {
+    "name": "Karranga",
+    "fid": 433,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngumpin-Yapa",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngumpin-Yapa"
+  },
+  {
+    "name": "Yinhawangka",
+    "fid": 434,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngayarta",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngayarta"
+  },
+  {
+    "name": "Bilinarra",
+    "fid": 435,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngumpin-Yapa",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngumpin-Yapa"
+  },
+  {
+    "name": "Walmajarri",
+    "fid": 436,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngumpin-Yapa",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngumpin-Yapa"
+  },
+  {
+    "name": "Warlpiri",
+    "fid": 437,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngumpin-Yapa",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngumpin-Yapa"
+  },
+  {
+    "name": "Warlmanpa",
+    "fid": 438,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngumpin-Yapa",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngumpin-Yapa"
+  },
+  {
+    "name": "Wurlayi",
+    "fid": 439,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngumpin-Yapa",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngumpin-Yapa"
+  },
+  {
+    "name": "Ngarinyman",
+    "fid": 440,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngumpin-Yapa",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngumpin-Yapa"
+  },
+  {
+    "name": "Mudburra",
+    "fid": 441,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngumpin-Yapa",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngumpin-Yapa"
+  },
+  {
+    "name": "Gurindji",
+    "fid": 442,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngumpin-Yapa",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngumpin-Yapa"
+  },
+  {
+    "name": "Malngin",
+    "fid": 443,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngumpin-Yapa",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngumpin-Yapa"
+  },
+  {
+    "name": "Jaru",
+    "fid": 444,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngumpin-Yapa",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngumpin-Yapa"
+  },
+  {
+    "name": "Jiwarliny",
+    "fid": 445,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngumpin-Yapa",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngumpin-Yapa"
+  },
+  {
+    "name": "Wanyjirra",
+    "fid": 446,
+    "tessellate": 1,
+    "extrude": 0,
+    "visibility": -1,
+    "layer": "Ngumpin-Yapa",
+    "path": "/Users/i2/Downloads/Polygon Coordinates for Australian languages 3.0 1.kml|layername=Ngumpin-Yapa"
+  },
+  {
+    "name": "Garandi",
+    "fid": 447,
+    "layer": "Paman"
+  },
+  {
+    "name": "Barranbinya",
+    "fid": 448,
+    "layer": "Muruwaric"
+  },
+  {
+    "name": "Bandjalang",
+    "fid": 449,
+    "layer": "Bandjalangic"
+  },
+  {
+    "name": "Southern Anaiwan",
+    "fid": 450,
+    "layer": "Anaiwan"
+  },
+  {
+    "name": "Kokiny",
+    "fid": 451,
+    "layer": "Paman"
+  },
+  {
+    "name": "Ribh",
+    "fid": 452,
+    "layer": "Paman",
+    "path": "Paman"
+  },
+  {
+    "name": "Olkola",
+    "fid": 453,
+    "layer": "Paman"
+  },
+  {
+    "name": "Djangkun",
+    "fid": 454,
+    "layer": "Paman"
+  },
+  {
+    "name": "Wik-Alkan",
+    "fid": 455,
+    "layer": "Paman"
+  },
+  {
+    "name": "Wik-Ngatharr",
+    "fid": 456,
+    "layer": "Paman"
+  },
+  {
+    "name": "Wik-Paacha",
+    "fid": 457,
+    "layer": "Paman"
+  },
+  {
+    "name": "Wik-Ep",
+    "fid": 458,
+    "layer": "Paman"
+  },
+  {
+    "name": "Wik-Ngathan",
+    "fid": 459,
+    "layer": "Paman"
+  },
+  {
+    "name": "Wik Me'nh",
+    "fid": 460,
+    "layer": "Paman"
+  },
+  {
+    "name": "Pakanh",
+    "fid": 461,
+    "layer": "Paman"
+  },
+  {
+    "name": "Kuuk Yak",
+    "fid": 462,
+    "layer": "Paman"
+  },
+  {
+    "name": "Kuuk Thaayorre",
+    "fid": 463,
+    "layer": "Paman"
+  },
+  {
+    "name": "Yintyingka",
+    "fid": 464,
+    "layer": "Paman"
+  },
+  {
+    "name": "Umpithamu",
+    "fid": 465,
+    "layer": "Paman"
+  },
+  {
+    "name": "Umbuygamu",
+    "fid": 466,
+    "layer": "Paman"
+  },
+  {
+    "name": "Rimanggudinhma",
+    "fid": 467,
+    "layer": "Paman"
+  },
+  {
+    "name": "Walangama",
+    "fid": 468,
+    "layer": "Paman"
+  },
+  {
+    "name": "Agwamin",
+    "fid": 469,
+    "layer": "Paman"
+  },
+  {
+    "name": "Takalak",
+    "fid": 470,
+    "layer": "Paman"
+  },
+  {
+    "name": "Athima",
+    "fid": 471,
+    "layer": "Paman"
+  },
+  {
+    "name": "Ikarranggal",
+    "fid": 472,
+    "layer": "Paman"
+  },
+  {
+    "name": "Guku Mini",
+    "fid": 473,
+    "layer": "Paman"
+  },
+  {
+    "name": "Uw Oykangand",
+    "fid": 474,
+    "layer": "Paman"
+  },
+  {
+    "name": "Ogunyjan",
+    "fid": 475,
+    "layer": "Paman"
+  }
+]
