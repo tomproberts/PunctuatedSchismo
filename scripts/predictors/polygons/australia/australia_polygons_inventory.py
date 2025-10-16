@@ -3,19 +3,19 @@ from thefuzz import process, fuzz
 
 from scripts.families.pama_nyungan import CHIRILA_LANGUAGES_CSV
 
-AUSTRALIAN_POLYGONS = 'data/glottography/australia/AustralianPolygons.csv'
-SNAPPED_LANGS = 'data/datasets/chirila/polygon_map.csv'
+AUSTRALIAN_POLYGONS = 'data/glottography/australia/AustralianPolygons.kml.csv'
+SNAPPED_LANGS = 'data/glottography/australia/SnappedLangs.gpkg.csv'
 THRESHOLD = 80  # out of 100
 
 if __name__ == '__main__':
     scorer = fuzz.token_sort_ratio
     # languages in Pama-Nyungan dataset
     languages = pd.read_csv(CHIRILA_LANGUAGES_CSV, na_filter=False)
-    languages = list(zip(languages.Name, languages.Glottolog_Name))
+    languages = list(zip(languages.ID, languages.Glottolog_Name))
     # potential polygons
     australian_polygon_names = list(pd.read_csv(AUSTRALIAN_POLYGONS).name)
     australian_polygon_names = [n.replace(' ', '') for n in australian_polygon_names]
-    snapped_langs_names = list(pd.read_csv(SNAPPED_LANGS).Name)
+    snapped_langs_names = list(pd.read_csv(SNAPPED_LANGS).name)
 
     found = []
     not_found = []
@@ -25,6 +25,7 @@ if __name__ == '__main__':
         polygon, s = process.extractOne(name, australian_polygon_names, scorer=scorer)
         if s >= THRESHOLD:
             found.append(f"{name} → '{polygon}' ({s} points)")
+            # found.append({})
             continue
 
         # glottolog name in `AustralianPolygons.kml`
