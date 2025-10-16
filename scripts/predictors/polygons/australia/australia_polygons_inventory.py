@@ -19,22 +19,21 @@ if __name__ == '__main__':
     australian_polygon_names = list(pd.read_csv(f'{AUSTRALIA}{AUSTRALIAN_POLYGONS}.csv').name)
     snapped_langs_names = list(pd.read_csv(f'{AUSTRALIA}{SNAPPED_LANGS}.csv').name)
 
-    found = []
-    not_found = []
+    polygons = []
+    missing = 0
     snapped_count = 0
     for (name, glottocode, glottolog_name) in languages:
         # normal name in `AustralianPolygons.kml`
         polygon, s = process.extractOne(name, australian_polygon_names, scorer=scorer)
         if s >= THRESHOLD:
-            # found.append(f"{name} → '{polygon}' ({s} points)")
-            found.append({
-                "language_id": name,
-                "glottocode": glottocode,
-                "glottolog_name": glottolog_name,
-                "polygon_file": AUSTRALIAN_POLYGONS,
-                "polygon_name": polygon,
-                "fuzzy_score": s,
-                "polygon_group": ""
+            polygons.append({
+                'language_id': name,
+                'glottocode': glottocode,
+                'glottolog_name': glottolog_name,
+                'polygon_file': AUSTRALIAN_POLYGONS,
+                'polygon_name': polygon,
+                'fuzzy_score': s,
+                'polygon_group': ''
             })
             continue
 
@@ -42,30 +41,28 @@ if __name__ == '__main__':
         if glottolog_name != '':
             polygon, s = process.extractOne(glottolog_name, australian_polygon_names, scorer=scorer)
             if s >= THRESHOLD:
-                # found.append(f"{name} ({glottolog_name}) → '{polygon}' ({s} points)")
-                found.append({
-                    "language_id": name,
-                    "glottocode": glottocode,
-                    "glottolog_name": glottolog_name,
-                    "polygon_file": AUSTRALIAN_POLYGONS,
-                    "polygon_name": polygon,
-                    "fuzzy_score": s,
-                    "polygon_group": ""
+                polygons.append({
+                    'language_id': name,
+                    'glottocode': glottocode,
+                    'glottolog_name': glottolog_name,
+                    'polygon_file': AUSTRALIAN_POLYGONS,
+                    'polygon_name': polygon,
+                    'fuzzy_score': s,
+                    'polygon_group': ''
                 })
                 continue
 
         # normal name in `SnappedLangs.gpkg`
         polygon, s = process.extractOne(name, snapped_langs_names, scorer=scorer)
         if s >= THRESHOLD:
-            # found.append(f"{name} → '{polygon}' ({s} points) in snappedLangs")
-            found.append({
-                "language_id": name,
-                "glottocode": glottocode,
-                "glottolog_name": glottolog_name,
-                "polygon_file": SNAPPED_LANGS,
-                "polygon_name": polygon,
-                "fuzzy_score": s,
-                "polygon_group": ""
+            polygons.append({
+                'language_id': name,
+                'glottocode': glottocode,
+                'glottolog_name': glottolog_name,
+                'polygon_file': SNAPPED_LANGS,
+                'polygon_name': polygon,
+                'fuzzy_score': s,
+                'polygon_group': ''
             })
             snapped_count += 1
             continue
@@ -74,26 +71,35 @@ if __name__ == '__main__':
         if glottolog_name != '':
             polygon, s = process.extractOne(glottolog_name, snapped_langs_names, scorer=scorer)
             if s >= THRESHOLD:
-                # found.append(f"{name} ({glottolog_name}) → '{polygon}' ({s} points) in snappedLangs")
-                found.append({
-                    "language_id": name,
-                    "glottocode": glottocode,
-                    "glottolog_name": glottolog_name,
-                    "polygon_file": SNAPPED_LANGS,
-                    "polygon_name": polygon,
-                    "fuzzy_score": s,
-                    "polygon_group": ""
+                polygons.append({
+                    'language_id': name,
+                    'glottocode': glottocode,
+                    'glottolog_name': glottolog_name,
+                    'polygon_file': SNAPPED_LANGS,
+                    'polygon_name': polygon,
+                    'fuzzy_score': s,
+                    'polygon_group': ''
                 })
                 snapped_count += 1
                 continue
 
         # not found
-        not_found.append(f"{name} ({glottolog_name}) → '{polygon}' ({s} points)")
+        missing += 1
+        polygons.append({
+            'language_id': name,
+            'glottocode': glottocode,
+            'glottolog_name': glottolog_name,
+            'polygon_file': '',
+            'polygon_name': '',
+            'fuzzy_score': f'({s} for {polygon})',
+            'polygon_group': ''
+        })
 
-    print(f'Found {len(found)} polygons for {len(languages)} total languages ({snapped_count} in `{SNAPPED_LANGS}`)')
+    found = len(languages) - missing
+    print(f'Found {found} polygons for {len(languages)} total languages ({snapped_count} in `{SNAPPED_LANGS}`)')
 
     # Convert to dataframe, write out to csv
     out_file = f'{AUSTRALIA}{OUT_CSV}'
-    df = pd.DataFrame.from_records(found)
+    df = pd.DataFrame.from_records(polygons)
     df.to_csv(out_file, index=False)
-    print(f'Wrote {len(found)} rows to {out_file}')
+    print(f'Wrote {found} rows to {out_file}')
