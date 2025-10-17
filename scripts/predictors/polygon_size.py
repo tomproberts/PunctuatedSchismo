@@ -1,10 +1,9 @@
 import pandas as pd
 from tqdm import tqdm
 
-from scripts.families.indo_european import IndoEuropean
 from scripts.families.pama_nyungan import PamaNyungan
 from scripts.predictors.polygons.australia.pama_nyungan_polygons import PamaNyunganPolygons
-from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException, MultiplePolygonException
+from scripts.predictors.polygons.glottography import LiterallyNoPolygonException, MultiplePolygonException, Glottography
 from scripts.predictors.polygons.glottography_config import get_config
 from scripts.predictors.utils import write_out_df
 
@@ -27,7 +26,7 @@ def calculate_areas(glottography, asciis):
         try:
             # Collect polygon and lang meta
             code = family.get_glottocode_from_ascii(lang)
-            polygon = glottography.get_polygon(code)
+            polygon = glottography.get_polygon_from_ascii(family, lang)
             area = area_of_polygon(polygon)
             # Add to list
             df_data.append({'lang': lang, 'glottocode': code, 'area': area})
@@ -41,8 +40,9 @@ def calculate_areas(glottography, asciis):
 
 if __name__ == '__main__':
     # Get family and glottography setup
-    family = IndoEuropean()
-    glottography = Glottography(get_config(family.name), geodesic=True)
+    family = PamaNyungan()
+    # glottography = Glottography(get_config(family.name), geodesic=True)
+    glottography = PamaNyunganPolygons(geodesic=True)
 
     # Calculate and save as csv the polygon areas
     df = calculate_areas(glottography, family.languages_ascii)

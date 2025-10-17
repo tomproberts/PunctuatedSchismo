@@ -13,9 +13,9 @@ class PamaNyungan(LanguageFamily):
 
     def load_languages(self):
         all_languages = pd.read_csv(CHIRILA_LANGUAGES_CSV)
-        self.language_ids = list(all_languages.ID)
         self.glottocodes = list(all_languages.Glottocode)
         self.languages = list(all_languages.Name)
+        self.languages_ascii = list(all_languages.ID)
 
     def patch(self):
         pass

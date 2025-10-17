@@ -27,6 +27,8 @@ def get_config(family_name: str):
         return bantu_config()
     if family_name == 'Philippines':
         return philippines_config()
+    if family_name == 'PamaNyungan':
+        raise RuntimeError('Australian polygons are not supported by Glottography, try PamaNyunganPolygons() class')
     raise RuntimeError(f'Glottography Error: unknown family {family_name}')
 
 
