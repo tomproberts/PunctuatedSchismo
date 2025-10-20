@@ -44,31 +44,20 @@ def sample_points(polygon, n_points=N_POINTS):
     return polygon.sample_points(n_points, rng=SEED).explode(index_parts=True)
 
 
-def write_out_contact(family, cherries, mean_distances, median_distances, type):
-    file_name = f'{family.name}.contact.{type}'
-    assert len(cherries) == len(median_distances) == len(median_distances)
-    dataframe = pd.DataFrame(data={
-        'language_1': [ls[0] for ls in cherries],
-        'language_2': [ls[1] for ls in cherries],
-        'Glottocode_1': [family.get_glottocode_from_ascii(ls[0]) for ls in cherries],
-        'Glottocode_2': [family.get_glottocode_from_ascii(ls[1]) for ls in cherries],
-        'median_distance': median_distances,
-        'mean_distance': mean_distances
-    })
-    write_out_df(CONTACT_DIR, file_name, dataframe)
+def write_out_contact(family_name, df):
+    file_name = f'{family_name}.contact.{N_POINTS}'
+    write_out_df(CONTACT_DIR, file_name, df)
 
 
-def calculate_euclidean_distances(family, cherries, glottography):
-    mean_distances = []
-    median_distances = []
-    new_cherries = []
+def calculate_euclidean_distances(family, cherries, glottography) -> pd.DataFrame:
     errors = []
+    records = []
     for (language_1, language_2) in tqdm(cherries):
         try:
             glottocode_1 = family.get_glottocode_from_ascii(language_1)
             glottocode_2 = family.get_glottocode_from_ascii(language_2)
-            polygon_1 = glottography.get_polygon(glottocode_1)
-            polygon_2 = glottography.get_polygon(glottocode_2)
+            polygon_1 = glottography.get_polygon_from_ascii(family, language_1)
+            polygon_2 = glottography.get_polygon_from_ascii(family, language_2)
         except Exception as e:
             errors.append(e)
             continue
@@ -78,15 +67,20 @@ def calculate_euclidean_distances(family, cherries, glottography):
         paths = calculate_lines(sampled_points, polygon_2)
         distances = [p.length / 1e3 for p in paths]
 
-        new_cherries.append((language_1, language_2))
-        median_distances.append(median(distances))
-        mean_distances.append(mean(distances))
+        records.append({
+            'language_1': language_1,
+            'language_2': language_2,
+            'glottocode_1': glottocode_1,
+            'glottocode_2': glottocode_2,
+            'median_distance': median(distances),
+            'mean_distance': mean(distances)
+        })
 
     # show skipped languages
     for e in errors:
         print(f'Warning: {e} (ignored)')
 
-    return new_cherries, mean_distances, median_distances
+    return pd.DataFrame.from_records(records)
 
 
 def double_reverse(cherries):
@@ -119,9 +113,9 @@ def calculate_output_contact(family: LanguageFamily, glottography):
     # Cherries should be ascii names since they are unique
     cherries = glottolog_cherries(family, type=GlottologTreeType.ASCII)
     cherries = double_reverse(cherries)
-    cherries, mean_distances, median_distances = calculate_euclidean_distances(family, cherries, glottography)
+    df = calculate_euclidean_distances(family, cherries, glottography)
 
-    write_out_contact(family, cherries, mean_distances, median_distances, type="geodesic")
+    write_out_contact(family.name, df)
     print(f'Wrote out contact distances for {family.name}')
 
 
