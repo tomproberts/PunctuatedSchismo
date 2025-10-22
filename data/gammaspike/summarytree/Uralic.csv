@@ -1,4 +1,4 @@
-label,Name,Glottocode,weightedSpikes,weightedSpikes_median
+label,name,glottocode,weightedSpikes,weightedSpikes_median
 CourlandLivonian,Courland Livonian,west1760,26.70122308178042,21.69929980911903
 StandardEstonian,Standard Estonian,esto1258,7.786261175127832,5.425029188860179
 VoroSouthEstonian,Võro South Estonian,sout2679,20.467784768514615,16.94449208946288

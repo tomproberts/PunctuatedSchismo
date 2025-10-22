@@ -29,7 +29,7 @@ df <- df[df$cherry %!in% sapply(to.remove, function(l) return(df[df$lang == l,]$
 df <- merge(df, bursts, by.x = "lang", by.y = "label")
 
 # Pages
-df <- merge(df, page.counts, by.x = "Glottocode", by.y = "glcode", all.x = TRUE)
+df <- merge(df, page.counts, by.x = "glottocode", by.y = "glcode", all.x = TRUE)
 df[is.na(df$total_pages),]$total_pages <- 1
 
 # Loans
@@ -61,7 +61,7 @@ df$cherry <- factor(df$cherry)
 
 if (FALSE) {
   ggplot(df, aes(x = log_median_distance, y = weightedSpikes_median)) +
-    geom_text(data = df, aes(label = Name), size = 4) +
+    geom_text(data = df, aes(label = name), size = 4) +
     geom_smooth(method = "glm", method.args = list(family = Gamma(link = "log")), formula = y ~ x) +
     # ylim(1, 200) +
     theme_classic()
