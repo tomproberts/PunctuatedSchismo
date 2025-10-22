@@ -2,23 +2,22 @@ import newick
 import pandas as pd
 from nexus import NexusReader
 
-from scripts.families.indo_european import IndoEuropean
+from scripts.families.pama_nyungan import PamaNyungan
 from scripts.families.utils import LanguageFamily
+from scripts.families.uto_aztecan import UtoAztecan
 
 
 def write_out_data(data: pd.DataFrame, family_name) -> None:
-    data.to_csv(f'data/gammaspike/summarytree/{family_name}.csv', index=False)
+    data.to_csv(f'data/relaxed/{family_name}.csv', index=False)
 
 
 def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
-    translate = tree_nexus_file.trees.translators
     tree: newick.Node = tree_nexus_file.trees.trees[0].newick_tree
 
     leaf_data = []
-    scale_factor = family.n_sites / 2
 
     def visitor(node: newick.Node) -> None:
-        ascii_name = translate[node.name]
+        ascii_name = node.name
         language_id = family.get_language_id_from_ascii(ascii_name)
         glottocode = family.get_glottocode_from_language_id(language_id)
 
@@ -26,9 +25,8 @@ def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
             'label': ascii_name,
             'name': family.get_language_from_language_id(language_id),
             'glottocode': glottocode,
-            # scale bursts sizes for number of cognate sets
-            'weightedSpikes': scale_factor * float(node.properties['weightedSpikes']),
-            'weightedSpikes_median': scale_factor * float(node.properties['weightedSpikes_median'])
+            'rate': float(node.properties['rate']),
+            'rate_median': float(node.properties['rate_median'])
         })
 
     # visit leaf nodes
@@ -39,7 +37,7 @@ def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
 
 def get_summary_tree_nexus(family_name) -> NexusReader:
     try:
-        return NexusReader.from_file(f'data/gammaspike/summarytree/{family_name}.nex')
+        return NexusReader.from_file(f'data/relaxed/{family_name}.nex')
     except Exception as e:
         trace = str(e)
     raise NoSummaryTree(family_name, trace)
@@ -94,7 +92,7 @@ class NoSummaryTree(Exception):
 
 
 if __name__ == '__main__':
-    family = IndoEuropean()
+    family = PamaNyungan()
     tree_nexus_file = get_summary_tree_nexus(family.name)
     data = visit_tree(tree_nexus_file, family)
 
