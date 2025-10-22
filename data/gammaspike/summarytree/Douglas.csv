@@ -1,4 +1,4 @@
-label,Name,Glottocode,weightedSpikes,weightedSpikes_median
+label,name,glottocode,weightedSpikes,weightedSpikes_median
 AlbanianArberesh,Albanian: Arbëresh,arbe1236,10.580577684233484,6.797220674364993
 AlbanianGheg,Albanian: Gheg,gheg1238,2.6020509470245914,2.009522286105203
 AlbanianStandard,Albanian: Standard,alba1267,2.945866108194582,2.3383800450097803

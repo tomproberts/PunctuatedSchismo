@@ -2,23 +2,21 @@ import newick
 import pandas as pd
 from nexus import NexusReader
 
-from scripts.families.indo_european import IndoEuropean
+from scripts.families.pama_nyungan import PamaNyungan
 from scripts.families.utils import LanguageFamily
 
 
 def write_out_data(data: pd.DataFrame, family_name) -> None:
-    data.to_csv(f'data/gammaspike/summarytree/{family_name}.csv', index=False)
+    data.to_csv(f'data/relaxed/{family_name}.csv', index=False)
 
 
 def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
-    translate = tree_nexus_file.trees.translators
     tree: newick.Node = tree_nexus_file.trees.trees[0].newick_tree
 
     leaf_data = []
-    scale_factor = family.n_sites / 2
 
     def visitor(node: newick.Node) -> None:
-        ascii_name = translate[node.name]
+        ascii_name = node.name
         language_id = family.get_language_id_from_ascii(ascii_name)
         glottocode = family.get_glottocode_from_language_id(language_id)
 
@@ -26,9 +24,8 @@ def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
             'label': ascii_name,
             'name': family.get_language_from_language_id(language_id),
             'glottocode': glottocode,
-            # scale bursts sizes for number of cognate sets
-            'weightedSpikes': scale_factor * float(node.properties['weightedSpikes']),
-            'weightedSpikes_median': scale_factor * float(node.properties['weightedSpikes_median'])
+            'rate': float(node.properties['rate']),
+            'rate_median': float(node.properties['rate_median'])
         })
 
     # visit leaf nodes
@@ -39,13 +36,13 @@ def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
 
 def get_summary_tree_nexus(family_name) -> NexusReader:
     try:
-        return NexusReader.from_file(f'data/gammaspike/summarytree/{family_name}.nex')
+        return NexusReader.from_file(f'data/relaxed/{family_name}.nex')
     except Exception as e:
         trace = str(e)
-    raise NoSummaryTree(family_name, trace)
+    raise NoRelaxedSummaryTree(family_name, trace)
 
 
-def summary_tree_cherries(family: LanguageFamily, as_glottocode=True) -> list[tuple[str, str]]:
+def relaxed_summary_tree_cherries(family: LanguageFamily, as_glottocode=True) -> list[tuple[str, str]]:
     tree = get_summary_tree_nexus(family.name)
     assert tree
     taxa = tree.taxa.taxa
@@ -69,32 +66,13 @@ def summary_tree_cherries(family: LanguageFamily, as_glottocode=True) -> list[tu
     return cherries
 
 
-def get_sorted_summary_tree_cherries_ascii(family: LanguageFamily) -> list[tuple[str, list[tuple[str, str]]]]:
-    cherries = summary_tree_cherries(family, as_glottocode=False)
-    possible_clades = family.get_clades()
-    if not possible_clades:
-        return [('Cherries', cherries)]
-    # initialise clade sorting
-    clade_dict = {}
-    for clade in possible_clades:
-        clade_dict[clade] = []
-    clade_dict['Miscellaneous'] = []
-    # sort cherries
-    for (lang1, lang2) in cherries:
-        clade = family.get_clade_from_ascii(lang1)
-        if clade not in clade_dict:
-            clade = 'Miscellaneous'
-        clade_dict[clade].append((lang1, lang2))
-    return list(clade_dict.items())
-
-
-class NoSummaryTree(Exception):
+class NoRelaxedSummaryTree(Exception):
     def __init__(self, family_name, error='no stacktrace'):
-        super().__init__(f'No summary tree present for {family_name}\n({error})')
+        super().__init__(f'No relaxed summary tree present for {family_name}\n({error})')
 
 
 if __name__ == '__main__':
-    family = IndoEuropean()
+    family = PamaNyungan()
     tree_nexus_file = get_summary_tree_nexus(family.name)
     data = visit_tree(tree_nexus_file, family)
 

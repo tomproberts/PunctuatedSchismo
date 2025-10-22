@@ -1,4 +1,3 @@
-ITALIC <- "Italic"
 DOUGLAS <- "Douglas"
 INDO.EUROPEAN <- "IndoEuropean"
 DRAVIDIAN <- "Dravidian"
@@ -8,7 +7,6 @@ UTO.AZTECAN <- "UtoAztecan"
 PAMA.NYUNGAN <- "PamaNyungan"
 
 get_n_sites <- function(family) {
-  family <- check_indoeuropean(family)
   if (family == INDO.EUROPEAN) return(4958)
   if (family == DOUGLAS) return(4990)
   if (family == DRAVIDIAN) return(877)
@@ -21,7 +19,6 @@ get_n_sites <- function(family) {
 }
 
 get_n_concepts <- function(family) {
-  family <- check_indoeuropean(family)
   if (family == INDO.EUROPEAN) return(170)
   if (family == DOUGLAS) return(170)
   if (family == DRAVIDIAN) return(100)
@@ -31,9 +28,4 @@ get_n_concepts <- function(family) {
   if (family == PAMA.NYUNGAN) return(200)
 
   stop(paste0("get_n_concepts called for unrecognised family '", family, "'"))
-}
-
-check_indoeuropean <- function(family) {
-  if (family == ITALIC) return(INDO.EUROPEAN)
-  return(family)
 }
