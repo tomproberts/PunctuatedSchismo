@@ -10,7 +10,7 @@ from tqdm import tqdm
 
 from scripts.families.indo_european import IndoEuropean
 from scripts.families.utils import LanguageFamily
-from scripts.glottolog.trees import glottolog_cherries, GlottologTreeType
+from scripts.gammaspike.summary_tree import summary_tree_cherries
 from scripts.predictors.polygons.glottography import Glottography
 from scripts.predictors.polygons.glottography_config import get_config
 from scripts.predictors.utils import write_out_df
@@ -110,7 +110,7 @@ def plot_contact(language_1, language_2, glottography, n_points):
 
 def calculate_output_contact(family: LanguageFamily, glottography):
     # Cherries should be ascii names since they are unique
-    cherries = glottolog_cherries(family, type=GlottologTreeType.ASCII)
+    cherries = summary_tree_cherries(family, as_glottocode=False)
     cherries = double_reverse(cherries)
     df = calculate_euclidean_distances(family, cherries, glottography)
 
@@ -121,6 +121,8 @@ def calculate_output_contact(family: LanguageFamily, glottography):
 if __name__ == '__main__':
     family = IndoEuropean()
     glottography = Glottography(get_config(family.name))
+    # glottography = PamaNyunganPolygons()
+
     # plot_contact('vlaa1240', 'dutc1256', glottography, 50)
 
     calculate_output_contact(family, glottography)

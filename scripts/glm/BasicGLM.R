@@ -8,7 +8,7 @@ source("scripts/gammaspike/SummaryTree.R")
 bursts <- read.csv("data/gammaspike/summarytree/Douglas.csv")
 page.counts <- read.csv("data/predictors/grambank_pageCounts.csv")[, c("glcode", "total_pages")]
 areas <- read.csv("data/predictors/area/IndoEuropean.geodesic.csv")
-distances <- read.csv("data/predictors/contact/IndoEuropean.contact.geodesic.csv")
+distances <- read.csv("data/predictors/contact/IndoEuropean.contact.500.csv")
 loans <- read.csv("data/predictors/loans/IndoEuropean.csv")
 
 cherries <- get_summary_cherries(INDO.EUROPEAN)

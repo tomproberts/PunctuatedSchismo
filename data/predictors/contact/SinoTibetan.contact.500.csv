@@ -1,0 +1,17 @@
+language_1,language_2,glottocode_1,glottocode_2,median_distance,mean_distance
+KirantiBahing,KirantiThulung,bahi1252,thul1246,10.631119683354683,11.26955614277422
+KirantiBantawa,KirantiLimbu,bant1281,limb1266,68.17112197153722,70.44991065297081
+BurmishAchang,BurmishXiandao,acha1249,xian1249,199.25299731349617,197.65220870511752
+BurmishBola,BurmishMaru,pela1242,maru1249,290.2781792042865,290.3867206719838
+TibetanAlike,TibetanXiahe,amdo1237,amdo1237,0.0,0.0
+TibetoKinauriByangsi,TibetoKinauriRongpo,byan1241,rong1264,181.74374948237195,180.85466155038728
+GaroGaro,Rabha,garo1247,rabh1238,170.19008603638872,180.0842569814443
+SiniticLonggang,SiniticXingning,hakk1236,hakk1236,0.0,0.0
+KirantiThulung,KirantiBahing,thul1246,bahi1252,17.347750381149925,18.097543658347924
+KirantiLimbu,KirantiBantawa,limb1266,bant1281,133.15062476591277,129.95395798019635
+BurmishXiandao,BurmishAchang,xian1249,acha1249,163.55564269604565,182.89548274347024
+BurmishMaru,BurmishBola,maru1249,pela1242,402.714278707277,484.99891614282194
+TibetanXiahe,TibetanAlike,amdo1237,amdo1237,0.0,0.0
+TibetoKinauriRongpo,TibetoKinauriByangsi,rong1264,byan1241,188.5258386726024,179.59448459399488
+Rabha,GaroGaro,rabh1238,garo1247,118.91425812641774,120.96625245743478
+SiniticXingning,SiniticLonggang,hakk1236,hakk1236,0.0,0.0
