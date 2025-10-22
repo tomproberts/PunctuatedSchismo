@@ -4,7 +4,6 @@ from nexus import NexusReader
 
 from scripts.families.pama_nyungan import PamaNyungan
 from scripts.families.utils import LanguageFamily
-from scripts.families.uto_aztecan import UtoAztecan
 
 
 def write_out_data(data: pd.DataFrame, family_name) -> None:
@@ -40,10 +39,10 @@ def get_summary_tree_nexus(family_name) -> NexusReader:
         return NexusReader.from_file(f'data/relaxed/{family_name}.nex')
     except Exception as e:
         trace = str(e)
-    raise NoSummaryTree(family_name, trace)
+    raise NoRelaxedSummaryTree(family_name, trace)
 
 
-def summary_tree_cherries(family: LanguageFamily, as_glottocode=True) -> list[tuple[str, str]]:
+def relaxed_summary_tree_cherries(family: LanguageFamily, as_glottocode=True) -> list[tuple[str, str]]:
     tree = get_summary_tree_nexus(family.name)
     assert tree
     taxa = tree.taxa.taxa
@@ -67,28 +66,9 @@ def summary_tree_cherries(family: LanguageFamily, as_glottocode=True) -> list[tu
     return cherries
 
 
-def get_sorted_summary_tree_cherries_ascii(family: LanguageFamily) -> list[tuple[str, list[tuple[str, str]]]]:
-    cherries = summary_tree_cherries(family, as_glottocode=False)
-    possible_clades = family.get_clades()
-    if not possible_clades:
-        return [('Cherries', cherries)]
-    # initialise clade sorting
-    clade_dict = {}
-    for clade in possible_clades:
-        clade_dict[clade] = []
-    clade_dict['Miscellaneous'] = []
-    # sort cherries
-    for (lang1, lang2) in cherries:
-        clade = family.get_clade_from_ascii(lang1)
-        if clade not in clade_dict:
-            clade = 'Miscellaneous'
-        clade_dict[clade].append((lang1, lang2))
-    return list(clade_dict.items())
-
-
-class NoSummaryTree(Exception):
+class NoRelaxedSummaryTree(Exception):
     def __init__(self, family_name, error='no stacktrace'):
-        super().__init__(f'No summary tree present for {family_name}\n({error})')
+        super().__init__(f'No relaxed summary tree present for {family_name}\n({error})')
 
 
 if __name__ == '__main__':
