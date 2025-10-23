@@ -3,7 +3,8 @@ library(ggdist)
 library(tidyr)
 library(dplyr)
 
-load("data/glm/PamaNyungan.RData")
+# FIT <- "data/glm/IndoEuropeanRelaxed.RData"
+FIT <- "data/glm/PamaNyungan.RData"
 
 par.names <- c(
   "log(median distance)" = "b_logmedian_distance",
@@ -18,6 +19,7 @@ exclude <- c(
   "b_Intercept"
 )
 
+load(FIT)
 draws <- as.data.frame(fit)
 pars <- colnames(draws)
 pars <- pars[sapply(pars, function(n) return(startsWith(n, "b_") & !(n %in% exclude)))]
@@ -38,6 +40,7 @@ ggplot(draws.df, aes(x = value, y = coefficient)) +
                 .width = c(0.5, 0.89, 1),
                 interval_colour = "#00bfc4", linewidth = 6) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "darkgrey") +
+  ggtitle(FIT) +
   ylab("")
 
 # mcmc_areas(fit, prob = 0.89, pars = pars)

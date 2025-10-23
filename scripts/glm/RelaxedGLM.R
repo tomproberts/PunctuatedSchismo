@@ -5,11 +5,12 @@ library(bayesplot)
 library(collapse)
 source("scripts/gammaspike/SummaryTree.R")
 
-rates <- read.csv("data/relaxed/PamaNyungan.csv")
-areas <- read.csv("data/predictors/area/PamaNyungan.geodesic.csv")
-distances <- read.csv("data/predictors/contact/PamaNyungan.contact.500.csv")
+FAMILY <- PAMA.NYUNGAN
+rates <- read.csv(paste0("data/relaxed/", FAMILY, ".csv"))
+areas <- read.csv(paste0("data/predictors/area/", FAMILY, ".geodesic.csv"))
+distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
 
-cherries <- get_summary_cherries(PAMA.NYUNGAN)
+cherries <- get_summary_cherries(FAMILY)
 lang1 <- sapply(cherries, function(e) return(e[1]))
 lang2 <- sapply(cherries, function(e) return(e[2]))
 
@@ -51,12 +52,12 @@ if (FALSE) {
 if (TRUE) {
   fit <- brm(formula = normalised_rate ~
     log(area_sister) +
-      log(median_distance),
-      # log(area),
+      # log(median_distance) +
+      log(area),
              family = gaussian(link = "log"),
              data = df,
              iter = 4000)
-  save(fit, file = "data/glm/PamaNyungan2.RData")
+  save(fit, file = "data/glm/PamaNyungan.RData")
   # Graph brms
   print(summary(fit))
 }
