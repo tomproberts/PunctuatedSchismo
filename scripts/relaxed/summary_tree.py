@@ -3,6 +3,7 @@ import pandas as pd
 from nexus import NexusReader
 
 from scripts.families.pama_nyungan import PamaNyungan
+from scripts.families.sino_tibetan import SinoTibetan
 from scripts.families.utils import LanguageFamily, LanguageNotFound
 
 
@@ -75,7 +76,7 @@ class NoRelaxedSummaryTree(Exception):
 
 
 if __name__ == '__main__':
-    family = PamaNyungan()
+    family = SinoTibetan()
     tree_nexus_file = get_summary_tree_nexus(family.name)
     data = visit_tree(tree_nexus_file, family)
 
