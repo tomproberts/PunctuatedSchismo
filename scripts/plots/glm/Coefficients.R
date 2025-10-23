@@ -10,6 +10,7 @@ par.names <- c(
   "log(median distance)" = "b_logmedian_distance",
   "log(area)" = "b_logarea",
   "log(area of sister)" = "b_logarea_sister",
+  "log(area/area of sister)" = "b_area_ratio",
   "log(total pages)" = "b_log_total_pages",
   "log(total pages of sister)" = "b_log_total_page_sister",
   "number of loans" = "b_n_loans"
