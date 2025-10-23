@@ -3,8 +3,8 @@ from tqdm import tqdm
 
 from scripts.families.pama_nyungan import PamaNyungan
 from scripts.predictors.polygons.australia.pama_nyungan_polygons import PamaNyunganPolygons
-from scripts.predictors.polygons.glottography import LiterallyNoPolygonException, MultiplePolygonException, Glottography
-from scripts.predictors.polygons.glottography_config import get_config
+from scripts.predictors.polygons.glottography import LiterallyNoPolygonException, MultiplePolygonException, \
+    PolygonNotFoundException
 from scripts.predictors.utils import write_out_df
 
 POLYGON_SIZE = 'area'
@@ -30,7 +30,7 @@ def calculate_areas(glottography, asciis):
             area = area_of_polygon(polygon)
             # Add to list
             df_data.append({'lang': lang, 'glottocode': code, 'area': area})
-        except (LiterallyNoPolygonException, MultiplePolygonException) as e:
+        except (LiterallyNoPolygonException, MultiplePolygonException, PolygonNotFoundException) as e:
             errors.append(f'{e} ({family.get_language_from_ascii(lang)})')
 
     # Display errors

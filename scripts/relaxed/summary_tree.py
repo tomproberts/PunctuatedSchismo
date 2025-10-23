@@ -3,7 +3,8 @@ import pandas as pd
 from nexus import NexusReader
 
 from scripts.families.pama_nyungan import PamaNyungan
-from scripts.families.utils import LanguageFamily
+from scripts.families.sino_tibetan import SinoTibetan
+from scripts.families.utils import LanguageFamily, LanguageNotFound
 
 
 def write_out_data(data: pd.DataFrame, family_name) -> None:
@@ -16,17 +17,20 @@ def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
     leaf_data = []
 
     def visitor(node: newick.Node) -> None:
-        ascii_name = node.name
-        language_id = family.get_language_id_from_ascii(ascii_name)
-        glottocode = family.get_glottocode_from_language_id(language_id)
+        try:
+            ascii_name = node.name
+            language_id = family.get_language_id_from_ascii(ascii_name)
+            glottocode = family.get_glottocode_from_language_id(language_id)
 
-        leaf_data.append({
-            'label': ascii_name,
-            'name': family.get_language_from_language_id(language_id),
-            'glottocode': glottocode,
-            'rate': float(node.properties['rate']),
-            'rate_median': float(node.properties['rate_median'])
-        })
+            leaf_data.append({
+                'label': ascii_name,
+                'name': family.get_language_from_language_id(language_id),
+                'glottocode': glottocode,
+                'rate': float(node.properties['rate']),
+                'rate_median': float(node.properties['rate_median'])
+            })
+        except LanguageNotFound as e:
+            print(f'Warning (skipping): {e}')
 
     # visit leaf nodes
     tree.visit(visitor, lambda node: node.is_leaf)
@@ -72,7 +76,7 @@ class NoRelaxedSummaryTree(Exception):
 
 
 if __name__ == '__main__':
-    family = PamaNyungan()
+    family = SinoTibetan()
     tree_nexus_file = get_summary_tree_nexus(family.name)
     data = visit_tree(tree_nexus_file, family)
 
