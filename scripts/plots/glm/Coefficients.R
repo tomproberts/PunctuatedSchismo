@@ -23,7 +23,11 @@ pars <- colnames(draws)
 pars <- pars[sapply(pars, function(n) return(startsWith(n, "b_") & !(n %in% exclude)))]
 
 draws <- draws[, pars]
-draws.df <- pivot_longer(rename(draws, any_of(par.names)), cols = everything(), names_to = "coefficient", values_to = "value")
+if (length(pars) == 1) {
+  draws.df <- data.frame(value = draws, coefficient = names(par.names)[par.names == pars])
+} else {
+  draws.df <- pivot_longer(rename(draws, any_of(par.names)), cols = everything(), names_to = "coefficient", values_to = "value")
+}
 
 ggplot(draws.df, aes(x = value, y = coefficient)) +
   theme_light() +
