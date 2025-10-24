@@ -1,6 +1,8 @@
 import geopandas
 import pandas as pd
 
+GLOTTOGRAPHY_DIR = 'data/glottography'
+
 
 class Glottography:
     def __init__(self, settings, geodesic=True):
@@ -13,7 +15,7 @@ class Glottography:
         glottocode_map = []
         for source in sources:
             glottocode_map.append(pd.read_csv(
-                f'data/glottography/{source}_glottocode_to_polygons.csv',
+                f'{GLOTTOGRAPHY_DIR}/{source}_glottocode_to_polygons.csv',
                 index_col=0)[['name', 'glottocode', 'year']])
         return glottocode_map
 
@@ -21,11 +23,16 @@ class Glottography:
     def init_polygons(sources, geodesic=True):
         polygons = []
         for source in sources:
-            all = geopandas.read_file(f'data/glottography/{source}_raw.gpkg')
+            all = geopandas.read_file(f'{GLOTTOGRAPHY_DIR}/{source}_raw.gpkg')
             if geodesic:
-                all = all.to_crs("EPSG:32633")
+                all = all.to_crs('EPSG:32633')
             polygons.append(all)
         return polygons
+
+
+    def get_polygon_from_ascii(self, family, ascii, verbose=False):
+        code = family.get_glottocode_from_ascii(ascii)
+        return self.get_polygon(code, verbose=verbose)
 
     def get_polygon(self, glottocode, verbose=False):
         # Check patches

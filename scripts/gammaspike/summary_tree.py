@@ -6,39 +6,35 @@ from scripts.families.utils import LanguageFamily
 from scripts.families.uto_aztecan import UtoAztecan
 
 
-def write_out_data(data, family_name) -> None:
-    pd.DataFrame(data).to_csv(f'data/gammaspike/summarytree/{family_name}.csv', index=False)
+def write_out_data(data: pd.DataFrame, family_name) -> None:
+    data.to_csv(f'data/gammaspike/summarytree/{family_name}.csv', index=False)
 
 
-def visit_tree(tree_nexus_file, family: LanguageFamily) -> dict:
+def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
     translate = tree_nexus_file.trees.translators
     tree: newick.Node = tree_nexus_file.trees.trees[0].newick_tree
 
-    leaves_ascii = []
-    leaves_name = []
-    leaves_glottocode = []
-    leaves_weightedSpikes = []
-    leaves_weightedSpikes_median = []
+    leaf_data = []
+    scale_factor = family.n_sites / 2
 
     def visitor(node: newick.Node) -> None:
         ascii_name = translate[node.name]
         language_id = family.get_language_id_from_ascii(ascii_name)
-        leaves_ascii.append(ascii_name)
-        leaves_name.append(family.get_language_from_language_id(language_id))
         glottocode = family.get_glottocode_from_language_id(language_id)
-        leaves_glottocode.append(glottocode)
-        # scale bursts sizes for number of cognate sets
-        leaves_weightedSpikes.append(family.n_sites / 2 * float(node.properties['weightedSpikes']))
-        leaves_weightedSpikes_median.append(family.n_sites / 2 * float(node.properties['weightedSpikes_median']))
+
+        leaf_data.append({
+            'label': ascii_name,
+            'name': family.get_language_from_language_id(language_id),
+            'glottocode': glottocode,
+            # scale bursts sizes for number of cognate sets
+            'weightedSpikes': scale_factor * float(node.properties['weightedSpikes']),
+            'weightedSpikes_median': scale_factor * float(node.properties['weightedSpikes_median'])
+        })
 
     # visit leaf nodes
     tree.visit(visitor, lambda node: node.is_leaf)
 
-    return {'label': leaves_ascii,
-            'Name': leaves_name,
-            'Glottocode': leaves_glottocode,
-            'weightedSpikes': leaves_weightedSpikes,
-            'weightedSpikes_median': leaves_weightedSpikes_median}
+    return pd.DataFrame.from_records(leaf_data)
 
 
 def get_summary_tree_nexus(family_name) -> NexusReader:

@@ -62,4 +62,15 @@ get_manual_cherries <- function(family) {
     # c("Hindi", "Urdu"),
     c("Bengali", "Assamese")
   ))
+  if (family == PAMA.NYUNGAN) return(list(
+    c("Thaynakwith", "Mbakwithi"),
+    c("Walangama", "Ikarranggal"),
+    c("UwOykangand", "Olkola"),
+    c("KLY", "KKY"),
+    c("Wulguru", "Coonambella"),
+    c("Djambarrpuyngu", "Dhuwal"),
+    c("Lardil", "Kayardild"),
+    c("MathiMathi", "LakeHindmarsh"),
+    c("WangkumaraMcDWur", "Wangkumara")
+  ))
 }

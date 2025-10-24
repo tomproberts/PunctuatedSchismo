@@ -3,12 +3,14 @@ library(ggdist)
 library(tidyr)
 library(dplyr)
 
-load("data/glm/UtoAztecan.RData")
+# FIT <- "data/glm/IndoEuropeanRelaxed.RData"
+FIT <- "data/glm/UtoAztecan.RData"
 
 par.names <- c(
   "log(median distance)" = "b_logmedian_distance",
   "log(area)" = "b_logarea",
   "log(area of sister)" = "b_logarea_sister",
+  "log(area/area of sister)" = "b_area_ratio",
   "log(total pages)" = "b_log_total_pages",
   "log(total pages of sister)" = "b_log_total_page_sister",
   "number of loans" = "b_n_loans"
@@ -18,6 +20,7 @@ exclude <- c(
   "b_Intercept"
 )
 
+load(FIT)
 draws <- as.data.frame(fit)
 pars <- colnames(draws)
 pars <- pars[sapply(pars, function(n) return(startsWith(n, "b_") & !(n %in% exclude)))]
@@ -38,6 +41,7 @@ ggplot(draws.df, aes(x = value, y = coefficient)) +
                 .width = c(0.5, 0.89, 1),
                 interval_colour = "#00bfc4", linewidth = 6) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "darkgrey") +
+  ggtitle(FIT) +
   ylab("")
 
 # mcmc_areas(fit, prob = 0.89, pars = pars)
