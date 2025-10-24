@@ -1,0 +1,11 @@
+language_1,language_2,glottocode_1,glottocode_2,median_distance,mean_distance
+Betta_Kurumba,Kannada,bett1235,nucl1305,776.173,771.36
+Malayalam,Yeruva,mala1464,ravu1237,341.869,425.986
+Gondi,Koya,nort2702,koya1251,133.701,132.427
+Ollari_Gadba,Parji,pott1240,duru1236,161.703,163.625
+Kurukh,Malto,kuru1302,malt1248,903.188,906.474
+Kannada,Betta_Kurumba,nucl1305,bett1235,776.173,771.36
+Yeruva,Malayalam,ravu1237,mala1464,341.869,425.986
+Koya,Gondi,koya1251,nort2702,133.701,132.427
+Parji,Ollari_Gadba,duru1236,pott1240,161.703,163.625
+Malto,Kurukh,malt1248,kuru1302,903.188,906.474

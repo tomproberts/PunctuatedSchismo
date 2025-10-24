@@ -1,0 +1,17 @@
+language_1,language_2,glottocode_1,glottocode_2,median_distance,mean_distance
+Cora_27,Huichol_28,elna1235,huic1243,141.608,145.496
+Papago_Pima_17,Pima_de_Onavas_18,toho1245,pima1248,555.482,566.802
+Eudeve_21,Opata_20,eude1234,opat1246,151.683,158.967
+Mayo_25,Yaqui_26,mayo1264,yaqu1251,395.869,392.648
+Cahuilla_12,Cupeno_13,cahu1264,cupe1243,77.435,88.986
+Kitanemuk_34,Serrano_11,kita1252,serr1255,152.341,146.305
+Southern_Paiute_8,Southern_Ute_9,sout2969,utee1244,654.612,636.168
+Mono_1,Northern_Paiute_2,mono1275,nort2954,736.375,674.355
+Huichol_28,Cora_27,huic1243,elna1235,141.608,145.496
+Pima_de_Onavas_18,Papago_Pima_17,pima1248,toho1245,555.482,566.802
+Opata_20,Eudeve_21,opat1246,eude1234,151.683,158.967
+Yaqui_26,Mayo_25,yaqu1251,mayo1264,395.869,392.648
+Cupeno_13,Cahuilla_12,cupe1243,cahu1264,77.435,88.986
+Serrano_11,Kitanemuk_34,serr1255,kita1252,152.341,146.305
+Southern_Ute_9,Southern_Paiute_8,utee1244,sout2969,654.612,636.168
+Northern_Paiute_2,Mono_1,nort2954,mono1275,736.375,674.355
