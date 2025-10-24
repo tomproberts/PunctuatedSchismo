@@ -46,8 +46,8 @@ def calculate_euclidean_distances(family, cherries, glottography) -> pd.DataFram
         try:
             glottocode_1 = family.get_glottocode_from_ascii(language_1)
             glottocode_2 = family.get_glottocode_from_ascii(language_2)
-            polygon_1 = glottography.get_polygon(glottocode_1)
-            polygon_2 = glottography.get_polygon(glottocode_2)
+            polygon_1 = glottography.get_polygon_from_ascii(family, language_1)
+            polygon_2 = glottography.get_polygon_from_ascii(family, language_2)
         except Exception as e:
             errors.append(f'Warning: {e} ({language_1} / {language_2})')
             continue
@@ -112,6 +112,7 @@ def calculate_output_distance(family: LanguageFamily, glottography):
 if __name__ == '__main__':
     family = UtoAztecan()
     glottography = Glottography(get_config(family.name))
+    # glottography = PamaNyunganPolygons()
     # plot_contact('vlaa1240', 'dutc1256', glottography, 20)
 
     calculate_output_distance(family, glottography)
