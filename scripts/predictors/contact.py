@@ -72,8 +72,8 @@ def calculate_euclidean_distances(family, cherries, glottography) -> pd.DataFram
             'language_2': language_2,
             'glottocode_1': glottocode_1,
             'glottocode_2': glottocode_2,
-            'median_distance': median(distances),
-            'mean_distance': mean(distances)
+            'median_distance': round(median(distances), 3),
+            'mean_distance': round(mean(distances), 3)
         })
 
     # show skipped languages
