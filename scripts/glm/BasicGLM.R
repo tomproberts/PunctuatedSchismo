@@ -5,13 +5,15 @@ library(bayesplot)
 library(collapse)
 source("scripts/gammaspike/SummaryTree.R")
 
-bursts <- read.csv("data/gammaspike/summarytree/UtoAztecan.csv")
-page.counts <- read.csv("data/predictors/grambank_pageCounts.csv")[, c("glcode", "total_pages")]
-distances <- read.csv("data/predictors/contact/UtoAztecan.contact.500.csv")
-areas <- read.csv("data/predictors/area/UtoAztecan.geodesic.csv")
-loans <- read.csv("data/predictors/loans/IndoEuropean.csv")
+FAMILY <- INDO.EUROPEAN
 
-cherries <- get_summary_cherries(UTO.AZTECAN)
+bursts <- read.csv(paste0("data/gammaspike/summarytree/", if (FAMILY == INDO.EUROPEAN) ("Douglas") else (FAMILY), ".csv"))
+page.counts <- read.csv("data/predictors/grambank_pageCounts.csv")[, c("glcode", "total_pages")]
+distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
+areas <- read.csv(paste0("data/predictors/area/", FAMILY, ".geodesic.csv"))
+loans <- read.csv(paste0("data/predictors/loans/", FAMILY, ".csv"))
+
+cherries <- get_summary_cherries(FAMILY)
 lang1 <- sapply(cherries, function(e) return(e[1]))
 lang2 <- sapply(cherries, function(e) return(e[2]))
 
@@ -69,14 +71,18 @@ if (FALSE) {
 
 # Fit the model
 if (TRUE) {
+  filename <- paste0("data/glm/", FAMILY, ".RData")
   fit <- brm(formula = weightedSpikes_median ~
-      log(median_distance),
-      # log(area),
-      # log(area_sister),
+    n_loans +
+      # log_total_pages +
+      # log(median_distance) +
+      log(area) +
+      log(area_sister),
              family = Gamma(link = "log"),
              data = df,
              iter = 4000)
-  save(fit, file = "data/glm/UtoAztecan.RData")
+  save(fit, file = filename)
+  cat(paste("Wrote out fit to", filename, "\n"))
 }
 
 # Graph brms

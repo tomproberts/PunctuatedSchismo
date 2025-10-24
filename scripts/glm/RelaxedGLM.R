@@ -50,6 +50,7 @@ if (FALSE) {
 
 # Fit the model
 if (TRUE) {
+  filename <- paste0("data/glm/", FAMILY, ".RData")
   fit <- brm(formula = normalised_rate ~
     log(area_sister) +
       # log(median_distance) +
@@ -57,9 +58,10 @@ if (TRUE) {
              family = gaussian(link = "log"),
              data = df,
              iter = 4000)
-  save(fit, file = "data/glm/PamaNyungan.RData")
+  save(fit, file = filename)
   # Graph brms
   print(summary(fit))
+  cat(paste("Wrote out fit to", filename, "\n"))
 }
 
 if (TRUE) {

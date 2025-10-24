@@ -4,7 +4,7 @@ library(tidyr)
 library(dplyr)
 
 # FIT <- "data/glm/IndoEuropeanRelaxed.RData"
-FIT <- "data/glm/UtoAztecan.RData"
+FIT <- "data/glm/IndoEuropean.RData"
 
 par.names <- c(
   "log(median distance)" = "b_logmedian_distance",
