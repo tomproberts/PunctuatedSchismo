@@ -5,7 +5,7 @@ library(bayesplot)
 library(collapse)
 source("scripts/gammaspike/SummaryTree.R")
 
-FAMILY <- PAMA.NYUNGAN
+FAMILY <- INDO.EUROPEAN
 rates <- read.csv(paste0("data/relaxed/", FAMILY, ".csv"))
 areas <- read.csv(paste0("data/predictors/area/", FAMILY, ".geodesic.csv"))
 distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
@@ -50,21 +50,20 @@ if (FALSE) {
 
 # Fit the model
 if (TRUE) {
-  filename <- paste0("data/glm/", FAMILY, ".RData")
   fit <- brm(formula = normalised_rate ~
-    log(area_sister) +
-      # log(median_distance) +
-      log(area),
+    log(area) +
+      # log(median_distance),
+      log(area_sister),
              family = gaussian(link = "log"),
              data = df,
              iter = 4000)
+  # Save model output
+  filename <- paste0("data/glm/", FAMILY, "Relaxed.RData")
   save(fit, file = filename)
-  # Graph brms
-  print(summary(fit))
   cat(paste("Wrote out fit to", filename, "\n"))
 }
 
-if (TRUE) {
+if (FALSE) {
   plot_predictions(fit, condition = "area_sister", allow_new_levels = TRUE) +
     # geom_text(aes(x = median_distance_km, y = response, label = Name), position = position_nudge(y = -0.08), data = df, size = 4) +
     # geom_point(aes(x = median_distance_km, y = response), data = df, size = 1) +
