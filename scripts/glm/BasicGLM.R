@@ -5,13 +5,15 @@ library(bayesplot)
 library(collapse)
 source("scripts/gammaspike/SummaryTree.R")
 
-bursts <- read.csv("data/gammaspike/summarytree/Douglas.csv")
+FAMILY <- INDO.EUROPEAN
+
+bursts <- read.csv(paste0("data/gammaspike/summarytree/", if (FAMILY == INDO.EUROPEAN) "Douglas" else FAMILY, ".csv"))
 page.counts <- read.csv("data/predictors/grambank_pageCounts.csv")[, c("glcode", "total_pages")]
-areas <- read.csv("data/predictors/area/IndoEuropean.geodesic.csv")
-distances <- read.csv("data/predictors/contact/IndoEuropean.contact.500.csv")
+distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
+areas <- read.csv(paste0("data/predictors/area/", FAMILY, ".geodesic.csv"))
 loans <- read.csv("data/predictors/loans/IndoEuropean.csv")
 
-cherries <- get_summary_cherries(INDO.EUROPEAN)
+cherries <- get_summary_cherries(FAMILY)
 lang1 <- sapply(cherries, function(e) return(e[1]))
 lang2 <- sapply(cherries, function(e) return(e[2]))
 
@@ -70,28 +72,30 @@ if (FALSE) {
 # Fit the model
 if (TRUE) {
   fit <- brm(formula = weightedSpikes_median ~
-    # (1 | cherry) +
     n_loans +
-    log_total_pages +
-      log(median_distance) +
+      # log_total_pages +
+      # log(median_distance) +
       log(area) +
       log(area_sister),
              family = Gamma(link = "log"),
              data = df,
              iter = 4000)
-  save(fit, file = "data/glm/Douglas.RData")
+  # Save model output
+  filename <- paste0("data/glm/", FAMILY, ".RData")
+  save(fit, file = filename)
+  cat(paste("Wrote out fit to", filename, "\n"))
 }
 
 # Graph brms
 if (FALSE) {
   print(summary(fit))
-  plot_predictions(fit, condition = "area_sister", allow_new_levels = TRUE) +
+  plot_predictions(fit, condition = "median_distance", allow_new_levels = TRUE) +
     # geom_text(aes(x = median_distance_km, y = response, label = Name), position = position_nudge(y = -0.08), data = df, size = 4) +
     # geom_point(aes(x = median_distance_km, y = response), data = df, size = 1) +
     xlab("Area of sibling [~km^2]") +
     ylab("Expected punctuated change [# lexeme changes]") +
     ggtitle("Constrained spikes ~ median_distance") +
-    xlim(0, 300000) +
+    # xlim(0, 300000) +
     theme_classic() +
     theme(axis.title = element_text(size = 14))
 }

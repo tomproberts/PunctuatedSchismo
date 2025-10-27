@@ -3,9 +3,9 @@ library(ggtree)
 library(treeio)
 source("scripts/families/LanguageFamilies.R")
 
-FAMILY <- PAMA.NYUNGAN
-GAMMASPIKE <- FALSE
-SCALESTUBS <- TRUE
+FAMILY <- UTO.AZTECAN
+GAMMASPIKE <- TRUE
+SCALESTUBS <- FALSE
 
 summary.tree <- paste0("data/", if (GAMMASPIKE) "gammaspike/summarytree/" else "relaxed/", FAMILY, ".nex")
 tree <- read.beast(summary.tree)

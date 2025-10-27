@@ -1,0 +1,17 @@
+language_1,language_2,glottocode_1,glottocode_2,median_distance,mean_distance
+KirantiBahing,KirantiThulung,bahi1252,thul1246,31.194,33.028
+KirantiBantawa,KirantiLimbu,bant1281,limb1266,158.955,162.453
+BurmishAchang,BurmishXiandao,acha1249,xian1249,227.753,236.423
+BurmishBola,BurmishMaru,pela1242,maru1249,415.553,467.102
+TibetanAlike,TibetanXiahe,amdo1237,amdo1237,0.0,0.0
+TibetoKinauriByangsi,TibetoKinauriRongpo,byan1241,rong1264,210.368,209.368
+GaroGaro,Rabha,garo1247,rabh1238,211.136,241.963
+SiniticLonggang,SiniticXingning,hakk1236,hakk1236,0.0,0.0
+KirantiThulung,KirantiBahing,thul1246,bahi1252,31.194,33.028
+KirantiLimbu,KirantiBantawa,limb1266,bant1281,158.955,162.453
+BurmishXiandao,BurmishAchang,xian1249,acha1249,227.753,236.423
+BurmishMaru,BurmishBola,maru1249,pela1242,415.553,467.102
+TibetanXiahe,TibetanAlike,amdo1237,amdo1237,0.0,0.0
+TibetoKinauriRongpo,TibetoKinauriByangsi,rong1264,byan1241,210.368,209.368
+Rabha,GaroGaro,rabh1238,garo1247,211.136,241.963
+SiniticXingning,SiniticLonggang,hakk1236,hakk1236,0.0,0.0

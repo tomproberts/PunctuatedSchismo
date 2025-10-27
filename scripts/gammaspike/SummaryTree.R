@@ -27,7 +27,7 @@ get_summary_cherries <- function(family) {
 }
 
 get_manual_cherries <- function(family) {
-  if (family == INDO.EUROPEAN | family == DOUGLAS) return(list(
+  if (family == INDO.EUROPEAN) return(list(
     c("Dutch", "Flemish"),
     c("German", "GermanBernese"),
     c("NorwegianNynorsk", "NorwegianBokmal"),

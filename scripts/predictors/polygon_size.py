@@ -1,10 +1,10 @@
 import pandas as pd
 from tqdm import tqdm
 
-from scripts.families.pama_nyungan import PamaNyungan
-from scripts.predictors.polygons.australia.pama_nyungan_polygons import PamaNyunganPolygons
+from scripts.families.uto_aztecan import UtoAztecan
 from scripts.predictors.polygons.glottography import LiterallyNoPolygonException, MultiplePolygonException, \
-    PolygonNotFoundException
+    PolygonNotFoundException, Glottography
+from scripts.predictors.polygons.glottography_config import get_config
 from scripts.predictors.utils import write_out_df
 
 POLYGON_SIZE = 'area'
@@ -40,9 +40,9 @@ def calculate_areas(glottography, asciis):
 
 if __name__ == '__main__':
     # Get family and glottography setup
-    family = PamaNyungan()
-    # glottography = Glottography(get_config(family.name), geodesic=True)
-    glottography = PamaNyunganPolygons(geodesic=True)
+    family = UtoAztecan()
+    glottography = Glottography(get_config(family.name), geodesic=True)
+    # glottography = PamaNyunganPolygons(geodesic=True)
 
     # Calculate and save as csv the polygon areas
     df = calculate_areas(glottography, family.languages_ascii)

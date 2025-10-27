@@ -42,7 +42,7 @@ class Glottography:
             polygon = raws[raws.polygon_id == index]
             if len(polygon) > 0:
                 return polygon
-            raise PolygonNotFoundException(index)
+            raise PolygonNotFoundException(index, self.settings.sources[s])
 
         # Loop through all sources
         for (glottocodes, raw_polygons) in zip(self.glottocode_map, self.raw_polygons):

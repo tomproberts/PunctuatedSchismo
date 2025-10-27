@@ -11,6 +11,8 @@ UTO_AZTECAN_FAMILY = 'Uto-Aztecan'
 class UtoAztecan(LanguageFamily):
     name = 'UtoAztecan'
     family_glottocode = 'utoa1244'
+    n_sites = 1560
+    n_concepts = 121  # todo: double-check
 
     def load_languages(self):
         all_languages = pd.read_csv(UTO_LANGUAGES_CSV)

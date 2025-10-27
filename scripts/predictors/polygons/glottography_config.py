@@ -84,7 +84,7 @@ def uto_config():
     return GlottographyConfig(sources=[MISSING, ASHER_2007_WORLD, NATIVELAND_2024_LANGUAGES],
                               patches={
                                   'nort2954': (1, 4617),
-                                  'pipi1250': (2, 5042)
+                                  'pipi1250': (1, 5042)
                               })
 
 

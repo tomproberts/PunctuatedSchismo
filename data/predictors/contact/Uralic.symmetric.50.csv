@@ -1,0 +1,13 @@
+language_1,language_2,glottocode_1,glottocode_2,median_distance,mean_distance
+Estonian_South,Estonian_Standard,sout2679,esto1258,145.695,147.606
+Karelian_Proper,Veps,kare1335,veps1250,472.169,440.124
+Saami_South,Saami_Ume,sout2674,umes1235,220.718,247.915
+Khanty_Vakh_Vasyugan,Mansi_Sosva,fare1244,nort2677,1005.27,1025.567
+Komi_Permyak,Komi_Zyrian,komi1269,komi1268,657.124,672.388
+Nenets_Tundra,Nganasan,nene1249,ngan1291,1040.685,1004.122
+Estonian_Standard,Estonian_South,esto1258,sout2679,145.695,147.606
+Veps,Karelian_Proper,veps1250,kare1335,472.169,440.124
+Saami_Ume,Saami_South,umes1235,sout2674,220.718,247.915
+Mansi_Sosva,Khanty_Vakh_Vasyugan,nort2677,fare1244,1005.27,1025.567
+Komi_Zyrian,Komi_Permyak,komi1268,komi1269,657.124,672.388
+Nganasan,Nenets_Tundra,ngan1291,nene1249,1040.685,1004.122

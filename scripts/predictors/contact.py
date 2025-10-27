@@ -8,8 +8,8 @@ from shapely.geometry.point import Point
 from shapely.ops import nearest_points
 from tqdm import tqdm
 
-from scripts.families.indo_european import IndoEuropean
 from scripts.families.utils import LanguageFamily
+from scripts.families.uto_aztecan import UtoAztecan
 from scripts.gammaspike.summary_tree import summary_tree_cherries
 from scripts.predictors.polygons.glottography import Glottography
 from scripts.predictors.polygons.glottography_config import get_config
@@ -72,8 +72,8 @@ def calculate_euclidean_distances(family, cherries, glottography) -> pd.DataFram
             'language_2': language_2,
             'glottocode_1': glottocode_1,
             'glottocode_2': glottocode_2,
-            'median_distance': median(distances),
-            'mean_distance': mean(distances)
+            'median_distance': round(median(distances), 3),
+            'mean_distance': round(mean(distances), 3)
         })
 
     # show skipped languages
@@ -119,7 +119,7 @@ def calculate_output_contact(family: LanguageFamily, glottography):
 
 
 if __name__ == '__main__':
-    family = IndoEuropean()
+    family = UtoAztecan()
     glottography = Glottography(get_config(family.name))
     # glottography = PamaNyunganPolygons()
 
