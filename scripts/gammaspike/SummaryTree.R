@@ -2,6 +2,7 @@ library(treeio)
 source("scripts/families/LanguageFamilies.R")
 
 get_summary_cherries <- function(family) {
+  if (family == INDO.EUROPEAN) family <- DOUGLAS
   summary.tree <- paste0("data/gammaspike/summarytree/", family, ".nex")
   df <- as_tibble(read.beast(summary.tree))
   df <- df[!is.na(df$label),]
