@@ -1,5 +1,5 @@
 import time
-from statistics import median
+from statistics import median, mean
 
 import geopandas
 import pandas as pd
@@ -12,6 +12,8 @@ from scripts.predictors.polygons.australia.pama_nyungan_polygons import PamaNyun
 from scripts.predictors.polygons.glottography import LiterallyNoPolygonException
 
 N_POINTS = 50
+
+GEODESIC = 'EPSG:32633'
 
 
 def read_or_create_relevant_water(family, glottography):
@@ -43,7 +45,7 @@ def read_or_create_relevant_water(family, glottography):
 
     water = geopandas.read_file('data/water/SurfaceHydrologyPolygonsNational.gdb')
     print('Loaded water. Calculating intersection...')
-    relevant = water.overlay(super_polygon, how='intersection').to_crs('EPSG:32633')
+    relevant = water.overlay(super_polygon, how='intersection').to_crs(GEODESIC)
     print('Calculated intersection. Writing to file...')
     relevant.to_file('data/water/PamaNyunganWaterIntersect.gpkg', driver='GPKG')
     print('Wrote out intersection')
@@ -60,31 +62,39 @@ if __name__ == '__main__':
 
     dataframesList = []
     df_dict = []
+    start = time.time()
     for ascii in tqdm(family.languages_ascii):
         try:
-            p = glottography.get_polygon_from_ascii(family, ascii).to_crs('EPSG:32633')
+            p = glottography.get_polygon_from_ascii(family, ascii).to_crs(GEODESIC)
             intersecting = p.overlay(relevant, how='intersection', keep_geom_type=False)
-            merged = intersecting.dissolve(as_index=False).to_crs('EPSG:32633')
+            merged = intersecting.dissolve(as_index=False).to_crs(GEODESIC)
             merged = merged.filter(['Name', 'geometry'])
 
             points = sample_points(p, N_POINTS)
 
-            d = points.apply(lambda point: merged.disance(point))[0]
+            d = points.apply(lambda point: merged.distance(point))[0]
+            mean_dist = mean(d)
             median_dist = median(d)
             df_dict.append({
                 'ascii': ascii,
-                'distance': median_dist
+                'mean_distance': round(mean_dist, 3),
+                'median_distance': round(median_dist, 3)
             })
-            merged['waterdistance'] = median_dist
+            merged['mean_water_distance'] = mean_dist
+            merged['median_water_distance'] = median_dist
             dataframesList.append(merged)
         except LiterallyNoPolygonException:
             pass
         except Exception as e:
-            print(e)
+            print(f'Failed for {ascii}: {e}')
 
+    print(f'Sorted polygons and calculated distances in {time.time() - start} seconds. Writing out to file...')
     rdf = geopandas.GeoDataFrame(pd.concat(dataframesList, ignore_index=True), crs=dataframesList[0].crs)
     rdf.to_file('data/water/LanguageMapRiver.gpkg', driver='GPKG')
+    print('Wrote sorted rivers to file.')
 
     df = pd.DataFrame.from_records(df_dict)
-    file_name = f'{family.name}.water.all'
-    df.to_csv(f'data/water/{file_name}.csv', index=False, header=True)
+    file_name = f'{family.name}.water.all.{N_POINTS}'
+    path = f'data/predictors/water/{file_name}.csv'
+    df.to_csv(path, index=False, header=True)
+    print(f'Wrote out csv to {path}')
