@@ -2,8 +2,8 @@ import newick
 import pandas as pd
 from nexus import NexusReader
 
+from scripts.families.indo_european import IndoEuropean
 from scripts.families.utils import LanguageFamily
-from scripts.families.uto_aztecan import UtoAztecan
 
 
 def write_out_data(data: pd.DataFrame, family_name) -> None:
@@ -94,7 +94,7 @@ class NoSummaryTree(Exception):
 
 
 if __name__ == '__main__':
-    family = UtoAztecan()
+    family = IndoEuropean()
     tree_nexus_file = get_summary_tree_nexus(family.name)
     data = visit_tree(tree_nexus_file, family)
 
