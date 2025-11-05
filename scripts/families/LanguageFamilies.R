@@ -1,4 +1,3 @@
-DOUGLAS <- "Douglas"
 INDO.EUROPEAN <- "IndoEuropean"
 DRAVIDIAN <- "Dravidian"
 URALIC <- "Uralic"
