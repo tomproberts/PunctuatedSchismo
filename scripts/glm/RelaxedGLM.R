@@ -5,10 +5,11 @@ library(bayesplot)
 library(collapse)
 source("scripts/gammaspike/SummaryTree.R")
 
-FAMILY <- INDO.EUROPEAN
+FAMILY <- PAMA.NYUNGAN
 rates <- read.csv(paste0("data/relaxed/", FAMILY, ".csv"))
 areas <- read.csv(paste0("data/predictors/area/", FAMILY, ".geodesic.csv"))
 distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
+water <- read.csv(paste0("data/predictors/water/", FAMILY, ".water.all.csv"))
 
 cherries <- get_summary_cherries(FAMILY)
 lang1 <- sapply(cherries, function(e) return(e[1]))
@@ -29,8 +30,11 @@ df <- merge(df, areas, by.x = "lang", by.y = "lang")
 # Contact
 df <- merge(df, distances, by.x = c("lang", "lang_sister"), by.y = c("language_1", "language_2"))
 
+# Water
+df <- merge(df, water, by.x = "lang", by.y = "lang", suffixes = c("", "_water"))
+
 # Sisters
-df <- merge(df, df[, c("lang", "rate_median", "area", "median_distance")],
+df <- merge(df, df[, c("lang", "rate_median", "area", "median_distance", "median_distance_water")],
             by.x = "lang_sister", by.y = "lang", suffixes = c("", "_sister"))
 
 EPSILON <- 1
@@ -51,9 +55,9 @@ if (FALSE) {
 # Fit the model
 if (TRUE) {
   fit <- brm(formula = normalised_rate ~
-    log(area) +
-      # log(median_distance),
-      log(area_sister),
+    log(median_distance_water) +
+      log(median_distance) +
+      log(median_distance_water_sister),
              family = gaussian(link = "log"),
              data = df,
              iter = 4000)

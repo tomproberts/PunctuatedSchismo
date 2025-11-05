@@ -76,7 +76,7 @@ if __name__ == '__main__':
             mean_dist = mean(d)
             median_dist = median(d)
             df_dict.append({
-                'ascii': ascii,
+                'lang': ascii,
                 'mean_distance': round(mean_dist, 3),
                 'median_distance': round(median_dist, 3)
             })
