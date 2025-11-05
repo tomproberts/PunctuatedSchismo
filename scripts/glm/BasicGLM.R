@@ -7,7 +7,7 @@ source("scripts/gammaspike/SummaryTree.R")
 
 FAMILY <- INDO.EUROPEAN
 
-bursts <- read.csv(paste0("data/gammaspike/summarytree/", if (FAMILY == INDO.EUROPEAN) "Douglas" else FAMILY, ".csv"))
+bursts <- read.csv(paste0("data/gammaspike/summarytree/", FAMILY, ".csv"))
 page.counts <- read.csv("data/predictors/grambank_pageCounts.csv")[, c("glcode", "total_pages")]
 distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
 areas <- read.csv(paste0("data/predictors/area/", FAMILY, ".geodesic.csv"))
