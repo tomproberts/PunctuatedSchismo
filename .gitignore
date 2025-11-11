@@ -8,3 +8,4 @@ data/gammaspike/full/*.trees
 data/glottography/*_glottocode_to_polygons.csv
 data/glottography/*.gpkg
 data/water/*.gdb/
+data/water/tmp*

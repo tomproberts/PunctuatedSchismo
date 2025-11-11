@@ -14,13 +14,14 @@ from scripts.predictors.polygons.glottography import LiterallyNoPolygonException
 N_POINTS = 50
 
 GEODESIC = 'EPSG:32633'
+filter_type = 'perennial'
 
-
-def read_or_create_relevant_water(family, glottography):
+def read_or_create_relevant_water(family, glottography, water_file):
     print('Loading water features in language areas...')
+    relevant_file = f'data/water/tmpFiltered.{family.name}.{filter_type}.gpkg'
     try:
         start = time.time()
-        relevant = geopandas.read_file('data/water/PamaNyunganWaterIntersect.gpkg')
+        relevant = geopandas.read_file(relevant_file)
         print(f'Loaded intersection in {time.time() - start} seconds')
         return relevant
     except DataSourceError as _:
@@ -43,11 +44,16 @@ def read_or_create_relevant_water(family, glottography):
     # super_polygon.to_file('data/water/PamaNyunganSuper.geojson', driver='GeoJSON')
     print('Constructed super polygon! Loading water features...')
 
-    water = geopandas.read_file('data/water/SurfaceHydrologyPolygonsNational.gdb')
+    water = geopandas.read_file(f'data/water/{water_file}')
+    if filter_type == 'perennial':
+        # filter for perennial
+        print('Filtering for perennial...')
+        water = water[water['PERENNIALITY'] != 'Non Perennial']
     print('Loaded water. Calculating intersection...')
+
     relevant = water.overlay(super_polygon, how='intersection').to_crs(GEODESIC)
     print('Calculated intersection. Writing to file...')
-    relevant.to_file('data/water/PamaNyunganWaterIntersect.gpkg', driver='GPKG')
+    relevant.to_file(relevant_file, driver='GPKG')
     print('Wrote out intersection')
     print(f'Filtered water in language areas in {time.time() - start} seconds')
 
@@ -58,7 +64,8 @@ if __name__ == '__main__':
     family = PamaNyungan()
     glottography = PamaNyunganPolygons()
 
-    relevant = read_or_create_relevant_water(family, glottography)
+    water_file = 'SurfaceHydrologyPolygonsNational.gdb'
+    relevant = read_or_create_relevant_water(family, glottography, water_file)
 
     dataframesList = []
     df_dict = []
@@ -86,15 +93,15 @@ if __name__ == '__main__':
         except LiterallyNoPolygonException:
             pass
         except Exception as e:
-            print(f'Failed for {ascii}: {e}')
+            print(f'Failed for {ascii}: {e}')  # error '0' means there's no water in the polygon
 
     print(f'Sorted polygons and calculated distances in {time.time() - start} seconds. Writing out to file...')
     rdf = geopandas.GeoDataFrame(pd.concat(dataframesList, ignore_index=True), crs=dataframesList[0].crs)
-    rdf.to_file('data/water/LanguageMapRiver.gpkg', driver='GPKG')
+    rdf.to_file(f'data/water/tmpSorted.{family.name}.{filter_type}.gpkg', driver='GPKG')
     print('Wrote sorted rivers to file.')
 
     df = pd.DataFrame.from_records(df_dict)
-    file_name = f'{family.name}.water.all.{N_POINTS}'
+    file_name = f'{family.name}.water.{filter_type}.{N_POINTS}'
     path = f'data/predictors/water/{file_name}.csv'
     df.to_csv(path, index=False, header=True)
     print(f'Wrote out csv to {path}')

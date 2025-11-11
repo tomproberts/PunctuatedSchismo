@@ -9,7 +9,7 @@ FAMILY <- PAMA.NYUNGAN
 rates <- read.csv(paste0("data/relaxed/", FAMILY, ".csv"))
 areas <- read.csv(paste0("data/predictors/area/", FAMILY, ".geodesic.csv"))
 distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
-water <- read.csv(paste0("data/predictors/water/", FAMILY, ".water.all.csv"))
+water <- read.csv(paste0("data/predictors/water/", FAMILY, ".water.all.50.csv"))
 
 cherries <- get_summary_cherries(FAMILY)
 lang1 <- sapply(cherries, function(e) return(e[1]))
@@ -31,7 +31,9 @@ df <- merge(df, areas, by.x = "lang", by.y = "lang")
 df <- merge(df, distances, by.x = c("lang", "lang_sister"), by.y = c("language_1", "language_2"))
 
 # Water
-df <- merge(df, water, by.x = "lang", by.y = "lang", suffixes = c("", "_water"))
+df <- merge(df, water, by.x = "lang", by.y = "lang", suffixes = c("", "_water"), all.x = TRUE)
+df$mean_distance_water[is.na(df$mean_distance_water)] <- 1
+df$median_distance_water[is.na(df$median_distance_water)] <- 1
 
 # Sisters
 df <- merge(df, df[, c("lang", "rate_median", "area", "median_distance", "median_distance_water")],
