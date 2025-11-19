@@ -3,7 +3,7 @@ library(ggdist)
 library(tidyr)
 library(dplyr)
 
-FIT <- "data/glm/IndoEuropean.RData"
+FIT <- "data/glm/UtoAztecan.RData"
 
 par.names <- c(
   "log(median distance)" = "b_logmedian_distance",

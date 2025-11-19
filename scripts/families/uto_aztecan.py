@@ -21,3 +21,6 @@ class UtoAztecan(LanguageFamily):
         self.glottocodes = list(all_languages.Glottocode)
         self.languages = list(all_languages.Name)
         self.languages_ascii = self.language_ids
+
+    def patch(self):
+        self.set_language_glottocode('Tarahumara-23', 'tara1321')

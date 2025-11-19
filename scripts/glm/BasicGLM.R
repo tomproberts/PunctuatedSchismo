@@ -5,7 +5,7 @@ library(bayesplot)
 library(collapse)
 source("scripts/gammaspike/SummaryTree.R")
 
-FAMILY <- INDO.EUROPEAN
+FAMILY <- UTO.AZTECAN
 
 bursts <- read.csv(paste0("data/gammaspike/summarytree/", FAMILY, ".csv"))
 page.counts <- read.csv("data/predictors/grambank_pageCounts.csv")[, c("glcode", "total_pages")]
@@ -72,7 +72,7 @@ if (FALSE) {
 # Fit the model
 if (TRUE) {
   fit <- brm(formula = weightedSpikes_median ~
-    n_loans +
+    # n_loans +
       # log_total_pages +
       # log(median_distance) +
       log(area) +
