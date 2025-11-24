@@ -81,10 +81,11 @@ def dravidian_config():
 
 
 def uto_config():
-    return GlottographyConfig(sources=[MISSING, ASHER_2007_WORLD, NATIVELAND_2024_LANGUAGES],
+    return GlottographyConfig(sources=[MISSING, 'goshute', NATIVELAND_2024_LANGUAGES, ASHER_2007_WORLD],
                               patches={
-                                  'nort2954': (1, 4617),
-                                  'pipi1250': (1, 5042)
+                                  'nort2954': (3, 4617),
+                                  'pipi1250': (3, 5042),
+                                  'sanj1276': (3, 6020)
                               })
 
 
