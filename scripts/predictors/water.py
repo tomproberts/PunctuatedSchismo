@@ -51,7 +51,7 @@ def get_super_polygon(family, glottography, save_super=False):
     for ascii in family.languages_ascii:
         try:
             p = glottography.get_polygon_from_ascii(family, ascii)
-            p.loc[p.index[0], 'geometry'] = p.make_valid(method="structure").iloc[0]
+            p.loc[p.index[0], 'geometry'] = p.make_valid(method='structure').iloc[0]
             dataframesList.append(p)
         except Exception as e:
             print(e)
@@ -84,7 +84,7 @@ def read_australia_water(filter=True):
     return water
 
 
-def read_osm_water(super_polygon, filter=True, save=True):
+def read_osm_water(super_polygon, filter=True, save=True, make_valid=True):
     print('Loading OSM water layer, this may take ~15 minutes...')
     start = time.time()
     water_file = 'OSM_WaterLayer.pbf'
@@ -92,6 +92,17 @@ def read_osm_water(super_polygon, filter=True, save=True):
     if filter:
         water = water[water['natural'] == 'water']
     print(f'Loaded water{' and filtered for natural:water' if filter else ''} in {time.time() - start} seconds')
+
+    print('Projecting to CONIC...')
+    start = time.time()
+    water = water.to_crs(CONIC)
+    print(f'Projected to CONIC in {time.time() - start} seconds.')
+
+    # if make_valid:
+    #     print('Forcing OSM water features to valid geometries...')
+    #     start = time.time()
+    #     valid = water.make_valid(method='structure')
+        # p.loc[p.index[0], 'geometry'] = p.make_valid(method='structure').iloc[0]
 
     if save:
         print(f'Saving masked OSM water...')
@@ -127,7 +138,10 @@ if __name__ == '__main__':
         # cache_water(family, subtype)
 
     # relevant = read_or_create_relevant_water(family, glottography, water_file)
+    print('Reprojecting to CONIC...')
+    start = time.time()
     relevant = water.to_crs(CONIC)
+    print(f'Took {time.time() - start} seconds to reproject to CONIC.')
     dataframesList = []
     file_name = f'{family.name}.water.{filter_type}.{N_POINTS}'
     path = f'data/predictors/water/{file_name}.csv'
@@ -145,11 +159,12 @@ if __name__ == '__main__':
                 })
         df.to_csv(path, index=False, header=True)
 
+    print(f'Calculating water distance for {len(asciis_to_calculate)} languages...')
     start = time.time()
     for ascii in tqdm(asciis_to_calculate):
         try:
             p = glottography.get_polygon_from_ascii(family, ascii).to_crs(CONIC)
-            p = p.make_valid(method="structure")
+            p = p.make_valid(method='structure')
             intersecting = geopandas.clip(relevant, mask=p, keep_geom_type=False)
             # intersecting = p.overlay(relevant, how='intersection', keep_geom_type=False)
             merged = intersecting.dissolve(as_index=False).to_crs(CONIC)
