@@ -4,11 +4,12 @@ from statistics import median, mean
 
 import geopandas
 import pandas as pd
-from pyogrio.errors import DataSourceError
 from tqdm import tqdm
 
 from scripts.families.indo_european import IndoEuropean
+from scripts.families.pama_nyungan import PamaNyungan
 from scripts.predictors.contact import sample_points
+from scripts.predictors.polygons.australia.pama_nyungan_polygons import PamaNyunganPolygons
 from scripts.predictors.polygons.glottography import LiterallyNoPolygonException, Glottography
 from scripts.predictors.polygons.glottography_config import get_config
 
@@ -17,32 +18,8 @@ N_POINTS = 50
 GEODESIC = 'EPSG:32633'
 CONIC = 'ESRI:53027'
 CYLINDRICAL = 'EPSG:4087'
-filter_type = 'perennial'
-
+AUSTRALIAN = 'EPSG:4283'
 WATER_DIR = 'data/water'
-
-def read_or_create_relevant_water(family, glottography, water_file):
-    print('Loading water features in language areas...')
-    relevant_file = f'{WATER_DIR}/tmpFiltered.{family.name}.{filter_type}.gpkg'
-    try:
-        start = time.time()
-        relevant = geopandas.read_file(relevant_file)
-        print(f'Loaded intersection in {time.time() - start} seconds')
-        return relevant
-    except DataSourceError as _:
-        print('No cached file found for water filtered to language areas')
-
-    super_polygon = get_super_polygon(family, glottography)
-    water = read_australia_water(filter_type == 'perennial')
-
-    start = time.time()
-    relevant = water.overlay(super_polygon, how='intersection').to_crs(GEODESIC)
-    print('Calculated intersection. Writing to file...')
-    relevant.to_file(relevant_file, driver='GPKG')
-    print('Wrote out intersection')
-    print(f'Filtered water in language areas in {time.time() - start} seconds')
-
-    return relevant
 
 
 def get_super_polygon(family, glottography, save_super=False):
@@ -61,7 +38,7 @@ def get_super_polygon(family, glottography, save_super=False):
     if 'description' in polygons.columns.values:  # fails to write pama-nyungan polygons to file with this column
         polygons = polygons.drop('description', axis=1)
     if save_super:
-        polygons.to_file(f'{WATER_DIR}/tmpAll.{family.name}.gpkg', driver='GPKG')
+        polygons.to_file(f'{WATER_DIR}/tmpPolygons.{family.name}.gpkg', driver='GPKG')
 
     super_polygon = polygons.dissolve(as_index=False).to_crs('EPSG:3857')
     if save_super:
@@ -71,10 +48,10 @@ def get_super_polygon(family, glottography, save_super=False):
     return super_polygon
 
 
-def read_australia_water(filter=True):
+def read_australia_water(super_polygon, filter=True):
     print('Loading water features...')
     water_file = 'SurfaceHydrologyPolygonsNational.gdb'
-    water = geopandas.read_file(f'{WATER_DIR}/{water_file}')
+    water = geopandas.read_file(f'{WATER_DIR}/{water_file}', mask=super_polygon)
     if filter:
         # filter for perennial
         print('Filtering for perennial...')
@@ -98,26 +75,41 @@ def read_osm_water(super_polygon, filter=True, save=True, make_valid=True):
     water = water.to_crs(CONIC)
     print(f'Projected to CONIC in {time.time() - start} seconds.')
 
-    # if make_valid:
-    #     print('Forcing OSM water features to valid geometries...')
-    #     start = time.time()
-    #     valid = water.make_valid(method='structure')
-        # p.loc[p.index[0], 'geometry'] = p.make_valid(method='structure').iloc[0]
+    if make_valid:
+        print('Forcing OSM water features to valid geometries...')
+        start = time.time()
+        valid = water.make_valid(method='structure')
+        assert len(valid) == len(water)
+        water['geometry'] = valid
+        print(f'Made geometries valid in {time.time() - start} seconds')
 
     if save:
         print(f'Saving masked OSM water...')
         start = time.time()
-        water.to_file(f'{WATER_DIR}/tmpFiltered.{family.name}.natural.gpkg', driver='GPKG')
+        water.to_file(f'{WATER_DIR}/{get_filtered_river_file_name(family, filter)}', driver='GPKG')
         print(f'Wrote masked OSM in {time.time() - start} seconds')
 
     return water
 
 
+def get_filter_type(family, filter=True):
+    if filter:
+        if family.name == 'PamaNyungan':
+            return 'perennial'
+        return 'natural'
+    return 'all'
+
+
+def get_filtered_river_file_name(family, filter=True):
+    return f'tmpFiltered.{family.name}.{get_filter_type(family, filter)}.gpkg'
+
+
 def cached_exists(family, filter=True):
-    return True
+    return os.path.isfile(f'{WATER_DIR}/{get_filtered_river_file_name(family, filter)}')
+
 
 def load_cached_water(family, filter=True):
-    masked_rivers_file = f'tmpFiltered.{family.name}.natural.gpkg'
+    masked_rivers_file = get_filtered_river_file_name(family, filter)
     print(f'Loading cached water (masked) from {masked_rivers_file}...')
     start = time.time()
     water = geopandas.read_file(f'{WATER_DIR}/{masked_rivers_file}')
@@ -126,24 +118,25 @@ def load_cached_water(family, filter=True):
 
 
 if __name__ == '__main__':
+    FILTER = True
+    PROJECTION = CONIC
     family = IndoEuropean()
     glottography = Glottography(get_config(family.name))
     # glottography = PamaNyunganPolygons()
 
-    if cached_exists(family, filter=True):
-        water = load_cached_water(family, filter=True)
+    if cached_exists(family, FILTER):
+        water = load_cached_water(family, FILTER)
     else:
         super_polygon = get_super_polygon(family, glottography, save_super=True)
-        water = read_osm_water(super_polygon, filter=True)
+        water = read_osm_water(super_polygon, FILTER)
         # cache_water(family, subtype)
 
-    # relevant = read_or_create_relevant_water(family, glottography, water_file)
-    print('Reprojecting to CONIC...')
+    print(f'Reprojecting to {PROJECTION}...')
     start = time.time()
-    relevant = water.to_crs(CONIC)
-    print(f'Took {time.time() - start} seconds to reproject to CONIC.')
-    dataframesList = []
-    file_name = f'{family.name}.water.{filter_type}.{N_POINTS}'
+    water = water.to_crs(PROJECTION)
+    print(f'Took {time.time() - start} seconds to reproject to {PROJECTION}')
+
+    file_name = f'{family.name}.water.{get_filter_type(family, FILTER)}.{N_POINTS}'
     path = f'data/predictors/water/{file_name}.csv'
 
     asciis_to_calculate = family.languages_ascii
@@ -153,23 +146,23 @@ if __name__ == '__main__':
         asciis_to_calculate = list(set(asciis_to_calculate) - already_done)
     except FileNotFoundError:
         df = pd.DataFrame({
-                    'lang': [],
-                    'mean_distance': [],
-                    'median_distance': []
-                })
+            'lang': [],
+            'mean_distance': [],
+            'median_distance': []
+        })
         df.to_csv(path, index=False, header=True)
 
     print(f'Calculating water distance for {len(asciis_to_calculate)} languages...')
     start = time.time()
     for ascii in tqdm(asciis_to_calculate):
+        # todo: multi-thread this
         try:
-            p = glottography.get_polygon_from_ascii(family, ascii).to_crs(CONIC)
+            p = glottography.get_polygon_from_ascii(family, ascii).to_crs(PROJECTION)
             p = p.make_valid(method='structure')
-            intersecting = geopandas.clip(relevant, mask=p, keep_geom_type=False)
-            # intersecting = p.overlay(relevant, how='intersection', keep_geom_type=False)
-            merged = intersecting.dissolve(as_index=False).to_crs(CONIC)
+            intersecting = geopandas.clip(water, mask=p, keep_geom_type=False)
+            # intersecting = p.overlay(water, how='intersection', keep_geom_type=False)
+            merged = intersecting.dissolve(as_index=False).to_crs(PROJECTION)
             merged = merged.filter(['Name', 'geometry'])
-            # print(f'Subset rivers for {ascii} in {time.time() - start_sub} seconds')
 
             points = sample_points(p, N_POINTS)
 
@@ -195,8 +188,4 @@ if __name__ == '__main__':
     # rdf.to_file(f'{WATER_DIR}/tmpSorted.{family.name}.{filter_type}.gpkg', driver='GPKG')
     # print('Wrote sorted rivers to file.')
 
-    # df = pd.DataFrame.from_records(df_dict)
-    # file_name = f'{family.name}.water.{filter_type}.{N_POINTS}'
-    #
-    # df.to_csv(path, index=False, header=True)
     print(f'Wrote out csv to {path}')
