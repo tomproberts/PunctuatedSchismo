@@ -8,6 +8,7 @@ from tqdm import tqdm
 
 from scripts.families.indo_european import IndoEuropean
 from scripts.families.pama_nyungan import PamaNyungan
+from scripts.families.uto_aztecan import UtoAztecan
 from scripts.predictors.contact import sample_points
 from scripts.predictors.polygons.australia.pama_nyungan_polygons import PamaNyunganPolygons
 from scripts.predictors.polygons.glottography import LiterallyNoPolygonException, Glottography
@@ -120,7 +121,7 @@ def load_cached_water(family, filter=True):
 if __name__ == '__main__':
     FILTER = True
     PROJECTION = CONIC
-    family = IndoEuropean()
+    family = UtoAztecan()
     glottography = Glottography(get_config(family.name))
     # glottography = PamaNyunganPolygons()
 

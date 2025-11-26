@@ -3,7 +3,7 @@ library(ggdist)
 library(tidyr)
 library(dplyr)
 
-FIT <- "data/glm/UtoAztecan.RData"
+FIT <- "data/glm/UtoAztecanRelaxed.RData"
 
 par.names <- c(
   "log(total pages)" = "b_log_total_pages",
@@ -13,8 +13,8 @@ par.names <- c(
   "log(total pages of sister)" = "b_log_total_page_sister",
   "number of loans" = "b_n_loans",
   "log(distance to water)" = "b_logmedian_distance_water",
-  "log(sister's distance to water)" = "b_logmedian_distance_water_sister",
-  "log(distance from sister)" = "b_logmedian_distance"
+  "log(distance from sister)" = "b_logmedian_distance",
+  "log(sister's distance to water)" = "b_logmedian_distance_water_sister"
 )
 
 exclude <- c(
@@ -40,10 +40,10 @@ ggplot(draws.df, aes(x = value, y = coefficient)) +
         axis.text = element_text(size = 16),
         axis.title = element_text(size = 12)) +
   stat_interval(aes(interval_alpha = after_stat(level)),
-                .width = c(0.5, 0.89, 1),
+                .width = c(0.5, 0.95, 1),
                 interval_colour = "#00bfc4", linewidth = 6) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "darkgrey") +
-  xlim(-0.25, 0.25) +
+  xlim(-0.5, 0.5) +
   ggtitle(FIT) +
   xlab("effect on punctuated change") +
   ylab("")
