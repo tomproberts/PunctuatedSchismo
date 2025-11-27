@@ -11,6 +11,7 @@ bursts <- read.csv(paste0("data/gammaspike/summarytree/", FAMILY, ".csv"))
 page.counts <- read.csv("data/predictors/grambank_pageCounts.csv")[, c("glcode", "total_pages")]
 distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
 areas <- read.csv(paste0("data/predictors/area/", FAMILY, ".geodesic.csv"))
+water <- read.csv(paste0("data/predictors/water/", FAMILY, ".water.all.50.csv"))
 loans <- read.csv("data/predictors/loans/IndoEuropean.csv")
 
 cherries <- get_summary_cherries(FAMILY)
@@ -46,8 +47,13 @@ df <- merge(df, areas, by.x = "lang", by.y = "lang")
 # Contact
 df <- merge(df, distances, by.x = c("lang", "lang_sister"), by.y = c("language_1", "language_2"))
 
+# Water
+df <- merge(df, water, by.x = "lang", by.y = "lang", suffixes = c("", "_water"), all.x = TRUE)
+df$mean_distance_water[is.na(df$mean_distance_water)] <- 100000
+df$median_distance_water[is.na(df$median_distance_water)] <- 100000
+
 # Sisters
-df <- merge(df, df[, c("lang", "weightedSpikes_median", "total_pages", "area", "median_distance")],
+df <- merge(df, df[, c("lang", "weightedSpikes_median", "total_pages", "area", "median_distance", "median_distance_water")],
             by.x = "lang_sister", by.y = "lang", suffixes = c("", "_sister"))
 
 EPSILON <- 1
@@ -75,8 +81,8 @@ if (TRUE) {
     # n_loans +
       # log_total_pages +
       # log(median_distance) +
-      log(area) +
-      log(area_sister),
+      log(median_distance_water) +
+      log(median_distance_water_sister),
              family = Gamma(link = "log"),
              data = df,
              iter = 4000)

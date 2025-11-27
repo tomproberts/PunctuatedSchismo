@@ -3,7 +3,7 @@ library(ggdist)
 library(tidyr)
 library(dplyr)
 
-FIT <- "data/glm/UtoAztecanRelaxed.RData"
+FIT <- "data/glm/UtoAztecan.RData"
 
 par.names <- c(
   "log(total pages)" = "b_log_total_pages",
@@ -43,7 +43,7 @@ ggplot(draws.df, aes(x = value, y = coefficient)) +
                 .width = c(0.5, 0.95, 1),
                 interval_colour = "#00bfc4", linewidth = 6) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "darkgrey") +
-  xlim(-0.5, 0.5) +
+  # xlim(-0.5, 0.5) +
   ggtitle(FIT) +
   xlab("effect on punctuated change") +
   ylab("")
