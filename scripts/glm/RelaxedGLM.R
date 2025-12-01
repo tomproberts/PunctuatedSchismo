@@ -10,6 +10,7 @@ rates <- read.csv(paste0("data/relaxed/", FAMILY, ".csv"))
 areas <- read.csv(paste0("data/predictors/area/", FAMILY, ".geodesic.csv"))
 distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
 water <- read.csv(paste0("data/predictors/water/", FAMILY, ".water.all.50.csv"))
+loans <- read.csv("data/datasets/chirila/LoanStats.csv")
 
 cherries <- get_summary_cherries(FAMILY)
 lang1 <- sapply(cherries, function(e) return(e[1]))
@@ -35,6 +36,13 @@ df <- merge(df, water, by.x = "lang", by.y = "lang", suffixes = c("", "_water"),
 df$mean_distance_water[is.na(df$mean_distance_water)] <- 100000
 df$median_distance_water[is.na(df$median_distance_water)] <- 100000
 
+# Loans
+df <- merge(df, loans[, c("NameNoSpaces", "NumLoans", "NumHapax", "NumTotalLoans", "numberofforms")], by.x = "lang", by.y = "NameNoSpaces", all.x = TRUE)
+df[is.na(df$NumLoans),]$NumLoans <- 0
+df[is.na(df$numberofforms),]$numberofforms <- 1
+df$n_loans <- df$NumLoans
+df$p_loans <- 100 * df$NumLoans / df$numberofforms
+
 # Sisters
 df <- merge(df, df[, c("lang", "rate_median", "area", "median_distance", "median_distance_water")],
             by.x = "lang_sister", by.y = "lang", suffixes = c("", "_sister"))
@@ -57,6 +65,7 @@ if (FALSE) {
 # Fit the model
 if (TRUE) {
   fit <- brm(formula = normalised_rate ~
+    p_loans +
     log(median_distance_water) +
       log(median_distance) +
       log(median_distance_water_sister),

@@ -10,3 +10,4 @@ data/glottography/*.gpkg
 data/water/*.gdb/
 data/water/*.pbf
 data/water/tmp*
+data/datasets/chirila/LoanStats.csv
