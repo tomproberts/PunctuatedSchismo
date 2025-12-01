@@ -155,9 +155,9 @@ if __name__ == '__main__':
     USE_LINES = True
     PROJECTION = CRS_CONIC
 
-    family = PamaNyungan()
-    # glottography = Glottography(get_config(family.name))
-    glottography = PamaNyunganPolygons()
+    family = UtoAztecan()
+    glottography = Glottography(get_config(family.name))
+    # glottography = PamaNyunganPolygons()
 
     try:
         water = load_cached_water(family, USE_POLYGONS, USE_LINES)
