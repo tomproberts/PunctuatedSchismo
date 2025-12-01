@@ -23,6 +23,7 @@ WATER_DIR = 'data/water'
 
 AUSTRALIA_LINES = 'SurfaceHydrologyLinesNational.gdb'
 AUSTRALIA_POLYS = 'SurfaceHydrologyPolygonsNational.gdb'
+OSM_WATER_FILE = 'OSM_WaterLayer.pbf'
 
 
 def get_super_polygon(family, glottography, save_super=False):
@@ -94,33 +95,61 @@ def read_australia_water(super_polygon, polygons=True, lines=False):
 
 
 def read_osm_water(super_polygon, polygons=True, lines=False, save=True, make_valid=True):
-    assert polygons and not lines
-    print('Loading OSM water layer, this may take ~15 minutes...')
-    start = time.time()
-    water_file = 'OSM_WaterLayer.pbf'
-    water = geopandas.read_file(f'{WATER_DIR}/{water_file}', layer='multipolygons', mask=super_polygon)
-    print(f'Loaded water in {time.time() - start} seconds')
+    assert polygons or lines
 
-    print('Projecting to CONIC...')
-    start = time.time()
-    water = water.to_crs(CRS_CONIC)
-    print(f'Projected to CONIC in {time.time() - start} seconds.')
-
-    if make_valid:
+    def make_geom_valid(water):
         print('Forcing OSM water features to valid geometries...')
         start = time.time()
         valid = water.make_valid(method='structure')
         assert len(valid) == len(water)
         water['geometry'] = valid
         print(f'Made geometries valid in {time.time() - start} seconds')
+        return water
 
-    if save:
-        print(f'Saving masked OSM water...')
+    def load_osm_and_project(layer):
+        print(f'Loading OSM water ({layer}), this may take ~15 minutes...')
+        start = time.time()
+        water = geopandas.read_file(f'{WATER_DIR}/{OSM_WATER_FILE}', layer=layer, mask=super_polygon)
+        print(f'Loaded water ({layer}) in {time.time() - start} seconds. Projecting to CONIC...')
+        start = time.time()
+        water = water.to_crs(CRS_CONIC)
+        print(f'Projected to CONIC in {time.time() - start} seconds.')
+
+        return water
+
+    def save_osm_filtered(water, polygons, lines):
+        subset_type = get_subset_type(polygons=polygons, lines=lines)
+        print(f'Saving masked OSM water ({subset_type})...')
         start = time.time()
         water.to_file(f'{WATER_DIR}/{temp_river_gpkg_name(family, polygons, lines)}', driver='GPKG')
-        print(f'Wrote masked OSM in {time.time() - start} seconds')
+        print(f'Wrote masked OSM ({subset_type}) in {time.time() - start} seconds')
 
-    return water
+    # Start reading
+    if polygons:
+        water_polys = load_osm_and_project('multipolygons')
+        if make_valid:
+            water_polys = make_geom_valid(water_polys)
+        if save:
+            save_osm_filtered(water_polys, polygons=True, lines=False)
+        if not lines:
+            return water_polys
+    if lines:
+        water_lines = load_osm_and_project('lines')
+        if make_valid:
+            water_lines = make_geom_valid(water_lines)
+        if save:
+            save_osm_filtered(water_lines, polygons=False, lines=True)
+        if not lines:
+            return water_lines
+
+    print('Merging polygon features and line features...')
+    start = time.time()
+    water = geopandas.GeoDataFrame(pd.concat([water_polys, water_lines], ignore_index=True), crs=CRS_CONIC)
+    print(f'Merged water in {time.time() - start} seconds')
+
+    save_osm_filtered(water, polygons=True, lines=True)
+
+    return water_polys
 
 
 def get_subset_type(polygons=True, lines=False):
@@ -155,9 +184,9 @@ if __name__ == '__main__':
     USE_LINES = True
     PROJECTION = CRS_CONIC
 
-    family = UtoAztecan()
-    glottography = Glottography(get_config(family.name))
-    # glottography = PamaNyunganPolygons()
+    family = PamaNyungan()
+    # glottography = Glottography(get_config(family.name))
+    glottography = PamaNyunganPolygons()
 
     try:
         water = load_cached_water(family, USE_POLYGONS, USE_LINES)
