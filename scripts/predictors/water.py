@@ -16,11 +16,13 @@ from scripts.predictors.polygons.glottography_config import get_config
 
 N_POINTS = 50
 
-GEODESIC = 'EPSG:32633'
-CONIC = 'ESRI:53027'
-CYLINDRICAL = 'EPSG:4087'
-AUSTRALIAN = 'EPSG:4283'
+CRS_CONIC = 'ESRI:53027'
+CRS_CYLINDRICAL = 'EPSG:4087'
+CRS_AUSTRALIAN = 'EPSG:4283'
 WATER_DIR = 'data/water'
+
+AUSTRALIA_LINES = 'SurfaceHydrologyLinesNational.gdb'
+AUSTRALIA_POLYS = 'SurfaceHydrologyPolygonsNational.gdb'
 
 
 def get_super_polygon(family, glottography, save_super=False):
@@ -49,31 +51,59 @@ def get_super_polygon(family, glottography, save_super=False):
     return super_polygon
 
 
-def read_australia_water(super_polygon, filter=True):
-    print('Loading water features...')
-    water_file = 'SurfaceHydrologyPolygonsNational.gdb'
-    water = geopandas.read_file(f'{WATER_DIR}/{water_file}', mask=super_polygon)
-    if filter:
-        # filter for perennial
-        print('Filtering for perennial...')
-        water = water[water['PERENNIALITY'] != 'Non Perennial']
-    print(f'Loaded water{' and filtered for perennial' if filter else ''} in {time.time() - start} seconds')
+def read_australia_water(super_polygon, polygons=True, lines=False):
+    assert polygons or lines
+    if polygons:
+        print('Loading water polygon features for Australia...')
+        start = time.time()
+        water = geopandas.read_file(f'{WATER_DIR}/{AUSTRALIA_POLYS}', mask=super_polygon)
+        water_polys = water[water['PERENNIALITY'] != 'Non Perennial']
+        water_polys = water_polys.to_crs(CRS_AUSTRALIAN)
+
+        print(f'Loaded water polygons in {time.time() - start} seconds. Saving to file...')
+        start = time.time()
+        water_polys.to_file(f'{WATER_DIR}/{temp_river_gpkg_name(family, polygons=True, lines=False)}', driver='GPKG')
+        print(f'Saved water polygons in {time.time() - start} seconds.')
+        if not lines:
+            return water_polys
+    if lines:
+        print('Loading water line features for Australia...')
+        start = time.time()
+        water = geopandas.read_file(f'{WATER_DIR}/{AUSTRALIA_LINES}', mask=super_polygon)
+        water_lines = water[water['PERENNIALITY'] != 'Non Perennial']
+        water_lines = water_lines.to_crs(CRS_AUSTRALIAN)
+
+        print(f'Loaded water lines in {time.time() - start} seconds. Saving to file...')
+        start = time.time()
+        water_lines.to_file(f'{WATER_DIR}/{temp_river_gpkg_name(family, polygons=False, lines=True)}', driver='GPKG')
+        print(f'Saved water lines in {time.time() - start} seconds.')
+        if not polygons:
+            return water_lines
+
+    print('Merging polygon features and line features...')
+    start = time.time()
+    water = geopandas.GeoDataFrame(pd.concat([water_polys, water_lines], ignore_index=True), crs=CRS_AUSTRALIAN)
+    print(f'Merged water in {time.time() - start} seconds')
+
+    print('Saving water features...')
+    start = time.time()
+    water.to_file(f'{WATER_DIR}/{temp_river_gpkg_name(family, polygons=True, lines=True)}', driver='GPKG')
+    print(f'Saved all water features in {time.time() - start} seconds')
 
     return water
 
 
-def read_osm_water(super_polygon, filter=True, save=True, make_valid=True):
+def read_osm_water(super_polygon, polygons=True, lines=False, save=True, make_valid=True):
+    assert polygons and not lines
     print('Loading OSM water layer, this may take ~15 minutes...')
     start = time.time()
     water_file = 'OSM_WaterLayer.pbf'
     water = geopandas.read_file(f'{WATER_DIR}/{water_file}', layer='multipolygons', mask=super_polygon)
-    if filter:
-        water = water[water['natural'] == 'water']
-    print(f'Loaded water{' and filtered for natural:water' if filter else ''} in {time.time() - start} seconds')
+    print(f'Loaded water in {time.time() - start} seconds')
 
     print('Projecting to CONIC...')
     start = time.time()
-    water = water.to_crs(CONIC)
+    water = water.to_crs(CRS_CONIC)
     print(f'Projected to CONIC in {time.time() - start} seconds.')
 
     if make_valid:
@@ -87,30 +117,32 @@ def read_osm_water(super_polygon, filter=True, save=True, make_valid=True):
     if save:
         print(f'Saving masked OSM water...')
         start = time.time()
-        water.to_file(f'{WATER_DIR}/{get_filtered_river_file_name(family, filter)}', driver='GPKG')
+        water.to_file(f'{WATER_DIR}/{temp_river_gpkg_name(family, polygons, lines)}', driver='GPKG')
         print(f'Wrote masked OSM in {time.time() - start} seconds')
 
     return water
 
 
-def get_filter_type(family, filter=True):
-    if filter:
-        if family.name == 'PamaNyungan':
-            return 'perennial'
-        return 'natural'
-    return 'all'
+def get_subset_type(polygons=True, lines=False):
+    assert polygons or lines
+    if polygons:
+        return 'all' if lines else 'polygons'
+    else:
+        return 'lines'
 
 
-def get_filtered_river_file_name(family, filter=True):
-    return f'tmpFiltered.{family.name}.{get_filter_type(family, filter)}.gpkg'
+def temp_river_gpkg_name(family, polygons=True, lines=False):
+    assert polygons or lines
+    return f'tmpFiltered.{family.name}.{get_subset_type(polygons, lines)}.gpkg'
 
 
-def cached_exists(family, filter=True):
-    return os.path.isfile(f'{WATER_DIR}/{get_filtered_river_file_name(family, filter)}')
+def load_cached_water(family, polygons=True, lines=True):
+    assert polygons or lines
+    filename = f'{WATER_DIR}/{temp_river_gpkg_name(family, polygons, lines)}'
+    if not os.path.isfile(filename):
+        raise FileNotFoundError(filename)
 
-
-def load_cached_water(family, filter=True):
-    masked_rivers_file = get_filtered_river_file_name(family, filter)
+    masked_rivers_file = temp_river_gpkg_name(family, polygons, lines)
     print(f'Loading cached water (masked) from {masked_rivers_file}...')
     start = time.time()
     water = geopandas.read_file(f'{WATER_DIR}/{masked_rivers_file}')
@@ -119,25 +151,29 @@ def load_cached_water(family, filter=True):
 
 
 if __name__ == '__main__':
-    FILTER = True
-    PROJECTION = CONIC
-    family = UtoAztecan()
-    glottography = Glottography(get_config(family.name))
-    # glottography = PamaNyunganPolygons()
+    USE_POLYGONS = True
+    USE_LINES = True
+    PROJECTION = CRS_CONIC
 
-    if cached_exists(family, FILTER):
-        water = load_cached_water(family, FILTER)
-    else:
+    family = PamaNyungan()
+    # glottography = Glottography(get_config(family.name))
+    glottography = PamaNyunganPolygons()
+
+    try:
+        water = load_cached_water(family, USE_POLYGONS, USE_LINES)
+    except FileNotFoundError:
         super_polygon = get_super_polygon(family, glottography, save_super=True)
-        water = read_osm_water(super_polygon, FILTER)
-        # cache_water(family, subtype)
+        if family.name == 'PamaNyungan':
+            water = read_australia_water(super_polygon, USE_POLYGONS, USE_LINES)
+        else:
+            water = read_osm_water(super_polygon, USE_POLYGONS, USE_LINES)
 
     print(f'Reprojecting to {PROJECTION}...')
     start = time.time()
     water = water.to_crs(PROJECTION)
     print(f'Took {time.time() - start} seconds to reproject to {PROJECTION}')
 
-    file_name = f'{family.name}.water.{get_filter_type(family, FILTER)}.{N_POINTS}'
+    file_name = f'{family.name}.water.{get_subset_type(USE_POLYGONS, USE_LINES)}.{N_POINTS}'
     path = f'data/predictors/water/{file_name}.csv'
 
     asciis_to_calculate = family.languages_ascii

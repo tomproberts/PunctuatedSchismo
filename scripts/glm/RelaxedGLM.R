@@ -5,11 +5,11 @@ library(bayesplot)
 library(collapse)
 source("scripts/gammaspike/SummaryTree.R")
 
-FAMILY <- UTO.AZTECAN
+FAMILY <- PAMA.NYUNGAN
 rates <- read.csv(paste0("data/relaxed/", FAMILY, ".csv"))
 areas <- read.csv(paste0("data/predictors/area/", FAMILY, ".geodesic.csv"))
 distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
-water <- read.csv(paste0("data/predictors/water/", FAMILY, ".water.natural.50.csv"))
+water <- read.csv(paste0("data/predictors/water/", FAMILY, ".water.all.50.csv"))
 
 cherries <- get_summary_cherries(FAMILY)
 lang1 <- sapply(cherries, function(e) return(e[1]))
