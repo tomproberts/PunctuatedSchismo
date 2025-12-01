@@ -5,32 +5,15 @@ from scripts.families.utils import LanguageFamily, LanguageNotFound
 IE_COR_DIR = 'data/datasets/ie-cor'
 
 IE_COR_LANGUAGES_CSV = f'{IE_COR_DIR}/languages.csv'
-IE_COR_FORMS_CSV = f'{IE_COR_DIR}/forms.csv'
-IE_COR_COGNATES_CSV = f'{IE_COR_DIR}/cognates.csv'
-
 IE_COR_ITALIC_CLADE = 'Italic'
-
-IE_COR_ID_COLUMN = 'ID'
-IE_COR_FORM_COLUMN = 'Form'  # 'Phonemic'
-IE_COR_COGNATE_ID_COLUMN = 'Cognateset_ID'
-IE_COR_PARAMETER_ID_COLUMN = 'Parameter_ID'
-IE_COR_LANGUAGE_ID_COLUMN = 'Language_ID'
 
 
 class IndoEuropean(LanguageFamily):
-    FORM_COLUMN = IE_COR_FORM_COLUMN
-    COGNACY_COLUMN = IE_COR_COGNATE_ID_COLUMN
     name = 'IndoEuropean'
     family_glottocode = 'indo1319'
     n_sites = 4958
     n_concepts = 170
     clades = {}
-
-    def __init__(self):
-        self.loaded = False
-        self._all_forms = None
-        self._cognates_merged = False
-        super().__init__()
 
     def load_languages(self):
         all_languages = pd.read_csv(IE_COR_LANGUAGES_CSV)
@@ -38,38 +21,7 @@ class IndoEuropean(LanguageFamily):
         self.glottocodes = list(all_languages.Glottocode)
         self.languages = list(all_languages.Name)
         self.languages_ascii = list(all_languages.ascii_name)
-        self.loaded = True
         self.clades = dict(zip(self.languages_ascii, list(all_languages.clade_name)))
-
-    def get_forms_for_language(self, lang_id, extended=False, glottocode=False):
-        if glottocode:
-            lang_id = self.get_language_id_from_glottocode(lang_id)
-        all_forms = self.merge_on_cognate_ids() if extended else self.ie_cor_forms
-        forms = all_forms[all_forms[IE_COR_LANGUAGE_ID_COLUMN] == lang_id]
-        if extended:
-            return forms
-        return list(forms[IE_COR_FORM_COLUMN])
-
-    def merge_on_cognate_ids(self):
-        if not self._cognates_merged:
-            all_forms = self.ie_cor_forms
-            all_forms = all_forms[all_forms.Language_ID.isin(self.language_ids)][
-                [IE_COR_ID_COLUMN, IE_COR_LANGUAGE_ID_COLUMN, IE_COR_FORM_COLUMN, IE_COR_PARAMETER_ID_COLUMN]]
-            all_cognates = pd.read_csv(IE_COR_COGNATES_CSV)
-            merged = all_forms.merge(all_cognates, left_on=IE_COR_ID_COLUMN, right_on='Form_ID', suffixes=('', 'y'))[
-                [IE_COR_ID_COLUMN, IE_COR_LANGUAGE_ID_COLUMN, IE_COR_PARAMETER_ID_COLUMN, IE_COR_FORM_COLUMN,
-                 IE_COR_COGNATE_ID_COLUMN]].sort_values(by=[IE_COR_PARAMETER_ID_COLUMN])
-            self._all_forms = merged
-            self._cognates_merged = True
-        return self.ie_cor_forms
-
-    @property
-    def ie_cor_forms(self):
-        if self._all_forms is None:
-            df = pd.read_csv(IE_COR_FORMS_CSV)
-            df[IE_COR_LANGUAGE_ID_COLUMN] = df[IE_COR_LANGUAGE_ID_COLUMN].astype(str)
-            self._all_forms = df
-        return self._all_forms
 
     def patch(self):
         self.set_language_glottocode('Old Polish', 'oldp1256')
