@@ -32,8 +32,8 @@ df <- merge(df, distances, by.x = c("lang", "lang_sister"), by.y = c("language_1
 
 # Water
 df <- merge(df, water, by.x = "lang", by.y = "lang", suffixes = c("", "_water"), all.x = TRUE)
-df$mean_distance_water[is.na(df$mean_distance_water)] <- 1
-df$median_distance_water[is.na(df$median_distance_water)] <- 1
+df$mean_distance_water[is.na(df$mean_distance_water)] <- 100000
+df$median_distance_water[is.na(df$median_distance_water)] <- 100000
 
 # Sisters
 df <- merge(df, df[, c("lang", "rate_median", "area", "median_distance", "median_distance_water")],
