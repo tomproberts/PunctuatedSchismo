@@ -44,7 +44,7 @@ df$n_loans <- df$NumLoans
 df$p_loans <- 100 * df$NumLoans / df$numberofforms
 
 # Sisters
-df <- merge(df, df[, c("lang", "rate_median", "area", "median_distance", "median_distance_water")],
+df <- merge(df, df[, c("lang", "rate_median", "area", "median_distance", "median_distance_water", "p_loans")],
             by.x = "lang_sister", by.y = "lang", suffixes = c("", "_sister"))
 
 EPSILON <- 1

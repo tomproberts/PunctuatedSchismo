@@ -13,6 +13,7 @@ par.names <- c(
   "log(total pages of sister)" = "b_log_total_page_sister",
   "number of loans" = "b_n_loans",
   "proportion of loans" = "b_p_loans",
+  "sister's loan proportion" = "b_p_loans_sister",
   "log(distance to water)" = "b_logmedian_distance_water",
   "log(distance from sister)" = "b_logmedian_distance",
   "log(sister's distance to water)" = "b_logmedian_distance_water_sister"
