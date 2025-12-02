@@ -3,8 +3,8 @@ cognate_set_id,meaning,form,language,note
 9726,,,Brazilian,loaned from Kimbundu? (Angola); already present in Old Galician-Portuguese
 9727,,,Brazilian,loaned from Dutch; definitely in European Portuguese as well as Occitan and Galician etc.
 9728,,,Brazilian,loaned from Basque; means 'puppy' in European Portuguese and Spanish
-9284,,,Old,ccitan: loaned from Gaulish; compare French 'dégobiller'
-6815,,,Anglo,orman: loaned from Gaulish; compare French n. 'musse'
+9284,,,Old Occitan, loaned from Gaulish; compare French 'dégobiller'
+6815,,,Anglo-Norman, loaned from Gaulish; compare French n. 'musse'
 8098,,,Napolitano,loaned from Germanic; compare Italian 'buttare'
 8059,,,Nuorese,also present in other Sardinian varieties
 8061,,,Nuorese,can't find in Dictionary; compare Italian 'tenaglia'?
@@ -43,3 +43,181 @@ cognate_set_id,meaning,form,language,note
 6389,yellow,sal,Ladin,?
 6391,play,jughé,Ladin,?
 6395,push,sburlé,Ladin,?
+6428,,,Romanian,?
+6449,,,Romanian,?
+6544,,,Romanian,?
+6569,,,Romanian,?
+6577,,,Romanian,?
+6585,,,Romanian,?
+6687,,,Romanian,?
+6689,,,Romanian,?
+6691,,,Romanian,?
+6701,,,Romanian,?
+6705,,,Romanian,?
+7802,,,Romanian,?
+7806,,,Romanian,?
+9568,,,Megleno-Romanian,?
+9570,,,Megleno-Romanian,?
+9572,,,Megleno-Romanian,?
+9573,,,Megleno-Romanian,?
+9574,,,Megleno-Romanian,?
+9575,,,Megleno-Romanian,?
+9576,,,Megleno-Romanian,?
+9580,,,Megleno-Romanian,?
+9581,,,Megleno-Romanian,?
+9583,,,Megleno-Romanian,?
+9584,,,Megleno-Romanian,?
+9585,,,Megleno-Romanian,?
+9586,,,Megleno-Romanian,?
+9587,,,Megleno-Romanian,?
+9588,,,Megleno-Romanian,?
+9589,,,Megleno-Romanian,?
+9602,,,Megleno-Romanian,?
+5609,,,Bengali,?
+6387,,,Bengali,?
+7398,,,Bengali,?
+7435,,,Bengali,?
+3419,,,Wakhi,?
+3629,,,Wakhi,?
+3782,,,Wakhi,?
+4645,,,Wakhi,?
+5065,,,Wakhi,?
+5509,,,Wakhi,?
+5523,,,Wakhi,?
+5583,,,Wakhi,?
+5751,,,Wakhi,?
+5781,,,Wakhi,?
+5784,,,Wakhi,?
+6566,,,Wakhi,?
+8577,,,Wakhi,?
+9194,,,Wakhi,?
+9813,,,Wakhi,?
+9824,,,Wakhi,?
+9825,,,Wakhi,?
+9828,,,Wakhi,?
+2815,,,Urdu,?
+5785,,,Urdu,?
+6132,,,Urdu,?
+6316,,,Urdu,?
+6539,,,Urdu,?
+6953,,,Urdu,?
+9829,,,Urdu,?
+1954,,,Iron Ossetian,?
+7165,,,Iron Ossetian,?
+7170,,,Iron Ossetian,?
+3863,,,Digor Ossetian,?
+6936,,,Digor Ossetian,?
+7178,,,Digor Ossetian,?
+7182,,,Digor Ossetian,?
+5792,,,Palula,?
+6490,,,Palula,?
+6605,,,Palula,?
+7328,,,Palula,?
+8186,,,Mazanderani,?
+8606,,,Mazanderani,?
+9290,,,Mazanderani,?
+9667,,,Mazanderani,?
+9670,,,Mazanderani,?
+9950,,,Assamese,?
+9958,,,Assamese,?
+8169,,,Tati,?
+9800,,,Lari,?
+9142,,,Delvari,?
+9234,,,Delvari,?
+8448,,,Khowar,?
+8457,,,Khowar,?
+8464,,,Khowar,?
+8475,,,Khowar,?
+8481,,,Khowar,?
+8729,,,Khowar,?
+8739,,,Khowar,?
+8799,,,Khowar,?
+8825,,,Khowar,?
+9049,,,Khowar,?
+9053,,,Khowar,?
+9054,,,Khowar,?
+9457,,,Khowar,?
+9506,,,Khowar,?
+9508,,,Khowar,?
+9509,,,Khowar,?
+9804,,,Khowar,?
+9294,,,South Kurdish (Elami),?
+8764,,,Gawri,?
+8804,,,Gawri,?
+9540,,,Gawri,?
+9750,,,Gawri,?
+8766,,,North-West Pashai,?
+8768,,,North-West Pashai,?
+8771,,,North-West Pashai,?
+8780,,,North-West Pashai,?
+8791,,,North-West Pashai,?
+8813,,,North-West Pashai,?
+8815,,,North-West Pashai,?
+9456,,,North-West Pashai,?
+9590,,,North-West Pashai,?
+9654,,,North-West Pashai,?
+9754,,,North-West Pashai,?
+9768,,,North-West Pashai,?
+9769,,,North-West Pashai,?
+9811,,,North-West Pashai,?
+9350,,,Sarikoli,?
+9352,,,Sarikoli,?
+9365,,,Sarikoli,?
+9371,,,Sarikoli,?
+9372,,,Sarikoli,?
+9382,,,Sarikoli,?
+9383,,,Sarikoli,?
+9390,,,Sarikoli,?
+9391,,,Sarikoli,?
+9392,,,Sarikoli,?
+9394,,,Sarikoli,?
+9396,,,Sarikoli,?
+9403,,,Sarikoli,?
+9409,,,Sarikoli,?
+9414,,,Sarikoli,?
+9655,,,Sarikoli,?
+9793,,,Southern Kurdish (Qorveh),?
+9794,,,Southern Kurdish (Qorveh),?
+9796,,,Southern Kurdish (Qorveh),?
+9797,,,Southern Kurdish (Qorveh),?
+9798,,,Southern Kurdish (Qorveh),?
+9887,,,Western Katë,?
+404,,,Albanian (Gheg),?
+408,,,Albanian (Gheg),?
+2221,,,Albanian (Gheg),?
+5505,,,Albanian (Gheg),?
+7942,,,Albanian (Gheg),?
+7982,,,Albanian (Gheg),?
+3340,,,Western Armenian,?
+5960,,,Western Armenian,?
+6001,,,Western Armenian,?
+5994,,,Eastern Armenian,?
+6058,,,Eastern Armenian,?
+5443,,,Tocharian A,?
+6263,,,Tocharian A,?
+5684,,,Tocharian B,?
+5813,,,Tocharian B,?
+516,,,Albanian,?
+562,,,Albanian,?
+3826,,,Albanian,?
+3855,,,Albanian,?
+5346,,,Albanian,?
+5472,,,Albanian,?
+5925,,,Albanian,?
+6336,,,Albanian,?
+6433,,,Albanian,?
+6635,,,Albanian,?
+5905,,,Cappadocian Greek,?
+5906,,,Cappadocian Greek,?
+5907,,,Cappadocian Greek,?
+5908,,,Cappadocian Greek,?
+5910,,,Cappadocian Greek,?
+5913,,,Cappadocian Greek,?
+5914,,,Cappadocian Greek,?
+5917,,,Cappadocian Greek,?
+5918,,,Cappadocian Greek,?
+5919,,,Cappadocian Greek,?
+6084,,,Cappadocian Greek,?
+6085,,,Cappadocian Greek,?
+6231,,,Cappadocian Greek,?
+6247,,,Cappadocian Greek,?
