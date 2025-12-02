@@ -27,7 +27,7 @@ get_summary_cherries <- function(family) {
 }
 
 get_manual_cherries <- function(family) {
-  if (family == INDO.EUROPEAN | family == DOUGLAS) return(list(
+  if (family == INDO.EUROPEAN) return(list(
     # c("Dutch", "Flemish"),
     # c("German", "GermanBernese"),
     # c("NorwegianNynorsk", "NorwegianBokmal"),
@@ -64,5 +64,16 @@ get_manual_cherries <- function(family) {
     # c("Palula", "Gawri"),
     # c("Hindi", "Urdu"),
     # c("Bengali", "Assamese")
+  ))
+  if (family == PAMA.NYUNGAN) return(list(
+    c("Thaynakwith", "Mbakwithi"),
+    c("Walangama", "Ikarranggal"),
+    c("UwOykangand", "Olkola"),
+    c("KLY", "KKY"),
+    c("Wulguru", "Coonambella"),
+    c("Djambarrpuyngu", "Dhuwal"),
+    c("Lardil", "Kayardild"),
+    c("MathiMathi", "LakeHindmarsh"),
+    c("WangkumaraMcDWur", "Wangkumara")
   ))
 }

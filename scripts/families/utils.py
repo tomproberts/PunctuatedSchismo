@@ -27,14 +27,6 @@ class LanguageFamily:
         return self._family_glottocode
 
     @property
-    def FORM_COLUMN(self):
-        raise NotImplementedError('self.FORM_COLUMN not provided')
-
-    @property
-    def COGNACY_COLUMN(self):
-        raise NotImplementedError('self.COGNACY_COLUMN not provided')
-
-    @property
     def n_sites(self):
         raise NotImplementedError('number of sites not provided')
 
@@ -49,9 +41,6 @@ class LanguageFamily:
     @family_glottocode.setter
     def family_glottocode(self, family_glottocode):
         self._family_glottocode = family_glottocode
-
-    def get_forms_for_language(self, lang_id, extended=False, glottocode=False):
-        raise NotImplementedError(f'get_forms_for_language not implemented for {self.name}')
 
     def get_glottocode_from_ascii(self, ascii_name):
         try:

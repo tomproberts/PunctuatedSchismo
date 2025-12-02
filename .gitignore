@@ -5,5 +5,8 @@ tmp/
 __pycache__/
 data/gammaspike/full/*.log
 data/gammaspike/full/*.trees
-data/glottography/*.csv
+data/glottography/*_glottocode_to_polygons.csv
 data/glottography/*.gpkg
+data/water/*.gdb/
+data/water/*.pbf
+data/water/tmp*

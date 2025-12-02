@@ -27,6 +27,8 @@ def get_config(family_name: str):
         return bantu_config()
     if family_name == 'Philippines':
         return philippines_config()
+    if family_name == 'PamaNyungan':
+        raise RuntimeError('Australian polygons are not supported by Glottography, try PamaNyunganPolygons() class')
     raise RuntimeError(f'Glottography Error: unknown family {family_name}')
 
 
@@ -79,10 +81,11 @@ def dravidian_config():
 
 
 def uto_config():
-    return GlottographyConfig(sources=[MISSING, ASHER_2007_WORLD, NATIVELAND_2024_LANGUAGES],
+    return GlottographyConfig(sources=[MISSING, 'goshute', ASHER_2007_WORLD, NATIVELAND_2024_LANGUAGES],
                               patches={
-                                  'nort2954': (1, 4617),
-                                  'pipi1250': (2, 5042)
+                                  'nort2954': (2, 4617),
+                                  'pipi1250': (2, 5042),
+                                  'sanj1276': (2, 6020)
                               })
 
 
