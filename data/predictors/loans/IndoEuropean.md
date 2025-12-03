@@ -25,7 +25,7 @@ Borrowings that only occur in the given language, but some may be just semantic 
 ### Italic
 - [x] 🍒French (2 borrowings: 8295;9447)
 - [x] 🍒Italian (1 borrowing: 6482)
-- [ ] 🍒Ladin (10 borrowings: 3175;6386;6388;6389;6391;6395;6396;6398;6400;6402)
+- [x] 🍒Ladin (10 borrowings: 3175;6386;6388;6389;6391;6395;6396;6398;6400;6402)
 - [ ] 🍒Romanian (13 borrowings: 6428;6449;6544;6569;6577;6585;6687;6689;6691;6701;6705;7802;7806)
 - [x] 🍒Sardinian: Logudoro (2 borrowings: 6518;8053)
 - [x] 🍒Sardinian: Nuoro (2 borrowings: 8059;8061)
