@@ -38,19 +38,12 @@ cognate_set_id,meaning,form,language,note
 7990,,,Vannetais,loaned from Latin?; in all varieties of Breton
 7993,,,Vannetais,loaned from French; already in Middle Breton (see 1499 Catholicon)
 6402,,,Ladin,early loan from Italian or Latin; compare Friulian 'combati'
-6428,,,Romanian,?
-6449,,,Romanian,?
-6544,,,Romanian,?
-6569,,,Romanian,?
-6577,,,Romanian,?
-6585,,,Romanian,?
-6687,,,Romanian,?
-6689,,,Romanian,?
-6691,,,Romanian,?
-6701,,,Romanian,?
-6705,,,Romanian,?
-7802,,,Romanian,?
-7806,,,Romanian,?
+6544,dirty,murdar,Romanian,loaned from Ottoman Turkish; also present in Megleno-Romanian and Aromanian
+6569,live,a trăi,Romanian,also present in Megleno-Romanian as 'trăiri' according to Dicționarul etimologic român
+6691,tree,copac,Romanian,a Balkan Wanderwort; compare Megleno-Romanian 'cupátš'
+6701,hit,a lovi,Romanian,loaned from Slavic; present in Megleno-Romanian as 'lovés' and in Aromanian as 'luvéscu'
+6705,smell,a mirosi,Romanian,loaned from South Slavic; also present in Megleno-Romanian as 'mirises' according to Dicționarul etimologic român
+7806,ash,scrum,Romanian,loaned from Albanian; also present in Megleno-Romanian
 9568,,,Megleno-Romanian,?
 9570,,,Megleno-Romanian,?
 9572,,,Megleno-Romanian,?
@@ -58,13 +51,11 @@ cognate_set_id,meaning,form,language,note
 9574,,,Megleno-Romanian,?
 9575,,,Megleno-Romanian,?
 9576,,,Megleno-Romanian,?
-9580,,,Megleno-Romanian,?
-9581,,,Megleno-Romanian,?
+9581,dirty,tăvălít,Megleno-Romanian,loaned from Slavic; compare Romanian 'tăvăli'
 9583,,,Megleno-Romanian,?
 9584,,,Megleno-Romanian,?
 9585,,,Megleno-Romanian,?
 9586,,,Megleno-Romanian,?
-9587,,,Megleno-Romanian,?
 9588,,,Megleno-Romanian,?
 9589,,,Megleno-Romanian,?
 9602,,,Megleno-Romanian,?
@@ -177,6 +168,16 @@ cognate_set_id,meaning,form,language,note
 9797,,,Southern Kurdish (Qorveh),?
 9798,,,Southern Kurdish (Qorveh),?
 9887,,,Western Katë,?
+516,,,Albanian,?
+562,,,Albanian,?
+3826,,,Albanian,?
+3855,,,Albanian,?
+5346,,,Albanian,?
+5472,,,Albanian,?
+5925,,,Albanian,?
+6336,,,Albanian,?
+6433,,,Albanian,?
+6635,,,Albanian,?
 404,,,Albanian (Gheg),?
 408,,,Albanian (Gheg),?
 2221,,,Albanian (Gheg),?
@@ -192,16 +193,6 @@ cognate_set_id,meaning,form,language,note
 6263,,,Tocharian A,?
 5684,,,Tocharian B,?
 5813,,,Tocharian B,?
-516,,,Albanian,?
-562,,,Albanian,?
-3826,,,Albanian,?
-3855,,,Albanian,?
-5346,,,Albanian,?
-5472,,,Albanian,?
-5925,,,Albanian,?
-6336,,,Albanian,?
-6433,,,Albanian,?
-6635,,,Albanian,?
 5905,,,Cappadocian Greek,?
 5906,,,Cappadocian Greek,?
 5907,,,Cappadocian Greek,?
