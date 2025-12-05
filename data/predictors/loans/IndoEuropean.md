@@ -26,7 +26,7 @@ Borrowings that only occur in the given language, but some may be just semantic 
 - [x] 🍒French (2 borrowings: 8295;9447)
 - [x] 🍒Italian (1 borrowing: 6482)
 - [x] 🍒Ladin (10 borrowings: 3175;6386;6388;6389;6391;6395;6396;6398;6400;6402)
-- [ ] 🍒Romanian (13 borrowings: 6428;6449;6544;6569;6577;6585;6687;6689;6691;6701;6705;7802;7806)
+- [x] 🍒Romanian (13 borrowings: 6428;6449;6544;6569;6577;6585;6687;6689;6691;6701;6705;7802;7806)
 - [x] 🍒Sardinian: Logudoro (2 borrowings: 6518;8053)
 - [x] 🍒Sardinian: Nuoro (2 borrowings: 8059;8061)
 - [x] Spanish (1 borrowing: 9643)
@@ -36,7 +36,7 @@ Borrowings that only occur in the given language, but some may be just semantic 
 - [x] 🍒Anglo-Norman (1 borrowing: 6815)
 - [ ] Dalmatian: Vegliote (22 borrowings: 9313;9315;9316;9317;9318;9320;9321;9322;9323;9324;9325;9326;9327;9328;9329;9330;9331;9332;9333;9334;9335;9338)
 - [x] 🍒Franco-Provençal (1 borrowing: 7347)
-- [ ] 🍒Megleno-Romanian (17 borrowings: 9568;9570;9572;9573;9574;9575;9576;9580;9581;9583;9584;9585;9586;9587;9588;9589;9602)
+- [x] 🍒Megleno-Romanian (17 borrowings: 9568;9570;9572;9573;9574;9575;9576;9580;9581;9583;9584;9585;9586;9587;9588;9589;9602)
 - [x] Old Occitan (2 borrowings: 962;9284)
 - [x] 🍒Portuguese: Brazilian (4 borrowings: 9725;9726;9727;9728)
 
