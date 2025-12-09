@@ -69,7 +69,7 @@ Borrowings that only occur in the given language, but some may be just semantic 
 - [ ] 🍒Wakhi (18 borrowings: 3419;3629;3782;4645;5065;5509;5523;5583;5751;5781;5784;6566;8577;9194;9813;9824;9825;9828)
 - [ ] Maithili (1 borrowing: 3168)
 - [ ] Kurdish N.: Bahdini (12 borrowings: 3549;3603;3674;4772;8173;8174;8688;8691;8694;9115;9254;9659)
-- [ ] 🍒Urdu (7 borrowings: 2815;5785;6132;6316;6539;6953;9829)
+- [x] 🍒Urdu (7 borrowings: 2815;5785;6132;6316;6539;6953;9829)
 - [ ] 🍒Ossetic: Iron (3 borrowings: 1954;7165;7170)
 - [ ] 🍒Ossetic: Digor (4 borrowings: 3863;6936;7178;7182)
 - [ ] Magahi (1 borrowing: 9721)
