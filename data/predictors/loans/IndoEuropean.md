@@ -102,8 +102,8 @@ Borrowings that only occur in the given language, but some may be just semantic 
 
 ### Miscellaneous
 - [ ] 🍒Albanian: Gheg (6 borrowings: 404;408;2221;5505;7942;7982)
-- [ ] 🍒Armenian: Western (3 borrowings: 3340;5960;6001)
-- [ ] 🍒Armenian: Eastern (2 borrowings: 5994;6058)
+- [x] 🍒Armenian: Western (3 borrowings: 3340;5960;6001)
+- [x] 🍒Armenian: Eastern (2 borrowings: 5994;6058)
 - [ ] Greek: Modern Std (2 borrowings: 5570;5858)
 - [ ] Hittite (2 borrowings: 3334;7641)
 - [ ] 🍒Tocharian A (2 borrowings: 5443;6263)
