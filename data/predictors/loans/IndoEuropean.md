@@ -101,7 +101,7 @@ Borrowings that only occur in the given language, but some may be just semantic 
 - [ ] Saṇu-viri: Wâmâ (2 borrowings: 9888;9889)
 
 ### Miscellaneous
-- [ ] 🍒Albanian: Gheg (6 borrowings: 404;408;2221;5505;7942;7982)
+- [x] 🍒Albanian: Gheg (6 borrowings: 404;408;2221;5505;7942;7982)
 - [x] 🍒Armenian: Western (3 borrowings: 3340;5960;6001)
 - [x] 🍒Armenian: Eastern (2 borrowings: 5994;6058)
 - [ ] Greek: Modern Std (2 borrowings: 5570;5858)
@@ -110,7 +110,7 @@ Borrowings that only occur in the given language, but some may be just semantic 
 - [ ] 🍒Tocharian B (2 borrowings: 5684;5813)
 - [ ] Armenian: Classical (1 borrowing: 5953)
 - [ ] Luvian (1 borrowing: 7091)
-- [ ] 🍒Albanian: Standard (10 borrowings: 516;562;3826;3855;5346;5472;5925;6336;6433;6635)
+- [x] 🍒Albanian: Standard (10 borrowings: 516;562;3826;3855;5346;5472;5925;6336;6433;6635)
 - [ ] Greek: Cypriot (7 borrowings: 6213;6218;6223;6224;6233;6236;6256)
 - [ ] Greek: Italiot (11 borrowings: 5868;5869;5878;5915;6064;6082;6162;6169;6182;6636;8394)
 - [x] 🍒Greek: Cappadocian (14 borrowings: 5905;5906;5907;5908;5910;5913;5914;5917;5918;5919;6084;6085;6231;6247)

@@ -159,22 +159,16 @@ cognate_set_id,meaning,form,language,note
 9797,,,Southern Kurdish (Qorveh),?
 9798,,,Southern Kurdish (Qorveh),?
 9887,,,Western Katë,?
-516,,,Albanian,?
-562,,,Albanian,?
-3826,,,Albanian,?
-3855,,,Albanian,?
-5346,,,Albanian,?
-5472,,,Albanian,?
-5925,,,Albanian,?
-6336,,,Albanian,?
-6433,,,Albanian,?
-6635,,,Albanian,?
-404,,,Albanian (Gheg),?
-408,,,Albanian (Gheg),?
-2221,,,Albanian (Gheg),?
-5505,,,Albanian (Gheg),?
-7942,,,Albanian (Gheg),?
-7982,,,Albanian (Gheg),?
+516,yellow,verdhë,Albanian,present in other dialects with meaning 'green'
+3826,head,kokë,Albanian,loan from Latin word for 'berry'; also present in Gheg
+3855,tree,pemë,Albanian,present in Gheg with meaning 'fruit'
+5472,bone,kockë,Albanian,borrowed from Slavic; also present in Gheg as 'kocë'
+6433,fear,kam frikë,Albanian,Greek loan; in Gheg as either 'frikësu' or 'frigu'
+6635,green,gjelbër,Albanian,loaned from Latin for 'yellow'; present in Gheg as 'gjelbërt'
+404,fruit,pemë,Albanian (Gheg),early borrowing from Latin; also present in Tosk Albanian
+408,green,jeshil,Albanian (Gheg),borrowed from Turkish; also present in Tosk Albanian
+2221,belly,mullë,Albanian (Gheg),present in other dialects of Albanian with primary meaning 'stomach'
+7942,ant,bubrrec,Albanian (Gheg),borrowed from Romanian; apparently present in other varieties with meaning 'cockroach'
 3340,stick,gawazan,Western Armenian,from Classical Armenian gawazan 'rod' or 'stave'; ultimately from Iranic
 5960,hide,cackel,Western Armenian,from Tungusic but reconstructed to Proto-Armenian
 6001,small,pztik,Western Armenian,loanword from Persian but also in Eastern Armenian (nayiri.com)
