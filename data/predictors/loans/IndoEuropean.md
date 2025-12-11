@@ -60,7 +60,7 @@ Borrowings that only occur in the given language, but some may be just semantic 
 - [x] 🍒Slovene: Kostel (3 borrowings: 7847;7849;7850)
 
 ### Indo-Iranian
-- [ ] 🍒Bengali (4 borrowings: 5609;6387;7398;7435)
+- [x] 🍒Bengali (4 borrowings: 5609;6387;7398;7435)
 - [ ] Kashmiri (3 borrowings: 7430;7436;9764)
 - [ ] Marathi (5 borrowings: 1608;3925;4522;6967;7043)
 - [ ] Nepali (3 borrowings: 3072;3092;4599)
@@ -80,7 +80,7 @@ Borrowings that only occur in the given language, but some may be just semantic 
 - [ ] Kumzari (24 borrowings: 7606;7667;7669;7670;7671;7676;7687;7691;7701;7703;7704;7708;7709;7710;7718;7719;7730;7733;8616;9155;9157;9171;9187;9190)
 - [ ] Bakhtiari (1 borrowing: 9221)
 - [ ] 🍒Mazanderani (5 borrowings: 8186;8606;9290;9667;9670)
-- [ ] 🍒Assamese (2 borrowings: 9950;9958)
+- [x] 🍒Assamese (2 borrowings: 9950;9958)
 - [ ] Balochi: Sistani (6 borrowings: 8172;8176;8187;9241;9278;9672)
 - [ ] 🍒Tati (1 borrowing: 8169)
 - [ ] 🍒Lari (1 borrowing: 9800)
@@ -106,8 +106,8 @@ Borrowings that only occur in the given language, but some may be just semantic 
 - [x] 🍒Armenian: Eastern (2 borrowings: 5994;6058)
 - [ ] Greek: Modern Std (2 borrowings: 5570;5858)
 - [ ] Hittite (2 borrowings: 3334;7641)
-- [ ] 🍒Tocharian A (2 borrowings: 5443;6263)
-- [ ] 🍒Tocharian B (2 borrowings: 5684;5813)
+- [x] 🍒Tocharian A (2 borrowings: 5443;6263)
+- [x] 🍒Tocharian B (2 borrowings: 5684;5813)
 - [ ] Armenian: Classical (1 borrowing: 5953)
 - [ ] Luvian (1 borrowing: 7091)
 - [x] 🍒Albanian: Standard (10 borrowings: 516;562;3826;3855;5346;5472;5925;6336;6433;6635)

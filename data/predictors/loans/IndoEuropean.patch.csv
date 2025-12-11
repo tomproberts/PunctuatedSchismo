@@ -50,10 +50,10 @@ cognate_set_id,meaning,form,language,note
 9583,neck,gușă,Megleno-Romanian,loaned from Gaulish
 9588,bark,coajă,Megleno-Romanian,loaned from Slavic; also in Romanian with meaning layer/peel/bark
 9589,skin,coajă,Megleno-Romanian,loaned from Slavic; also in Romanian with meaning layer/peel/bark
-5609,,,Bengali,?
-6387,,,Bengali,?
-7398,,,Bengali,?
-7435,,,Bengali,?
+5609,lake,hrad,Bengali,learned borrowing from Sanskrit
+6387,hard,kaṭhin/śakta,Bengali,learned borrowing from Sanskrit though ultimately from Dravidian
+7398,man,mānuṣ,Bengali,if borrowing at all then learned from Sanskrit
+7435,rain,br̥ṣṭi,Bengali,learned borrowing from Sanskrit
 3419,,,Wakhi,?
 3629,,,Wakhi,?
 3782,,,Wakhi,?
@@ -95,8 +95,7 @@ cognate_set_id,meaning,form,language,note
 9290,,,Mazanderani,?
 9667,,,Mazanderani,?
 9670,,,Mazanderani,?
-9950,,,Assamese,?
-9958,,,Assamese,?
+9958,white,bôgā,Assamese,probably not a loan and from word 'heron' according to wiktionary
 8169,,,Tati,?
 9800,,,Lari,?
 9142,,,Delvari,?
@@ -174,9 +173,5 @@ cognate_set_id,meaning,form,language,note
 6001,small,pztik,Western Armenian,loanword from Persian but also in Eastern Armenian (nayiri.com)
 5994,white,čermak,Eastern Armenian,loanword from Iranic but reconstructed to Proto-Armenian
 6058,fruit,mirg,Eastern Armenian,loanword from Iranic but descended from Classical Armenian
-5443,,,Tocharian A,?
-6263,,,Tocharian A,?
-5684,,,Tocharian B,?
-5813,,,Tocharian B,?
 6231,forest,lóggos,Cappadocian Greek,from Slavic into Byzantine Greek; also in Modern Greek
 6247,vomit,anagoulízoumai,Cappadocian Greek,derived from 'goula'; loaned ultimately from Latin into Byzantine Greek
