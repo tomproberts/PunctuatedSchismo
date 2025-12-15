@@ -82,20 +82,10 @@ cognate_set_id,meaning,form,language,note
 7165,green,kærdægxʷyz,Iron Ossetian,'of grass colour' according to abaevdict; probably not a loan
 7170,meat,ʒiʒa,Iron Ossetian,not specifically marked as Iron in abaevdict
 7178,dry,sor,Digor Ossetian,also in Iron; see 'sūr|sor' on abaevdict
-5792,,,Palula,?
-6490,,,Palula,?
-6605,,,Palula,?
-7328,,,Palula,?
-8186,,,Mazanderani,?
-8606,,,Mazanderani,?
-9290,,,Mazanderani,?
-9667,,,Mazanderani,?
-9670,,,Mazanderani,?
+5792,woman,kúṛi,Palula,early loan from Munda or Dravidian; compare Punjabi 'ਕੁੜੀ' meaning 'girl'
+9750,snake,nāg,Gawri,loan status uncertain
 9958,white,bôgā,Assamese,probably not a loan and from word 'heron' according to wiktionary
-8169,,,Tati,?
-9800,,,Lari,?
-9142,,,Delvari,?
-9234,,,Delvari,?
+9800,nose,puz,Lari,loan from Persian with semantic shift; according to Angālī grammar 'pūz' is used in Buschehr
 8448,,,Khowar,?
 8457,,,Khowar,?
 8464,,,Khowar,?
@@ -114,10 +104,6 @@ cognate_set_id,meaning,form,language,note
 9509,,,Khowar,?
 9804,,,Khowar,?
 9294,,,South Kurdish (Elami),?
-8764,,,Gawri,?
-8804,,,Gawri,?
-9540,,,Gawri,?
-9750,,,Gawri,?
 8766,,,North-West Pashai,?
 8768,,,North-West Pashai,?
 8771,,,North-West Pashai,?
