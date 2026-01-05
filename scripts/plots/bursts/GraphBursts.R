@@ -36,13 +36,14 @@ result.df <- result.df[result.df$burst < 300,]
 ggplot(result.df) +
   theme_light() +
   theme(legend.position = "none",
-        axis.text = element_text(size = 12),
+        axis.text = element_text(size = 17),
         axis.title = element_text(size = 18)) +
   aes(x = cherry, y = burst, fill = side, side = side) +
   stat_slab(aes(fill_ramp = after_stat(level)),
             # .width = c(.5, .89, 1), scale = 1.1, width = 0.7, normalize = "xy", trim = FALSE
-            .width = c(.5, .89, 1), scale = .18, width = 1, normalize = "groups",
+            .width = c(.5, .89, 1), scale = .25, width = 1, normalize = "groups",
   ) +
-  coord_cartesian(ylim = c(0, 300)) +
-  xlab("language pair") +
+  scale_y_continuous(breaks = seq(0, 8, by=2), limits=c(0,8), expand = expansion(mult = c(0,0.05))) +
+  scale_x_discrete(expand = expansion(0,0)) +
+  xlab(NULL) +
   ylab("punctuated change (% vocab)")
