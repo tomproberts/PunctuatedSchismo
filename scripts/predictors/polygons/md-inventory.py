@@ -1,11 +1,15 @@
-from scripts.families.uto_aztecan import UtoAztecan
+from scripts.families.indo_european import IndoEuropean
 from scripts.gammaspike.summary_tree import get_sorted_summary_tree_cherries_ascii
 from scripts.predictors.polygons.glottography import Glottography
 from scripts.predictors.polygons.glottography_config import get_config
 from scripts.predictors.polygons.inventory import to_glottolink
 
 
-def polygon_inventory_markdown(family, glottography):
+def to_ie_cor(name, ascii):
+    return f'[{name}](https://iecor.clld.org/languages/{ascii.lower()})'
+
+
+def polygon_cherries_inventory_markdown(family, glottography):
     # Get cherries
     clades_cherries = get_sorted_summary_tree_cherries_ascii(family)
 
@@ -63,16 +67,50 @@ def polygon_inventory_markdown(family, glottography):
     return '\n'.join(lines)
 
 
+def all_polygon_inventory_markdown(family, glottography, all=False):
+    langs = family.languages_ascii
+    # initialise clade sorting
+    clade_dict = {}
+    for clade in family.get_clades():
+        clade_dict[clade] = []
+    clade_dict['Miscellaneous'] = []
+    # sort into clades
+    for ascii in langs:
+        clade = family.get_clade_from_ascii(ascii)
+        if clade not in clade_dict:
+            clade = 'Miscellaneous'
+        clade_dict[clade].append(ascii)
+
+    # inventory
+    lines = []
+    for clade in clade_dict.keys():
+        lines.append(f'\n### {clade}')
+        for lang in clade_dict[clade]:
+            name = family.get_language_from_ascii(lang)
+            glottocode = family.get_glottocode_from_ascii(lang)
+            poly = glottography.get_source(glottocode)
+            status = ' ' if poly is None else 'x'
+            if status == ' ' or all:
+                lines.append(f'- [{status}] {to_ie_cor(name, lang)} ({to_glottolink(glottocode)})')
+
+    # Header
+    header = []
+    header.append(f'## *{family.name}* ({len(family.languages)} taxa) Missing Polygons')
+
+    lines = header + lines
+    return '\n'.join(lines)
+
+
 if __name__ == '__main__':
     # Load family
-    family = UtoAztecan()
+    family = IndoEuropean()
     glottography = Glottography(get_config(family.name))
 
     # Generate markdown report
-    md = polygon_inventory_markdown(family, glottography)
+    md = all_polygon_inventory_markdown(family, glottography, all=False)
 
     # Write out
-    filename = f'data/glottography/Polygons{family.name}.md'
+    filename = f'data/glottography/AllPolygons{family.name}.md'
     with open(filename, 'w') as f:
         f.write(md)
 
