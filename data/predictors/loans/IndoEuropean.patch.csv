@@ -103,7 +103,6 @@ cognate_set_id,meaning,form,language,note
 9508,,,Khowar,?
 9509,,,Khowar,?
 9804,,,Khowar,?
-9294,,,South Kurdish (Elami),?
 8766,,,North-West Pashai,?
 8768,,,North-West Pashai,?
 8771,,,North-West Pashai,?
@@ -134,11 +133,7 @@ cognate_set_id,meaning,form,language,note
 9409,,,Sarikoli,?
 9414,,,Sarikoli,?
 9655,,,Sarikoli,?
-9793,,,Southern Kurdish (Qorveh),?
-9794,,,Southern Kurdish (Qorveh),?
-9796,,,Southern Kurdish (Qorveh),?
-9797,,,Southern Kurdish (Qorveh),?
-9798,,,Southern Kurdish (Qorveh),?
+9798,hot,dāx,Southern Kurdish (Qorveh),loaned from Persian but also present in Soranî; could be parallel though
 9887,,,Western Katë,?
 516,yellow,verdhë,Albanian,present in other dialects with meaning 'green'
 3826,head,kokë,Albanian,loan from Latin word for 'berry'; also present in Gheg

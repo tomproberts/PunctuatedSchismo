@@ -5,7 +5,7 @@ Borrowings that only occur in the given language, but some may be just semantic 
 - [x] Danish (6 borrowings: 4273;4323;5662;5768;9980;9981)
 - [ ] English (25 borrowings: 215;1344;2518;5231;5328;5342;5497;5499;5526;5568;5612;5616;5633;5663;5696;5724;5726;5767;5787;6148;6446;6452;8307;9719;9977)
 - [ ] Frisian (11 borrowings: 8004;8006;9692;9702;9703;9704;9705;9706;9707;9708;9709)
-- [x] Swedish (1 borrowing: 5502)
+- [x] 🍒Swedish (1 borrowing: 5502)
 - [x] Luxembourgish (2 borrowings: 6511;9714)
 
 ### Celtic
@@ -86,7 +86,7 @@ Borrowings that only occur in the given language, but some may be just semantic 
 - [x] 🍒Lari (1 borrowing: 9800)
 - [x] 🍒Delvari (2 borrowings: 9142;9234)
 - [ ] 🍒Khowar (17 borrowings: 8448;8457;8464;8475;8481;8729;8739;8799;8825;9049;9053;9054;9457;9506;9508;9509;9804)
-- [ ] 🍒Kurdish S.: Elami (1 borrowing: 9294)
+- [x] 🍒Kurdish S.: Elami (1 borrowing: 9294)
 - [ ] Khwarazmian (1 borrowing: 8941)
 - [ ] Gawarbati (1 borrowing: 8465)
 - [x] 🍒Gawri (4 borrowings: 8764;8804;9540;9750)
@@ -94,7 +94,7 @@ Borrowings that only occur in the given language, but some may be just semantic 
 - [ ] 🍒Pashai: North-West (14 borrowings: 8766;8768;8771;8780;8791;8813;8815;9456;9590;9654;9754;9768;9769;9811)
 - [ ] 🍒Sarikoli (16 borrowings: 9350;9352;9365;9371;9372;9382;9383;9390;9391;9392;9394;9396;9403;9409;9414;9655)
 - [ ] Vâsi-vari: Paṣki (45 borrowings: 4714;7823;7824;7825;7827;7828;7829;7831;7832;7833;7835;7837;7841;7843;7878;7882;7894;7896;7899;7903;7908;7911;7919;7925;7930;7931;7933;7935;8472;9729;9730;9731;9732;9734;9735;9736;9737;9775;9842;9843;9845;9847;9849;9877;9897)
-- [ ] 🍒Kurdish S.: Qorveh (5 borrowings: 9793;9794;9796;9797;9798)
+- [x] 🍒Kurdish S.: Qorveh (5 borrowings: 9793;9794;9796;9797;9798)
 - [ ] Kamviri (1 borrowing: 5712)
 - [ ] 🍒Kâta-vari: Ktivi (1 borrowing: 9887)
 - [ ] Kalaṣa-alâ: Nišeigrâm (7 borrowings: 6781;6788;6868;7237;9892;9893;9895)
