@@ -96,7 +96,7 @@ Borrowings that only occur in the given language, but some may be just semantic 
 - [ ] Vâsi-vari: Paṣki (45 borrowings: 4714;7823;7824;7825;7827;7828;7829;7831;7832;7833;7835;7837;7841;7843;7878;7882;7894;7896;7899;7903;7908;7911;7919;7925;7930;7931;7933;7935;8472;9729;9730;9731;9732;9734;9735;9736;9737;9775;9842;9843;9845;9847;9849;9877;9897)
 - [x] 🍒Kurdish S.: Qorveh (5 borrowings: 9793;9794;9796;9797;9798)
 - [ ] Kamviri (1 borrowing: 5712)
-- [ ] 🍒Kâta-vari: Ktivi (1 borrowing: 9887)
+- [x] 🍒Kâta-vari: Ktivi (1 borrowing: 9887)
 - [ ] Kalaṣa-alâ: Nišeigrâm (7 borrowings: 6781;6788;6868;7237;9892;9893;9895)
 - [ ] Saṇu-viri: Wâmâ (2 borrowings: 9888;9889)
 
