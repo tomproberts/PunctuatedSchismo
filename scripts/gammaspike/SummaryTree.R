@@ -28,17 +28,20 @@ get_summary_cherries <- function(family) {
 
 get_manual_cherries <- function(family) {
   if (family == INDO.EUROPEAN) return(list(
-    c("Dutch", "Flemish"),
-    c("German", "GermanBernese"),
-    c("NorwegianNynorsk", "NorwegianBokmal"),
-    c("Swedish", "Elfdalian"),
-    c("BretonTreger", "BretonGwened"),
-    c("GaelicScottish", "GaelicManx"),
-    c("Portuguese", "PortugueseBrazilian"),
+    # c("Dutch", "Flemish"),
+    # c("German", "GermanBernese"),
+    # c("NorwegianNynorsk", "NorwegianBokmal"),
+    # c("Swedish", "Elfdalian"),
+    # c("BretonTreger", "BretonGwened"),
+    # c("GaelicScottish", "GaelicManx"),
+    # c("Portuguese", "PortugueseBrazilian"),
     c("French", "FrancoProvencal"),
-    c("OldFrench", "AngloNorman"),
-    c("Italian", "Milanese"),
-    c("Ladin", "Friulian"),
+    c("SardinianNuoro", "SardinianLogudoro"),
+    c("Latvian", "Latgalian"),
+    c("Ukrainian", "Belarusian")
+    # c("OldFrench", "AngloNorman"),
+    # c("Italian", "Milanese"),
+    # c("Ladin", "Friulian"),
     # c("SardinianNuoro", "SardinianLogudoro"),
     # c("Romanian", "MeglenoRomanian"),
     # c("Umbrian", "Oscan")
@@ -60,7 +63,7 @@ get_manual_cherries <- function(family) {
     # c("PashaiNorthWest", "Khowar"),
     # c("Palula", "Gawri"),
     # c("Hindi", "Urdu"),
-    c("Bengali", "Assamese")
+    # c("Bengali", "Assamese")
   ))
   if (family == PAMA.NYUNGAN) return(list(
     c("Thaynakwith", "Mbakwithi"),

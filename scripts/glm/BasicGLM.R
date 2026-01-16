@@ -5,13 +5,13 @@ library(bayesplot)
 library(collapse)
 source("scripts/gammaspike/SummaryTree.R")
 
-FAMILY <- UTO.AZTECAN
+FAMILY <- INDO.EUROPEAN
 
 bursts <- read.csv(paste0("data/gammaspike/summarytree/", FAMILY, ".csv"))
 page.counts <- read.csv("data/predictors/grambank_pageCounts.csv")[, c("glcode", "total_pages")]
 distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
 areas <- read.csv(paste0("data/predictors/area/", FAMILY, ".geodesic.csv"))
-water <- read.csv(paste0("data/predictors/water/", FAMILY, ".water.all.50.csv"))
+water <- read.csv(paste0("data/predictors/water/", FAMILY, ".water.polygons.50.csv"))
 loans <- read.csv("data/predictors/loans/IndoEuropean.csv")
 
 cherries <- get_summary_cherries(FAMILY)
@@ -78,11 +78,9 @@ if (FALSE) {
 # Fit the model
 if (TRUE) {
   fit <- brm(formula = weightedSpikes_median ~
-    # n_loans +
-      # log_total_pages +
-      # log(median_distance) +
-      log(median_distance_water) +
-      log(median_distance_water_sister),
+    n_loans +
+      log(area) +
+      log(area_sister),
              family = Gamma(link = "log"),
              data = df,
              iter = 4000)
