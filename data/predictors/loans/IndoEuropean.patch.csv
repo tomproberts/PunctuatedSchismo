@@ -1,43 +1,43 @@
 cognate_set_id,meaning,form,language,note
-9725,,,Brazilian,loaned from Gaulish into Latin 'carrus'
-9726,,,Brazilian,loaned from Kimbundu? (Angola); already present in Old Galician-Portuguese
-9727,,,Brazilian,loaned from Dutch; definitely in European Portuguese as well as Occitan and Galician etc.
-9728,,,Brazilian,loaned from Basque; means 'puppy' in European Portuguese and Spanish
-9284,,,Old Occitan, loaned from Gaulish; compare French 'dégobiller'
-6815,,,Anglo-Norman, loaned from Gaulish; compare French n. 'musse'
-8098,,,Napolitano,loaned from Germanic; compare Italian 'buttare'
-8059,,,Nuorese,also present in other Sardinian varieties
-8061,,,Nuorese,can't find in Dictionary; compare Italian 'tenaglia'?
-6518,,,Logudorese,borrowed from Greek but via Latin and it's in many other languages
-8053,,,Logudorese,borrowed from Italian but present in other Sardinian varieties
-8295,,,French,loaned from Ancient Greek via Latin; already present in Old French 'coper'
-9447,,,French,loaned from Old Frankish; compare Old French 'sale'
-5322,,,Friulian,mentioned to be early loan into Latin
-7627,,,Friulian,descended from Latin; ultimately from Ancient Greek
-6501,,,Walloon,descended from Latin; ultimately from Ancient Greek
-6557,,,Walloon,loaned from Germanic; compare 'broyer' in French
-6822,,,Walloon,loaned from Old Frankish; compare Old French 'aignier'
-6823,,,Walloon,loaned from Old Frankish; compare French 'sur'
-6827,,,Walloon,loaned from Germanic; compare Old French 'soin'
-5728,,,Irish,loaned from Latin into Old Irish; compare Scottish 'speur'
-6267,,,Irish,loaned from Latin; lost in Scottish?
-6735,,,Irish,loaned from Latin; lost in Scottish?
-7285,,,Trégorrois,loaned from Old French; present in Vannetais according to Dictionnaire du dialecte de Vannes
-7337,,,Trégorrois,loaned from Old French; present in Vannetais according to Dictionnaire du dialecte de Vannes
-5296,,,Latvian,loaned from Middle Low German into entire Latvian area; present in Latgalian as 'slykts'
-6849,,,Latvian,loaned from Finnic; compare Latgalian 'muoja'
-8438,,,Latvian,loaned from Middle Low German; compare Latgalian 'spēlēt'
-4806,,,Ukrainian,ultimately loaned from Latin; compare Russian 'поганый'
-7847,,,Kostel,loaned from Middle High German into Slovene area; compare Slovene 'vȁmp'
-7849,,,Kostel,loaned from Middle High German; compare Slovene 'špílati'
-6092,,,Kashubian,loaned from Middle High German; compare Polish 'rachować'
-6417,,,Manx,loaned from Brythonic into Old Irish as 'coínid'
-6266,,,Manx,loaned from English 'battle'; compare Scottish 'baideal'
-5698,,,Vannetais,loaned from Old French; seems to be in a 1633 Middle Breton gloss 'Nomenclator communium rerum propria nomina gallico idiomate indicans'
-7958,,,Vannetais,loaned from Old French; in the Glossaire Moyen-Bréton by Émile Ernault with alternate variant for Vannetais
-7990,,,Vannetais,loaned from Latin?; in all varieties of Breton
-7993,,,Vannetais,loaned from French; already in Middle Breton (see 1499 Catholicon)
-6402,,,Ladin,early loan from Italian or Latin; compare Friulian 'combati'
+9725,carry,carregar,Brazilian,loaned from Gaulish into Latin 'carrus'
+9726,worm,minhoca,Brazilian,loaned from Kimbundu? (Angola); already present in Old Galician-Portuguese
+9727,tie,amarrar,Brazilian,loaned from Dutch; definitely in European Portuguese as well as Occitan and Galician etc.
+9728,dog,cachorro,Brazilian,loaned from Basque; means 'puppy' in European Portuguese and Spanish
+9284,vomit,degoubilhar,Old Occitan, loaned from Gaulish; compare French 'dégobiller'
+6815,hide,muscer,Anglo-Norman, loaned from Gaulish; compare French n. 'musse'
+8098,push,vuttà,Napolitano,loaned from Germanic; compare Italian 'buttare'
+8059,tree,matta,Nuorese,also present in other Sardinian varieties
+8061,claw,tonaje,Nuorese,can't find in Dictionary; compare Italian 'tenaglia'?
+6518,claw,ghela,Logudorese,borrowed from Greek but via Latin and it's in many other languages
+8053,right,deltra,Logudorese,borrowed from Italian but present in other Sardinian varieties
+8295,sharp,coupant,French,loaned from Ancient Greek via Latin; already present in Old French 'coper'
+9447,dirty,sale,French,loaned from Old Frankish; compare Old French 'sale'
+5322,wind,aiar,Friulian,mentioned to be early loan into Latin
+7627,hide,platâ,Friulian,descended from Latin; ultimately from Ancient Greek
+6501,thigh,gros dèl djambe,Walloon,descended from Latin; ultimately from Ancient Greek
+6557,grind,broyî,Walloon,loaned from Germanic; compare 'broyer' in French
+6822,bite,hagnî,Walloon,loaned from Old Frankish; compare Old French 'aignier'
+6823,bitter,seûr,Walloon,loaned from Old Frankish; compare French 'sur'
+6827,fear,aveûr sogne,Walloon,loaned from Germanic; compare Old French 'soin'
+5728,sky,spéir,Irish,loaned from Latin into Old Irish; compare Scottish 'speur'
+6267,cloud,scamall,Irish,loaned from Latin; lost in Scottish?
+6735,rain,báisteach,Irish,loaned from Latin; lost in Scottish?
+7285,lake,stank,Trégorrois,loaned from Old French; present in Vannetais according to Dictionnaire du dialecte de Vannes
+7337,hide,kwach,Trégorrois,loaned from Old French; present in Vannetais according to Dictionnaire du dialecte de Vannes
+5296,bad,slikts,Latvian,loaned from Middle Low German into entire Latvian area; present in Latgalian as 'slykts'
+6849,house,māja,Latvian,loaned from Finnic; compare Latgalian 'muoja'
+8438,play,spēlēt,Latvian,loaned from Middle Low German; compare Latgalian 'spēlēt'
+4806,bad,poganij,Ukrainian,ultimately loaned from Latin; compare Russian 'поганый'
+7847,belly,vamp,Kostel,loaned from Middle High German into Slovene area; compare Slovene 'vȁmp'
+7849,play,špilati,Kostel,loaned from Middle High German; compare Slovene 'špílati'
+6092,count,rechòwac,Kashubian,loaned from Middle High German; compare Polish 'rachować'
+6417,cry,keayney,Manx,loaned from Brythonic into Old Irish as 'coínid'
+6266,cloud,bodjal,Manx,loaned from English 'battle'; compare Scottish 'baideal'
+5698,round,hrond,Vannetais,loaned from Old French; seems to be in a 1633 Middle Breton gloss 'Nomenclator communium rerum propria nomina gallico idiomate indicans'
+7958,push,poussein,Vannetais,loaned from Old French; in the Glossaire Moyen-Bréton by Émile Ernault with alternate variant for Vannetais
+7990,sing,son,Vannetais,loaned from Latin?; in all varieties of Breton
+7993,bird,poussin,Vannetais,loaned from French; already in Middle Breton (see 1499 Catholicon)
+6402,fight,combate,Ladin,early loan from Italian or Latin; compare Friulian 'combati'
 6544,dirty,murdar,Romanian,loaned from Ottoman Turkish; also present in Megleno-Romanian and Aromanian
 6569,live,a trăi,Romanian,also present in Megleno-Romanian as 'trăiri' according to Dicționarul etimologic român
 6691,tree,copac,Romanian,a Balkan Wanderwort; compare Megleno-Romanian 'cupátš'
