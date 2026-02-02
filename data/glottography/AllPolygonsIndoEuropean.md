@@ -51,7 +51,7 @@
 - [ ] [Raji: Barzoki](https://iecor.clld.org/languages/rajibarzoki) ([cent2264](https://glottolog.org/resource/languoid/id/cent2264))
 - [ ] [Pashto](https://iecor.clld.org/languages/pashto) ([yusu1238](https://glottolog.org/resource/languoid/id/yusu1238))
 - [ ] [Sarikoli](https://iecor.clld.org/languages/sarikoli) ([sari1246](https://glottolog.org/resource/languoid/id/sari1246))
-- [ ] [Vâsi-vari: Paṣki](https://iecor.clld.org/languages/vasivaripaski) ([lowe1390](https://glottolog.org/resource/languoid/id/lowe1390))
+- [x] [Vâsi-vari: Paṣki](https://iecor.clld.org/languages/vasivaripaski) ([lowe1390](https://glottolog.org/resource/languoid/id/lowe1390))
 - [ ] [Kurdish S.: Qorveh](https://iecor.clld.org/languages/kurdishsqorveh) ([koly1245](https://glottolog.org/resource/languoid/id/koly1245))
 - [x] [Kamviri](https://iecor.clld.org/languages/kamviri) ([kamv1242](https://glottolog.org/resource/languoid/id/kamv1242))
 - [x] [Kâta-vari: Eastern](https://iecor.clld.org/languages/katavarieastern) ([east2308](https://glottolog.org/resource/languoid/id/east2308))
