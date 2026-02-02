@@ -50,11 +50,11 @@
 
 ### Indo-Iranic
 | `lang1` | `lang2` | `polygon1` | `polygon2` |
-|---------|---------|------------|------------|
+|---------|---------|--------|------|
 | Assamese [assa1263](https://glottolog.org/resource/languoid/id/assa1263) | Bengali [beng1280](https://glottolog.org/resource/languoid/id/beng1280) | ✔ `bouckaert2012indoeuropean` | ✔ `bouckaert2012indoeuropean` |
 | Hindi [hind1269](https://glottolog.org/resource/languoid/id/hind1269) | Urdu [urdu1245](https://glottolog.org/resource/languoid/id/urdu1245) | ✔ `bouckaert2012indoeuropean` | ✔ `bouckaert2012indoeuropean` |
 | Gawri [kala1373](https://glottolog.org/resource/languoid/id/kala1373) | Palula [ashr1238](https://glottolog.org/resource/languoid/id/ashr1238) | ✔ `asher2007world` | ✔ `asher2007world:phal1254` |
-| Kâta-vari: Eastern [east2308](https://glottolog.org/resource/languoid/id/east2308) | Kâta-vari: Ktivi [west2372](https://glottolog.org/resource/languoid/id/west2372) | ❌ `gmi` subtract Komviri? | ❌ `asher:left:kati1270` |
+| Kâta-vari: Eastern [east2308](https://glottolog.org/resource/languoid/id/east2308) | Kâta-vari: Ktivi [west2372](https://glottolog.org/resource/languoid/id/west2372) | ✅ `strandNuristan` | ✅ `strandNuristan` |
 | Khowar [khow1242](https://glottolog.org/resource/languoid/id/khow1242) | Pashai: North-West [nort2665](https://glottolog.org/resource/languoid/id/nort2665) | ✔ `asher2007world` | ✔ `asher2007world:pash1270` |
 | Ossetic: Digor [digo1242](https://glottolog.org/resource/languoid/id/digo1242) | Ossetic: Iron [iron1242](https://glottolog.org/resource/languoid/id/iron1242) | ✔ `bouckaert2012indoeuropean` | ✔ `bouckaert2012indoeuropean` |
 | ~~Sogdian~~ [sogd1245](https://glottolog.org/resource/languoid/id/sogd1245) | Yaghnobi [yagn1238](https://glottolog.org/resource/languoid/id/yagn1238) | ❌ | ❌ `compendiumIranicarum` |
