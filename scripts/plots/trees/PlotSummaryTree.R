@@ -1,15 +1,18 @@
 library(ggplot2)
 library(ggtree)
 library(treeio)
+library(tidytree)
 source("scripts/families/LanguageFamilies.R")
 
-FAMILY <- INDO.EUROPEAN
-GAMMASPIKE <- TRUE
+FAMILY <- PAMA.MARIC
+GAMMASPIKE <- FALSE
 SCALESTUBS <- TRUE
 
 summary.tree <- paste0("data/", if (GAMMASPIKE) "gammaspike/summarytree/" else "relaxed/", FAMILY, ".nex")
 tree <- read.beast(summary.tree)
-df <- as_tibble(tree)
+
+# tree <- tree_subset(tree, "Yiningay", levels_back = 9)
+# df <- as_tibble(tree)
 
 aesthetics <- if (GAMMASPIKE) (if (SCALESTUBS)
   aes(color = weightedSpikes_median / (nstubs_median + 1)) else

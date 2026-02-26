@@ -2,10 +2,12 @@ library(ggplot2)
 library(ggtree)
 library(treeio)
 library(phytools)
+library(tidytree)
 
-tree <- read.beast("data/gammaspike/summarytree/PamaNyungan.nex")
+tree <- read.beast("data/relaxed/PamaNyungan.nex")
+tree <- tree_subset(tree, "Yiningay", levels_back = 9)
+# write.beast(tree, "data/relaxed/PamaMaric.nex", translate = FALSE, tree.name = "summary")
 tree <- as.phylo(tree)
-# tree <- ape::read.tree(text = "((A:0.5, B:1):3, ((C:2, D:2):1, (E:1.5, F:0.75):1.5):1);")
 
 # Force all present day
 tree <- force.ultrametric(tree, method = "nnls")
