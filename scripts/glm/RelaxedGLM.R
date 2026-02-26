@@ -5,7 +5,7 @@ library(bayesplot)
 library(collapse)
 source("scripts/gammaspike/SummaryTree.R")
 
-FAMILY <- PAMA.NYUNGAN
+FAMILY <- PAMA.MARIC
 rates <- read.csv(paste0("data/relaxed/", FAMILY, ".csv"))
 areas <- read.csv(paste0("data/predictors/area/", FAMILY, ".geodesic.csv"))
 distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
@@ -68,7 +68,7 @@ if (TRUE) {
     n_loans +
     log(median_distance_water) +
       log(median_distance) +
-      log(area_sister),
+      log(median_distance_water_sister),
              family = gaussian(link = "log"),
              data = df,
              iter = 4000)
