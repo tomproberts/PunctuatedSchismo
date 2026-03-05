@@ -3,7 +3,7 @@ library(ggdist)
 library(tidyr)
 library(dplyr)
 
-FIT <- "data/glm/PamaMaricRelaxed.RData"
+FIT <- "data/glm/PamaMaric.RData"
 
 par.names <- c(
   "log(total pages)" = "b_log_total_pages",

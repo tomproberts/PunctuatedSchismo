@@ -5,14 +5,14 @@ library(bayesplot)
 library(collapse)
 source("scripts/gammaspike/SummaryTree.R")
 
-FAMILY <- INDO.EUROPEAN
+FAMILY <- PAMA.MARIC
 
 bursts <- read.csv(paste0("data/gammaspike/summarytree/", FAMILY, ".csv"))
 page.counts <- read.csv("data/predictors/grambank_pageCounts.csv")[, c("glcode", "total_pages")]
-distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
 areas <- read.csv(paste0("data/predictors/area/", FAMILY, ".geodesic.csv"))
-water <- read.csv(paste0("data/predictors/water/", FAMILY, ".water.polygons.50.csv"))
-loans <- read.csv("data/predictors/loans/IndoEuropean.csv")
+distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
+water <- read.csv(paste0("data/predictors/water/", FAMILY, ".water.all.50.csv"))
+loans <- read.csv("data/datasets/chirila/LoanStats.csv")
 
 cherries <- get_summary_cherries(FAMILY)
 lang1 <- sapply(cherries, function(e) return(e[1]))
@@ -31,15 +31,16 @@ df <- df[df$cherry %!in% sapply(to.remove, function(l) return(df[df$lang == l,]$
 # Burst
 df <- merge(df, bursts, by.x = "lang", by.y = "label")
 
-# Pages
-df <- merge(df, page.counts, by.x = "glottocode", by.y = "glcode", all.x = TRUE)
-df[is.na(df$total_pages),]$total_pages <- 1
+# # Pages
+# df <- merge(df, page.counts, by.x = "glottocode", by.y = "glcode", all.x = TRUE)
+# df[is.na(df$total_pages),]$total_pages <- 1
 
 # Loans
-df <- merge(df, loans[, c("lang", "n_loans")], by.x = "lang", by.y = "lang", all.x = TRUE)
-df[is.na(df$n_loans),]$n_loans <- 0
-df$spikesNoLoans <- df$weightedSpikes_median - df$n_loans
-# df[df$spikesNoLoans < 0,]$spikesNoLoans <- 0.2
+df <- merge(df, loans[, c("NameNoSpaces", "NumLoans", "NumHapax", "NumTotalLoans", "numberofforms")], by.x = "lang", by.y = "NameNoSpaces", all.x = TRUE)
+if (length(df[is.na(df$NumLoans),]) > 0) df[is.na(df$NumLoans),]$NumLoans <- 0
+if (length(df[is.na(df$numberofforms),]) > 0) df[is.na(df$numberofforms),]$numberofforms <- 1
+df$n_loans <- df$NumLoans
+df$p_loans <- 100 * df$NumLoans / df$numberofforms
 
 # Areas
 df <- merge(df, areas, by.x = "lang", by.y = "lang")
@@ -53,7 +54,7 @@ df$mean_distance_water[is.na(df$mean_distance_water)] <- 100000
 df$median_distance_water[is.na(df$median_distance_water)] <- 100000
 
 # Sisters
-df <- merge(df, df[, c("lang", "weightedSpikes_median", "total_pages", "area", "median_distance", "median_distance_water")],
+df <- merge(df, df[, c("lang", "weightedSpikes_median", "area", "median_distance", "median_distance_water")],
             by.x = "lang_sister", by.y = "lang", suffixes = c("", "_sister"))
 
 EPSILON <- 1
@@ -79,8 +80,9 @@ if (FALSE) {
 if (TRUE) {
   fit <- brm(formula = weightedSpikes_median ~
     n_loans +
-      log(area) +
-      log(area_sister),
+    log(median_distance_water) +
+      log(median_distance) +
+      log(median_distance_water_sister),
              family = Gamma(link = "log"),
              data = df,
              iter = 4000)
