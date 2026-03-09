@@ -8,7 +8,6 @@ source("scripts/gammaspike/SummaryTree.R")
 FAMILY <- PAMA.MARIC
 
 bursts <- read.csv(paste0("data/gammaspike/summarytree/", FAMILY, ".csv"))
-page.counts <- read.csv("data/predictors/grambank_pageCounts.csv")[, c("glcode", "total_pages")]
 areas <- read.csv(paste0("data/predictors/area/", FAMILY, ".geodesic.csv"))
 distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
 water <- read.csv(paste0("data/predictors/water/", FAMILY, ".water.all.50.csv"))
@@ -37,8 +36,8 @@ df <- merge(df, bursts, by.x = "lang", by.y = "label")
 
 # Loans
 df <- merge(df, loans[, c("NameNoSpaces", "NumLoans", "NumHapax", "NumTotalLoans", "numberofforms")], by.x = "lang", by.y = "NameNoSpaces", all.x = TRUE)
-if (length(df[is.na(df$NumLoans),]) > 0) df[is.na(df$NumLoans),]$NumLoans <- 0
-if (length(df[is.na(df$numberofforms),]) > 0) df[is.na(df$numberofforms),]$numberofforms <- 1
+if (nrow(df[is.na(df$NumLoans),]) > 0) df[is.na(df$NumLoans),]$NumLoans <- 0
+if (nrow(df[is.na(df$numberofforms),]) > 0) df[is.na(df$numberofforms),]$numberofforms <- 1
 df$n_loans <- df$NumLoans
 df$p_loans <- 100 * df$NumLoans / df$numberofforms
 
@@ -60,10 +59,7 @@ df <- merge(df, df[, c("lang", "weightedSpikes_median", "area", "median_distance
 EPSILON <- 1
 df$burst <- log(df$weightedSpikes_median / df$weightedSpikes_median_sister)
 df$area_ratio <- log(df$area / df$area_sister)
-df$pages_ratio <- log(df$total_pages / df$total_pages_sister)
 df$distance_diff <- df$median_distance - df$median_distance_sister
-df$log_total_pages <- log(df$total_pages)
-df$log_total_pages_sister <- log(df$total_pages_sister)
 df$median_distance[df$median_distance < EPSILON] <- EPSILON
 df$log_median_distance <- log(df$median_distance)
 df$cherry <- factor(df$cherry)

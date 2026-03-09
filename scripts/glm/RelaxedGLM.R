@@ -38,8 +38,8 @@ df$median_distance_water[is.na(df$median_distance_water)] <- 100000
 
 # Loans
 df <- merge(df, loans[, c("NameNoSpaces", "NumLoans", "NumHapax", "NumTotalLoans", "numberofforms")], by.x = "lang", by.y = "NameNoSpaces", all.x = TRUE)
-if (length(df[is.na(df$NumLoans),]) > 0) df[is.na(df$NumLoans),]$NumLoans <- 0
-if (length(df[is.na(df$numberofforms),]) > 0) df[is.na(df$numberofforms),]$numberofforms <- 1
+if (nrow(df[is.na(df$NumLoans),]) > 0) df[is.na(df$NumLoans),]$NumLoans <- 0
+if (nrow(df[is.na(df$numberofforms),]) > 0) df[is.na(df$numberofforms),]$numberofforms <- 1
 df$n_loans <- df$NumLoans
 df$p_loans <- 100 * df$NumLoans / df$numberofforms
 
