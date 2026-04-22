@@ -67,8 +67,8 @@ if (TRUE) {
   fit <- brm(formula = normalised_rate ~
     n_loans +
     log(median_distance_water) +
-      log(median_distance) +
-      log(area_sister),
+      # log(median_distance) +
+      log(median_distance_water_sister),
              family = gaussian(link = "log"),
              data = df,
              iter = 4000)

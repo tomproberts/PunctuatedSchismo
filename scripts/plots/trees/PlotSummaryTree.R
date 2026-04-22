@@ -3,12 +3,14 @@ library(ggtree)
 library(treeio)
 source("scripts/families/LanguageFamilies.R")
 
-FAMILY <- INDO.EUROPEAN
-GAMMASPIKE <- TRUE
-SCALESTUBS <- TRUE
+FAMILY <- PAMA.NYUNGAN
+GAMMASPIKE <- FALSE
+SCALESTUBS <- FALSE
 
 summary.tree <- paste0("data/", if (GAMMASPIKE) "gammaspike/summarytree/" else "relaxed/", FAMILY, ".nex")
 tree <- read.beast(summary.tree)
+
+tree <- tree_subset(tree, "Garlali", levels_back = 4)
 df <- as_tibble(tree)
 
 aesthetics <- if (GAMMASPIKE) (if (SCALESTUBS)
