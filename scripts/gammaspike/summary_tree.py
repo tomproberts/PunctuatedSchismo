@@ -7,7 +7,7 @@ from scripts.families.utils import LanguageFamily
 
 
 def write_out_data(data: pd.DataFrame, family_name) -> None:
-    data.to_csv(f'data/gammaspike/summarytree/{family_name}.csv', index=False)
+    data.to_csv(f'data/phylo/gammaspike/summary/{family_name}.csv', index=False)
 
 
 def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
@@ -39,7 +39,7 @@ def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
 
 def get_summary_tree_nexus(family_name) -> NexusReader:
     try:
-        return NexusReader.from_file(f'data/gammaspike/summarytree/{family_name}.nex')
+        return NexusReader.from_file(f'data/phylo/gammaspike/summary/{family_name}.nex')
     except Exception as e:
         trace = str(e)
     raise NoSummaryTree(family_name, trace)

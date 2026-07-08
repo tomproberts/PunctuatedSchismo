@@ -2,7 +2,7 @@ library(treeio)
 source("scripts/families/LanguageFamilies.R")
 
 get_summary_cherries <- function(family) {
-  summary.tree <- paste0("data/gammaspike/summarytree/", family, ".nex")
+  summary.tree <- paste0("data/phylo/gammaspike/summary/", family, ".nex")
   df <- as_tibble(read.beast(summary.tree))
   df <- df[!is.na(df$label),]
   parents <- df$parent
