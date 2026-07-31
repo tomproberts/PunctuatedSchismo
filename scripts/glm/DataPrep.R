@@ -1,9 +1,6 @@
-library(brms)
-library(marginaleffects)
-library(ggplot2)
-library(bayesplot)
 library(collapse)
 source("scripts/gammaspike/SummaryTree.R")
+source("scripts/glm/GLMUtils.R")
 
 FAMILY <- INDO.EUROPEAN
 
@@ -22,9 +19,11 @@ df$lang <- append(lang1, lang2)
 df$lang_sister <- append(lang2, lang1)
 df$cherry <- factor(append(seq_along(lang1), seq_along(lang2)))
 
-# Exclude ancestors
-to.remove <- c("Portuguese", "LateCornish", "Icelandic", "English")
-df <- df[df$cherry %!in% sapply(to.remove, function(l) return(df[df$lang == l,]$cherry)),]
+# Exclude sampled ancestors
+if (FAMILY == INDO.EUROPEAN) {
+  to.remove <- c("Portuguese", "LateCornish", "Icelandic", "English", "MiddleWelsh")
+  df <- df[df$cherry %!in% sapply(to.remove, function(l) return(df[df$lang == l,]$cherry)),]
+}
 
 # Loans
 df <- merge(df, loans[, c("lang", "n_loans")], by.x = "lang", by.y = "lang", all.x = TRUE)
@@ -49,36 +48,5 @@ df <- merge(df, df[, c("lang", "area", "median_distance", "median_distance_water
 # Area ratio
 df$area_ratio <- log(df$area / df$area_sister)
 
-# Bursts
-bursts <- read.csv(paste0("data/phylo/gammaspike/summary/", FAMILY, ".csv"))
-df <- merge(df, bursts, by.x = "lang", by.y = "label")
-
-# Compile the model
-if (TRUE) {
-  df$burst <- 1.0
-  compiled <- brm(
-    formula = burst ~
-      n_loans +
-        log(area) +
-        log(area_sister),
-    data = df,
-    family = Gamma(link = "log"),
-    chains = 0,
-    iter = 4000)
-  # Save compilation output
-  filename <- paste0("data/glm/compiled.", FAMILY, ".RData")
-  save(compiled, file = filename)
-  cat(paste("Saved compiled object to", filename, "\n"))
-}
-
-# Fit the model
-if (TRUE) {
-  df$burst <- df$weightedSpikes_median
-  filename <- paste0("data/glm/compiled.", FAMILY, ".RData")
-  load(filename)
-  fit <- update(compiled, chains = 4, newdata = df)
-  # Save model output
-  filename <- paste0("data/glm/", FAMILY, ".RData")
-  save(fit, file = filename)
-  cat(paste("Wrote out fit to", filename, "\n"))
-}
+# Write out dataframe
+write.prepared.df(df, FAMILY)
