@@ -4,10 +4,10 @@ source("scripts/glm/GLMUtils.R")
 
 FAMILY <- INDO.EUROPEAN
 
-distances <- read.csv(paste0("data/predictors/contact/", FAMILY, ".contact.500.csv"))
-areas <- read.csv(paste0("data/predictors/area/", FAMILY, ".geodesic.csv"))
-water <- read.csv(paste0("data/predictors/water/", FAMILY, ".water.polygons.50.csv"))
-loans <- read.csv("data/predictors/loans/IndoEuropean.csv")
+distances <- read.csv(get.contact.csv(FAMILY))
+areas <- read.csv(get.areas.csv(FAMILY))
+water <- read.csv(get.water.csv(FAMILY))
+loans <- get.loans.df(FAMILY)
 
 cherries <- get_summary_cherries(FAMILY)
 lang1 <- sapply(cherries, function(e) return(e[1]))
@@ -26,8 +26,9 @@ if (FAMILY == INDO.EUROPEAN) {
 }
 
 # Loans
-df <- merge(df, loans[, c("lang", "n_loans")], by.x = "lang", by.y = "lang", all.x = TRUE)
+df <- merge(df, loans, by = "lang", all.x = TRUE)
 df[is.na(df$n_loans),]$n_loans <- 0
+df[is.na(df$p_loans),]$p_loans <- 0
 
 # Areas
 df <- merge(df, areas, by.x = "lang", by.y = "lang")
@@ -42,8 +43,9 @@ df$mean_distance_water[is.na(df$mean_distance_water)] <- 100000
 df$median_distance_water[is.na(df$median_distance_water)] <- 100000
 
 # Sisters
-df <- merge(df, df[, c("lang", "area", "median_distance", "median_distance_water")],
+df <- merge(df, df[, c("lang", "area", "median_distance", "median_distance_water", "n_loans", "p_loans")],
             by.x = "lang_sister", by.y = "lang", suffixes = c("", "_sister"))
+df <- df[order(df$lang), c(2, 1, 3:ncol(df))]  # fix ordering by lang_sister
 
 # Area ratio
 df$area_ratio <- log(df$area / df$area_sister)

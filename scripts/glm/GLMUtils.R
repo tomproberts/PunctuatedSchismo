@@ -10,7 +10,7 @@ fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, output
     stop("Predictor for relaxed must be 'rate'")
 
   # Load prepared data
-  cat(paste0("Setting up a GLM for ", family, " [", format(formula),  "]...\n"))
+  cat(paste0("Setting up a GLM for ", family, " [", format(formula), "]...\n"))
   df <- read.prepared.df(family)
 
   # Config
@@ -35,7 +35,7 @@ fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, output
   # Fit model for summary results
   if (punctuated) {
     df <- merge(df, get.summary.bursts(family), by.x = "lang", by.y = "label")
-    df$burst <- df$weightedSpikes_median
+    df$burst <- df$weightedSpikes_median   # each a csv column, weightedSpikes_0, weightedSpikes_10000, etc.
   }
   if (relaxed) {
     df <- merge(df, get.summary.rates(family), by.x = "lang", by.y = "label")
@@ -48,7 +48,9 @@ fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, output
 }
 
 write.prepared.df <- function(df, family) {
-  write.csv(df, paste0("data/glm/data.", family, ".csv"), quote = FALSE, row.names = FALSE)
+  filename <- paste0("data/glm/data.", family, ".csv")
+  write.csv(df, filename, quote = FALSE, row.names = FALSE)
+  cat(paste0("Saved prepared data to '", filename, "'\n"))
 }
 
 read.prepared.df <- function(family) {
@@ -58,9 +60,9 @@ read.prepared.df <- function(family) {
   return(read.csv(file.name))
 }
 
-params.to.string <- function (params) {
+params.to.string <- function(params) {
   if (!is.null(params) && params == "") params <- NULL
-  return (paste("", params, sep = ".", collapse = "", recycle0 = TRUE))
+  return(paste("", params, sep = ".", collapse = "", recycle0 = TRUE))
 }
 
 cache.compiled <- function(compiled, family, params = NULL) {
@@ -92,4 +94,52 @@ get.summary.rates <- function(family) {
 save.fit <- function(fit, file.name) {
   save(fit, file = file.name)
   cat(paste0("Wrote out fit to '", file.name, "'\n"))
+}
+
+get.loans.df <- function(family) {
+  loans.df <- NULL
+  if (family == INDO.EUROPEAN) {
+    loans.df <- read.csv("data/predictors/loans/IndoEuropean.csv")
+    loans.df$p_loans <- 100 * loans.df$n_loans / 170
+  } else if (family == PAMA.NYUNGAN) {
+    loans.df <- read.csv("data/datasets/chirila/LoanStats.csv")
+    loans.df$lang <- loans.df$NameNoSpaces
+    loans.df$n_loans <- loans.df$NumLoans
+    loans.df$p_loans <- 100 * loans.df$NumLoans / loans.df$numberofforms
+  } else stop(paste0("get.loans called for unrecognised family '", family, "'"))
+
+  # select number and proportion of loans
+  loans.df <- loans.df[, c('lang', 'n_loans', 'p_loans')]
+  return(loans.df)
+}
+
+get.water.csv <- function(family, sample.points = NULL, type = NULL) {
+  # set defaults
+  if (is.null(sample.points)) sample.points <- 50
+  if (is.null(type)) {
+    if (family == INDO.EUROPEAN) type <- "polygons"
+    if (family == PAMA.NYUNGAN) type <- "all"
+  }
+
+  filename <- paste0("data/predictors/water/", family, ".water.", type, ".", sample.points, ".csv")
+  return(filename)
+}
+
+get.areas.csv <- function(family) {
+  filename <- paste0("data/predictors/area/", family, ".geodesic.csv")
+  return(filename)
+}
+
+get.contact.csv <- function(family, sample.points = NULL, symmetric = NULL) {
+  # set defaults
+  if (is.null(symmetric)) symmetric <- FALSE
+  if (is.null(sample.points)) {
+    if (symmetric) sample.points <- 50
+    else sample.points <- 500
+  }
+  if (symmetric) type <- "symmetric"
+  else type <- "contact"
+
+  filename <- paste0("data/predictors/contact/", family, ".", type, ".", sample.points, ".csv")
+  return(filename)
 }

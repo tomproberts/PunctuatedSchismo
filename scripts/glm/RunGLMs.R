@@ -22,5 +22,15 @@ fit.glm(
 )
 
 # Gradual Pama-Nyungan
+fit.glm(
+  family = PAMA.NYUNGAN,
+  relaxed = TRUE,
+  formula = formula(
+    rate ~ n_loans +
+      log(median_distance_water) +
+      log(median_distance_water_sister),
+  ),
+  output = "data/glm/PamaNyunganRelaxed.RData"
+)
 
 # Punctuated Pama-Nyungan
