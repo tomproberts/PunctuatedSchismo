@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 from scripts.families.utils import LanguageFamily
 from scripts.families.uto_aztecan import UtoAztecan
-from scripts.gammaspike.summary_tree import summary_tree_cherries
+from scripts.phylo.summary_tree import summary_tree_cherries
 from scripts.predictors.contact import CONTACT_DIR
 from scripts.predictors.polygons.glottography import Glottography
 from scripts.predictors.polygons.glottography_config import get_config

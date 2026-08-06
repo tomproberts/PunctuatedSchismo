@@ -1,5 +1,5 @@
 library(treeio)
-source("scripts/families/LanguageFamilies.R")
+source("../families/LanguageFamilies.R")
 
 get_summary_cherries <- function(family) {
   summary.tree <- paste0("data/phylo/gammaspike/summary/", family, ".nex")
