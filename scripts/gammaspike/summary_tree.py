@@ -23,7 +23,7 @@ def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
         glottocode = family.get_glottocode_from_language_id(language_id)
 
         leaf_data.append({
-            'label': ascii_name,
+            'lang': ascii_name,
             'name': family.get_language_from_language_id(language_id),
             'glottocode': glottocode,
             # scale bursts sizes for number of cognate sets

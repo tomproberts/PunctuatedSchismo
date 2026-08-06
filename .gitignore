@@ -3,8 +3,8 @@ tmp/
 .Rhistory
 .DS_Store
 __pycache__/
-data/phylo/gammaspike/full/*.log
-data/phylo/gammaspike/full/*.trees
+data/phylo/*/full/*.log
+data/phylo/*/full/*.trees
 data/glottography/*_glottocode_to_polygons.csv
 data/glottography/*.gpkg
 data/water/*.gdb/

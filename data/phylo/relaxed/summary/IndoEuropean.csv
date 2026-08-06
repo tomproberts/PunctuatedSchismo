@@ -1,4 +1,4 @@
-label,name,glottocode,rate,rate_median
+lang,name,glottocode,rate,rate_median
 AlbanianArberesh,Albanian: Arbëresh,arbe1236,0.0053939306765243104,0.004930310913509956
 AlbanianGheg,Albanian: Gheg,gheg1238,0.00275120565336212,0.0024661133020298666
 AlbanianStandard,Albanian: Standard,alba1267,0.00360574141437971,0.0032115549930384624

@@ -34,11 +34,11 @@ fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, output
 
   # Fit model for summary results
   if (punctuated) {
-    df <- merge(df, get.summary.bursts(family), by.x = "lang", by.y = "label")
+    df <- merge(df, get.summary.bursts(family), by = "lang")
     df$burst <- df$weightedSpikes_median   # each a csv column, weightedSpikes_0, weightedSpikes_10000, etc.
   }
   if (relaxed) {
-    df <- merge(df, get.summary.rates(family), by.x = "lang", by.y = "label")
+    df <- merge(df, get.summary.rates(family), by = "lang")
     df$rate <- df$rate_median
   }
   fit <- update(c, chains = 4, iter = 4000, newdata = df)

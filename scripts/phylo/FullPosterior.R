@@ -1,5 +1,4 @@
 get_burn_in <- function(family) {
-  family <- check_indoeuropean(family)
   if (family == INDO.EUROPEAN) return(1000)
   if (family == DRAVIDIAN) return(1500)
   if (family == URALIC) return(350)
@@ -8,7 +7,6 @@ get_burn_in <- function(family) {
 }
 
 get_translation <- function(family) {
-  family <- check_indoeuropean(family)
   t <- read.csv(paste0("data/phylo/gammaspike/translations/", family, ".translation"))
   translation <- t$node
   names(translation) <- t$ascii_name
@@ -16,7 +14,6 @@ get_translation <- function(family) {
 }
 
 get_full_log <- function(family) {
-  family <- check_indoeuropean(family)
   df <- read.csv(paste0("data/phylo/gammaspike/full/", family, ".log"), sep = "\t", comment.char = "#")
   return(df[(get_burn_in(family) + 1):nrow(df),])
 }
