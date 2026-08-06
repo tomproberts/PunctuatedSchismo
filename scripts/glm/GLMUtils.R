@@ -1,12 +1,14 @@
 library(brms)
+library(rstan)
 
-fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, output = "data/glm/out.RData") {
+fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, output = "data/glm/out.RData", full = FALSE, seed = NA, thin = 20) {
   # Sanitise input
   if (punctuated && relaxed || !punctuated && !relaxed)
     stop("Either punctuated or relaxed must be set to TRUE, but not both")
-  if (punctuated && formula[[2]] != "burst")
+  resp <- format(formula[[2]])
+  if (punctuated && resp != "burst")
     stop("Predictor for punctuated must be 'burst'")
-  if (relaxed && formula[[2]] != "rate")
+  if (relaxed && resp != "rate")
     stop("Predictor for relaxed must be 'rate'")
 
   # Load prepared data
@@ -28,20 +30,60 @@ fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, output
   # Pre-compile model if necessary
   c <- get.cached(family, params, strict = FALSE)
   if (is.null(c) || !(c$formula == formula)[[1]]) {
-    c <- brm(formula = formula, data = df, family = exp.family, chains = 0, iter = 1000)
+    c <- brm(formula = formula, data = df, family = exp.family, chains = 0, iter = 1000, seed = seed)
     cache.compiled(c, family, params)
   }
 
-  # Fit model for summary results
-  if (punctuated) {
-    df <- merge(df, get.summary.bursts(family), by = "lang")
-    df$burst <- df$weightedSpikes_median   # each a csv column, weightedSpikes_0, weightedSpikes_10000, etc.
+  # Load rates/burst data
+  if (full) {
+    # Use full posterior (downsampled)
+    cat("Preparing to sample fits from posterior draws...\n")
+    if (punctuated) {
+      resp.df <- get.posterior.bursts(family)
+      response.cols <- names(resp.df)
+      response.cols <- response.cols[startsWith(response.cols, "weightedSpikes_")]
+    }
+    if (relaxed) {
+      resp.df <- get.posterior.rates(family)
+      response.cols <- names(resp.df)
+      response.cols <- response.cols[startsWith(response.cols, "rate_")]
+    }
+  } else {
+    # Use summary tree data
+    cat("Preparing to sample fits from summary tree data...\n")
+    if (punctuated) {
+      resp.df <- get.summary.bursts(family)
+      response.cols <- c("weightedSpikes_median")
+    }
+    if (relaxed) {
+      resp.df <- get.summary.rates(family)
+      response.cols <- c("rate_median")
+    }
+    thin <- 1
   }
-  if (relaxed) {
-    df <- merge(df, get.summary.rates(family), by = "lang")
-    df$rate <- df$rate_median
+
+  # Merge into one dataframe
+  df <- merge(df, resp.df, by = "lang", suffixes = c("", "."))
+
+  # Loop through data draws and fit model, adding to list of fits
+  fits <- c()
+  for (i in seq_along(response.cols)) {
+    # Assign selected data to response (e.g. df$burst <- df$burst_170000) and fit the model
+    df[resp] <- df[, response.cols[i]]
+    fit <- update(c, chains = 4, iter = 4000, newdata = df, seed = seed, thin = thin)
+    fits <- c(fits, fit$fit)
+
+    # Progress
+    cat("---------\n")
+    cat(paste("Fit model", i, "of", length(response.cols), "!\n"))
+    cat("---------\n")
   }
-  fit <- update(c, chains = 4, iter = 4000, newdata = df)
+
+  # Combine fits together
+  if (full && length(fits) > 1) {
+    fit <- sflist2stanfit(fits)
+  }
+  else fit <- fits[[1]]
 
   # Save model output
   save.fit(fit, output)
@@ -89,6 +131,14 @@ get.summary.bursts <- function(family) {
 
 get.summary.rates <- function(family) {
   return(read.csv(paste0("data/phylo/relaxed/summary/", family, ".csv")))
+}
+
+get.posterior.rates <- function(family) {
+  return(read.csv(paste0("data/phylo/relaxed/full/", family, ".csv")))
+}
+
+get.posterior.bursts <- function(family) {
+  return(read.csv(paste0("data/phylo/gammaspike/full/", family, ".csv")))
 }
 
 save.fit <- function(fit, file.name) {

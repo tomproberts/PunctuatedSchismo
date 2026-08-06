@@ -8,6 +8,7 @@ fit.glm(
   formula = formula(
     rate ~ n_loans + log(area) + log(area_sister)
   ),
+  full = TRUE,
   output = "data/glm/IndoEuropeanRelaxed.RData"
 )
 
