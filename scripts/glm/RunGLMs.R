@@ -19,7 +19,9 @@ fit.glm(
   formula = formula(
     burst ~ n_loans + log(area) + log(area_sister)
   ),
-  output = "data/glm/IndoEuropean.RData"
+  full = TRUE,
+  output = "data/glm/IndoEuropean.RData",
+  thin = 1
 )
 
 # Gradual Pama-Nyungan

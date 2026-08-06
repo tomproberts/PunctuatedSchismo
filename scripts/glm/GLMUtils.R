@@ -41,7 +41,7 @@ fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, output
     if (punctuated) {
       resp.df <- get.posterior.bursts(family)
       response.cols <- names(resp.df)
-      response.cols <- response.cols[startsWith(response.cols, "weightedSpikes_")]
+      response.cols <- response.cols[startsWith(response.cols, "burst_")]
     }
     if (relaxed) {
       resp.df <- get.posterior.rates(family)
