@@ -5,20 +5,20 @@ library(dplyr)
 
 FIT <- "data/glm/IndoEuropean.RData"
 
-par.names <- c(
-  "log(total pages)" = "b_log_total_pages",
-  "log(area)" = "b_logarea",
-  "log(sister's area)" = "b_logarea_sister",
-  "log(area/area of sister)" = "b_area_ratio",
-  "log(total pages of sister)" = "b_log_total_page_sister",
+set.seed(42)
+
+par.names <- rev(c(
   "number of loans" = "b_n_loans",
   "sister's number of loans" = "b_n_loans_sister",
   "proportion of loans" = "b_p_loans",
   "sister's loan proportion" = "b_p_loans_sister",
+  "log(area)" = "b_logarea",
   "log(distance to water)" = "b_logmedian_distance_water",
   "log(distance from sister)" = "b_logmedian_distance",
-  "log(sister's distance to water)" = "b_logmedian_distance_water_sister"
-)
+  "log(sister's area)" = "b_logarea_sister",
+  "log(sister's distance to water)" = "b_logmedian_distance_water_sister",
+  "log(area/area of sister)" = "b_area_ratio"
+))
 
 exclude <- c(
   "b_Intercept"
@@ -27,12 +27,14 @@ exclude <- c(
 load(FIT)
 draws <- as.data.frame(fit)
 pars <- colnames(draws)
-pars <- pars[sapply(pars, function(n) return(startsWith(n, "b_") & !(n %in% exclude)))]
+pars <- pars[startsWith(pars, "b_") & !(pars %in% exclude)]
 
 draws <- draws[, pars]
 if (length(pars) == 1) {
+  draws <- sample(draws, min(10000, nrow(draws)))
   draws.df <- data.frame(value = draws, coefficient = names(par.names)[par.names == pars])
 } else {
+  draws <- sample_n(draws, min(10000, nrow(draws)))
   draws.df <- pivot_longer(rename(draws, any_of(par.names)), cols = everything(), names_to = "coefficient", values_to = "value")
 }
 draws.df$coefficient <- factor(draws.df$coefficient, levels = names(par.names))
