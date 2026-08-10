@@ -12,3 +12,4 @@ data/water/*.pbf
 data/water/tmp*
 data/datasets/chirila/LoanStats.csv
 data/glm/compiled*
+data/glm/*.RData
