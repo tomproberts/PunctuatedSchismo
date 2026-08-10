@@ -1,7 +1,7 @@
 library(brms)
 library(rstan)
 
-fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, output = "data/glm/out.RData", full = FALSE, seed = NA, thin = 20) {
+fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, exp.family = gaussian(link = "log"), output = "data/glm/out.RData", full = FALSE, seed = NA, thin = 1) {
   # Sanitise input
   if (punctuated && relaxed || !punctuated && !relaxed)
     stop("Either punctuated or relaxed must be set to TRUE, but not both")
@@ -17,12 +17,10 @@ fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, output
 
   # Config
   if (punctuated) {
-    exp.family <- Gamma(link = "log")
     df$burst <- 1.0
     params <- ""
   }
   if (relaxed) {
-    exp.family <- gaussian(link = "log")
     df$rate <- 1.0
     params <- "relaxed"
   }
@@ -81,6 +79,7 @@ fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, output
 
   # Combine fits together
   if (full && length(fits) > 1) {
+    cat(paste("Combining", length(response.cols), "model fits...\n"))
     fit <- sflist2stanfit(fits)
   }
   else fit <- fits[[1]]
