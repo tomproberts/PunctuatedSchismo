@@ -8,7 +8,7 @@ FAMILY <- INDO.EUROPEAN
 GAMMASPIKE <- TRUE
 SCALESTUBS <- TRUE
 
-summary.tree <- paste0("data/", if (GAMMASPIKE) "gammaspike/summarytree/" else "relaxed/", FAMILY, ".nex")
+summary.tree <- paste0("data/phylo/", if (GAMMASPIKE) "gammaspike/summary/" else "relaxed/", FAMILY, ".nex")
 tree <- read.beast(summary.tree)
 
 # tree <- tree_subset(tree, "Garlali", levels_back = 4)

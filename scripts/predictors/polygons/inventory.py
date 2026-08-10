@@ -1,5 +1,5 @@
 from scripts.families.sino_tibetan import SinoTibetan
-from scripts.gammaspike.summary_tree import summary_tree_cherries, NoSummaryTree
+from scripts.phylo.summary_tree import summary_tree_cherries, NoSummaryTree
 from scripts.predictors.polygons.glottography import Glottography, LiterallyNoPolygonException
 from scripts.predictors.polygons.glottography_config import get_config
 

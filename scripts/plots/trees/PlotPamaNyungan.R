@@ -3,7 +3,7 @@ library(ggtree)
 library(treeio)
 library(phytools)
 
-tree <- read.beast("data/gammaspike/summarytree/PamaNyungan.nex")
+tree <- read.beast("data/phylo/gammaspike/summary/PamaNyungan.nex")
 tree <- as.phylo(tree)
 # tree <- ape::read.tree(text = "((A:0.5, B:1):3, ((C:2, D:2):1, (E:1.5, F:0.75):1.5):1);")
 

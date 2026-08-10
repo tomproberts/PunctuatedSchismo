@@ -3,11 +3,13 @@ tmp/
 .Rhistory
 .DS_Store
 __pycache__/
-data/gammaspike/full/*.log
-data/gammaspike/full/*.trees
+data/phylo/*/full/*.log
+data/phylo/*/full/*.trees
 data/glottography/*_glottocode_to_polygons.csv
 data/glottography/*.gpkg
 data/water/*.gdb/
 data/water/*.pbf
 data/water/tmp*
 data/datasets/chirila/LoanStats.csv
+data/glm/compiled*
+data/glm/*.RData

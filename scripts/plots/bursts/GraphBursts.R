@@ -1,7 +1,7 @@
 library(ggplot2)
 library(ggdist)
-source("scripts/gammaspike/SummaryTree.R")
-source("scripts/gammaspike/FullPosterior.R")
+source("../../phylo/SummaryTree.R")
+source("../../phylo/FullPosterior.R")
 
 FAMILY <- PAMA.NYUNGAN
 df <- get_full_log(FAMILY)
