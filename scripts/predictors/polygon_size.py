@@ -1,10 +1,11 @@
 import pandas as pd
 from tqdm import tqdm
 
-from scripts.families.uto_aztecan import UtoAztecan
-from scripts.predictors.polygons.glottography import LiterallyNoPolygonException, MultiplePolygonException, \
-    PolygonNotFoundException, Glottography
-from scripts.predictors.polygons.glottography_config import get_config
+from scripts.families.indo_european import IndoEuropean
+from scripts.families.pama_nyungan import PamaNyungan
+from scripts.predictors.polygons.poly_utils import LiterallyNoPolygonException, MultiplePolygonException, \
+    PolygonNotFoundException
+from scripts.predictors.polygons.polygon_source import Polygons
 from scripts.predictors.utils import write_out_df
 
 POLYGON_SIZE = 'area'
@@ -19,14 +20,14 @@ def write_out_polygon_size(dataframe, family_name, type):
     write_out_df(POLYGON_SIZE, file_name, dataframe)
 
 
-def calculate_areas(glottography, asciis):
+def calculate_areas(polygon_source, asciis):
     df_data = []
     errors = []
     for lang in tqdm(asciis):
         try:
             # Collect polygon and lang meta
             code = family.get_glottocode_from_ascii(lang)
-            polygon = glottography.get_polygon_from_ascii(family, lang)
+            polygon = polygon_source.get_polygon_from_ascii(lang)
             area = area_of_polygon(polygon)
             # Add to list
             df_data.append({'lang': lang, 'glottocode': code, 'area': area})
@@ -39,12 +40,11 @@ def calculate_areas(glottography, asciis):
 
 
 if __name__ == '__main__':
-    # Get family and glottography setup
-    family = UtoAztecan()
-    glottography = Glottography(get_config(family.name), geodesic=True)
-    # glottography = PamaNyunganPolygons(geodesic=True)
+    # Get family and polygon_source setup
+    family = IndoEuropean()
+    polygon_source = Polygons.get_source(family.name)
 
     # Calculate and save as csv the polygon areas
-    df = calculate_areas(glottography, family.languages_ascii)
+    df = calculate_areas(polygon_source, family.languages_ascii)
     write_out_polygon_size(df, family.name, type='geodesic')
     print(f'Wrote out polygon sizes for {family.name}')
