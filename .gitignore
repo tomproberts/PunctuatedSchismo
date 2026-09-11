@@ -5,8 +5,8 @@ tmp/
 __pycache__/
 data/phylo/*/full/*.log
 data/phylo/*/full/*.trees
-data/glottography/*_glottocode_to_polygons.csv
-data/glottography/*.gpkg
+data/polygons/*_glottocode_to_polygons.csv
+data/polygons/*.gpkg
 data/water/*.gdb/
 data/water/*.pbf
 data/water/tmp*
