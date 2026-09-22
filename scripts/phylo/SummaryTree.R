@@ -1,5 +1,5 @@
 library(treeio)
-source("../families/LanguageFamilies.R")
+source("scripts/families/LanguageFamilies.R")
 
 get_summary_cherries <- function(family) {
   summary.tree <- paste0("data/phylo/gammaspike/summary/", family, ".nex")
@@ -35,9 +35,9 @@ get_manual_cherries <- function(family) {
     # c("BretonTreger", "BretonGwened"),
     # c("GaelicScottish", "GaelicManx"),
     # c("Portuguese", "PortugueseBrazilian"),
-    c("French", "FrancoProvencal"),
-    c("SardinianNuoro", "SardinianLogudoro"),
-    c("Latvian", "Latgalian"),
+    # c("French", "FrancoProvencal"),
+    # c("SardinianNuoro", "SardinianLogudoro"),
+    # c("Latvian", "Latgalian"),
     c("Ukrainian", "Belarusian")
     # c("OldFrench", "AngloNorman"),
     # c("Italian", "Milanese"),

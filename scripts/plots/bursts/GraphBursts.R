@@ -1,7 +1,8 @@
 library(ggplot2)
 library(ggdist)
-source("../../phylo/SummaryTree.R")
-source("../../phylo/FullPosterior.R")
+library(systemfonts)
+source("scripts/phylo/SummaryTree.R")
+source("scripts/phylo/FullPosterior.R")
 
 FAMILY <- PAMA.NYUNGAN
 df <- get_full_log(FAMILY)
@@ -11,7 +12,8 @@ cherries <- get_manual_cherries(FAMILY)
 
 translation <- get_translation(FAMILY)
 
-df <- df[1:500,]
+
+# df <- df[1:500,]
 result.df <- setNames(data.frame(matrix(ncol = 4, nrow = 0)), c("burst", "name", "cherry", "side"))
 for (cherry in cherries) {
   l1 <- translation[[cherry[1]]]
@@ -35,14 +37,20 @@ result.df <- result.df[result.df$burst < 300,]
 
 ggplot(result.df) +
   theme_light() +
-  theme(legend.position = "none",
-        axis.text = element_text(size = 12),
-        axis.title = element_text(size = 18)) +
+  theme(
+    legend.position = "none",
+    plot.margin = margin(t = 10, r = 5, b = -10, l = 5),
+    text = element_text(family = "Linux Biolinum"),
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 18)
+  ) +
   aes(x = cherry, y = burst, fill = side, side = side) +
   stat_slab(aes(fill_ramp = after_stat(level)),
             # .width = c(.5, .89, 1), scale = 1.1, width = 0.7, normalize = "xy", trim = FALSE
-            .width = c(.5, .89, 1), scale = .18, width = 1, normalize = "groups",
+            .width = c(.5, .89, 1), scale = .6, width = 1, normalize = "groups",
   ) +
-  coord_cartesian(ylim = c(0, 300)) +
-  xlab("language pair") +
+  # coord_cartesian(ylim = c(0, 10), expand = 0) +
+  xlab("") +
   ylab("punctuated change (% vocab)")
+
+# ggsave('./sardinianBurst.pdf', device = cairo_pdf)
