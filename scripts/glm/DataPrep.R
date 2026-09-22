@@ -1,5 +1,5 @@
 library(collapse)
-source("../phylo/SummaryTree.R")
+source("scripts/phylo/SummaryTree.R")
 source("scripts/glm/GLMUtils.R")
 
 FAMILY <- INDO.EUROPEAN
