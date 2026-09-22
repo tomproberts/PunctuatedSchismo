@@ -1,8 +1,9 @@
 library(treeio)
 source("scripts/families/LanguageFamilies.R")
 
-get_summary_cherries <- function(family) {
-  summary.tree <- paste0("data/phylo/gammaspike/summary/", family, ".nex")
+get_summary_cherries <- function(family, gammaspike = TRUE) {
+  type <- if (gammaspike) "gammaspike" else "relaxed"
+  summary.tree <- paste0("data/phylo/", type, "/summary/", family, ".nex")
   df <- as_tibble(read.beast(summary.tree))
   df <- df[!is.na(df$label),]
   parents <- df$parent
@@ -66,14 +67,15 @@ get_manual_cherries <- function(family) {
     # c("Bengali", "Assamese")
   ))
   if (family == PAMA.NYUNGAN) return(list(
-    c("Thaynakwith", "Mbakwithi"),
-    c("Walangama", "Ikarranggal"),
-    c("UwOykangand", "Olkola"),
-    c("KLY", "KKY"),
-    c("Wulguru", "Coonambella"),
-    c("Djambarrpuyngu", "Dhuwal"),
-    c("Lardil", "Kayardild"),
-    c("MathiMathi", "LakeHindmarsh"),
-    c("WangkumaraMcDWur", "Wangkumara")
+    # c("Yidiny", "Djabugay")
+    # c("Bandjalang", "Githabul")
+    # c("Pirriya", "Kungkari")
+    # c("Gunya", "Margany")
+    # c("Wargamay", "Nyawaygi")
+    # c("UwOykangand", "Olkola")
+    # c("Dharawala", "Tambo")
+    # c("MayiThakurti", "Wanamara")
+    c("YortaYorta", "YabulaYabula")
+    # c("Keramin", "YithaYitha")
   ))
 }
