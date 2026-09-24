@@ -40,6 +40,7 @@ for (cherry in cherries) {
 
 response.to.percentage <- 0.5 * get_n_sites(FAMILY) / get_n_concepts(FAMILY) * 100
 result.df$response <- result.df$response * response.to.percentage
+#average.clockrate <- mean(normalise) * response.to.percentage  # should be around 7.84%?
 
 y.label <- if (GAMMASPIKE) "punctuated change (% vocab)" else "branch rate (% vocab/Ka)"
 
@@ -57,7 +58,8 @@ ggplot(result.df) +
             # .width = c(.5, .89, 1), scale = 1.1, width = 0.7, normalize = "xy", trim = FALSE
             .width = c(.5, .89, 1), scale = .6, width = 1, normalize = "groups",
   ) +
-  # coord_cartesian(ylim = c(0, 10), expand = 0) +
+  # (if (!GAMMASPIKE) geom_hline(yintercept = average.clockrate, linetype = "dashed", color = "darkgrey"))+
+  coord_cartesian(ylim = c(0, 40), expand = 0) +
   xlab("") +
   ylab(y.label)
 
