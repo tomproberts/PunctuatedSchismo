@@ -2,6 +2,7 @@ library(ggplot2)
 library(ggdist)
 library(tidyr)
 library(dplyr)
+library(systemfonts)
 
 FIT <- "data/glm/IndoEuropean.RData"
 
@@ -41,9 +42,13 @@ draws.df$coefficient <- factor(draws.df$coefficient, levels = names(par.names))
 
 ggplot(draws.df, aes(x = value, y = coefficient)) +
   theme_light() +
-  theme(legend.position = "none",
-        axis.text = element_text(size = 16),
-        axis.title = element_text(size = 12)) +
+  theme(
+    legend.position = "none",
+    text = element_text(family = "Linux Biolinum"),
+    # axis.text.x=element_blank(),
+    axis.text = element_text(size = 18),
+    axis.title = element_text(size = 18)
+  ) +
   stat_interval(aes(interval_alpha = after_stat(level)),
                 .width = c(0.5, 0.89, 1),
                 interval_colour = "#00bfc4", linewidth = 6) +
@@ -52,3 +57,5 @@ ggplot(draws.df, aes(x = value, y = coefficient)) +
   ggtitle(FIT) +
   xlab("effect on punctuated change") +
   ylab("")
+
+# ggsave('./coefficients.pdf', device = cairo_pdf)

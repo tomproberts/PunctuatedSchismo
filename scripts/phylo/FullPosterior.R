@@ -1,4 +1,4 @@
-get_burn_in <- function(family) {
+get_burn_in <- function(family, gammaspike = TRUE) {
   if (family == INDO.EUROPEAN) return(1000)
   if (family == DRAVIDIAN) return(1500)
   if (family == URALIC) return(350)
@@ -6,14 +6,16 @@ get_burn_in <- function(family) {
   return(0)
 }
 
-get_translation <- function(family) {
-  t <- read.csv(paste0("data/phylo/gammaspike/translations/", family, ".translation"))
+get_translation <- function(family, gammaspike = TRUE) {
+  type <- if (gammaspike) "gammaspike" else "relaxed"
+  t <- read.csv(paste0("data/phylo/", type, "/translations/", family, ".translation"))
   translation <- t$node
   names(translation) <- t$ascii_name
   return(translation)
 }
 
-get_full_log <- function(family) {
-  df <- read.csv(paste0("data/phylo/gammaspike/full/", family, ".log"), sep = "\t", comment.char = "#")
-  return(df[(get_burn_in(family) + 1):nrow(df),])
+get_full_log <- function(family, gammaspike = TRUE) {
+  type <- if (gammaspike) "gammaspike" else "relaxed"
+  df <- read.csv(paste0("data/phylo/", type, "/full/", family, ".log"), sep = "\t", comment.char = "#")
+  return(df[(get_burn_in(family, gammaspike) + 1):nrow(df),])
 }
