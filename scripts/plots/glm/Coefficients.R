@@ -10,14 +10,14 @@ set.seed(42)
 
 par.names <- rev(c(
   "number of loans" = "b_n_loans",
-  "sister's number of loans" = "b_n_loans_sister",
+  "sister’s number of loans" = "b_n_loans_sister",
   "proportion of loans" = "b_p_loans",
-  "sister's loan proportion" = "b_p_loans_sister",
+  "sister’s loan proportion" = "b_p_loans_sister",
   "log(area)" = "b_logarea",
   "log(distance to water)" = "b_logmedian_distance_water",
   "log(distance from sister)" = "b_logmedian_distance",
-  "log(sister's area)" = "b_logarea_sister",
-  "log(sister's distance to water)" = "b_logmedian_distance_water_sister",
+  "log(sister’s area)" = "b_logarea_sister",
+  "log(sister’s distance to water)" = "b_logmedian_distance_water_sister",
   "log(area/area of sister)" = "b_area_ratio"
 ))
 
@@ -50,12 +50,12 @@ ggplot(draws.df, aes(x = value, y = coefficient)) +
     axis.title = element_text(size = 18)
   ) +
   stat_interval(aes(interval_alpha = after_stat(level)),
-                .width = c(0.5, 0.89, 1),
+                .width = c(0.5, 0.89, 0.99),
                 interval_colour = "#00bfc4", linewidth = 6) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "darkgrey") +
   # xlim(-0.5, 0.5) +
   ggtitle(FIT) +
-  xlab("effect on punctuated change") +
+  xlab("effect on rate of change") +
   ylab("")
 
 # ggsave('./coefficients.pdf', device = cairo_pdf)
