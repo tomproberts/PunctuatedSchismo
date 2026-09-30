@@ -8,17 +8,16 @@ from tqdm import tqdm
 
 from scripts.families.indo_european import IndoEuropean
 from scripts.families.pama_nyungan import PamaNyungan
-from scripts.families.uto_aztecan import UtoAztecan
 from scripts.predictors.contact import sample_points
 from scripts.predictors.polygons.australia.pama_nyungan_polygons import PamaNyunganPolygons
-from scripts.predictors.polygons.glottography import LiterallyNoPolygonException, Glottography
-from scripts.predictors.polygons.glottography_config import get_config
+from scripts.predictors.polygons.poly_utils import LiterallyNoPolygonException
+from scripts.predictors.polygons.polygon_source import Polygons
 
 N_POINTS = 50
 
 CRS_CONIC = 'ESRI:53027'
 CRS_CYLINDRICAL = 'EPSG:4087'
-CRS_AUSTRALIAN = 'EPSG:4283'
+CRS_AUSTRALIAN = 'EPSG:3112'
 WATER_DIR = 'data/water'
 
 AUSTRALIA_LINES = 'SurfaceHydrologyLinesNational.gdb'
@@ -31,7 +30,7 @@ def get_super_polygon(family, glottography, save_super=False):
     dataframesList = []
     for ascii in family.languages_ascii:
         try:
-            p = glottography.get_polygon_from_ascii(family, ascii)
+            p = glottography.get_polygon_from_ascii(ascii)
             p.loc[p.index[0], 'geometry'] = p.make_valid(method='structure').iloc[0]
             dataframesList.append(p)
         except Exception as e:
@@ -39,12 +38,14 @@ def get_super_polygon(family, glottography, save_super=False):
 
     concatted = pd.concat(dataframesList, ignore_index=True)
     polygons = geopandas.GeoDataFrame(concatted, crs=dataframesList[0].crs, geometry='geometry')
+    if 'fid' in polygons.columns.values:  # sometimes fails to write with this column
+        polygons = polygons.drop('fid', axis=1)
     if 'description' in polygons.columns.values:  # fails to write pama-nyungan polygons to file with this column
         polygons = polygons.drop('description', axis=1)
     if save_super:
         polygons.to_file(f'{WATER_DIR}/tmpPolygons.{family.name}.gpkg', driver='GPKG')
 
-    super_polygon = polygons.dissolve(as_index=False).to_crs('EPSG:3857')
+    super_polygon = polygons.dissolve(as_index=False)#.to_crs('EPSG:3857')
     if save_super:
         super_polygon.to_file(f'{WATER_DIR}/tmpSuper.{family.name}.geojson', driver='GeoJSON')
 
@@ -182,11 +183,11 @@ def load_cached_water(family, polygons=True, lines=True):
 if __name__ == '__main__':
     USE_POLYGONS = True
     USE_LINES = True
-    PROJECTION = CRS_CONIC
+    PROJECTION = CRS_AUSTRALIAN
 
     family = PamaNyungan()
     # glottography = Glottography(get_config(family.name))
-    glottography = PamaNyunganPolygons()
+    glottography = Polygons.get_source(family.name)
 
     try:
         water = load_cached_water(family, USE_POLYGONS, USE_LINES)
@@ -223,7 +224,7 @@ if __name__ == '__main__':
     for ascii in tqdm(asciis_to_calculate):
         # todo: multi-thread this
         try:
-            p = glottography.get_polygon_from_ascii(family, ascii).to_crs(PROJECTION)
+            p = glottography.get_polygon_from_ascii(ascii).to_crs(PROJECTION)
             p = p.make_valid(method='structure')
             intersecting = geopandas.clip(water, mask=p, keep_geom_type=False)
             # intersecting = p.overlay(water, how='intersection', keep_geom_type=False)
