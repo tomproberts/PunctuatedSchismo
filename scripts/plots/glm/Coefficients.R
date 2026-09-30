@@ -4,7 +4,7 @@ library(tidyr)
 library(dplyr)
 library(systemfonts)
 
-FIT <- "data/glm/IndoEuropean.RData"
+FIT <- "data/glm/PamaNyunganRelaxed.RData"
 
 set.seed(42)
 

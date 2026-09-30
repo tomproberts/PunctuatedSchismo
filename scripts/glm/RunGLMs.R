@@ -28,8 +28,8 @@ fit.glm(
   relaxed = TRUE,
   formula = formula(
     rate ~ n_loans +
-      log(median_distance_water) +
-      log(median_distance_water_sister),
+      log(area) +
+      log(area_sister),
   ),
   output = "data/glm/PamaNyunganRelaxed.RData"
 )

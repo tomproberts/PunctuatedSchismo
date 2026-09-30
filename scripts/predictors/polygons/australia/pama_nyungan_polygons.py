@@ -45,7 +45,7 @@ class PamaNyunganPolygons(PolygonSource):
         for source_file in source_files:
             source_df = geopandas.read_file(f'{AUSTRALIA_POLYS_DIR}/{source_file}')
             if geodesic:
-                source_df = source_df.to_crs('EPSG:32633')
+                source_df = source_df.to_crs('EPSG:3112')
             sources[source_file] = source_df
         return sources
 

@@ -41,7 +41,7 @@ def calculate_areas(polygon_source, asciis):
 
 if __name__ == '__main__':
     # Get family and polygon_source setup
-    family = IndoEuropean()
+    family = PamaNyungan()
     polygon_source = Polygons.get_source(family.name)
 
     # Calculate and save as csv the polygon areas
