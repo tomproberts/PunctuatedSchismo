@@ -6,9 +6,9 @@ fit.glm(
   family = INDO.EUROPEAN,
   relaxed = TRUE,
   formula = formula(
-    rate ~ n_loans + log(area) + log(area_sister)
+    rate ~ n_loans + log(water_availability) + log(water_availability_sister) + log(area) + log(area_sister)
   ),
-  output = "data/glm/IndoEuropeanRelaxed.RData"
+  output = "data/glm/IndoEuropeanCombinedRelaxed.RData"
 )
 
 # Punctuated Indo-European
@@ -31,7 +31,7 @@ fit.glm(
       log(area) +
       log(area_sister),
   ),
-  output = "data/glm/PamaNyunganRelaxed.RData"
+  output = "data/glm/PamaNyunganAreaRelaxed.RData"
 )
 
 # Punctuated Pama-Nyungan

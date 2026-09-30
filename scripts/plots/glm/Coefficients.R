@@ -4,7 +4,7 @@ library(tidyr)
 library(dplyr)
 library(systemfonts)
 
-FIT <- "data/glm/PamaNyunganRelaxed.RData"
+FIT <- "data/glm/IndoEuropeanAreaRelaxed.RData"
 
 set.seed(42)
 
@@ -14,10 +14,12 @@ par.names <- rev(c(
   "proportion of loans" = "b_p_loans",
   "sister’s loan proportion" = "b_p_loans_sister",
   "log(area)" = "b_logarea",
-  "log(distance to water)" = "b_logmedian_distance_water",
-  "log(distance from sister)" = "b_logmedian_distance",
   "log(sister’s area)" = "b_logarea_sister",
+  "log(distance to water)" = "b_logmedian_distance_water",
   "log(sister’s distance to water)" = "b_logmedian_distance_water_sister",
+  "log(distance from sister)" = "b_logmedian_distance",
+  "log(water availability)" = "b_logwater_availability",
+  "log(sister’s water availability)" = "b_logwater_availability_sister",
   "log(area/area of sister)" = "b_area_ratio"
 ))
 

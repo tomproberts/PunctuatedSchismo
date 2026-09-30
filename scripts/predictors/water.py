@@ -9,7 +9,6 @@ from tqdm import tqdm
 from scripts.families.indo_european import IndoEuropean
 from scripts.families.pama_nyungan import PamaNyungan
 from scripts.predictors.contact import sample_points
-from scripts.predictors.polygons.australia.pama_nyungan_polygons import PamaNyunganPolygons
 from scripts.predictors.polygons.poly_utils import LiterallyNoPolygonException
 from scripts.predictors.polygons.polygon_source import Polygons
 
@@ -45,7 +44,7 @@ def get_super_polygon(family, glottography, save_super=False):
     if save_super:
         polygons.to_file(f'{WATER_DIR}/tmpPolygons.{family.name}.gpkg', driver='GPKG')
 
-    super_polygon = polygons.dissolve(as_index=False)#.to_crs('EPSG:3857')
+    super_polygon = polygons.dissolve(as_index=False)
     if save_super:
         super_polygon.to_file(f'{WATER_DIR}/tmpSuper.{family.name}.geojson', driver='GeoJSON')
 
@@ -183,11 +182,10 @@ def load_cached_water(family, polygons=True, lines=True):
 if __name__ == '__main__':
     USE_POLYGONS = True
     USE_LINES = True
-    PROJECTION = CRS_AUSTRALIAN
 
-    family = PamaNyungan()
-    # glottography = Glottography(get_config(family.name))
+    family = IndoEuropean()
     glottography = Polygons.get_source(family.name)
+    PROJECTION = CRS_AUSTRALIAN if family.name == 'PamaNyungan' else CRS_CYLINDRICAL
 
     try:
         water = load_cached_water(family, USE_POLYGONS, USE_LINES)
@@ -220,9 +218,9 @@ if __name__ == '__main__':
         df.to_csv(path, index=False, header=True)
 
     print(f'Calculating water distance for {len(asciis_to_calculate)} languages...')
+    empty: list[str] = []
     start = time.time()
     for ascii in tqdm(asciis_to_calculate):
-        # todo: multi-thread this
         try:
             p = glottography.get_polygon_from_ascii(ascii).to_crs(PROJECTION)
             p = p.make_valid(method='structure')
@@ -248,7 +246,13 @@ if __name__ == '__main__':
         except LiterallyNoPolygonException:
             pass
         except Exception as e:
-            print(f'Failed for {ascii}: {e}')  # error '0' means there's no water in the polygon
+            if str(e) == '0':  # error '0' means there's no water in the polygon
+                empty.append(ascii)
+            else:
+                print(f'Failed for {ascii}: {e}')
+
+    # Print languages with no water
+    print(f'The following language areas have no perennial water: {', '.join(empty[0:-1])}, and {empty[-1]}')
 
     print(f'Sorted polygons and calculated distances in {time.time() - start} seconds. Writing out to file...')
     # rdf = geopandas.GeoDataFrame(pd.concat(dataframesList, ignore_index=True), crs=dataframesList[0].crs)
