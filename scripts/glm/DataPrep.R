@@ -1,5 +1,5 @@
 library(collapse)
-source("../phylo/SummaryTree.R")
+source("scripts/phylo/SummaryTree.R")
 source("scripts/glm/GLMUtils.R")
 
 FAMILY <- INDO.EUROPEAN
@@ -32,6 +32,7 @@ df[is.na(df$p_loans),]$p_loans <- 0
 
 # Areas
 df <- merge(df, areas, by.x = "lang", by.y = "lang")
+df[df$area < 1]$area <- 1
 
 # Contact
 df <- merge(df, distances, by.x = c("lang", "lang_sister"), by.y = c("language_1", "language_2"))
@@ -39,16 +40,18 @@ df$median_distance[df$median_distance < 1] <- 1  # for some EPSILON=1
 
 # Water
 df <- merge(df, water, by.x = "lang", by.y = "lang", suffixes = c("", "_water"), all.x = TRUE)
-df$mean_distance_water[is.na(df$mean_distance_water)] <- 100000
 df$median_distance_water[is.na(df$median_distance_water)] <- 100000
+df$median_distance_water[df$median_distance_water == 0] <- 1
+df$water_availability <- 1 / df$median_distance_water
 
 # Sisters
-df <- merge(df, df[, c("lang", "area", "median_distance", "median_distance_water", "n_loans", "p_loans")],
+df <- merge(df, df[, c("lang", "area", "median_distance", "water_availability", "n_loans", "p_loans")],
             by.x = "lang_sister", by.y = "lang", suffixes = c("", "_sister"))
 df <- df[order(df$lang), c(2, 1, 3:ncol(df))]  # fix ordering by lang_sister
 
-# Area ratio
-df$area_ratio <- log(df$area / df$area_sister)
+# Ratio
+df$area_ratio <- df$area / df$area_sister
+df$water_ratio <- df$water_availability / df$water_availability_sister
 
 # Write out dataframe
 write.prepared.df(df, FAMILY)

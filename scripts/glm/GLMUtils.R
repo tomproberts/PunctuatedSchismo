@@ -162,13 +162,9 @@ get.loans.df <- function(family) {
   return(loans.df)
 }
 
-get.water.csv <- function(family, sample.points = NULL, type = NULL) {
+get.water.csv <- function(family, sample.points = NULL, type = "all") {
   # set defaults
   if (is.null(sample.points)) sample.points <- 50
-  if (is.null(type)) {
-    if (family == INDO.EUROPEAN) type <- "polygons"
-    if (family == PAMA.NYUNGAN) type <- "all"
-  }
 
   filename <- paste0("data/predictors/water/", family, ".water.", type, ".", sample.points, ".csv")
   return(filename)

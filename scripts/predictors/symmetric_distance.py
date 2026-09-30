@@ -6,12 +6,11 @@ from matplotlib import pyplot as plt
 from shapely.geometry.linestring import LineString
 from tqdm import tqdm
 
+from scripts.families.indo_european import IndoEuropean
 from scripts.families.utils import LanguageFamily
-from scripts.families.uto_aztecan import UtoAztecan
 from scripts.phylo.summary_tree import summary_tree_cherries
 from scripts.predictors.contact import CONTACT_DIR
-from scripts.predictors.polygons.glottography import Glottography
-from scripts.predictors.polygons.glottography_config import get_config
+from scripts.predictors.polygons.polygon_source import Polygons
 from scripts.predictors.utils import write_out_df
 
 SEED = 1
@@ -46,8 +45,8 @@ def calculate_euclidean_distances(family, cherries, glottography) -> pd.DataFram
         try:
             glottocode_1 = family.get_glottocode_from_ascii(language_1)
             glottocode_2 = family.get_glottocode_from_ascii(language_2)
-            polygon_1 = glottography.get_polygon_from_ascii(family, language_1)
-            polygon_2 = glottography.get_polygon_from_ascii(family, language_2)
+            polygon_1 = glottography.get_polygon_from_ascii(language_1)
+            polygon_2 = glottography.get_polygon_from_ascii(language_2)
         except Exception as e:
             errors.append(f'Warning: {e} ({language_1} / {language_2})')
             continue
@@ -110,9 +109,8 @@ def calculate_output_distance(family: LanguageFamily, glottography):
 
 
 if __name__ == '__main__':
-    family = UtoAztecan()
-    glottography = Glottography(get_config(family.name))
-    # glottography = PamaNyunganPolygons()
+    family = IndoEuropean()
+    glottography = Polygons.get_source(family.name)
     # plot_contact('vlaa1240', 'dutc1256', glottography, 20)
 
     calculate_output_distance(family, glottography)
