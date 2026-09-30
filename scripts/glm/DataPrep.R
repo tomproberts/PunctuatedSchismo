@@ -32,6 +32,7 @@ df[is.na(df$p_loans),]$p_loans <- 0
 
 # Areas
 df <- merge(df, areas, by.x = "lang", by.y = "lang")
+df[df$area < 1]$area <- 1
 
 # Contact
 df <- merge(df, distances, by.x = c("lang", "lang_sister"), by.y = c("language_1", "language_2"))
@@ -47,8 +48,9 @@ df <- merge(df, df[, c("lang", "area", "median_distance", "median_distance_water
             by.x = "lang_sister", by.y = "lang", suffixes = c("", "_sister"))
 df <- df[order(df$lang), c(2, 1, 3:ncol(df))]  # fix ordering by lang_sister
 
-# Area ratio
-df$area_ratio <- log(df$area / df$area_sister)
+# Ratio
+df$area_ratio <- df$area / df$area_sister
+df$median_water_ratio <- df$median_distance_water / df$median_distance_water_sister
 
 # Write out dataframe
 write.prepared.df(df, FAMILY)

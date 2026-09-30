@@ -9,7 +9,7 @@ class IndoEuropeanPolygons(PolygonSource):
     geojson = f'{POLYGON_DIR}/indoeuropean/features.geojson'
 
     def __init__(self):
-        self.polygons = geopandas.read_file(self.geojson).to_crs('EPSG:32633')
+        self.polygons = geopandas.read_file(self.geojson).to_crs('EPSG:8857')
 
     def get_polygon_from_ascii(self, ascii):
         row = self.polygons[self.polygons.ascii == ascii]
