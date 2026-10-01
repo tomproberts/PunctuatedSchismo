@@ -4,7 +4,7 @@ library(tidyr)
 library(dplyr)
 library(systemfonts)
 
-FIT <- "data/glm/IndoEuropeanAreaRelaxed.RData"
+FIT <- "data/glm/PamaNyunganWaterRelaxed.RData"
 
 set.seed(42)
 
@@ -34,7 +34,7 @@ pars <- pars[startsWith(pars, "b_") & !(pars %in% exclude)]
 
 draws <- draws[, pars]
 if (length(pars) == 1) {
-  draws <- sample(draws, min(10000, nrow(draws)))
+  draws <- sample(draws, min(10000, length(draws)))
   draws.df <- data.frame(value = draws, coefficient = names(par.names)[par.names == pars])
 } else {
   draws <- sample_n(draws, min(10000, nrow(draws)))

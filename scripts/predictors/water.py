@@ -9,10 +9,10 @@ from tqdm import tqdm
 from scripts.families.indo_european import IndoEuropean
 from scripts.families.pama_nyungan import PamaNyungan
 from scripts.predictors.contact import sample_points
-from scripts.predictors.polygons.poly_utils import LiterallyNoPolygonException
+from scripts.predictors.polygons.poly_utils import PolygonNotFoundException
 from scripts.predictors.polygons.polygon_source import Polygons
 
-N_POINTS = 50
+N_POINTS = 200
 
 CRS_CONIC = 'ESRI:53027'
 CRS_CYLINDRICAL = 'EPSG:4087'
@@ -219,6 +219,7 @@ if __name__ == '__main__':
 
     print(f'Calculating water distance for {len(asciis_to_calculate)} languages...')
     empty: list[str] = []
+    missing_polys: list[str] = []
     start = time.time()
     for ascii in tqdm(asciis_to_calculate):
         try:
@@ -243,16 +244,26 @@ if __name__ == '__main__':
             merged['mean_water_distance'] = mean_dist
             merged['median_water_distance'] = median_dist
             # dataframesList.append(merged)
-        except LiterallyNoPolygonException:
-            pass
+        except PolygonNotFoundException:
+            missing_polys.append(ascii)
+            continue
         except Exception as e:
             if str(e) == '0':  # error '0' means there's no water in the polygon
                 empty.append(ascii)
             else:
                 print(f'Failed for {ascii}: {e}')
 
+    # Print languages missing polygons
+    if len(missing_polys) > 0:
+        missing_str = missing_polys[0] if len(missing_polys) == 1 \
+            else f'{', '.join(missing_polys[0:-1])}, and {missing_polys[-1]}'
+        print(f'Could not find polygons for the following languages: {missing_str}')
+
     # Print languages with no water
-    print(f'The following language areas have no perennial water: {', '.join(empty[0:-1])}, and {empty[-1]}')
+    if len(empty) > 0:
+        empty_str = empty[0] if len(empty) == 1 \
+            else f'{', '.join(empty[0:-1])}, and {empty[-1]}'
+        print(f'The following language areas have no perennial water: {empty_str}')
 
     print(f'Sorted polygons and calculated distances in {time.time() - start} seconds. Writing out to file...')
     # rdf = geopandas.GeoDataFrame(pd.concat(dataframesList, ignore_index=True), crs=dataframesList[0].crs)

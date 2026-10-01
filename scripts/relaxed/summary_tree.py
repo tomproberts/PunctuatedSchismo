@@ -3,31 +3,31 @@ import pandas as pd
 from nexus import NexusReader
 
 from scripts.families.pama_nyungan import PamaNyungan
-from scripts.families.sino_tibetan import SinoTibetan
 from scripts.families.utils import LanguageFamily, LanguageNotFound
 
 
 def write_out_data(data: pd.DataFrame, family_name) -> None:
-    data.to_csv(f'data/phylo/relaxed/{family_name}.csv', index=False)
+    data.to_csv(f'data/phylo/relaxed/summary/{family_name}.csv', index=False)
 
 
 def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
+    translate = tree_nexus_file.trees.translators
     tree: newick.Node = tree_nexus_file.trees.trees[0].newick_tree
 
     leaf_data = []
 
     def visitor(node: newick.Node) -> None:
         try:
-            ascii_name = node.name
+            ascii_name = translate[node.name]
             language_id = family.get_language_id_from_ascii(ascii_name)
             glottocode = family.get_glottocode_from_language_id(language_id)
 
             leaf_data.append({
-                'label': ascii_name,
+                'lang': ascii_name,
                 'name': family.get_language_from_language_id(language_id),
                 'glottocode': glottocode,
-                'rate': float(node.properties['rate']),
-                'rate_median': float(node.properties['rate_median'])
+                'rate': float(node.properties['branchRates']),
+                'rate_median': float(node.properties['branchRates_median'])
             })
         except LanguageNotFound as e:
             print(f'Warning (skipping): {e}')
@@ -40,7 +40,7 @@ def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
 
 def get_summary_tree_nexus(family_name) -> NexusReader:
     try:
-        return NexusReader.from_file(f'data/phylo/relaxed/{family_name}.nex')
+        return NexusReader.from_file(f'data/phylo/relaxed/summary/{family_name}.nex')
     except Exception as e:
         trace = str(e)
     raise NoRelaxedSummaryTree(family_name, trace)
@@ -76,7 +76,7 @@ class NoRelaxedSummaryTree(Exception):
 
 
 if __name__ == '__main__':
-    family = SinoTibetan()
+    family = PamaNyungan()
     tree_nexus_file = get_summary_tree_nexus(family.name)
     data = visit_tree(tree_nexus_file, family)
 

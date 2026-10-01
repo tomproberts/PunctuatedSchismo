@@ -164,7 +164,7 @@ get.loans.df <- function(family) {
 
 get.water.csv <- function(family, sample.points = NULL, type = "all") {
   # set defaults
-  if (is.null(sample.points)) sample.points <- 50
+  if (is.null(sample.points)) sample.points <- 200
 
   filename <- paste0("data/predictors/water/", family, ".water.", type, ".", sample.points, ".csv")
   return(filename)

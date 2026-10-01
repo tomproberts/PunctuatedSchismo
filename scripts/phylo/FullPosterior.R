@@ -8,7 +8,7 @@ get_burn_in <- function(family, gammaspike = TRUE) {
 
 get_translation <- function(family, gammaspike = TRUE) {
   type <- if (gammaspike) "gammaspike" else "relaxed"
-  t <- read.csv(paste0("data/phylo/", type, "/translations/", family, ".translation"))
+  t <- read.csv(paste0("data/phylo/", type, "/full/", family, ".translation"))
   translation <- t$node
   names(translation) <- t$ascii_name
   return(translation)

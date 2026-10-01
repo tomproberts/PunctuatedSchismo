@@ -28,10 +28,10 @@ fit.glm(
   relaxed = TRUE,
   formula = formula(
     rate ~ n_loans +
-      log(area) +
-      log(area_sister),
+      log(water_availability) +
+      log(water_availability_sister),
   ),
-  output = "data/glm/PamaNyunganAreaRelaxed.RData"
+  output = "data/glm/PamaNyunganWaterRelaxed.RData"
 )
 
 # Punctuated Pama-Nyungan
