@@ -3,14 +3,16 @@ import pandas as pd
 from nexus import NexusReader
 
 from scripts.families.indo_european import IndoEuropean
+from scripts.families.pama_nyungan import PamaNyungan
 from scripts.families.utils import LanguageFamily
 
 
-def write_out_data(data: pd.DataFrame, family_name) -> None:
-    data.to_csv(f'data/phylo/gammaspike/summary/{family_name}.csv', index=False)
+def write_out_data(data: pd.DataFrame, family_name, gammaspike=True) -> None:
+    subdir = 'gammaspike' if gammaspike else 'relaxed'
+    data.to_csv(f'data/phylo/{subdir}/summary/{family_name}.csv', index=False)
 
 
-def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
+def visit_tree(tree_nexus_file, family: LanguageFamily, gammaspike=True) -> pd.DataFrame:
     translate = tree_nexus_file.trees.translators
     tree: newick.Node = tree_nexus_file.trees.trees[0].newick_tree
 
@@ -22,14 +24,23 @@ def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
         language_id = family.get_language_id_from_ascii(ascii_name)
         glottocode = family.get_glottocode_from_language_id(language_id)
 
-        leaf_data.append({
-            'lang': ascii_name,
-            'name': family.get_language_from_language_id(language_id),
-            'glottocode': glottocode,
-            # scale bursts sizes for number of cognate sets
-            'weightedSpikes': scale_factor * float(node.properties['weightedSpikes']),
-            'weightedSpikes_median': scale_factor * float(node.properties['weightedSpikes_median'])
-        })
+        if gammaspike:
+            leaf_data.append({
+                'lang': ascii_name,
+                'name': family.get_language_from_language_id(language_id),
+                'glottocode': glottocode,
+                # scale bursts sizes for number of cognate sets
+                'weightedSpikes': scale_factor * float(node.properties['weightedSpikes']),
+                'weightedSpikes_median': scale_factor * float(node.properties['weightedSpikes_median'])
+            })
+        else:
+            leaf_data.append({
+                'lang': ascii_name,
+                'name': family.get_language_from_language_id(language_id),
+                'glottocode': glottocode,
+                'rate': float(node.properties['branchRates']),
+                'rate_median': float(node.properties['branchRates_median'])
+            })
 
     # visit leaf nodes
     tree.visit(visitor, lambda node: node.is_leaf)
@@ -37,9 +48,10 @@ def visit_tree(tree_nexus_file, family: LanguageFamily) -> pd.DataFrame:
     return pd.DataFrame.from_records(leaf_data)
 
 
-def get_summary_tree_nexus(family_name) -> NexusReader:
+def get_summary_tree_nexus(family_name, gammaspike=True) -> NexusReader:
+    subdir = 'gammaspike' if gammaspike else 'relaxed'
     try:
-        return NexusReader.from_file(f'data/phylo/gammaspike/summary/{family_name}.nex')
+        return NexusReader.from_file(f'data/phylo/{subdir}/summary/{family_name}.nex')
     except Exception as e:
         trace = str(e)
     raise NoSummaryTree(family_name, trace)
@@ -94,8 +106,9 @@ class NoSummaryTree(Exception):
 
 
 if __name__ == '__main__':
-    family = IndoEuropean()
-    tree_nexus_file = get_summary_tree_nexus(family.name)
-    data = visit_tree(tree_nexus_file, family)
+    family = PamaNyungan()
+    gammaspike = False
+    tree_nexus_file = get_summary_tree_nexus(family.name, gammaspike)
+    data = visit_tree(tree_nexus_file, family, gammaspike)
 
-    write_out_data(data, family.name)
+    write_out_data(data, family.name, gammaspike)
