@@ -1,5 +1,4 @@
 library(brms)
-library(rstan)
 
 fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, exp.family = gaussian(link = "log"), output = "data/glm/out.RData", full = FALSE, seed = NA, thin = 1) {
   # Sanitise input
@@ -27,7 +26,7 @@ fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, exp.fa
 
   # Pre-compile model if necessary
   c <- get.cached(family, params, strict = FALSE)
-  if (is.null(c) || !(c$formula == formula)[[1]]) {
+  if (is.null(c)) {
     c <- brm(formula = formula, data = df, family = exp.family, chains = 0, iter = 1000, seed = seed)
     cache.compiled(c, family, params)
   }
@@ -64,12 +63,12 @@ fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, exp.fa
   df <- merge(df, resp.df, by = "lang", suffixes = c("", "."))
 
   # Loop through data draws and fit model, adding to list of fits
-  fits <- c()
+  fits <- vector("list", length(response.cols))
   for (i in seq_along(response.cols)) {
     # Assign selected data to response (e.g. df$burst <- df$burst_170000) and fit the model
     df[resp] <- df[, response.cols[i]]
-    fit <- update(c, chains = 4, iter = 4000, newdata = df, seed = seed, thin = thin)
-    fits <- c(fits, fit$fit)
+    fit <- update(c, formula = formula, chains = 4, iter = 4000, newdata = df, seed = seed, thin = thin)
+    fits[[i]] <- fit
 
     # Progress
     cat("---------\n")
@@ -80,7 +79,7 @@ fit.glm <- function(family, formula, punctuated = FALSE, relaxed = FALSE, exp.fa
   # Combine fits together
   if (full && length(fits) > 1) {
     cat(paste("Combining", length(response.cols), "model fits...\n"))
-    fit <- sflist2stanfit(fits)
+    fit <- sflist2stanfit(sapply(fits, function(f) f$fit))
   }
   else fit <- fits[[1]]
 
@@ -108,14 +107,14 @@ params.to.string <- function(params) {
 
 cache.compiled <- function(compiled, family, params = NULL) {
   filename <- paste0("data/glm/compiled.", family, params.to.string(params), ".RData")
-  save(compiled, file = filename)
+  saveRDS(compiled, file = filename)
   cat(paste0("Saved pre-compiled object to '", filename, "'\n"))
 }
 
 get.cached <- function(family, params = "", strict = TRUE) {
   filename <- paste0("data/glm/compiled.", family, params.to.string(params), ".RData")
   if (file.exists(filename)) {
-    load(filename)
+    compiled <- readRDS(filename)
     cat(paste0("Retrieved pre-compiled object from '", filename, "'\n"))
     return(compiled)
   }
@@ -141,7 +140,7 @@ get.posterior.bursts <- function(family) {
 }
 
 save.fit <- function(fit, file.name) {
-  save(fit, file = file.name)
+  saveRDS(fit, file = file.name)
   cat(paste0("Wrote out fit to '", file.name, "'\n"))
 }
 

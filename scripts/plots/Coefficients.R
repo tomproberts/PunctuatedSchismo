@@ -2,11 +2,19 @@ library(ggplot2)
 library(ggdist)
 library(tidyr)
 library(dplyr)
+library(stringr)
+library(brms)
 library(systemfonts)
+library(patchwork)
 
-FIT <- "data/glm/PamaNyunganWaterRelaxed.RData"
+FIT <- "../../data/glm/glm-iepunc-loans.RData"
+fit <- readRDS(FIT)
 
 set.seed(42)
+
+r2 <- bayes_R2(fit, probs = c(0.055, 0.945))
+TITLE <- paste0("Indo-European, R² = ", sprintf("%.3f", r2[1]), " (", sprintf("%.3f", r2[3]), ", ", sprintf("%.3f", r2[4]), ")")
+X.LABEL <- "effect on punctuated change"
 
 par.names <- rev(c(
   "number of loans" = "b_n_loans",
@@ -27,7 +35,7 @@ exclude <- c(
   "b_Intercept"
 )
 
-load(FIT)
+fit <- readRDS(FIT)
 draws <- as.data.frame(fit)
 pars <- colnames(draws)
 pars <- pars[startsWith(pars, "b_") & !(pars %in% exclude)]
@@ -42,22 +50,35 @@ if (length(pars) == 1) {
 }
 draws.df$coefficient <- factor(draws.df$coefficient, levels = names(par.names))
 
+#ie <-
 ggplot(draws.df, aes(x = value, y = coefficient)) +
   theme_light() +
   theme(
     legend.position = "none",
     text = element_text(family = "Linux Biolinum"),
     # axis.text.x=element_blank(),
-    axis.text = element_text(size = 18),
-    axis.title = element_text(size = 18)
+    axis.text = element_text(size = 17),
+    axis.title = element_text(size = 15),
+    plot.title = element_text(size = 15),
+    plot.margin = margin(t = 5, r = 5, b = 2, l = -10)
   ) +
   stat_interval(aes(interval_alpha = after_stat(level)),
                 .width = c(0.5, 0.89, 0.99),
-                interval_colour = "#00bfc4", linewidth = 6) +
+                interval_colour = "#00bfc4", linewidth = 7) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "darkgrey") +
-  # xlim(-0.5, 0.5) +
-  ggtitle(FIT) +
-  xlab("effect on rate of change") +
+  # xlim(-0.11, 0.13) +  # for area in IE
+  # xlim(-0.22, 0.26) +  # for water in PN
+  ggtitle(TITLE) +
+  xlab(X.LABEL) +
   ylab("")
 
-# ggsave('./coefficients.pdf', device = cairo_pdf)
+# Save as pdfs
+ggsave(
+  filename = str_replace_all(FIT, ".RData", ".pdf"),
+  device = cairo_pdf,
+  width = 25, height = 2.6 + 0.85 * length(pars),
+  units = "cm", dpi = 300
+)
+
+# ie / pn + plot_annotation(theme = theme(plot.margin = margin(l = -10)))
+# ggsave('./glm-both-main.pdf', device = cairo_pdf, width = 25, height = 11, units = "cm", dpi = 300)
